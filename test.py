@@ -14,7 +14,7 @@ def asking(var, toprint, vector, y, count):
     vector[y][count] = globals()[var]
     print("Ingresado")
     return
-i = 2
+i = 0
 vector = [[0 for x in range(3)] for y in range(2)]
 
 print("\n\n")
