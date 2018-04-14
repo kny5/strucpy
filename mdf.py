@@ -1,4 +1,11 @@
+"""
+Program to capture variables and values
+"""
 def asking(var, nombre):
+    """
+    Capture input to define a global variable
+    and his value.
+    """
     while True:
         try:
             globals()[var] = int(input(str(nombre) + " <--- "))
@@ -9,41 +16,30 @@ def asking(var, nombre):
             break
     print("Ingresado")
     return
-asking("elem","Elementos")
-asking("mat","Materiales")
-variables = [[0 for x in range(12)] for y in range(elem)] #definiendo matriz para guardar valores de variables
-v_matrix = [[0 for x in range(12)] for y in range(elem)]
+ELEM = 0
 i = 0
-poisson = 0.25
-while (i <= elem - 1):
-    print("\n \nDatos de elemento " + str(i + 1) + ": ")
-    asking("l_elem","Longitud")
-    asking("b_prim","Ancho de contratrabe")
-    asking("b_z","Ancho de Zapata")
-    asking("h_z","Altura de contratrabe")
-    asking("izz","Inercia eje Z")
-    asking("iyy","Inercia eje Y")
-    asking("pp_sec","Peso propio de sección")
-    asking("nu_ang","Angulo XZ")
-    asking("la_ang","Angulo XY")
-    asking("k_v","Modulo reacción Vertical")
-    asking("k_h","Modulo reacción Horizontal")
-    variables[i] = [l_elem, b_prim, b_z, h_z, poisson, izz, iyy, pp_sec, nu_ang, la_ang, k_v, k_h]
-    #print(datos)
-    #i += 1 #debug point 1
-    i_v = 0
-    v_ens = [0 for i_v in range(12)]
+POISSON = 0.25
+asking("ELEM", "Elementos")
+asking("mat", "Materiales")
+while i <= ELEM - 1:
+    print("\nDatos de elemento " + str(i + 1) + ": ")
+    VARS_I = 0
+    VARS_GEN = [[0 for x in range(12)] for y in range(3)]
+    VARS_GEN[0] = ["l_elem", "b_prim", "b_z", "h_z", "POISSON", "izz",
+                   "iyy", "pp_sec", "nu_ang", "la_ang", "k_v", "k_h"]
+    VARS_GEN[1] = ["Longitud", "W Contratrabe", "W Zapata", "H Contratrabe",
+                   "Poisson", "Inercia Z", "Inercia Y", "PP Sección",
+                   "Angulo XZ", "Angulo XY", "Reacción V", "Reacción H"]
+    while VARS_I <= len(VARS_GEN[0]) - 1:
+        asking(str(VARS_GEN[0][VARS_I]), str(VARS_GEN[1][VARS_I]))
+        VARS_I += 1
+    print("done")
+    I_V = 0
+    V_ENS = [0 for I_V in range(12)]
     print("\nVector de ensamble:\n")
-    while(i_v <= 11):
-        v_ens_name = ["dx1", "dy1", "dz1", "mx1", "my1", "mz1", "dx2", "dy2", "dz2", "mx2", "my2", "mz2"]
-        v_ens[i_v] = int(input( "   " + str(v_ens_name[i_v]) + ": " ))
-        i_v += 1
-    #print(v_ens) #debug point 2
-    v_matrix[i] = v_ens
+    while I_V <= 11:
+        V_ENS_NAME = ["dx1", "dy1", "dz1", "mx1", "my1", "mz1", "dx2",
+                      "dy2", "dz2", "mx2", "my2", "mz2"]
+        V_ENS[I_V] = int(input("   " + str(V_ENS_NAME[I_V]) + ": "))
+        I_V += 1
     i += 1
-#with open('output', 'w') as data:
-#    data.write(str(v_matrix))
-#    data.write(str(variables))
-print(variables)
-print("\n")
-print(v_matrix)
