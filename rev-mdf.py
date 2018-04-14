@@ -6,7 +6,7 @@ def asking(var, nombre):
             print("Ingrese un valor numérico válido.")
             continue
         else:
-            break    
+            break
     print("Ingresado " + str(nombre) + " = " + str(var))
     return
 
@@ -36,3 +36,5 @@ asking("nu_ang","Angulo XZ")
 asking("la_ang","Angulo XY")
 asking("k_v","Modulo reacción Vertical")
 asking("k_h","Modulo reacción Horizontal")
+
+import codecs, json
