@@ -44,7 +44,9 @@ while i <= ELEM - 1:
     while I_V <= 11:
         VARS_GEN[3] = ["dx1", "dy1", "dz1", "mx1", "my1", "mz1",
                        "dx2", "dy2", "dz2", "mx2", "my2", "mz2"]
-        VARS_GEN[4] = int(input("   " + str(VARS_GEN[3][I_V]) + ": "))
+        asking(str(VARS_GEN[3][I_V]), str(VARS_GEN[3][I_V]), VARS_GEN, 4, I_V)
+        #VARS_GEN[4] = int(input("   " + str(VARS_GEN[3][I_V]) + ": "))
         I_V += 1
     i += 1
-print(VARS_GEN)
+print(VARS_GEN[2])
+print(VARS_GEN[4])
