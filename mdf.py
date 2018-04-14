@@ -7,7 +7,7 @@ def asking(var, nombre):
             continue
         else:
             break
-    print("Ingresado " + str(nombre) + " = " + str(var))
+    print("Ingresado " + str(nombre))
     return
 
 asking("elem","Elementos")
@@ -16,7 +16,9 @@ asking("mat","Materiales")
 i = 0
 poisson = 0.25
 
-variables = [[0 for x in range(12)] for y in range(elem)] #definiendo matriz para guardar datos de elementos
+variables = [[0 for x in range(12)] for y in range(elem)] #definiendo matriz para guardar valores de variables
+
+v_matrix = [[0 for x in range(12)] for y in range(elem)]
 
 while (i <= elem - 1):
     print("\n \nDatos de elemento " + str(i + 1) + ": ")
@@ -36,13 +38,14 @@ while (i <= elem - 1):
     #i += 1 #debug point 1
 
     i_v = 0
-    v_ens = [[0 for x in range(i_v)] for y in range(12)]
+    v_ens = [0 for i_v in range(12)]
     while(i_v <= 11):
         v_ens_name = ["dx1", "dy1", "dz1", "mx1", "my1", "mz1", "dx2", "dy2", "dz2", "mx2", "my2", "mz2"]
         v_ens[i_v] = int(input( "   " + str(v_ens_name[i_v]) + ": " ))
         i_v += 1
     #print(v_ens) #debug point 2
+    v_matrix[i] = v_ens
     i += 1
-print(datos)
+print(variables)
 print("\n")
 print(v_ens)
