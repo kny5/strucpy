@@ -3,6 +3,8 @@ Data collector program
 Autor: Antonio Anaya
 Email: anaya.4589@gmail.com
 """
+import csv
+#from cli import askin
 def asking(var, toprint, vector, level, count):
     """
     Capture input to define a global variables
@@ -27,6 +29,7 @@ i = 0
 POISSON = 0.25
 asking("ELEM", "Elementos", "null", 0, 0)
 asking("mat", "Materiales", "null", 0, 0)
+ELEMENTOS = [[0 for x in range(12)] for y in range(ELEM)]
 while i <= ELEM - 1:
     print("\nDatos de elemento " + str(i + 1) + ": ")
     VARS_I = 0
@@ -45,8 +48,11 @@ while i <= ELEM - 1:
         VARS_GEN[3] = ["dx1", "dy1", "dz1", "mx1", "my1", "mz1",
                        "dx2", "dy2", "dz2", "mx2", "my2", "mz2"]
         asking(str(VARS_GEN[3][I_V]), str(VARS_GEN[3][I_V]), VARS_GEN, 4, I_V)
-        #VARS_GEN[4] = int(input("   " + str(VARS_GEN[3][I_V]) + ": "))
         I_V += 1
+    ELEMENTOS[i] = VARS_GEN
     i += 1
-print(VARS_GEN[2])
-print(VARS_GEN[4])
+print(ELEMENTOS)
+
+with open("output.csv", "w") as f:
+    CSVOUT = csv.writer(f)
+    CSVOUT.writerows(ELEMENTOS)
