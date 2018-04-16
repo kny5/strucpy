@@ -69,8 +69,21 @@ j_m = ((h_z / 2) * ((b_prim / 2) ** 3)) * ((16/3) - (3.36 * ((b_prim / 2) / (h_z
 g = E / (2 * ( 1 + POISSON))
 tor = (g * j_m) / l_elem
 axial = (E * b_prim * h_z) / l_elem
+k_zero = k_v * 10 #10 es una constante para cambiar de KG A Toneladas cm3
+k_uno = k_h * 10 #mismo
+mzz = (E * izz) / (DELTA_X ** 2)
+vzz = (E * izz) / (2 * (DELTA_X ** 3))
+myy = (E * iyy) / (DELTA_X ** 2)
+vyy = (E * iyy) /(2 * (DELTA_X **3 ))
 
+KZZ = [[0 for x in range(SECCIONES + 1)]for y in range(SECCIONES + 1)]
 
+i_kzz = 0
+while i_kzz <= SECCIONES:
+    if i_kzz == 0 && i_kzz == SECCIONES:
+        KZZ[0][0] = 3
+
+    i_kzz += 1
 
 with open("output.csv", "w") as f:
     CSVOUT = csv.writer(f)
