@@ -12,7 +12,7 @@ def asking(var, toprint, vector, level, count):
     """
     while True:
         try:
-            globals()[var] = int(input(str(toprint) + " <--- "))
+            globals()[var] = float(input(str(toprint) + " <--- "))
         except ValueError:
             print("Ingrese un valor numérico válido.")
             continue
@@ -29,15 +29,15 @@ i = 0
 POISSON = 0.25
 asking("ELEM", "Elementos", "null", 0, 0)
 asking("mat", "Materiales", "null", 0, 0)
-ELEMENTOS = [[0 for x in range(12)] for y in range(ELEM)]
+ELEMENTOS = [[0 for x in range(12)] for y in range(int(ELEM))]
 while i <= ELEM - 1:
     print("\nDatos de elemento " + str(i + 1) + ": ")
     VARS_I = 0
     VARS_GEN = [[0 for x in range(12)] for y in range(5)]
-    VARS_GEN[0] = ["l_elem", "b_prim", "b_z", "h_z", "POISSON", "izz",
+    VARS_GEN[0] = ["l_elem", "b_prim", "b_z", "h_z", "izz",
                    "iyy", "pp_sec", "nu_ang", "la_ang", "k_v", "k_h"]
     VARS_GEN[1] = ["Longitud", "W Contratrabe", "W Zapata", "H Contratrabe",
-                   "Poisson", "Inercia Z", "Inercia Y", "PP Sección",
+                   "Inercia Z", "Inercia Y", "PP Sección",
                    "Angulo XZ", "Angulo XY", "Reacción V", "Reacción H"]
     while VARS_I <= len(VARS_GEN[0]) - 1:
         asking(str(VARS_GEN[0][VARS_I]), str(VARS_GEN[1][VARS_I]), VARS_GEN, 2, VARS_I)
@@ -51,7 +51,26 @@ while i <= ELEM - 1:
         I_V += 1
     ELEMENTOS[i] = VARS_GEN
     i += 1
-print(ELEMENTOS)
+#print(ELEMENTOS)
+
+#operaciones con variables
+SECCIONES = 20 #define la precisión y aumenta tamaño de matríz
+E = 221.359 #MODULO DE ELASTICIDAD DE MATERIAL
+DELTA_X = l_elem / SECCIONES
+KZZ = (k_v * b_z) / 1000
+KNZZ = KZZ * DELTA_X
+A = (KNZZ * DELTA_X ** 3) / (E * izz)
+KYY = (k_h * h_z) / 1000
+KNYY = KYY * DELTA_X
+B = (KNYY * DELTA_X ** 3) / (E * iyy)
+#a = h_z / 2
+#b = b_prim / 2
+j_m = ((h_z / 2) * ((b_prim / 2) ** 3)) * ((16/3) - (3.36 * ((b_prim / 2) / (h_z / 2)) * (1 - ((b_prim / 2) ** 4) / (12 * (h_z / 2) ** 4))))
+g = E / (2 * ( 1 + POISSON))
+tor = (g * j_m) / l_elem
+axial = (E * b_prim * h_z) / l_elem
+
+
 
 with open("output.csv", "w") as f:
     CSVOUT = csv.writer(f)
