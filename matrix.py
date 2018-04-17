@@ -7,6 +7,7 @@ Este es un archivo temporal
 import copy as cp
 import numpy as np
 from numpy.linalg import inv
+from pandas import DataFrame as df
 A = 3
 B = 5
 SCC = 20
@@ -58,22 +59,22 @@ while CYCLE <= 1:
     T_E1ZZ = - np.dot(FZZ, T_F_1ZZ)
     D_2ZZ = - np.dot(FZZ, F_2ZZ)
     T_E2ZZ = - np.dot(FZZ, T_F_2ZZ)
-    D_1ZZ_MINUS_2 = - float(D_1ZZ[2]) + (8 * float(D_1ZZ[1])) - (6 * float(D_1ZZ[0]))
-    D_1ZZ_MINUS_1 = float(D_1ZZ[1])
-    D_1ZZ_PLUS_1 = float(D_1ZZ[SCC - 1])
-    D_1ZZ_PLUS_2 = (8 * float(D_1ZZ[SCC - 1])) - float(D_1ZZ[SCC - 2])
-    T_E1ZZ_MINUS_2 = - float(T_E1ZZ[2]) + (8 * (float(T_E1ZZ[1])) + (8 * D_X))
-    T_E1ZZ_MINUS_1 = ((2 * D_X) + float(T_E1ZZ[1]))
-    T_E1ZZ_PLUS_1 = float(T_E1ZZ[SCC - 1])
-    T_E1ZZ_PLUS_2 = (8 * (float(T_E1ZZ[SCC - 1]))) - float(T_E1ZZ[SCC - 2])
-    D_2ZZ_MINUS_2 = (8 * float(D_2ZZ[1])) - float(D_2ZZ[2])
-    D_2ZZ_MINUS_1 = float(D_2ZZ[1])
-    D_2ZZ_PLUS_1 = float(D_2ZZ[SCC - 1])
-    D_2ZZ_PLUS_2 = - float(D_2ZZ[SCC - 2]) + (8 * float(D_2ZZ[SCC - 1])) - (6 * float(D_2ZZ[SCC]))
-    T_E2ZZ_MINUS_2 = (8 * float(T_E2ZZ[1])) - float(T_E2ZZ[2])
-    T_E2ZZ_MINUS_1 = float(T_E2ZZ[1])
-    T_E2ZZ_PLUS_1 = ((2 * D_X) + float(T_E2ZZ[SCC - 1]))
-    T_E2ZZ_PLUS_2 = - float(T_E2ZZ[SCC - 2]) + (8 * float(T_E2ZZ[SCC - 1])) + (8 * D_X)
+    D_1ZZ_MINUS_2 = - D_1ZZ[2] + (8 * D_1ZZ[1]) - (6 * D_1ZZ[0])
+    D_1ZZ_MINUS_1 = D_1ZZ[1]
+    D_1ZZ_PLUS_1 = D_1ZZ[SCC - 1]
+    D_1ZZ_PLUS_2 = (8 * D_1ZZ[SCC - 1]) - D_1ZZ[SCC - 2]
+    T_E1ZZ_MINUS_2 = - T_E1ZZ[2] + (8 * T_E1ZZ[1]) + (8 * D_X)
+    T_E1ZZ_MINUS_1 = (2 * D_X) + T_E1ZZ[1]
+    T_E1ZZ_PLUS_1 = T_E1ZZ[SCC - 1]
+    T_E1ZZ_PLUS_2 = (8 * T_E1ZZ[SCC - 1]) - T_E1ZZ[SCC - 2]
+    D_2ZZ_MINUS_2 = (8 * D_2ZZ[1]) - D_2ZZ[2]
+    D_2ZZ_MINUS_1 = D_2ZZ[1]
+    D_2ZZ_PLUS_1 = D_2ZZ[SCC - 1]
+    D_2ZZ_PLUS_2 = - D_2ZZ[SCC - 2] + (8 * D_2ZZ[SCC - 1]) - (6 * D_2ZZ[SCC])
+    T_E2ZZ_MINUS_2 = (8 * T_E2ZZ[1]) - T_E2ZZ[2]
+    T_E2ZZ_MINUS_1 = T_E2ZZ[1]
+    T_E2ZZ_PLUS_1 = ((2 * D_X) + T_E2ZZ[SCC - 1])
+    T_E2ZZ_PLUS_2 = - T_E2ZZ[SCC - 2] + (8 * T_E2ZZ[SCC - 1]) + (8 * D_X)
     #print(KZZ)"debug"
     if CYCLE == 0:
         #print("Debug")
@@ -102,6 +103,6 @@ while CYCLE <= 1:
     I_M = 0
     CYCLE += 1
 print("\n")
-print(KZZ)
+print(df(KZZ))
 print("\n")
-print(KYY)
+print(df(KYY))
