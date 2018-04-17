@@ -11,8 +11,12 @@ from pandas import DataFrame as df
 A = 3
 B = 5
 SCC = 20
-D_X = 25
+D_X = 30
 ENE = SCC + 1
+IZZ = 213333.33
+E = 221.359
+MZZ = (E * IZZ) / D_X ** 2
+
 KZZ = np.zeros(shape=(ENE, ENE))
 F_1ZZ = np.zeros(shape=(ENE, 1))
 T_F_1ZZ = np.zeros(shape=(ENE, 1))
@@ -106,3 +110,35 @@ print("\n")
 print(df(KZZ))
 print("\n")
 print(df(KYY))
+
+I_VM = 0
+M_1ZZ = np.zeros(shape=(ENE, 1))
+T_M_1ZZ = cp.deepcopy(M_1ZZ)
+M_2ZZ = cp.deepcopy(M_1ZZ)
+T_M_2ZZ = cp.deepcopy(M_1ZZ)
+#print(M_1ZZ)
+#print(T_M_1ZZ)
+while I_VM <= SCC:
+    if I_VM == 0:
+        M_1ZZ[I_VM] = (D_1ZZ[1] - (2 * D_1ZZ[0]) +  D_1ZZ_MINUS_1) * MZZ
+        T_M_1ZZ[I_VM] = (T_E1ZZ[1] - (2 * T_E1ZZ[0]) +  T_E1ZZ_MINUS_1) * MZZ
+        M_2ZZ[I_VM] = (D_2ZZ[1] - (2 * D_2ZZ[0]) +  D_2ZZ_MINUS_1) * MZZ
+        T_M_2ZZ[I_VM] = (T_E2ZZ[1] - (2 * T_E2ZZ[0]) +  T_E2ZZ_MINUS_1) * MZZ
+    elif I_VM != 0 and I_VM != SCC:
+        M_1ZZ[I_VM] = (D_1ZZ[I_VM + 1] - (2 * D_1ZZ[I_VM]) +  D_1ZZ[I_VM - 1]) * MZZ
+        T_M_1ZZ[I_VM] = (T_E1ZZ[I_VM + 1] - (2 * T_E1ZZ[I_VM]) +  T_E1ZZ[I_VM - 1]) * MZZ
+        M_2ZZ[I_VM] = (D_2ZZ[I_VM + 1] - (2 * D_2ZZ[I_VM]) +  D_2ZZ[I_VM - 1]) * MZZ
+        T_M_2ZZ[I_VM] = (T_E2ZZ[I_VM + 1] - (2 * T_E2ZZ[I_VM]) +  T_E2ZZ[I_VM - 1]) * MZZ
+    elif I_VM == SCC:
+        M_1ZZ[I_VM] = (D_1ZZ_PLUS_1 - (2 * D_1ZZ[I_VM]) +  D_1ZZ[I_VM - 1]) * MZZ
+        T_M_1ZZ[I_VM] = (T_E1ZZ_PLUS_1 - (2 * T_E1ZZ[I_VM]) +  T_E1ZZ[I_VM - 1]) * MZZ
+        M_2ZZ[I_VM] = (D_2ZZ_PLUS_1 - (2 * D_2ZZ[I_VM]) +  D_2ZZ[I_VM - 1]) * MZZ
+        T_M_2ZZ[I_VM] = (T_E2ZZ_PLUS_1 - (2 * T_E2ZZ[I_VM]) +  T_E2ZZ[I_VM - 1]) * MZZ
+    I_VM += 1
+print(M_1ZZ)
+print("\n")
+print(T_M_1ZZ)
+print("\n")
+print(M_2ZZ)
+print("\n")
+print(T_M_2ZZ)
