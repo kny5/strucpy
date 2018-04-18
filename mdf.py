@@ -73,7 +73,7 @@ k_zero = k_v * 10 #10 es una constante para cambiar de KG A Toneladas cm3
 k_uno = k_h * 10 #mismo
 MZZ = (E * izz) / (DELTA_X ** 2)
 vzz = (E * izz) / (2 * (DELTA_X ** 3))
-myy = (E * iyy) / (DELTA_X ** 2)
+MYY = (E * iyy) / (DELTA_X ** 2)
 vyy = (E * iyy) /(2 * (DELTA_X **3 ))
 
 KZZ = [[0 for x in range(SECCIONES + 1)]for y in range(SECCIONES + 1)]
