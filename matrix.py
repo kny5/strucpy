@@ -352,13 +352,14 @@ T_R[11, 10] = - SIN_NU * SIN_LM
 T_R[11, 11] = COS_NU
 
 KEBG = np.dot(np.dot(T_R, KEB), T_R.T)
-KEBG = df(KEBG)
-KEB = df(KEB)
-KEBG.to_csv("KEBG.csv")
-pl = sns.heatmap(KEBG)
-KEB_pic = sns.heatmap(KEB)
-img_KEB = pl.get_figure()
-image = pl.get_figure()
-img_KEB.savefig("KEB.png")
-image.savefig("KEBG.png")
+
+#KEBG = df(KEBG)
+#KEB = df(KEB)
+#KEBG.to_csv("KEBG.csv")
+#pl = sns.heatmap(KEBG)
+#KEB_pic = sns.heatmap(KEB)
+#img_KEB = pl.get_figure()
+#image = pl.get_figure()
+#img_KEB.savefig("KEB.png")
+#image.savefig("KEBG.png")
 #print(KEBG)
