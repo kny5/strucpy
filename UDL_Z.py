@@ -15,10 +15,15 @@ TW = 0
 TF = 0
 PV_STEEL = 0.0007849
 I_PP = 0
+
+
+
 PP = ((BF * D) - (BF - 2 * TW) * (D - 2 * TF)) * PV_STEEL
     #steel
 #sección "i"
 PP = ((BF * TF * 2) + ((D - 2 * TF) * TW)) * PV_STEEL
+
+
 
 PU_SCC_Z = (((PP * (LE / 100) * COS_LM) / SCC) * (DX ** 3 / (E * IZ))
 

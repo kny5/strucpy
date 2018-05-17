@@ -12,15 +12,18 @@ SIGMA_SUELO = 0
 class Elemento:
     """Propiedades generales de elemento"""
     def __init__(self):
-        self.long = 0   #longitud del elemento
-        self.v_ens = [0,0,0,0,0,0,0,0,0,0,0,0]  #vector de ensamble
+        self.l = 0   #longitud del elemento
+        self.ve = [0,0,0,0,0,0,0,0,0,0,0,0]  #vector de ensamble
         self.nu = 0     #ángulo plano xz
-        self.lamb = 0   #ángulo plano xy
+        self.lm = 0     #ángulo plano xy
         self.kv = 0     #módulo de reacción vertical
         self.kh = 0     #módulo de reacción horizontal
+        self.wy = 0     #carga uniformemente dist, TON/ML y
+        self.wz = 0     #carga uniforme... z
+        self.aw = 0     #angulo de carga
 
     def dx(self):
-        x = self.long / SCC
+        x = self.l / SCC
         return x
 
     def mzz(self):
@@ -39,29 +42,49 @@ class Elemento:
         x = (self.e * self.iyy()) / (2 * self.dx() ** 3)
         return x
 
-    #def A(self):
-    #    x = (self.kv *  self.a1() * self.dx() ** 4) / (1000 * self.e * self.izz())
-    #    return x
+    def A(self):
+        x = (self.kv *  self.a1() * self.dx() ** 4) / (1000 * self.e * self.izz())
+        return x
 
-    #def B(self):
-    #    x = (self.kh * self.a2() * self.dx() ** 4) / (1000 * self.e * self.iyy())
-    #    return x
+    def B(self):
+        x = (self.kh * self.a2() * self.dx() ** 4) / (1000 * self.e * self.iyy())
+        return x
 
     def G(self):
         x = self.e / (2 * (1 + POISSON))
         return x
 
     def torsion(self):
-        x = (self.G() * self.j()) / self.long
+        x = (self.G() * self.j()) / self.l
         return x
 
     def axial(self):
-        x = (self.e * self.area()) / self.long
+        x = (self.e * self.area()) / self.l
         return x
 
     def KEBG(self):
-        x = kebg(self.A(), self.B(), SCC, self.dx(), POISSON, self.nu, self.lamb, \
-            self.mzz(), self.myy(), self.vzz(), self.vyy(), self.axial(), self.torsion())
+        x = kebg(self.A(), \
+                 self.B(), \
+                 SCC, \
+                 self.dx(), \
+                 POISSON, \
+                 self.nu, \
+                 self.lm, \
+                 self.mzz(), \
+                 self.myy(), \
+                 self.vzz(), \
+                 self.vyy(), \
+                 self.axial(), \
+                 self.torsion(), \
+                 self.area(), \
+                 self.p_mat, \
+                 self.l, \
+                 self.e, \
+                 self.izz(), \
+                 self.wy, \
+                 self.wz, \
+                 self.aw, \
+                 self.iyy())
         return x
 
 
@@ -73,28 +96,16 @@ class Concreto(Elemento):
         self.h = 0              #altura de zapata
         self.b_prima = 0        #ancho de Contratrabe
         self.e = 0              #modulo de elasticidad
-        self.p_mat = 2.4       #ton/m3
+        self.p_mat = 2.4        #ton/m3
 
-    def A(self):
-        x = (self.kv * self.b * self.dx() ** 4) / (1000 * self.e * self.izz())
-        return x
+    def a1(self):
+        return self.b
 
-    def B(self):
-        x = (self.kh * self.h * self.dx() ** 4) / (1000 * self.e * self.iyy())
-        return x
-
-    #def a1(self):
-    #    return self.b
-
-    #def a2(self):
-    #    return self.h
+    def a2(self):
+        return self.h
 
     def area(self):
         x = self.b_prima * self.h
-        return x
-
-    def peso_p(self):
-        x = (self.area * self.p_conc / 10000) * (self.long / SCC)
         return x
 
     def izz(self):
@@ -114,12 +125,12 @@ class Concreto(Elemento):
 class Especial(Elemento):
     def __init__(self):
         Elemento.__init__(self)
-        self.b = 0      #ancho de la sección
-        self.h = 0      #altura de la sección
-        self.ixx = 0    #inercia del eje x
-        self.iyy = 0    #inercia del eje y
-        self.j = 0     #momento polar de inercia
-        self.e = 0      #modulo de elasticidad
+        self.b = 0          #ancho de la sección
+        self.h = 0          #altura de la sección
+        self.ixx = 0        #inercia del eje x
+        self.iyy = 0        #inercia del eje y
+        self.j = 0          #momento polar de inercia
+        self.e = 0          #modulo de elasticidad
         self.peso_p = 0     #peso propio
         self.a1 =  self.b
         self.a2 = self.h
@@ -131,10 +142,6 @@ class Acero(Elemento):
         self.e = 0
         self.p_mat = 7.849
 
-    def peso_p(self):
-        x = self.area() * (self.p_acero / 10000) * (self.long / SCC)
-        return x
-
 class Or(Acero):
     """Propiedades específicas del tipo OR"""
     def __init__(self):
@@ -143,8 +150,11 @@ class Or(Acero):
         self.bf = 0
         self.tf = 0
         self.tw = 0
-        self.a1 = self.bf
-        self.a2 = self.d
+    def a1(self):
+        return self.bf
+
+    def a2(self):
+        return self.d
 
     def area(self):
         x = (self.d * self.bf) - ((self.d - 2 * self.tf) * (self.bf -2 * self.tw))
@@ -175,8 +185,12 @@ class Ir(Acero):
         self.bf = 0
         self.tf = 0
         self.tw = 0
-        self.a1 = self.bf
-        self.a2 = self.d
+
+    def a1(self):
+        return self.bf
+
+    def a2(self):
+        return self.d
 
     def area(self):
         x = (2 * self.bf * self.tf) + ((self.d - 2 * self.tf) * self.tw)
@@ -203,8 +217,11 @@ class Oc(Acero):
         Acero.__init__(self)
         self.d = 0
         self.t = 0
-        self.a1 = self.d
-        self.a2 = self.d
+    def a1(self):
+        return self.d
+
+    def a2(self):
+        return self.d
 
     def area(self):
         x = math.pi * ((self.d / 2) ** 2) - (math.pi * ((self.d - (2 * self.t)) / 2) ** 2)

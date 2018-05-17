@@ -28,6 +28,8 @@ while I_PU <= SCC + 1:
 
 DL_Y = FY * PU_Y
 
+#ok^
+
 DL_Y_MINUS_2 = (8 * DL_Y[1]) - DL_Y[2]
 
 DL_Y_MINUS_1 = DL_Y[1]
