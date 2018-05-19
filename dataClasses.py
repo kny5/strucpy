@@ -1,29 +1,28 @@
-#import json
-#import pyqt5
 import math
-from kebg import kebg
 """
 Catalogo de clases
 """
-SCC = 20
-POISSON = 0.25
-SIGMA_SUELO = 0
+
 
 class Elemento:
     """Propiedades generales de elemento"""
+    countrefs = 0
+    SCC = 20
+    POISSON = 0.5
+    SIGMA_SUELO = 0
     def __init__(self):
-        self.l = 0   #longitud del elemento
-        self.ve = [0,0,0,0,0,0,0,0,0,0,0,0]  #vector de ensamble
-        self.nu = 0     #ángulo plano xz
-        self.lm = 0     #ángulo plano xy
-        self.kv = 0     #módulo de reacción vertical
-        self.kh = 0     #módulo de reacción horizontal
-        self.wy = 0     #carga uniformemente dist, TON/ML y
-        self.wz = 0     #carga uniforme... z
-        self.aw = 0     #angulo de carga
+        self.l = 0          #longitud del elemento
+        self.ve = 0  #vector de ensamble
+        self.nu = 0         #ángulo plano xz
+        self.lm = 0         #ángulo plano xy
+        self.kv = 0         #módulo de reacción vertical
+        self.kh = 0         #módulo de reacción horizontal
+        self.wy = 0         #carga uniformemente dist, TON/ML y
+        self.wz = 0         #carga uniforme... z
+        self.aw = 0         #angulo de carga
 
     def dx(self):
-        x = self.l / SCC
+        x = self.l / self.SCC
         return x
 
     def mzz(self):
@@ -43,7 +42,7 @@ class Elemento:
         return x
 
     def A(self):
-        x = (self.kv *  self.a1() * self.dx() ** 4) / (1000 * self.e * self.izz())
+        x = (self.kv * self.a1() * self.dx() ** 4) / (1000 * self.e * self.izz())
         return x
 
     def B(self):
@@ -51,7 +50,7 @@ class Elemento:
         return x
 
     def G(self):
-        x = self.e / (2 * (1 + POISSON))
+        x = self.e / (2 * (1 + self.POISSON))
         return x
 
     def torsion(self):
@@ -62,34 +61,9 @@ class Elemento:
         x = (self.e * self.area()) / self.l
         return x
 
-    def KEBG(self):
-        x = kebg(self.A(), \
-                 self.B(), \
-                 SCC, \
-                 self.dx(), \
-                 POISSON, \
-                 self.nu, \
-                 self.lm, \
-                 self.mzz(), \
-                 self.myy(), \
-                 self.vzz(), \
-                 self.vyy(), \
-                 self.axial(), \
-                 self.torsion(), \
-                 self.area(), \
-                 self.p_mat, \
-                 self.l, \
-                 self.e, \
-                 self.izz(), \
-                 self.wy, \
-                 self.wz, \
-                 self.aw, \
-                 self.iyy())
-        return x
-
-
 class Concreto(Elemento):
     """Propiedades específicas del concreto"""
+    Elemento.countrefs += 1
     def __init__(self):
         Elemento.__init__(self)
         self.b = 0              #ancho de zapata
@@ -123,6 +97,7 @@ class Concreto(Elemento):
         return x
 
 class Especial(Elemento):
+    Elemento.countrefs += 1
     def __init__(self):
         Elemento.__init__(self)
         self.b = 0          #ancho de la sección
@@ -144,6 +119,7 @@ class Acero(Elemento):
 
 class Or(Acero):
     """Propiedades específicas del tipo OR"""
+    Elemento.countrefs += 1
     def __init__(self):
         Acero.__init__(self)
         self.d = 0
@@ -179,6 +155,7 @@ class Or(Acero):
 
 class Ir(Acero):
     """Propiedades específicas del tipo IR"""
+    Elemento.countrefs += 1
     def __init__(self):
         Acero.__init__(self)
         self.d = 0
@@ -213,6 +190,7 @@ class Ir(Acero):
 
 class Oc(Acero):
     """Propiedades específicas del tipo OC"""
+    Elemento.countrefs += 1
     def __init__(self):
         Acero.__init__(self)
         self.d = 0
