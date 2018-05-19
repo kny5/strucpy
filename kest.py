@@ -11,7 +11,7 @@ def kest_init(dict):
     return kest
 
 def kest_maker(dict, kest):
-    lim = len(kebg)
+    lim = 12
     for key in dict:
         ve = dict[key].ve
         kebg = dict[key].KEBG
@@ -23,7 +23,3 @@ def kest_maker(dict, kest):
                 print(dict[key])
                 print("[",i,"]","[",j,"]","valor: ",kebg.item(i, j)) #trace counter
     return kest
-
-
-
-
