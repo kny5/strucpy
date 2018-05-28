@@ -4,6 +4,7 @@ Archivo con la función para crear las matricez hasta la KEBG
 from copy import deepcopy as dcopy
 from copy import copy as cp
 import numpy as np
+from numpy import matlib
 import math
 
 def kebg_pcur(object):
@@ -36,7 +37,7 @@ def kebg_pcur(object):
     T_F_1ZZ = dcopy(F_1ZZ)
     F_2ZZ = dcopy(F_1ZZ)
     T_F_2ZZ = dcopy(F_1ZZ)
-    I_M = 0
+
     CYCLE = 0
     C = 0
     while CYCLE <= 1:
@@ -44,6 +45,7 @@ def kebg_pcur(object):
             C = cp(B)
         else:
             C = cp(A)
+        I_M = 0
         while I_M <= SCC:
             if I_M != SCC and I_M != 0 and I_M != 1 and I_M != SCC - 1:
                 KZZ[I_M,I_M - 2] = 1
@@ -72,58 +74,75 @@ def kebg_pcur(object):
                 KZZ[SCC,SCC] = 3
                 F_2ZZ[SCC,0] = 3
             I_M += 1
-        
-        D_1ZZ = - KZZ.I * F_1ZZ #debug inverted values
 
+
+
+        D_1ZZ = - KZZ.I * F_1ZZ #debug inverted values
         T_E1ZZ = - np.dot(KZZ.I, T_F_1ZZ)
         D_2ZZ = - np.dot(KZZ.I, F_2ZZ)
         T_E2ZZ = - np.dot(KZZ.I, T_F_2ZZ)
+
+
+
         D_1ZZ_MINUS_2 = - D_1ZZ[2] + (8 * D_1ZZ[1]) - (6 * D_1ZZ[0])
         D_1ZZ_MINUS_1 = D_1ZZ[1]
         D_1ZZ_PLUS_1 = D_1ZZ[SCC - 1]
         D_1ZZ_PLUS_2 = (8 * D_1ZZ[SCC - 1]) - D_1ZZ[SCC - 2]
+
         T_E1ZZ_MINUS_2 = - T_E1ZZ[2] + (8 * T_E1ZZ[1]) + (8 * D_X)
         T_E1ZZ_MINUS_1 = (2 * D_X) + T_E1ZZ[1]
         T_E1ZZ_PLUS_1 = T_E1ZZ[SCC - 1]
         T_E1ZZ_PLUS_2 = (8 * T_E1ZZ[SCC - 1]) - T_E1ZZ[SCC - 2]
+
         D_2ZZ_MINUS_2 = (8 * D_2ZZ[1]) - D_2ZZ[2]
         D_2ZZ_MINUS_1 = D_2ZZ[1]
         D_2ZZ_PLUS_1 = D_2ZZ[SCC - 1]
         D_2ZZ_PLUS_2 = - D_2ZZ[SCC - 2] + (8 * D_2ZZ[SCC - 1]) - (6 * D_2ZZ[SCC])
+
         T_E2ZZ_MINUS_2 = (8 * T_E2ZZ[1]) - T_E2ZZ[2]
         T_E2ZZ_MINUS_1 = T_E2ZZ[1]
         T_E2ZZ_PLUS_1 = ((2 * D_X) + T_E2ZZ[SCC - 1])
         T_E2ZZ_PLUS_2 = - T_E2ZZ[SCC - 2] + (8 * T_E2ZZ[SCC - 1]) + (8 * D_X)
 
+
+
+
         if CYCLE == 0:
             KYY = dcopy(KZZ)
+
             D_1YY = dcopy(D_1ZZ)
             D_1YY_MINUS_2 = dcopy(D_1ZZ_MINUS_2)
             D_1YY_MINUS_1 = dcopy(D_1ZZ_MINUS_1)
             D_1YY_PLUS_1 = dcopy(D_1ZZ_PLUS_1)
             D_1YY_PLUS_2 = dcopy(D_1ZZ_PLUS_2)
+
             D_2YY = dcopy(D_2ZZ)
             D_2YY_MINUS_2 = dcopy(D_2ZZ_MINUS_2)
             D_2YY_MINUS_1 = dcopy(D_2ZZ_MINUS_1)
             D_2YY_PLUS_1 = dcopy(D_2ZZ_PLUS_1)
             D_2YY_PLUS_2 = dcopy(D_2ZZ_PLUS_2)
+
             T_E2YY = dcopy(T_E2ZZ)
             T_E2YY_MINUS_2 = dcopy(T_E2ZZ_MINUS_2)
             T_E2YY_MINUS_1 = dcopy(T_E2ZZ_MINUS_1)
             T_E2YY_PLUS_2 = dcopy(T_E2ZZ_PLUS_2)
             T_E2YY_PLUS_1 = dcopy(T_E2ZZ_PLUS_1)
+
             T_E1YY = dcopy(T_E1ZZ)
             T_E1YY_MINUS_2 = dcopy(T_E1ZZ_MINUS_2)
             T_E1YY_MINUS_1 = dcopy(T_E1ZZ_MINUS_1)
             T_E1YY_PLUS_2 = dcopy(T_E1ZZ_PLUS_2)
             T_E1YY_PLUS_1 = dcopy(T_E1ZZ_PLUS_1)
-        I_M = 0
+        #I_M = 0
         CYCLE += 1
     I_VM = 0
+
+
     M_1ZZ = np.matlib.zeros(shape=((SCC + 1), 1))
     T_M_1ZZ = dcopy(M_1ZZ)
     M_2ZZ = dcopy(M_1ZZ)
     T_M_2ZZ = dcopy(M_1ZZ)
+
     M_1YY = dcopy(M_1ZZ)
     T_M_1YY = dcopy(M_1ZZ)
     M_2YY = dcopy(M_1ZZ)
@@ -138,6 +157,7 @@ def kebg_pcur(object):
     V_2YY = dcopy(M_1ZZ)
     T_V_1YY = dcopy(M_1ZZ)
     T_V_2YY = dcopy(M_1ZZ)
+
 
     while I_VM <= SCC:
         if I_VM == 0:
@@ -287,52 +307,52 @@ def kebg_pcur(object):
     KEB[11,7] = - M_2ZZ[SCC]
     KEB[11,11] = T_M_2ZZ[SCC]
     #rotational matrix
-    COS_NU = math.cos(math.radians(NU))
-    SIN_NU = math.sin(math.radians(NU))
-    COS_LM = math.cos(math.radians(LM))
-    SIN_NU = math.sin(math.radians(LM))
+    a = math.cos(math.radians(NU))
+    b = math.sin(math.radians(NU))
+    c = math.cos(math.radians(LM))
+    d = math.sin(math.radians(LM))
     #region one
-    T_R[0,0] = COS_NU * COS_LM
-    T_R[0,1] = - COS_NU * SIN_NU
-    T_R[0,2] = - SIN_NU
-    T_R[1,0] = SIN_NU
-    T_R[1,1] = COS_LM
-    T_R[2,0] = SIN_NU * COS_LM
-    T_R[2,1] = - SIN_NU * SIN_NU
-    T_R[2,2] = COS_NU
-    T_R[3,3] = COS_NU * COS_LM
-    T_R[3,4] = - COS_NU * SIN_NU
-    T_R[3,5] = - SIN_NU
-    T_R[4,3] = SIN_NU
-    T_R[4,4] = COS_LM
-    T_R[5,3] = SIN_NU * COS_LM
-    T_R[5,4] = - SIN_NU * SIN_NU
-    T_R[5,5] = COS_NU
+    T_R[0,0] = a * c
+    T_R[0,1] = - a * d
+    T_R[0,2] = - b
+    T_R[1,0] = d
+    T_R[1,1] = c
+    T_R[2,0] = b * c
+    T_R[2,1] = - b * d
+    T_R[2,2] = a
+    T_R[3,3] = a * c
+    T_R[3,4] = - a * d
+    T_R[3,5] = - b
+    T_R[4,3] = d
+    T_R[4,4] = c
+    T_R[5,3] = b * c
+    T_R[5,4] = - b * d
+    T_R[5,5] = a
     #regn,i two
-    T_R[6,6] = COS_NU * COS_LM
-    T_R[6,7] = - COS_NU * SIN_NU
-    T_R[6,8] = - SIN_NU
-    T_R[7,6] = SIN_NU
-    T_R[7,7] = COS_LM
-    T_R[8,6] = SIN_NU * COS_LM
-    T_R[8,7] = - SIN_NU * SIN_NU
-    T_R[8,8] = COS_NU
-    T_R[9,9] = COS_NU * COS_LM
-    T_R[9,10] = - COS_NU * SIN_NU
-    T_R[9,11] = - SIN_NU
-    T_R[10,9] = SIN_NU
-    T_R[10,10] = COS_LM
-    T_R[11,9] = SIN_NU * COS_LM
-    T_R[11,10] = - SIN_NU * SIN_NU
-    T_R[11,11] = COS_NU
+    T_R[6,6] = a * c
+    T_R[6,7] = - a * d
+    T_R[6,8] = - b
+    T_R[7,6] = d
+    T_R[7,7] = c
+    T_R[8,6] = b * c
+    T_R[8,7] = - b * d
+    T_R[8,8] = a
+    T_R[9,9] = a * c
+    T_R[9,10] = - a * d
+    T_R[9,11] = - b
+    T_R[10,9] = d
+    T_R[10,10] = c
+    T_R[11,9] = b * c
+    T_R[11,10] = - b * d
+    T_R[11,11] = a
 
     KEBG = np.dot(np.dot(T_R, KEB), T_R.T)
 
     def PCU_R(area, p_mat, l, lm, SCC, dx, e, izz, wy, wz, aw, iyy, KZZ, KYY, MZZ, MYY, VZZ, VYY, T_R):
 
         pp = area * (p_mat / 10000)
-        p_axial = ((- math.sin(math.radians(lm)) * pp * (l / 100)) / 2) + (
-                    (- math.sin(math.radians(aw)) * wy * (l / 100)) / 2)
+        p_axial = ((- math.sin(math.radians(lm)) * pp * (l / 100)) / 2) +\
+                  ((- math.sin(math.radians(aw)) * wy * (l / 100)) / 2)
         p_scc_y = ((pp * (l / 100) * (math.cos(math.radians(lm)))) / SCC) * ((dx ** 3) / (e * izz))
         p_scc_z = 0
         w_scc_y = ((((wy * l) / 100) * math.cos(math.radians(aw))) / SCC) * ((dx ** 3) / (e * izz))
@@ -342,42 +362,26 @@ def kebg_pcur(object):
 
         def VectorConst1(thing1, thing2):
             vector = np.matlib.zeros(shape=(SCC + 1, 1))
-            I = 0
-            while I <= SCC:
-                if I != 0 and I != SCC:
-                    vector[I] = thing1 + thing2
-                I += 1
+            for i in range(1, SCC - 1):
+                vector[i] = thing1 + thing2
             return vector
 
         def VectorConst2(DL, M, MINUS_1, PLUS_1):
             vector = np.matlib.zeros(shape=(SCC + 1, 1))
-            I = 0
-            while I <= SCC:
-                if I == 0:
-                    vector[I] = (DL[1] - (2 * DL[0]) + MINUS_1) * M
-                if I != 0 and I != SCC:
-                    vector[I] = (DL[I + 1] - (2 * DL[I]) + DL[I - 1]) * M
-                if I == SCC:
-                    vector[SCC] = (DL[SCC - 1] - (2 * DL[SCC]) + PLUS_1) * M
-                I += 1
+            vector[0] = (DL[1] - (2 * DL[0]) + MINUS_1) * M
+            vector[SCC] = (DL[SCC - 1] - (2 * DL[SCC]) + PLUS_1) * M
+            for i in range(1, SCC - 1):
+                vector[i] = (DL[i + 1] - (2 * DL[i]) + DL[i - 1]) * M
             return vector
 
         def VectorConst3(DL, MINUS_1, MINUS_2, PLUS_1, PLUS_2, V, vplocal, FACTOR):
             vector = np.matlib.zeros(shape=(SCC + 1, 1))
-            I = 0
-            while I <= SCC:
-                if I == 0:
-                    vector[I] = ((DL[2] - (2 * DL[1]) + (2 * MINUS_1) - MINUS_2) * V) + ((vplocal[1] / 2) * FACTOR)
-                if I == 1:
-                    vector[I] = (DLY[I + 2] - (2 * DLY[I + 1]) + (2 * DL[I - 1]) - MINUS_1) * V
-                if I != 0 and I != SCC and I != 1 and I != SCC - 1:
-                    vector[I] = (DL[I + 2] - (2 * DL[I + 1]) + (2 * DL[I - 1]) - DL[I - 2]) * V
-                if I == SCC - 1:
-                    vector[I] = (PLUS_1 - (2 * DL[I + 1]) + (2 * DL[I - 1]) - DL[I - 2]) * V
-                if I == SCC:
-                    vector[SCC] = ((PLUS_2 - (2 * PLUS_1) + (2 * DL[SCC - 1]) - DL[SCC - 2]) * V) - (
-                                (vplocal[1] / 2) * FACTOR)
-                I += 1
+            vector[0] = ((DL[2] - (2 * DL[1]) + (2 * MINUS_1) - MINUS_2) * V) + ((vplocal[1] / 2) * FACTOR)
+            vector[1] = (DL[3] - (2 * DL[2]) + (2 * DL[0]) - MINUS_1) * V
+            vector[SCC - 1] = (PLUS_1 - (2 * DL[SCC]) + (2 * DL[SCC - 2]) - DL[SCC - 3]) * V
+            vector[SCC] = ((PLUS_2 - (2 * PLUS_1) + (2 * DL[SCC - 1]) - DL[SCC - 2]) * V) - ((vplocal[1] / 2) * FACTOR)
+            for i in range(2, SCC - 2):
+                vector[i] = (DL[i + 2] - (2 * DL[i + 1]) + (2 * DL[i - 1]) - DL[i - 2]) * V
             return vector
 
         vplocal_y = VectorConst1(p_scc_y, w_scc_y)

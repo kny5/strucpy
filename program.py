@@ -1,5 +1,4 @@
 """ archivo para pruebas """
-from pandas import DataFrame as df
 from dataClasses import *
 from matrix_generator import kebg_pcur
 import copy as cp
