@@ -1,0 +1,5 @@
+
+
+You don't need a framework. Create a class called Model, another one called View and a third one named Controller and start coding. Put all of the UI code in the View class, your data structures in the Model class, and make sure they communicate only via the Controller. I think going through that exercise might teach you a lot.
+
+I'm not trying to be funny here, it's really not very complicated, and doesn't require a fancy framework.

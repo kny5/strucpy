@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f5609e8-a638-4429-ae08-442e84f69e08" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k_p.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/random_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/new.iml" afterDir="false" />
+    <list default="true" id="7f5609e8-a638-4429-ae08-442e84f69e08" name="Default" comment="En algún momento optimizando matrix_gen a k_p">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kest.py" beforeDir="false" afterPath="$PROJECT_DIR$/kest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/matrix_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/program.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,14 +13,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="k_p.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="k_p.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/k_p.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2555">
+            <state relative-caret-position="687">
               <caret line="209" selection-start-line="209" selection-end-line="209" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kest.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -245,6 +245,14 @@
       <option name="presentableId" value="Default" />
       <updated>1526550466965</updated>
     </task>
+    <task id="LOCAL-00001" summary="En algún momento optimizando matrix_gen a k_p">
+      <created>1527480547982</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527480547982</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -258,13 +266,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.105089225" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32858992" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.3260026" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="3" visible="true" weight="0.32858992" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32858992" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.49288487" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
@@ -277,38 +283,37 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.3260026" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.102445476" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32858992" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
       <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.4385511" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32640588" />
-      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32858992" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39892185" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32858992" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32640588" />
+      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32858992" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="En algún momento optimizando matrix_gen a k_p" />
+    <option name="LAST_COMMIT_MESSAGE" value="En algún momento optimizando matrix_gen a k_p" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/kest.py</url>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -316,10 +321,20 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="40" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/k_p.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3971">
+          <caret line="209" selection-start-line="209" selection-end-line="209" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/k_p.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4693">
@@ -561,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataClasses.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
@@ -594,11 +602,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/k_p.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2555">
+        <state relative-caret-position="687">
           <caret line="209" selection-start-line="209" selection-end-line="209" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
         </state>
       </provider>
     </entry>
