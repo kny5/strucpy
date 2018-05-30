@@ -12,7 +12,7 @@ class Elemento:
     SIGMA_SUELO = 0
     def __init__(self):
         self.l = 0          #longitud del elemento
-        self.ve = 0  #vector de ensamble
+        self.ve = []  #vector de ensamble
         self.nu = 0         #ángulo plano xz
         self.lm = 0         #ángulo plano xy
         self.kv = 0         #módulo de reacción vertical
@@ -20,50 +20,13 @@ class Elemento:
         self.wy = 0         #carga uniformemente dist, TON/ML y
         self.wz = 0         #carga uniforme... z
         self.aw = 0         #angulo de carga
+        self.apoyos = []
 
-    def dx(self):
-        x = self.l / self.SCC
-        return x
-
-    def mzz(self):
-        x = (self.e * self.izz()) / self.dx() ** 2
-        return x
-
-    def myy(self):
-        x = (self.e * self.iyy()) / self.dx() ** 2
-        return x
-
-    def vzz(self):
-        x = (self.e * self.izz()) / (2 * self.dx() ** 3)
-        return x
-
-    def vyy(self):
-        x = (self.e * self.iyy()) / (2 * self.dx() ** 3)
-        return x
-
-    def A(self):
-        x = (self.kv * self.a1() * self.dx() ** 4) / (1000 * self.e * self.izz())
-        return x
-
-    def B(self):
-        x = (self.kh * self.a2() * self.dx() ** 4) / (1000 * self.e * self.iyy())
-        return x
-
-    def G(self):
-        x = self.e / (2 * (1 + self.POISSON))
-        return x
-
-    def torsion(self):
-        x = (self.G() * self.j()) / self.l
-        return x
-
-    def axial(self):
-        x = (self.e * self.area()) / self.l
-        return x
 
 class Concreto(Elemento):
     """Propiedades específicas del concreto"""
     Elemento.countrefs += 1
+
     def __init__(self):
         Elemento.__init__(self)
         self.b = 0              #ancho de zapata

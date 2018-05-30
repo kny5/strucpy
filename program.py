@@ -1,61 +1,72 @@
 """ archivo para pruebas """
 from dataClasses import *
-from matrix_generator import kebg_pcur
-import copy as cp
-import numpy as np
+from k_p import calculations as calc
+from pandas import DataFrame as df
+import json
 
-def builder(cls, cantidad):
-    y = {}
-    z = cls
-    for x in range(cantidad):
-        y[x] = cp.deepcopy(z)
-    return y
+elemento1 = Concreto()
+elemento1.l = 800
+elemento1.h = 40
+elemento1.b = 40
+elemento1.nu = 0
+elemento1.b_prima = 40
+elemento1.lm = 90
+elemento1.kv = 0
+elemento1.kh = 0
+elemento1.e = 221.359
+elemento1.p_mat = 2.4
+elemento1.ve = [1,2,3,4,5,6,7,8,9,10,11,12]
+elemento1.apoyos = [2,5]
 
-def maths(dict):
-    x = {}
-    for key in dict:
-        x[key] = kebg_pcur(dict[key])
-        dict[key].KEBG = x[key]['KEBG']
-        dict[key].PCUR = x[key]['PCUR']
-    return
+elemento2 = Concreto()
+elemento2.l = 250
+elemento2.h = 40
+elemento2.b = 40
+elemento2.nu = 0
+elemento2.b_prima = 40
+elemento2.lm = 0
+elemento2.kv = 0
+elemento2.kh = 0
+elemento2.e = 221.359
+elemento2.p_mat = 2.4
+elemento2.ve = [7,8,9,10,11,12,13,14,15,16,17,18]
+elemento2.apoyos = [0]
 
-elementos = builder(Concreto(), 2)
+elemento3 = Concreto()
+elemento3.l = 250
+elemento3.h = 40
+elemento3.b = 40
+elemento3.nu = 0
+elemento3.b_prima = 40
+elemento3.lm = 0
+elemento3.kv = 0
+elemento3.kh = 0
+elemento3.e = 221.359
+elemento3.p_mat = 2.4
+elemento3.ve = [13,14,15,16,17,18,19,20,21,22,23,24]
+elemento3.apoyos = [0]
 
-elementos[0].__dict__ = {\
-'l': 700,\
-'h': 100,\
-'b': 200,\
-'nu': 0,\
-'b_prima': 40,\
-'lm': 0,\
-'kv': 5,\
-'kh': 0,\
-'wy': 8,\
-'aw': 0,\
-'wz': 0,\
-'e': 221.359,\
-'p_mat': 2.4,\
-'ve': np.matrix('0 2 300 23 5 8 0 9 12 7 0 4')
-}
+elemento4 = Concreto()
+elemento4.l = 800
+elemento4.h = 40
+elemento4.b = 40
+elemento4.nu = 0
+elemento4.b_prima = 40
+elemento4.lm = 90
+elemento4.kv = 0
+elemento4.kh = 0
+elemento4.e = 221.359
+elemento4.p_mat = 2.4
+elemento4.ve = [25,26,27,28,29,30,19,20,21,22,23,24]
+elemento4.apoyos = [2,5]
 
-elementos[1].__dict__ = {\
-'l': 700,\
-'h': 100,\
-'b': 200,\
-'nu': 0,\
-'b_prima': 40,\
-'lm': 0,\
-'kv': 5,\
-'kh': 0,\
-'wy': 8,\
-'aw': 0,\
-'wz': 0,\
-'e': 221.359,\
-'p_mat': 2.4,\
-}
+elementos = [elemento1, elemento2, elemento3, elemento4]
 
-maths(elementos)
-
-
-
-
+i = 0
+for array in elementos:
+    with open(str(i) + '_data.txt', 'w') as outfile:
+        json.dump(array.__dict__, outfile)
+    x = df(calc(array, 20, 0.25))
+    x.to_csv(str(i) + "_output.csv")
+    i += 1
+print("done.")

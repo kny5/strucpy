@@ -2,33 +2,24 @@ import numpy as np
 from numpy import matlib
 # from datetime import datetime
 import math
-A = object.A()
-B = object.B()
-D_X = object.dx()
-NU = object.nu
-LM = object.lm
-mzz = object.mzz()
-myy = object.myy()
-vzz = object.vzz()
-vyy = object.vyy()
-AXIAL = object.axial()
-T = object.torsion()
-area = object.area()
-p_mat = object.p_mat
-l = object.l
-e = object.e
-izz = object.izz()
-wy = object.wy
-wz = object.wz
-aw = object.aw
-iyy = object.iyy()
-SCC = object.SCC
-POISSON = object.POISSON
+from pandas import DataFrame as df
 
-
-class calculations(object):
-    def __init__(self, SCC):
-        pass
+def calculations(object, SCC, POISSON):
+    dx = object.l / SCC
+    nu = object.nu
+    lm = object.lm
+    A = (object.kv * object.a1() * dx ** 4) / (1000 * object.e * object.izz())
+    B = (object.kh * object.a2() * dx ** 4) / (1000 * object.e * object.iyy())
+    mzz = (object.e * object.izz()) / dx ** 2
+    myy = (object.e * object.iyy()) / dx ** 2
+    vzz = (object.e * object.izz()) / (2 * dx ** 3)
+    vyy = (object.e * object.iyy()) / (2 * dx ** 3)
+    axial = (object.e * object.area()) / object.l
+    torsion = ((object.e / (2 * (1 + POISSON))) * object.j()) / object.l
+    p_mat = object.p_mat
+    wy = object.wy
+    wz = object.wz
+    aw = object.aw
 
     def k__(c):
         k = np.matlib.zeros(shape=((SCC + 1), (SCC + 1)))
@@ -54,10 +45,10 @@ class calculations(object):
     f2zz = ft__(0, 3, 1, 0)
     f1yy = ft__(3, 0, 1, 0)
     f2yy = ft__(0, 3, 1, 0)
-    t_f1zz = ft__(D_X, 0, 2, 1)
-    t_f2zz = ft__(0, D_X, 2, 1)
-    t_f1yy = ft__(D_X, 0, 2, 1)
-    t_f2yy = ft__(0, D_X, 2, 1)
+    t_f1zz = ft__(dx, 0, 2, 1)
+    t_f2zz = ft__(0, dx, 2, 1)
+    t_f1yy = ft__(dx, 0, 2, 1)
+    t_f2yy = ft__(0, dx, 2, 1)
 
     d1zz = kzz.I * f1zz
     d2zz = kzz.I * f2zz
@@ -84,15 +75,15 @@ class calculations(object):
     d2zz_p1 = im__(d2zz, [1, SCC - 1])
     d2zz_p2 = im__(d2zz, [-1, SCC - 2], [8, SCC - 1], [-6, SCC])
 
-    te1zz_n2 = im__(te1zz, [-1, 2], [8, 1]) + (8 * D_X)
-    te1zz_n1 = im__(te1zz, [1, 1]) + (2 * D_X)
+    te1zz_n2 = im__(te1zz, [-1, 2], [8, 1]) + (8 * dx)
+    te1zz_n1 = im__(te1zz, [1, 1]) + (2 * dx)
     te1zz_p1 = im__(te1zz, [1, SCC - 1])
     te1zz_p2 = im__(te1zz, [8, SCC - 1], [-1, SCC - 2])
 
     te2zz_n2 = im__(te2zz, [8, 1], [-1, 2])
     te2zz_n1 = im__(te2zz, [1, 1])
-    te2zz_p1 = im__(te2zz, [1, SCC - 1]) + (2 * D_X)
-    te2zz_p2 = im__(te2zz, [-1, SCC - 2], [8, SCC - 1]) + (8 * D_X)
+    te2zz_p1 = im__(te2zz, [1, SCC - 1]) + (2 * dx)
+    te2zz_p2 = im__(te2zz, [-1, SCC - 2], [8, SCC - 1]) + (8 * dx)
 
     d1yy_n2 = im__(d1yy, [-1, 2], [8, 1], [-6, 0])
     d1yy_n1 = im__(d1yy, [1, 1])
@@ -104,41 +95,45 @@ class calculations(object):
     d2yy_p1 = im__(d2yy, [1, SCC - 1])
     d2yy_p2 = im__(d2yy, [-1, SCC - 2], [8, SCC - 1], [-6, SCC])
 
-    te1yy_n2 = im__(te1yy, [-1, 2], [8, 1]) + (8 * D_X)
-    te1yy_n1 = im__(te1yy, [1, 1]) + (2 * D_X)
+    te1yy_n2 = im__(te1yy, [-1, 2], [8, 1]) + (8 * dx)
+    te1yy_n1 = im__(te1yy, [1, 1]) + (2 * dx)
     te1yy_p1 = im__(te1yy, [1, SCC - 1])
     te1yy_p2 = im__(te1yy, [8, SCC - 1], [-1, SCC - 2])
 
     te2yy_n2 = im__(te2yy, [8, 1], [-1, 2])
     te2yy_n1 = im__(te2yy, [1, 1])
-    te2yy_p1 = im__(te2yy, [1, SCC - 1]) + (2 * D_X)
-    te2yy_p2 = im__(te2yy, [-1, SCC - 2], [8, SCC - 1]) + (8 * D_X)
+    te2yy_p1 = im__(te2yy, [1, SCC - 1]) + (2 * dx)
+    te2yy_p2 = im__(te2yy, [-1, SCC - 2], [8, SCC - 1]) + (8 * dx)
 
     def extend__(vector, neg, pos):
-        x = np.insert(vector, 0, neg)
-        x = np.append(x, pos)
-        return x
+        w = np.insert(vector, 0, neg[1])
+        x = np.insert(w, 0, neg[0])
+        y = np.insert(x, -1, pos[0])
+        z = np.insert(y, -1, pos[1])
+        return z
 
-    extend__(d1zz, [d1zz_n2, d1zz_n1], [d1zz_p1, d1zz_p2])
-    extend__(d2zz, [d2zz_n2, d2zz_n1], [d2zz_p1, d2zz_p2])
-    extend__(te1zz, [te1zz_n2, te1zz_n1], [te1zz_p1, te1zz_p2])
-    extend__(te2zz, [te2zz_n2, te2zz_n1], [te2zz_p1, te2zz_p2])
+    d1zz = extend__(d1zz, [d1zz_n2, d1zz_n1], [d1zz_p1, d1zz_p2])
+    d2zz = extend__(d2zz, [d2zz_n2, d2zz_n1], [d2zz_p1, d2zz_p2])
+    te1zz = extend__(te1zz, [te1zz_n2, te1zz_n1], [te1zz_p1, te1zz_p2])
+    te2zz = extend__(te2zz, [te2zz_n2, te2zz_n1], [te2zz_p1, te2zz_p2])
 
-    extend__(d1yy, [d1yy_n2, d1yy_n1], [d1yy_p1, d1yy_p2])
-    extend__(d2yy, [d2yy_n2, d2yy_n1], [d2yy_p1, d2yy_p2])
-    extend__(te1yy, [te1yy_n2, te1yy_n1], [te1yy_p1, te1yy_p2])
-    extend__(te2yy, [te2yy_n2, te2yy_n1], [te2yy_p1, te2yy_p2])
+    #print(df(d1zz))
+
+    d1yy = extend__(d1yy, [d1yy_n2, d1yy_n1], [d1yy_p1, d1yy_p2])
+    d2yy = extend__(d2yy, [d2yy_n2, d2yy_n1], [d2yy_p1, d2yy_p2])
+    te1yy = extend__(te1yy, [te1yy_n2, te1yy_n1], [te1yy_p1, te1yy_p2])
+    te2yy = extend__(te2yy, [te2yy_n2, te2yy_n1], [te2yy_p1, te2yy_p2])
 
     def tmv__(vector, m__, v=False):
         x = np.matlib.zeros(shape=(SCC + 1, 1))
         y = 2
         if not v:
-            sums = [[1, 1], [-2, 0], [1, -1]]
+            sums = [(1, 1), (-2, 0), (1, -1)]
         else:
-            sums = [[1, 2], [-2, 1], [2, -1], [-1, -2]]
-        for i in x:
+            sums = [(1, 2), (-2, 1), (2, -1), (-1, -2)]
+        for i in range(0, SCC):
             for arr in sums:
-                x[i] += arr[0] * vector[i + y + arr[1]]
+                x[i] += arr[0] * vector[0,i + y] + arr[1]
         x = x * m__
         return x
 
@@ -164,56 +159,63 @@ class calculations(object):
 
     keb = np.matlib.zeros(shape=(12, 12))
     # region one
-    keb[0, 0] = AXIAL
+    keb[0, 0] = axial
     keb[1, 1] = - v1zz[0]
     keb[1, 5] = - tv1zz[0]
     keb[2, 2] = - v1yy[0]
     keb[2, 4] = tv1yy[0]
-    keb[3, 3] = T
+    keb[3, 3] = torsion
     keb[4, 2] = - m1yy[0]
     keb[4, 4] = tm1yy[0]
     keb[5, 1] = m1zz[0]
     keb[5, 5] = tm1zz[0]
     # region two
-    keb[6, 0] = - AXIAL
+    keb[6, 0] = - axial
     keb[7, 1] = v1zz[SCC]
     keb[7, 5] = tv1zz[SCC]
     keb[8, 2] = v1yy[SCC]
     keb[8, 4] = - tv1yy[SCC]
-    keb[9, 3] = - T
+    keb[9, 3] = - torsion
     keb[10, 2] = m1yy[SCC]
     keb[10, 4] = - tm1yy[SCC]
     keb[11, 1] = - m1zz[SCC]
     keb[11, 5] = - tm1zz[SCC]
     # region three
-    keb[0, 6] = - AXIAL
+    keb[0, 6] = - axial
     keb[1, 7] = - v2zz[0]
     keb[1, 11] = tv2zz[0]
     keb[2, 8] = - v2yy[0]
     keb[2, 10] = - tv2yy[0]
-    keb[3, 9] = - T
+    keb[3, 9] = - torsion
     keb[4, 8] = - m2yy[0]
     keb[4, 10] = - tm2yy[0]
     keb[5, 7] = m2zz[0]
     keb[5, 11] = - tm2zz[0]
     # region four
-    keb[6, 6] = AXIAL
+    keb[6, 6] = axial
     keb[7, 7] = v2zz[SCC]
     keb[7, 11] = - tv2zz[SCC]
     keb[8, 8] = v2yy[SCC]
     keb[8, 10] = tv2yy[SCC]
-    keb[9, 9] = T
+    keb[9, 9] = torsion
     keb[10, 8] = m2yy[SCC]
     keb[10, 10] = tm2yy[SCC]
     keb[11, 7] = - m2zz[SCC]
     keb[11, 11] = tm2zz[SCC]
 
+    def apoyo_add(keb, apoyos):
+        lim = len(apoyos)
+        for value in range(lim):
+            keb[value,value] += apoyos[value]
+
+    apoyo_add(keb, object.apoyos)
+
     tr = np.matlib.zeros(shape=(12, 12))
     # rotational matrix
-    a = math.cos(math.radians(NU))
-    b = math.sin(math.radians(NU))
-    c = math.cos(math.radians(LM))
-    d = math.sin(math.radians(LM))
+    a = math.cos(math.radians(nu))
+    b = math.sin(math.radians(nu))
+    c = math.cos(math.radians(lm))
+    d = math.sin(math.radians(lm))
     # region one
     tr[0, 0] = a * c
     tr[0, 1] = - a * d
@@ -250,3 +252,5 @@ class calculations(object):
     tr[11, 11] = a
 
     kebg = np.dot(np.dot(tr, keb), tr.T)
+
+    return kebg

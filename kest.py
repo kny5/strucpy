@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def kest_init(dict):
     y = 0
     for key in dict:
@@ -23,4 +24,3 @@ def kest_maker(dict__, kest):
                 print(dict__[key])
                 print("[",i,"]","[",j,"]","valor: ",kebg.item(i, j))  # trace counter
     return kest
-
