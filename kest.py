@@ -3,8 +3,9 @@ import numpy as np
 
 def kest_init(dict):
     y = 0
-    for key in dict:
-        x = dict[key].ve.max()
+    lim = len(dict)
+    for key in range(0,lim):
+        x = max(dict[key].ve)
         if x > y:
             y = x
     kest = np.matlib.zeros(shape=(y + 1, y + 1))
@@ -12,15 +13,15 @@ def kest_init(dict):
 
 
 def kest_maker(dict__, kest):
-    lim = len(kebg)
-    for key in dict__:
+    lim = 12
+    for key in range(len(dict__)):
         ve = dict__[key].ve
-        kebg = dict__[key].KEBG
+        kebg = dict__[key].kebg
         # print("lim ",lim)
         for i in range(0, lim):  # vertical
             # print("lim ",lim)
             for j in range(0, lim):  # horizontal
-                kest[ve[0, i], ve[0, j]] += kebg.item(i, j) + 0.1
-                print(dict__[key])
-                print("[",i,"]","[",j,"]","valor: ",kebg.item(i, j))  # trace counter
+                kest[ve[i], ve[j]] += kebg.item(i, j)
+                #print(dict__[key])
+                #print("[",i,"]","[",j,"]","valor: ",kebg.item(i, j))  # trace counter
     return kest

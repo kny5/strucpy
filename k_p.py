@@ -1,8 +1,6 @@
 import numpy as np
 from numpy import matlib
-# from datetime import datetime
 import math
-from pandas import DataFrame as df
 
 def calculations(object, SCC, POISSON):
     dx = object.l / SCC
@@ -37,8 +35,8 @@ def calculations(object, SCC, POISSON):
     kyy = k__(A)
 
     def ft__(a, b, c, d):
-        f = np.matlib.zeros(shape=(SCC + 1, 1))
-        f[d, 0], f[SCC - d, 0] = c * a, c * b
+        f = np.zeros(SCC + 1)
+        f[d], f[SCC - d] = c * a, c * b
         return f
 
     f1zz = ft__(3, 0, 1, 0)
@@ -50,92 +48,89 @@ def calculations(object, SCC, POISSON):
     t_f1yy = ft__(dx, 0, 2, 1)
     t_f2yy = ft__(0, dx, 2, 1)
 
-    d1zz = kzz.I * f1zz
-    d2zz = kzz.I * f2zz
-    te1zz = kzz.I * t_f1zz
-    te2zz = kzz.I * t_f2zz
-    d1yy = kyy.I * f1yy
-    d2yy = kyy.I * f2yy
-    te1yy = kyy.I * t_f1yy
-    te2yy = kyy.I * t_f2yy
+    d1zz = np.asarray(np.dot(kzz.I, f1zz)).reshape(-1) * -1
+    d2zz = np.asarray(np.dot(kzz.I, f2zz)).reshape(-1) * -1
+    te1zz = np.asarray(np.dot(kzz.I, t_f1zz)).reshape(-1) * -1
+    te2zz = np.asarray(np.dot(kzz.I, t_f2zz)).reshape(-1) * -1
+    d1yy = np.asarray(np.dot(kyy.I, f1yy)).reshape(-1) * -1
+    d2yy = np.asarray(np.dot(kyy.I, f2yy)).reshape(-1) * -1
+    te1yy = np.asarray(np.dot(kyy.I, t_f1yy)).reshape(-1) * -1
+    te2yy = np.asarray(np.dot(kyy.I, t_f2yy)).reshape(-1) * -1
 
     def im__(vector, *args):
         x = 0
         for array in args:
             x += (array[0] * vector[array[1]])
-        return float(x)
+        return x
 
-    d1zz_n2 = im__(d1zz, [-1, 2], [8, 1], [-6, 0])
-    d1zz_n1 = im__(d1zz, [1, 1])
-    d1zz_p1 = im__(d1zz, [1, SCC - 1])
-    d1zz_p2 = im__(d1zz, [8, SCC - 1], [- 1, SCC - 2])
+    d1zz_n1 = im__(d1zz, (1, 1))
+    d1zz_n2 = im__(d1zz, (-1, 2), (8, 1), (-6, 0))
+    d1zz_p1 = im__(d1zz, (1, SCC - 1))
+    d1zz_p2 = im__(d1zz, (8, SCC - 1), (- 1, SCC - 2))
 
-    d2zz_n2 = im__(d2zz, [8, 1], [- 1, 2])
-    d2zz_n1 = im__(d2zz, [1, 1])
-    d2zz_p1 = im__(d2zz, [1, SCC - 1])
-    d2zz_p2 = im__(d2zz, [-1, SCC - 2], [8, SCC - 1], [-6, SCC])
+    d2zz_n2 = im__(d2zz, (8, 1), (- 1, 2))
+    d2zz_n1 = im__(d2zz, (1, 1))
+    d2zz_p1 = im__(d2zz, (1, SCC - 1))
+    d2zz_p2 = im__(d2zz, (-1, SCC - 2), (8, SCC - 1), (-6, SCC))
 
-    te1zz_n2 = im__(te1zz, [-1, 2], [8, 1]) + (8 * dx)
-    te1zz_n1 = im__(te1zz, [1, 1]) + (2 * dx)
-    te1zz_p1 = im__(te1zz, [1, SCC - 1])
-    te1zz_p2 = im__(te1zz, [8, SCC - 1], [-1, SCC - 2])
+    te1zz_n2 = im__(te1zz, (-1, 2), (8, 1)) + (8 * dx)
+    te1zz_n1 = (2 * dx) + im__(te1zz, (1, 1))
+    te1zz_p1 = im__(te1zz, (1, SCC - 1))
+    te1zz_p2 = im__(te1zz, (8, SCC - 1), (-1, SCC - 2))
 
-    te2zz_n2 = im__(te2zz, [8, 1], [-1, 2])
-    te2zz_n1 = im__(te2zz, [1, 1])
-    te2zz_p1 = im__(te2zz, [1, SCC - 1]) + (2 * dx)
-    te2zz_p2 = im__(te2zz, [-1, SCC - 2], [8, SCC - 1]) + (8 * dx)
+    te2zz_n2 = im__(te2zz, (8, 1), (-1, 2))
+    te2zz_n1 = im__(te2zz, (1, 1))
+    te2zz_p1 = (2 * dx) + im__(te2zz, (1, SCC - 1))
+    te2zz_p2 = im__(te2zz, (-1, SCC - 2), (8, SCC - 1)) + (8 * dx)
 
-    d1yy_n2 = im__(d1yy, [-1, 2], [8, 1], [-6, 0])
-    d1yy_n1 = im__(d1yy, [1, 1])
-    d1yy_p1 = im__(d1yy, [1, SCC - 1])
-    d1yy_p2 = im__(d1yy, [8, SCC - 1], [- 1, SCC - 2])
+    d1yy_n2 = im__(d1yy, (-1, 2), (8, 1), (-6, 0))
+    d1yy_n1 = im__(d1yy, (1, 1))
+    d1yy_p1 = im__(d1yy, (1, SCC - 1))
+    d1yy_p2 = im__(d1yy, (8, SCC - 1), (- 1, SCC - 2))
 
-    d2yy_n2 = im__(d2yy, [8, 1], [- 1, 2])
-    d2yy_n1 = im__(d2yy, [1, 1])
-    d2yy_p1 = im__(d2yy, [1, SCC - 1])
-    d2yy_p2 = im__(d2yy, [-1, SCC - 2], [8, SCC - 1], [-6, SCC])
+    d2yy_n2 = im__(d2yy, (8, 1), (- 1, 2))
+    d2yy_n1 = im__(d2yy, (1, 1))
+    d2yy_p1 = im__(d2yy, (1, SCC - 1))
+    d2yy_p2 = im__(d2yy, (-1, SCC - 2), (8, SCC - 1), (-6, SCC))
 
-    te1yy_n2 = im__(te1yy, [-1, 2], [8, 1]) + (8 * dx)
-    te1yy_n1 = im__(te1yy, [1, 1]) + (2 * dx)
-    te1yy_p1 = im__(te1yy, [1, SCC - 1])
-    te1yy_p2 = im__(te1yy, [8, SCC - 1], [-1, SCC - 2])
+    te1yy_n2 = im__(te1yy, (-1, 2), (8, 1)) + (8 * dx)
+    te1yy_n1 = im__(te1yy, (1, 1)) + (2 * dx)
+    te1yy_p1 = im__(te1yy, (1, SCC - 1))
+    te1yy_p2 = im__(te1yy, (8, SCC - 1), (-1, SCC - 2))
 
-    te2yy_n2 = im__(te2yy, [8, 1], [-1, 2])
-    te2yy_n1 = im__(te2yy, [1, 1])
-    te2yy_p1 = im__(te2yy, [1, SCC - 1]) + (2 * dx)
-    te2yy_p2 = im__(te2yy, [-1, SCC - 2], [8, SCC - 1]) + (8 * dx)
+    te2yy_n2 = im__(te2yy, (8, 1), (-1, 2))
+    te2yy_n1 = im__(te2yy, (1, 1))
+    te2yy_p1 = im__(te2yy, (1, SCC - 1)) + (2 * dx)
+    te2yy_p2 = im__(te2yy, (-1, SCC - 2), (8, SCC - 1)) + (8 * dx)
 
     def extend__(vector, neg, pos):
         w = np.insert(vector, 0, neg[1])
         x = np.insert(w, 0, neg[0])
-        y = np.insert(x, -1, pos[0])
-        z = np.insert(y, -1, pos[1])
+        y = np.append(x, pos[0])
+        z = np.append(y, pos[1])
         return z
 
     d1zz = extend__(d1zz, [d1zz_n2, d1zz_n1], [d1zz_p1, d1zz_p2])
     d2zz = extend__(d2zz, [d2zz_n2, d2zz_n1], [d2zz_p1, d2zz_p2])
     te1zz = extend__(te1zz, [te1zz_n2, te1zz_n1], [te1zz_p1, te1zz_p2])
     te2zz = extend__(te2zz, [te2zz_n2, te2zz_n1], [te2zz_p1, te2zz_p2])
-
-    #print(df(d1zz))
-
     d1yy = extend__(d1yy, [d1yy_n2, d1yy_n1], [d1yy_p1, d1yy_p2])
     d2yy = extend__(d2yy, [d2yy_n2, d2yy_n1], [d2yy_p1, d2yy_p2])
     te1yy = extend__(te1yy, [te1yy_n2, te1yy_n1], [te1yy_p1, te1yy_p2])
     te2yy = extend__(te2yy, [te2yy_n2, te2yy_n1], [te2yy_p1, te2yy_p2])
 
     def tmv__(vector, m__, v=False):
-        x = np.matlib.zeros(shape=(SCC + 1, 1))
+        x = np.zeros(SCC + 1)
         y = 2
         if not v:
             sums = [(1, 1), (-2, 0), (1, -1)]
         else:
             sums = [(1, 2), (-2, 1), (2, -1), (-1, -2)]
-        for i in range(0, SCC):
-            for arr in sums:
-                x[i] += arr[0] * vector[0,i + y] + arr[1]
-        x = x * m__
-        return x
+        for i in range(0, SCC + 1):
+            for tuple in sums:
+                x[i] += tuple[0] * vector[i + y + tuple[1]]
+        z = np.dot(x, m__)
+        return z
 
     m1zz = tmv__(d1zz, mzz)
     m2zz = tmv__(d2zz, mzz)
@@ -206,7 +201,7 @@ def calculations(object, SCC, POISSON):
     def apoyo_add(keb, apoyos):
         lim = len(apoyos)
         for value in range(lim):
-            keb[value,value] += apoyos[value]
+            keb[value,value] = keb[value, value] + apoyos[value]
 
     apoyo_add(keb, object.apoyos)
 
@@ -252,5 +247,7 @@ def calculations(object, SCC, POISSON):
     tr[11, 11] = a
 
     kebg = np.dot(np.dot(tr, keb), tr.T)
+
+    object.kebg = kebg
 
     return kebg

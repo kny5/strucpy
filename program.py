@@ -3,6 +3,7 @@ from dataClasses import *
 from k_p import calculations as calc
 from pandas import DataFrame as df
 import json
+from kest import *
 
 elemento1 = Concreto()
 elemento1.l = 800
@@ -67,6 +68,15 @@ for array in elementos:
     with open(str(i) + '_data.txt', 'w') as outfile:
         json.dump(array.__dict__, outfile)
     x = df(calc(array, 20, 0.25))
+    #x = calc(array, 20, 0.25)
+    #print(df(x))
     x.to_csv(str(i) + "_output.csv")
     i += 1
 print("done.")
+
+
+kest_init = kest_init(elementos)
+
+kest = kest_maker(elementos, kest_init)
+
+df(kest).to_csv("kest.csv")

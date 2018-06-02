@@ -7,30 +7,29 @@ import numpy as np
 from numpy import matlib
 import math
 
-def kebg_pcur(object):
+
+def kebg_pcur(object, SCC, POISSON):
     """ FUNCIÓN kebg"""
-    A = object.A()
-    B = object.B()
-    D_X = object.dx()
-    NU = object.nu
-    LM = object.lm
-    MZZ = object.mzz()
-    MYY = object.myy()
-    VZZ = object.vzz()
-    VYY = object.vyy()
-    AXIAL = object.axial()
-    T = object.torsion()
     area = object.area()
-    p_mat = object.p_mat
     l = object.l
     e = object.e
     izz = object.izz()
+    iyy = object.iyy()
+    D_X = object.l / SCC
+    NU = object.nu
+    LM = object.lm
+    A = (object.kv * object.a1() * D_X ** 4) / (1000 * object.e * object.izz())
+    B = (object.kh * object.a2() * D_X ** 4) / (1000 * object.e * object.iyy())
+    MZZ = (object.e * object.izz()) / D_X ** 2
+    MYY = (object.e * object.iyy()) / D_X ** 2
+    VZZ = (object.e * object.izz()) / (2 * D_X ** 3)
+    VYY = (object.e * object.iyy()) / (2 * D_X ** 3)
+    AXIAL = (object.e * object.area()) / object.l
+    T = ((object.e / (2 * (1 + POISSON))) * object.j()) / object.l
+    p_mat = object.p_mat
     wy = object.wy
     wz = object.wz
     aw = object.aw
-    iyy = object.iyy()
-    SCC = object.SCC
-    POISSON = object.POISSON
 
     KZZ = np.matlib.zeros(shape=((SCC + 1), (SCC + 1)))
     F_1ZZ = np.matlib.zeros(shape=((SCC + 1), 1))
@@ -75,14 +74,10 @@ def kebg_pcur(object):
                 F_2ZZ[SCC,0] = 3
             I_M += 1
 
-
-
         D_1ZZ = - KZZ.I * F_1ZZ #debug inverted values
         T_E1ZZ = - np.dot(KZZ.I, T_F_1ZZ)
         D_2ZZ = - np.dot(KZZ.I, F_2ZZ)
         T_E2ZZ = - np.dot(KZZ.I, T_F_2ZZ)
-
-
 
         D_1ZZ_MINUS_2 = - D_1ZZ[2] + (8 * D_1ZZ[1]) - (6 * D_1ZZ[0])
         D_1ZZ_MINUS_1 = D_1ZZ[1]
@@ -103,9 +98,6 @@ def kebg_pcur(object):
         T_E2ZZ_MINUS_1 = T_E2ZZ[1]
         T_E2ZZ_PLUS_1 = ((2 * D_X) + T_E2ZZ[SCC - 1])
         T_E2ZZ_PLUS_2 = - T_E2ZZ[SCC - 2] + (8 * T_E2ZZ[SCC - 1]) + (8 * D_X)
-
-
-
 
         if CYCLE == 0:
             KYY = dcopy(KZZ)
