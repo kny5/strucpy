@@ -1,9 +1,8 @@
 """ archivo para pruebas """
-from dataClasses import *
-from k_p import calculations as calc
+from Model.dataClasses import *
+from Model.k_p import calculations as calc
 from pandas import DataFrame as df
-import json
-from kest import *
+from Model.kest import *
 
 elemento1 = Concreto()
 elemento1.l = 800
@@ -63,20 +62,24 @@ elemento4.apoyos = [2,5]
 
 elementos = [elemento1, elemento2, elemento3, elemento4]
 
-i = 0
+#i = 0
 for array in elementos:
-    with open(str(i) + '_data.txt', 'w') as outfile:
-        json.dump(array.__dict__, outfile)
-    x = df(calc(array, 20, 0.25))
+    #with open(str(i) + '_data.txt', 'w') as outfile:
+    #    json.dump(array.__dict__, outfile)
+    x = calc(array, 20, 0.25)
     #x = calc(array, 20, 0.25)
     #print(df(x))
-    x.to_csv(str(i) + "_output.csv")
-    i += 1
+    #x.to_csv(str(i) + "_output.csv")
+    #i += 1
+
+
+
+est_init = est_init(elementos)
+
+kest = kest_maker(elementos, est_init["kest"])
+pcur = pcur_maker(elementos, est_init["pcur"])
+
 print("done.")
 
-
-kest_init = kest_init(elementos)
-
-kest = kest_maker(elementos, kest_init)
-
 df(kest).to_csv("kest.csv")
+df(pcur).to_csv("pcur.csv")

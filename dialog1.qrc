@@ -1,8 +1,0 @@
-<RCC>
-  <qresource prefix="dialog1">
-    <file>crane.svg</file>
-    <file>beam(3).svg</file>
-    <file>beam(2).svg</file>
-    <file>beam.svg</file>
-  </qresource>
-</RCC>

@@ -250,4 +250,79 @@ def calculations(object, SCC, POISSON):
 
     object.kebg = kebg
 
-    return kebg
+    ###########
+    pp = object.area() * (object.p_mat / 10000)
+    p_axial = ((- math.sin(math.radians(object.lm)) * pp * (object.l / 100)) / 2) +\
+              ((- math.sin(math.radians(aw)) * wy * (object.l / 100)) / 2)
+    p_scc_y = ((pp * (object.l / 100) * c) / SCC) * ((dx ** 3) / (object.e * object.izz()))
+    p_scc_z = 0
+    w_scc_y = ((((wy * object.l) / 100) * math.cos(math.radians(aw))) / SCC) * ((dx ** 3) / (object.e * object.izz()))
+    w_scc_z = ((wz * (object.l / 100)) / SCC) * ((dx ** 3) / (object.e * object.iyy()))
+    f_zz = (object.e * object.izz()) / (dx ** 3)
+    f_yy = (object.e * object.iyy()) / (dx ** 3)
+
+    def v_maker1(p_scc__, w_scc__):
+        vector = np.zeros(SCC + 1)
+        for i in range(1, SCC - 1):
+            vector[i] = p_scc__ + w_scc__
+        return vector
+
+    vplocal_y = v_maker1(p_scc_y, w_scc_y)
+    vplocal_z = v_maker1(p_scc_z, w_scc_z)
+
+    dlzz = np.asarray(np.dot(kzz.I, vplocal_z) * - 1).reshape(-1)
+    dlyy = np.asarray(np.dot(kzz.I, vplocal_y) * - 1).reshape(-1)
+
+    dlyy_n2 = (8 * dlyy[1]) - dlyy[2]
+    dlyy_n1 = dlyy[1]
+    dlyy_p1 = dlyy[SCC - 1]
+    dlyy_p2 = (8 * dlyy[SCC - 1]) - dlyy[SCC - 2]
+    dlzz_n2 = (8 * dlzz[1]) - dlzz[2]
+    dlzz_n1 = dlzz[1]
+    dlzz_p1 = dlzz[SCC - 1]
+    dlzz_p2 = (8 * dlzz[SCC - 1]) - dlzz[SCC - 2]
+
+    def v_maker2(dl, m__, neg1, pos1):
+        vector = np.zeros(SCC + 1)
+        vector[0] = (dl[1] - (2 * dl[0]) + neg1) * m__
+        vector[SCC] = (dl[SCC - 1] - (2 * dl[SCC]) + pos1) * m__
+        for i in range(1, SCC - 1):
+            vector[i] = (dl[i + 1] - (2 * dl[i]) + dl[i - 1]) * m__
+        return vector
+
+    mdlyy = v_maker2(dlyy, mzz, dlyy_n1, dlyy_p1)
+    mdlzz = v_maker2(dlzz, myy, dlzz_n1, dlzz_p1)
+
+    def v_maker3(dl, neg_1, neg_2, pos_1, pos_2, v__, vplocal, f___):
+        vector = np.zeros(SCC + 1)
+        vector[0] = ((dl[2] - (2 * dl[1]) + (2 * neg_1) - neg_2) * v__) + ((vplocal[1] / 2) * f___)
+        vector[1] = (dl[3] - (2 * dl[2]) + (2 * dl[0]) - neg_1) * v__
+        vector[SCC - 1] = (pos_1 - (2 * dl[SCC]) + (2 * dl[SCC - 2]) - dl[SCC - 3]) * v__
+        vector[SCC] = ((pos_2 - (2 * pos_1) + (2 * dl[SCC - 1]) - dl[SCC - 2]) * v__) - ((vplocal[1] / 2) * f___)
+        for i in range(2, SCC - 2):
+            vector[i] = (dl[i + 2] - (2 * dl[i + 1]) + (2 * dl[i - 1]) - dl[i - 2]) * v__
+        return vector
+
+    vdlyy = v_maker3(dlyy, dlyy_n1, dlyy_n2, dlyy_p1, dlyy_p2, vzz, vplocal_y, f_zz)
+    vdlzz = v_maker3(dlzz, dlzz_n1, dlzz_n2, dlzz_p1, dlzz_p2, vyy, vplocal_z, f_yy)
+
+    pcu_local = np.zeros(12)
+
+    pcu_local[0] = p_axial
+    pcu_local[1] = - vdlyy[0]
+    pcu_local[2] = - dlzz[0]
+    pcu_local[3] = 0
+    pcu_local[4] = - mdlzz[0]
+    pcu_local[5] = mdlyy[0]
+    pcu_local[6] = p_axial
+    pcu_local[7] = vdlyy[SCC]
+    pcu_local[8] = vdlzz[SCC]
+    pcu_local[9] = 0
+    pcu_local[10] = mdlzz[SCC]
+    pcu_local[11] = - mdlyy[SCC]
+
+    pcur = np.dot(tr, pcu_local)
+
+    object.pcur = np.asarray(pcur).reshape(-1)
+
+    return True

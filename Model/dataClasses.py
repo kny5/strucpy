@@ -12,7 +12,7 @@ class Elemento:
     SIGMA_SUELO = 0
     def __init__(self):
         self.l = 0          #longitud del elemento
-        self.ve = []  #vector de ensamble
+        self.ve = [0]  #vector de ensamble
         self.nu = 0         #ángulo plano xz
         self.lm = 0         #ángulo plano xy
         self.kv = 0         #módulo de reacción vertical
@@ -20,7 +20,7 @@ class Elemento:
         self.wy = 0         #carga uniformemente dist, TON/ML y
         self.wz = 0         #carga uniforme... z
         self.aw = 0         #angulo de carga
-        self.apoyos = []
+        self.apoyos = [0]
 
 
 class Concreto(Elemento):

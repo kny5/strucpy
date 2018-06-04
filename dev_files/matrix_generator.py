@@ -340,17 +340,17 @@ def kebg_pcur(object, SCC, POISSON):
 
     KEBG = np.dot(np.dot(T_R, KEB), T_R.T)
 
-    def PCU_R(area, p_mat, l, lm, SCC, dx, e, izz, wy, wz, aw, iyy, KZZ, KYY, MZZ, MYY, VZZ, VYY, T_R):
+    def PCU_R():
 
-        pp = area * (p_mat / 10000)
-        p_axial = ((- math.sin(math.radians(lm)) * pp * (l / 100)) / 2) +\
-                  ((- math.sin(math.radians(aw)) * wy * (l / 100)) / 2)
-        p_scc_y = ((pp * (l / 100) * (math.cos(math.radians(lm)))) / SCC) * ((dx ** 3) / (e * izz))
+        pp = object.area() * (object.p_mat / 10000)
+        p_axial = ((- math.sin(math.radians(object.lm)) * pp * (object.l / 100)) / 2) +\
+                  ((- math.sin(math.radians(aw)) * wy * (object.l / 100)) / 2)
+        p_scc_y = ((pp * (object.l / 100) * (math.cos(math.radians(lm)))) / SCC) * ((dx ** 3) / (object.e * object.izz()))
         p_scc_z = 0
-        w_scc_y = ((((wy * l) / 100) * math.cos(math.radians(aw))) / SCC) * ((dx ** 3) / (e * izz))
-        w_scc_z = ((wz * (l / 100)) / SCC) * ((dx ** 3) / (e * iyy))
-        FACTOR1 = (e * izz) / (dx ** 3)
-        FACTOR2 = (e * iyy) / (dx ** 3)
+        w_scc_y = ((((wy * object.l) / 100) * math.cos(math.radians(aw))) / SCC) * ((dx ** 3) / (object.e * object.izz()))
+        w_scc_z = ((wz * (object.l / 100)) / SCC) * ((dx ** 3) / (e * object.iyy()))
+        FACTOR1 = (object.e * object.izz()) / (dx ** 3)
+        FACTOR2 = (object.e * object.iyy()) / (dx ** 3)
 
         def VectorConst1(thing1, thing2):
             vector = np.matlib.zeros(shape=(SCC + 1, 1))
@@ -379,8 +379,8 @@ def kebg_pcur(object, SCC, POISSON):
         vplocal_y = VectorConst1(p_scc_y, w_scc_y)
         vplocal_z = VectorConst1(p_scc_z, w_scc_z)
 
-        DLZ = (KYY.I * vplocal_z) * - 1
-        DLY = (KZZ.I * vplocal_y) * - 1
+        DLZ = (kzz.I * vplocal_z) * - 1
+        DLY = (kzz.I * vplocal_y) * - 1
         DL_Y_MINUS_2 = (8 * DLY[1]) - DLY[2]
         DL_Y_MINUS_1 = DLY[1]
         DL_Y_PLUS_1 = DLY[SCC - 1]
@@ -389,10 +389,10 @@ def kebg_pcur(object, SCC, POISSON):
         DL_Z_MINUS_1 = DLZ[1]
         DL_Z_PLUS_1 = DLZ[SCC - 1]
         DL_Z_PLUS_2 = (8 * DLZ[SCC - 1]) - DLZ[SCC - 2]
-        M_DLY = VectorConst2(DLY, MZZ, DL_Y_MINUS_1, DL_Y_PLUS_1)
-        M_DLZ = VectorConst2(DLZ, MYY, DL_Z_MINUS_1, DL_Z_PLUS_1)
-        V_DLY = VectorConst3(DLY, DL_Y_MINUS_1, DL_Y_MINUS_2, DL_Y_PLUS_1, DL_Y_PLUS_2, VZZ, vplocal_y, FACTOR1)
-        V_DLZ = VectorConst3(DLZ, DL_Z_MINUS_1, DL_Z_MINUS_2, DL_Z_PLUS_1, DL_Z_PLUS_2, VYY, vplocal_z, FACTOR2)
+        M_DLY = VectorConst2(DLY, mzz, DL_Y_MINUS_1, DL_Y_PLUS_1)
+        M_DLZ = VectorConst2(DLZ, myy, DL_Z_MINUS_1, DL_Z_PLUS_1)
+        V_DLY = VectorConst3(DLY, DL_Y_MINUS_1, DL_Y_MINUS_2, DL_Y_PLUS_1, DL_Y_PLUS_2, vzz, vplocal_y, FACTOR1)
+        V_DLZ = VectorConst3(DLZ, DL_Z_MINUS_1, DL_Z_MINUS_2, DL_Z_PLUS_1, DL_Z_PLUS_2, vyy, vplocal_z, FACTOR2)
 
         ################################################
 
@@ -409,7 +409,7 @@ def kebg_pcur(object, SCC, POISSON):
         PCULOCAL[9] = 0
         PCULOCAL[10] = M_DLZ[SCC]
         PCULOCAL[11] = - M_DLY[SCC]
-        PCU_R = np.dot(T_R, PCULOCAL)
+        PCU_R = np.dot(tr, PCULOCAL)
 
         return PCU_R
 
