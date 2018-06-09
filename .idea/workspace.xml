@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f5609e8-a638-4429-ae08-442e84f69e08" name="Default" comment="En algún momento optimizando matrix_gen a k_p">
-      <change afterPath="$PROJECT_DIR$/dev_files/3dspace.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev_files/3s.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev_files/Space.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev_files/glumpy1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev_files/opengl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev_files/vispy1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev_files/vispy2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/dataClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/dataClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kest.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcur.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/program.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,14 +13,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="form.py" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="form.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View/form.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+            <state relative-caret-position="247">
+              <caret line="14" selection-start-line="14" selection-end-line="15" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matplot.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/matplot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Space.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev_files/Space.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="3dspace.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev_files/3dspace.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="17" column="23" selection-start-line="7" selection-end-line="19" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -40,8 +62,8 @@
       <file leaf-file-name="dataClasses.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/dataClasses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="855">
+              <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -49,11 +71,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="k_p.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Model/k_p.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="255" column="60" selection-start-line="255" selection-start-column="60" selection-end-line="255" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="program.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/program.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-295">
-              <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="209">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -120,16 +151,16 @@
         <option value="$PROJECT_DIR$/Model/3dspace.py" />
         <option value="$PROJECT_DIR$/View/qt.py" />
         <option value="$PROJECT_DIR$/program.py" />
-        <option value="$PROJECT_DIR$/Model/dataClasses.py" />
         <option value="$PROJECT_DIR$/View/form.py" />
+        <option value="$PROJECT_DIR$/View/matplot.py" />
+        <option value="$PROJECT_DIR$/Model/dataClasses.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="91" />
-    <option name="y" value="127" />
-    <option name="width" value="1568" />
-    <option name="height" value="728" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -186,25 +217,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.program">
-    <configuration name="3dspace" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="new" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\repos\new\dev_files\3dspace.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.form">
     <configuration name="dataClasses" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="new" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -236,6 +249,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View/form.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="matplot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="new" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/View" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View/matplot.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -279,18 +310,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.form" />
-      <item itemvalue="Python.3dspace" />
       <item itemvalue="Python.qt" />
       <item itemvalue="Python.dataClasses" />
       <item itemvalue="Python.program" />
+      <item itemvalue="Python.matplot" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.form" />
-        <item itemvalue="Python.program" />
-        <item itemvalue="Python.dataClasses" />
-        <item itemvalue="Python.qt" />
-        <item itemvalue="Python.3dspace" />
+        <item itemvalue="Python.matplot" />
+        <item itemvalue="Python.matplot" />
+        <item itemvalue="Python.matplot" />
+        <item itemvalue="Python.matplot" />
       </list>
     </recent_temporary>
   </component>
@@ -328,12 +359,12 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13945803" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.28354263" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32858992" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32858992" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.25614488" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.25614488" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32858992" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -348,22 +379,22 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.25614488" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13945803" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32858992" />
-      <window_info active="true" anchor="bottom" id="Find" order="5" visible="true" weight="0.3260026" />
-      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32858992" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.25614488" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39892185" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32858992" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Find" order="5" visible="true" weight="0.3260026" />
+      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32858992" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -393,13 +424,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/kest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/k_p.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3914">
@@ -655,9 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="791">
           <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
-          <folding>
-            <element signature="e#1#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -665,9 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-165">
           <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-          <folding>
-            <element signature="e#170#188#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -675,19 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="489">
           <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev_files/3dspace.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -695,19 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="125" column="38" selection-start-line="125" selection-start-column="38" selection-end-line="125" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev_files/Space.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -715,16 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/k_p.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2538">
-          <caret line="325" column="46" selection-start-line="325" selection-start-column="46" selection-end-line="325" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -737,28 +719,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/program.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="209">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/dataClasses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="855">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dev_files/3dspace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="17" column="23" selection-start-line="7" selection-end-line="19" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev_files/Space.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/matplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/View/form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        <state relative-caret-position="247">
+          <caret line="14" selection-start-line="14" selection-end-line="15" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/k_p.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="255" column="60" selection-start-line="255" selection-start-column="60" selection-end-line="255" selection-end-column="60" />
         </state>
       </provider>
     </entry>

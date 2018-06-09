@@ -44,7 +44,7 @@ class Elemento:
     id_gen = itertools.count(1)
 
     def __init__(self):
-
+        self.l = 0
         self.id = str(next(self.id_gen))
         self.nu = 0  # ángulo plano xz
         self.lm = 0  # ángulo plano xy
