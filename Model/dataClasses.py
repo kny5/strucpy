@@ -37,13 +37,14 @@ class Nodo():
     def set_ve(self, dx, dy, dz, mx, my, mz):
         self.ve__ = [dx, dy, dz, mx, my, mz]
 
+
 class Elemento:
     """Propiedades generales de elemento"""
     countrefs = 0
 
     id_gen = itertools.count(1)
 
-    def __init__(self):
+    def __init__(self, *args):
         self.l = 0
         self.id = str(next(self.id_gen))
         self.nu = 0  # ángulo plano xz
