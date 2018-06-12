@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f5609e8-a638-4429-ae08-442e84f69e08" name="Default" comment="En algún momento optimizando matrix_gen a k_p">
-      <change beforePath="$PROJECT_DIR$/Model/dataClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/dataClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/k_p.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/k_p.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kest.csv" beforeDir="false" afterPath="$PROJECT_DIR$/kest.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pcur.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pcur.csv" afterDir="false" />
@@ -17,23 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="form.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/form.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="14" selection-start-line="14" selection-end-line="15" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="program.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/program.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="185">
+              <caret line="167" column="1" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
               <folding>
                 <element signature="e#29#60#0" expanded="true" />
               </folding>
@@ -54,13 +42,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>dcopy.deepcopy</find>
-      <find>(8 * D_X)</find>
+      <find />
       <find>T_M_1YY</find>
       <find>M_2ZZ</find>
       <find>wy</find>
       <find>self.dx()</find>
       <find>iyy</find>
       <find>mzz</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>dcopy</replace>
@@ -110,10 +99,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1089" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -126,6 +115,11 @@
             <path>
               <item name="new" type="b2602c69:ProjectViewProjectNode" />
               <item name="new" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new" type="462c0819:PsiDirectoryNode" />
+              <item name="dev_files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="new" type="b2602c69:ProjectViewProjectNode" />
@@ -271,8 +265,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.program" />
+        <item itemvalue="Python.program" />
         <item itemvalue="Python.form" />
-        <item itemvalue="Python.matplot" />
         <item itemvalue="Python.matplot" />
         <item itemvalue="Python.matplot" />
       </list>
@@ -312,13 +306,12 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.12557831" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13945803" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32858992" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.3260026" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32858992" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.25614488" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.25614488" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32858992" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -329,6 +322,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.3260026" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -364,11 +358,6 @@
           <url>file://$PROJECT_DIR$/dev_files/matrix.py</url>
           <line>270</line>
           <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/program.py</url>
-          <line>1</line>
-          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -668,23 +657,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/k_p.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="353" column="130" selection-start-line="353" selection-start-column="130" selection-end-line="353" selection-end-column="130" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/dataClasses.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -692,9 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,9 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -722,9 +692,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Model/k_p.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2403">
+          <caret line="197" column="5" selection-start-line="197" selection-start-column="4" selection-end-line="197" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/View/form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="266">
           <caret line="14" selection-start-line="14" selection-end-line="15" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -734,8 +711,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/program.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="185">
+          <caret line="167" column="1" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
           <folding>
             <element signature="e#29#60#0" expanded="true" />
           </folding>

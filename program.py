@@ -3,6 +3,7 @@ from Model.dataClasses import *
 from Model.k_p import calculations as calc
 from pandas import DataFrame as df
 from Model.kest import *
+from numpy.linalg import inv
 
 workspace = workspace(100, 100, 100)
 
@@ -22,9 +23,9 @@ node8 = Nodo(89,87,78, workspace)
 elemento1 = Concreto(node1,node2)
 elemento1.l = 500
 elemento1.h = 40
-elemento1.b = 40
+elemento1.b = 20
 elemento1.nu = 0
-elemento1.b_prima = 40
+elemento1.b_prima = 20
 elemento1.lm = 90
 elemento1.kv = 0
 elemento1.kh = 0
@@ -37,9 +38,9 @@ elemento1.apoyos = [0,0]
 elemento2 = Concreto(node3,node4)
 elemento2.l = 500
 elemento2.h = 40
-elemento2.b = 40
+elemento2.b = 20
 elemento2.nu = 0
-elemento2.b_prima = 40
+elemento2.b_prima = 20
 elemento2.lm = 90
 elemento2.kv = 0
 elemento2.kh = 0
@@ -51,9 +52,9 @@ elemento2.apoyos = [0]
 elemento3 = Concreto(node5,node6)
 elemento3.l = 500
 elemento3.h = 40
-elemento3.b = 40
+elemento3.b = 20
 elemento3.nu = 0
-elemento3.b_prima = 40
+elemento3.b_prima = 20
 elemento3.lm = 90
 elemento3.kv = 0
 elemento3.kh = 0
@@ -65,9 +66,9 @@ elemento3.apoyos = [0]
 elemento4 = Concreto(node7,node8)
 elemento4.l = 500
 elemento4.h = 40
-elemento4.b = 40
+elemento4.b = 20
 elemento4.nu = 0
-elemento4.b_prima = 40
+elemento4.b_prima = 20
 elemento4.lm = 90
 elemento4.kv = 0
 elemento4.kh = 0
@@ -79,9 +80,9 @@ elemento4.apoyos = [0]
 elemento5 = Concreto(node7,node8)
 elemento5.l = 900
 elemento5.h = 40
-elemento5.b = 40
+elemento5.b = 20
 elemento5.nu = 0
-elemento5.b_prima = 40
+elemento5.b_prima = 20
 elemento5.lm = 0
 elemento5.kv = 0
 elemento5.kh = 0
@@ -93,9 +94,9 @@ elemento5.apoyos = [0]
 elemento6 = Concreto(node7,node8)
 elemento6.l = 900
 elemento6.h = 40
-elemento6.b = 40
+elemento6.b = 20
 elemento6.nu = 0
-elemento6.b_prima = 40
+elemento6.b_prima = 20
 elemento6.lm = 0
 elemento6.kv = 0
 elemento6.kh = 0
@@ -107,9 +108,9 @@ elemento6.apoyos = [0]
 elemento7 = Concreto(node7,node8)
 elemento7.l = 300
 elemento7.h = 40
-elemento7.b = 40
+elemento7.b = 20
 elemento7.nu = 90
-elemento7.b_prima = 40
+elemento7.b_prima = 20
 elemento7.lm = 0
 elemento7.kv = 0
 elemento7.kh = 0
@@ -121,9 +122,9 @@ elemento7.apoyos = [0]
 elemento8 = Concreto(node7,node8)
 elemento8.l = 300
 elemento8.h = 40
-elemento8.b = 40
+elemento8.b = 20
 elemento8.nu = 90
-elemento8.b_prima = 40
+elemento8.b_prima = 20
 elemento8.lm = 0
 elemento8.kv = 0
 elemento8.kh = 0
@@ -151,8 +152,28 @@ est_init = est_init(elementos)
 kest = kest_maker(elementos, est_init["kest"])
 pcur = pcur_maker(elementos, est_init["pcur"])
 
+kest = np.delete(kest,0, axis = 0)
+kest = np.delete(kest,0, axis = 1)
+pcur = np.delete(pcur,0, axis = 0)
+
+
+medida = len(pcur)
+v_cargas_nodales = [0] * medida
+v_cargas_nodales[0] = 10
+
+pcurg = pcur + v_cargas_nodales
+
+#pcurg = pcurg.reshape(-1)
+
+#print(df(pcurg))
+
+dn_est = np.dot(inv(kest), pcurg)
+
 print("done.")
 
 df(kest).to_csv("kest.csv")
 df(pcur).to_csv("pcur.csv")
 
+df(v_cargas_nodales).to_csv("v_cargas_nodales.csv")
+df(pcurg).to_csv("pcurg.csv")
+df(dn_est).to_csv("dn_est.csv")

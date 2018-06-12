@@ -262,23 +262,23 @@ def calculations(object, SCC, POISSON):
     f_zz = (object.e * object.izz()) / (2 * dx ** 3)
     f_yy = (object.e * object.iyy()) / (2 * dx ** 3)
 
-    print('/'*30)
-    print('pp')
-    print(pp)
-    print('p_axial')
-    print(p_axial)
-    print('p_scc_y')
-    print(p_scc_y)
-    print('p_scc_z')
-    print(p_scc_z)
-    print('w_scc_y')
-    print(w_scc_y)
-    print('w_scc_z')
-    print(w_scc_z)
-    print('f_zz')
-    print(f_zz)
-    print('f_yy')
-    print(f_yy)
+    #print('/'*30)
+    #print('pp')
+    #print(pp)
+    #print('p_axial')
+    #print(p_axial)
+    #print('p_scc_y')
+    #print(p_scc_y)
+    #print('p_scc_z')
+    #print(p_scc_z)
+    #print('w_scc_y')
+    #print(w_scc_y)
+    #print('w_scc_z')
+    #print(w_scc_z)
+    #print('f_zz')
+    #print(f_zz)
+    #print('f_yy')
+    #print(f_yy)
 
     def v_maker1(p_scc__, w_scc__):
         vector = np.zeros(SCC + 1)
@@ -290,26 +290,26 @@ def calculations(object, SCC, POISSON):
 
     vplocal_z = v_maker1(p_scc_z, w_scc_z)
 
-    print('='*30)
-    print('vplocal_y')
-    print(df(vplocal_y))
-
-    print('=' * 30)
-    print('vplocal_z')
-    print(df(vplocal_z))
+    #print('='*30)
+    #print('vplocal_y')
+    #print(df(vplocal_y))
+#
+    #print('=' * 30)
+    #print('vplocal_z')
+    #print(df(vplocal_z))
 
     dlzz = np.asarray(np.dot(kzz.I, vplocal_z) * - 1).reshape(-1)
 
     dlyy = np.asarray(np.dot(kyy.I, vplocal_y) * - 1).reshape(-1)
-    print('kyy')
-    print(df(kyy))
-
-    print('$' *30)
-    print('dlzz')
-    print(df(dlzz))
-    print('"'*30)
-    print('dlyy')
-    print(df(dlyy))
+    #print('kyy')
+    #print(df(kyy))
+#
+    #print('$' *30)
+    #print('dlzz')
+    #print(df(dlzz))
+    #print('"'*30)
+    #print('dlyy')
+    #print(df(dlyy))
 
     dlyy_n2 = (8 * dlyy[1]) - dlyy[2]
     dlyy_n1 = dlyy[1]
@@ -321,12 +321,12 @@ def calculations(object, SCC, POISSON):
     dlzz_p1 = dlzz[SCC - 1]
     dlzz_p2 = (8 * dlzz[SCC - 1]) - dlzz[SCC - 2]
 
-    print('-'*30)
-    print('imaginarios yy')
-    print(dlyy_n2,dlyy_n1,dlyy_p1,dlyy_p2)
-    print('/'*30)
-    print('imaginarios zz')
-    print(dlzz_n2,dlzz_n1,dlzz_p1,dlzz_p2)
+    #print('-'*30)
+    #print('imaginarios yy')
+    #print(dlyy_n2,dlyy_n1,dlyy_p1,dlyy_p2)
+    #print('/'*30)
+    #print('imaginarios zz')
+    #print(dlzz_n2,dlzz_n1,dlzz_p1,dlzz_p2)
 
     def v_maker2(dl, m__, neg1, pos1):
         vector = np.zeros(SCC + 1)
@@ -337,13 +337,13 @@ def calculations(object, SCC, POISSON):
         return vector
 
     mdlyy = v_maker2(dlyy, mzz, dlyy_n1, dlyy_p1)
-    print('#' * 30)
-    print('mdlyy')
-    print(df(mdlyy))
+    #print('#' * 30)
+    #print('mdlyy')
+    #print(df(mdlyy))
     mdlzz = v_maker2(dlzz, myy, dlzz_n1, dlzz_p1)
-    print('#' * 30)
-    print('mdlzz')
-    print(df(mdlzz))
+    #print('#' * 30)
+    #print('mdlzz')
+    #print(df(mdlzz))
 
 
     def v_maker3(dl, neg_1, neg_2, pos_1, pos_2, v__, vplocal, f___, e, i__, dx):
@@ -357,21 +357,21 @@ def calculations(object, SCC, POISSON):
         return vector
 
     vdlyy = v_maker3(dlyy, dlyy_n1, dlyy_n2, dlyy_p1, dlyy_p2, vzz, vplocal_y, f_zz, object.e, object.izz(), dx)
-    print('#'*30)
-    print('vd1yy')
-    print(df(vdlyy))
-    print('vzz')
-    print(vzz)
-    print('vplocaly[1]')
-    print(vplocal_y[1])
+    #print('#'*30)
+    #print('vd1yy')
+    #print(df(vdlyy))
+    #print('vzz')
+    #print(vzz)
+    #print('vplocaly[1]')
+    #print(vplocal_y[1])
     vdlzz = v_maker3(dlzz, dlzz_n1, dlzz_n2, dlzz_p1, dlzz_p2, vyy, vplocal_z, f_yy, object.e, object.iyy(), dx)
-    print('#' * 30)
-    print('vd1zz')
-    print(df(vdlzz))
-    print('vyy')
-    print(vyy)
-    print('vplocalz[1]')
-    print(vplocal_z[1])
+    #print('#' * 30)
+    #print('vd1zz')
+    #print(df(vdlzz))
+    #print('vyy')
+    #print(vyy)
+    #print('vplocalz[1]')
+    #print(vplocal_z[1])
     pcu_local = np.zeros(12)
 
     pcu_local[0] = p_axial
@@ -386,14 +386,14 @@ def calculations(object, SCC, POISSON):
     pcu_local[9] = 0
     pcu_local[10] = mdlzz[SCC]
     pcu_local[11] = - mdlyy[SCC]
-    print('='*30)
-    print("pcu_local")
-    print(df(pcu_local))
+    #print('='*30)
+    #print("pcu_local")
+    #print(df(pcu_local))
     pcur = np.dot(tr, pcu_local)
 
     object.pcur = np.asarray(pcur).reshape(-1)
-    print('&'*30)
-    print("pcur")
-    print(df(pcur))
+    #print('&'*30)
+    #print("pcur")
+    #print(df(pcur))
 
     return True
