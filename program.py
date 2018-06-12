@@ -177,3 +177,5 @@ df(pcur).to_csv("pcur.csv")
 df(v_cargas_nodales).to_csv("v_cargas_nodales.csv")
 df(pcurg).to_csv("pcurg.csv")
 df(dn_est).to_csv("dn_est.csv")
+
+print("Hola chichano merengano putano")
