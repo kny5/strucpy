@@ -3,8 +3,10 @@ from numpy import matlib
 import math
 from pandas import DataFrame as df
 
+
 def calculations(object, SCC, POISSON):
     dx = object.l / SCC
+    object.dx =  dx
     nu = object.nu
     lm = object.lm
     A = (object.kv * object.a1() * dx ** 4) / (1000 * object.e * object.izz())
@@ -19,6 +21,10 @@ def calculations(object, SCC, POISSON):
     wy = object.wy
     wz = object.wz
     aw = object.aw
+    object.vzz = vzz
+    object.vyy = vyy
+    object.myy = myy
+    object.mzz = mzz
 
     def k__(c):
         k = np.matlib.zeros(shape=((SCC + 1), (SCC + 1)))
@@ -32,11 +38,14 @@ def calculations(object, SCC, POISSON):
             k[i, i - 1] = k[i, i + 1] = -4
         return k
 
-    kzz = k__(B)
-    kyy = k__(A)
+    kzz = k__(A)
+    object.kzz = kzz
+    kyy = k__(B)
+    object.kyy = kyy
 
     def ft__(a, b, c, d):
-        f = np.zeros(SCC + 1)
+        #f = np.zeros(SCC + 1)
+        f = [0]*(SCC+1)
         f[d], f[SCC - d] = c * a, c * b
         return f
 
@@ -121,7 +130,8 @@ def calculations(object, SCC, POISSON):
     te2yy = extend__(te2yy, [te2yy_n2, te2yy_n1], [te2yy_p1, te2yy_p2])
 
     def tmv__(vector, m__, v=False):
-        x = np.zeros(SCC + 1)
+        #x = np.zeros(SCC + 1)
+        x = [0]*(SCC + 1)
         y = 2
         if not v:
             sums = [(1, 1), (-2, 0), (1, -1)]
@@ -249,15 +259,27 @@ def calculations(object, SCC, POISSON):
 
     kebg = np.dot(np.dot(tr, keb), tr.T)
 
+    object.tr = tr
+
+    object.keb = keb
+
     object.kebg = kebg
 
     ###########
     pp = object.area() * (object.p_mat / 10000)
-    p_axial = ((- math.sin(math.radians(object.lm)) * pp * (object.l / 100)) / 2) +\
-              ((- math.sin(math.radians(aw)) * wy * (object.l / 100)) / 2)
+
+    object.pp_scc = ((pp * (object.l / 100)) / SCC) * d
+
+    p_axial = ((- math.sin(math.radians(object.lm)) *\
+                pp * (object.l / 100)) / 2) +\
+                ((- math.sin(math.radians(aw)) * wy *\
+                (object.l / 100)) / 2)
+
     p_scc_y = ((pp * (object.l / 100) * c) / SCC) * ((dx ** 3) / (object.e * object.izz()))
+    object.p_secc_y = p_scc_y
     p_scc_z = 0
     w_scc_y = ((((wy * object.l) / 100) * math.cos(math.radians(aw))) / SCC) * ((dx ** 3) / (object.e * object.izz()))
+    object.w_scc_y = w_scc_y
     w_scc_z = ((wz * (object.l / 100)) / SCC) * ((dx ** 3) / (object.e * object.iyy()))
     f_zz = (object.e * object.izz()) / (2 * dx ** 3)
     f_yy = (object.e * object.iyy()) / (2 * dx ** 3)
@@ -281,7 +303,8 @@ def calculations(object, SCC, POISSON):
     #print(f_yy)
 
     def v_maker1(p_scc__, w_scc__):
-        vector = np.zeros(SCC + 1)
+        #vector = np.zeros(SCC + 1)
+        vector = [0]*(SCC + 1)
         for i in range(1, SCC):
             vector[i] = p_scc__ + w_scc__
         return vector
@@ -301,6 +324,9 @@ def calculations(object, SCC, POISSON):
     dlzz = np.asarray(np.dot(kzz.I, vplocal_z) * - 1).reshape(-1)
 
     dlyy = np.asarray(np.dot(kyy.I, vplocal_y) * - 1).reshape(-1)
+
+    object.dlzz = dlzz.tolist()
+    object.dlyy = dlyy.tolist()
     #print('kyy')
     #print(df(kyy))
 #
@@ -329,7 +355,8 @@ def calculations(object, SCC, POISSON):
     #print(dlzz_n2,dlzz_n1,dlzz_p1,dlzz_p2)
 
     def v_maker2(dl, m__, neg1, pos1):
-        vector = np.zeros(SCC + 1)
+        #vector = np.zeros(SCC + 1)
+        vector = [0]*(SCC + 1)
         vector[0] = (dl[1] - (2 * dl[0]) + neg1) * m__
         vector[SCC] = (dl[SCC - 1] - (2 * dl[SCC]) + pos1) * m__
         for i in range(1, SCC):
@@ -337,26 +364,28 @@ def calculations(object, SCC, POISSON):
         return vector
 
     mdlyy = v_maker2(dlyy, mzz, dlyy_n1, dlyy_p1)
+    object.mdlyy = mdlyy
     #print('#' * 30)
     #print('mdlyy')
     #print(df(mdlyy))
     mdlzz = v_maker2(dlzz, myy, dlzz_n1, dlzz_p1)
+    object.mdlzz = mdlzz
     #print('#' * 30)
     #print('mdlzz')
     #print(df(mdlzz))
 
-
-    def v_maker3(dl, neg_1, neg_2, pos_1, pos_2, v__, vplocal, f___, e, i__, dx):
-        vector = np.zeros(SCC + 1)
-        vector[0] = ((dl[2] - (2 * dl[1]) + (2 * neg_1) - neg_2) * v__) + ((vplocal[1] / 2) * (e * i__ / (dx ** 3))) #* f___)
+    def v_maker3(dl, neg_1, neg_2, pos_1, pos_2, v__, vplocal, e, i__, dx):
+        #vector = np.zeros(SCC + 1)
+        vector = [0]*(SCC + 1)
+        vector[0] = ((dl[2] - (2 * dl[1]) + (2 * neg_1) - neg_2) * v__) + ((vplocal[1] / 2) * (e * i__ / (dx ** 3)))
         vector[1] = (dl[3] - (2 * dl[2]) + (2 * dl[0]) - neg_1) * v__
         vector[SCC - 1] = (pos_1 - (2 * dl[SCC]) + (2 * dl[SCC - 2]) - dl[SCC - 3]) * v__
-        vector[SCC] = ((pos_2 - (2 * pos_1) + (2 * dl[SCC - 1]) - dl[SCC - 2]) * v__) - ((vplocal[1] / 2) * (e * i__ / (dx ** 3))) #* f___)
+        vector[SCC] = ((pos_2 - (2 * pos_1) + (2 * dl[SCC - 1]) - dl[SCC - 2]) * v__) - ((vplocal[1] / 2) * (e * i__ / (dx ** 3)))
         for i in range(2, SCC - 1):
             vector[i] = (dl[i + 2] - (2 * dl[i + 1]) + (2 * dl[i - 1]) - dl[i - 2]) * v__
         return vector
 
-    vdlyy = v_maker3(dlyy, dlyy_n1, dlyy_n2, dlyy_p1, dlyy_p2, vzz, vplocal_y, f_zz, object.e, object.izz(), dx)
+    vdlyy = v_maker3(dlyy, dlyy_n1, dlyy_n2, dlyy_p1, dlyy_p2, vzz, vplocal_y, object.e, object.izz(), dx)
     #print('#'*30)
     #print('vd1yy')
     #print(df(vdlyy))
@@ -364,7 +393,7 @@ def calculations(object, SCC, POISSON):
     #print(vzz)
     #print('vplocaly[1]')
     #print(vplocal_y[1])
-    vdlzz = v_maker3(dlzz, dlzz_n1, dlzz_n2, dlzz_p1, dlzz_p2, vyy, vplocal_z, f_yy, object.e, object.iyy(), dx)
+    vdlzz = v_maker3(dlzz, dlzz_n1, dlzz_n2, dlzz_p1, dlzz_p2, vyy, vplocal_z, object.e, object.iyy(), dx)
     #print('#' * 30)
     #print('vd1zz')
     #print(df(vdlzz))
@@ -372,7 +401,9 @@ def calculations(object, SCC, POISSON):
     #print(vyy)
     #print('vplocalz[1]')
     #print(vplocal_z[1])
-    pcu_local = np.zeros(12)
+
+    #pcu_local = np.zeros(12)
+    pcu_local = [0]*12
 
     pcu_local[0] = p_axial
     pcu_local[1] = - vdlyy[0]
@@ -386,6 +417,8 @@ def calculations(object, SCC, POISSON):
     pcu_local[9] = 0
     pcu_local[10] = mdlzz[SCC]
     pcu_local[11] = - mdlyy[SCC]
+
+    object.pculocal = pcu_local
     #print('='*30)
     #print("pcu_local")
     #print(df(pcu_local))
