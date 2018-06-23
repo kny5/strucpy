@@ -1,7 +1,7 @@
 """ archivo para pruebas """
 from Model.Classes import *
 from Model.k_p import calculations as calc
-from pandas import DataFrame as df
+#from pandas import DataFrame as df
 from Model.kest import *
 from numpy.linalg import inv
 
@@ -180,7 +180,8 @@ elementos = [elemento1, elemento2, elemento3, elemento4, elemento5, elemento6, e
 
 
 for key in elementos:
-    x = calc(key, SCC, 0.25)
+    x = calc(key)
+print('k_p.py done')
 
 
 est_init = est_init(elementos)
@@ -234,12 +235,12 @@ fuerza_axial(elementos, SCC)
 
 print("done.")
 
-df(kest).to_csv("kest.csv")
-df(pcur).to_csv("pcur.csv")
+#df(kest).to_csv("kest.csv")
+#df(pcur).to_csv("pcur.csv")
+##
+#df(v_cargas_nodales).to_csv("v_cargas_nodales.csv")
+#df(pcurg).to_csv("pcurg.csv")
+#df(dn_est).to_csv("dn_est.csv")
 #
-df(v_cargas_nodales).to_csv("v_cargas_nodales.csv")
-df(pcurg).to_csv("pcurg.csv")
-df(dn_est).to_csv("dn_est.csv")
-
-
-df(elemento1.press_y).to_csv('elemento1_presion_y.csv')
+#
+#df(elemento1.press_y).to_csv('elemento1_presion_y.csv')
