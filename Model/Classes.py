@@ -88,6 +88,7 @@ class Elemento:
     #    return ve
 #
 
+
 class Concreto(Elemento):
     """Propiedades específicas del concreto"""
     Elemento.countrefs += 1
@@ -97,7 +98,7 @@ class Concreto(Elemento):
         self.b = 0  # ancho de zapata
         self.h = 0  # altura de zapata
         self.b_prima = 0  # ancho de Contratrabe
-        self.e = 0  # modulo de elasticidad
+        self.e = 221.359  # modulo de elasticidad
         self.p_mat = 2.4  # ton/m3
 
     def a1(self):
