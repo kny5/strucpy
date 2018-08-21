@@ -1,196 +1,80 @@
 """ archivo para pruebas """
-from Model.Classes import Concreto
 from Model.k_p import calculations as calc
-# from pandas import DataFrame as df
 from Model.kest import vdgen
+import pandas as pd
+from openpyxl import load_workbook
+import os
+import datetime
+import elementos
+from shutil import copyfile
+import sys
+from pandas import DataFrame as df
 
-from gc import get_objects
-
-elemento1 = Concreto()
-elemento1.l = 900
-elemento1.h = 120
-elemento1.b = 150
-elemento1.b_prima = 40
-elemento1.kv = 2
-elemento1.e = 221.359
-elemento1.p_mat = 2.4
-elemento1.ve = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
-elemento2 = Concreto()
-elemento2.l = 900
-elemento2.h = 120
-elemento2.b = 150
-elemento2.nu = 0
-elemento2.b_prima = 40
-elemento2.lm = 0
-elemento2.kv = 2
-elemento2.kh = 0
-elemento2.e = 221.359
-elemento2.p_mat = 2.4
-elemento2.ve = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
-elemento2.apoyos = [0]
-
-elemento3 = Concreto()
-elemento3.l = 300
-elemento3.h = 120
-elemento3.b = 150
-elemento3.nu = 90
-elemento3.b_prima = 40
-elemento3.lm = 0
-elemento3.kv = 2
-elemento3.kh = 0
-elemento3.e = 221.359
-elemento3.p_mat = 2.4
-elemento3.ve = [13, 14, 15, 16, 17, 18, 1, 2, 3, 4, 5, 6]
-elemento3.apoyos = [0]
-
-elemento4 = Concreto()
-elemento4.l = 300
-elemento4.h = 120
-elemento4.b = 150
-elemento4.nu = 90
-elemento4.b_prima = 40
-elemento4.lm = 0
-elemento4.kv = 2
-elemento4.kh = 0
-elemento4.e = 221.359
-elemento4.p_mat = 2.4
-elemento4.ve = [19, 20, 21, 22, 23, 24, 7, 8, 9, 10, 11, 12]
-elemento4.apoyos = [0]
-
-elemento5 = Concreto()
-elemento5.l = 500
-elemento5.h = 40
-elemento5.b = 40
-elemento5.nu = 0
-elemento5.b_prima = 40
-elemento5.lm = 90
-elemento5.kv = 0
-elemento5.kh = 0
-elemento5.e = 221.359
-elemento5.p_mat = 2.4
-elemento5.ve = [1, 2, 3, 4, 5, 6, 37, 38, 39, 40, 41, 42]
-elemento5.apoyos = [0]
-
-elemento6 = Concreto()
-elemento6.l = 500
-elemento6.h = 40
-elemento6.b = 40
-elemento6.nu = 0
-elemento6.b_prima = 40
-elemento6.lm = 90
-elemento6.kv = 0
-elemento6.kh = 0
-elemento6.e = 221.359
-elemento6.p_mat = 2.4
-elemento6.ve = [7, 8, 9, 10, 11, 12, 43, 44, 45, 46, 47, 48]
-elemento6.apoyos = [0]
-
-elemento7 = Concreto()
-elemento7.l = 500
-elemento7.h = 40
-elemento7.b = 40
-elemento7.nu = 0
-elemento7.b_prima = 40
-elemento7.lm = 90
-elemento7.kv = 0
-elemento7.kh = 0
-elemento7.e = 221.359
-elemento7.p_mat = 2.4
-elemento7.ve = [13, 14, 15, 16, 17, 18, 25, 26, 27, 28, 29, 30]
-elemento7.apoyos = [0]
-
-elemento8 = Concreto()
-elemento8.l = 500
-elemento8.h = 40
-elemento8.b = 40
-elemento8.nu = 0
-elemento8.b_prima = 40
-elemento8.lm = 90
-elemento8.kv = 0
-elemento8.kh = 0
-elemento8.e = 221.359
-elemento8.p_mat = 2.4
-elemento8.ve = [19, 20, 21, 22, 23, 24, 31, 32, 33, 34, 35, 36]
-elemento8.apoyos = [0]
-
-elemento9 = Concreto()
-elemento9.l = 900
-elemento9.h = 40
-elemento9.b = 40
-elemento9.nu = 0
-elemento9.b_prima = 40
-elemento9.lm = 0
-elemento9.kv = 0
-elemento9.kh = 0
-elemento9.e = 221.359
-elemento9.p_mat = 2.4
-elemento9.ve = [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
-elemento9.apoyos = [0]
-
-elemento10 = Concreto()
-elemento10.l = 900
-elemento10.h = 40
-elemento10.b = 40
-elemento10.nu = 0
-elemento10.b_prima = 40
-elemento10.lm = 0
-elemento10.kv = 0
-elemento10.kh = 0
-elemento10.e = 221.359
-elemento10.p_mat = 2.4
-elemento10.ve = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
-elemento10.apoyos = [0]
-
-elemento11 = Concreto()
-elemento11.l = 300
-elemento11.h = 40
-elemento11.b = 40
-elemento11.nu = 90
-elemento11.b_prima = 40
-elemento11.lm = 0
-elemento11.kv = 0
-elemento11.kh = 0
-elemento11.e = 221.359
-elemento11.p_mat = 2.4
-elemento11.ve = [25, 26, 27, 28, 29, 30, 37, 38, 39, 40, 41, 42]
-elemento11.apoyos = [0]
-
-elemento12 = Concreto()
-elemento12.l = 300
-elemento12.h = 40
-elemento12.b = 40
-elemento12.nu = 90
-elemento12.b_prima = 40
-elemento12.lm = 0
-elemento12.kv = 0
-elemento12.kh = 0
-elemento12.e = 221.359
-elemento12.p_mat = 2.4
-elemento12.ve = [31, 32, 33, 34, 35, 36, 43, 44, 45, 46, 47, 48]
-elemento12.apoyos = [0]
-
-#elementos = []
+elementos = elementos.lista
 #
-#for element in get_objects():
-#    if isinstance(element, Concreto):
-#        elementos.append(element)
+calc(elementos)
 #
+print('k_p.py done')
 #
-#calc(elementos)
-#
-#print('k_p.py done')
-#
-#vdgen(elementos)
-#
-#print("done.")
 
-# df(kest).to_csv("kest.csv")
-# df(pcur).to_csv("pcur.csv")
-##
-# df(v_cargas_nodales).to_csv("v_cargas_nodales.csv")
-# df(pcurg).to_csv("pcurg.csv")
-# df(dn_est).to_csv("dn_est.csv")
 #
+print("done.")
+
+if not os.path.exists("proyectos"):
+    os.mkdir("proyectos")
+
+#if not sys.argv[1]:
+#    print("\n" + "Proyectos existentes:" + "\n")
+#    print(os.listdir("proyectos"))
+#    print("\n## Puede escribir cualquiera de los nombres listados o crear uno nuevo.")
+
+#    proyecto = input("\n" + "! " + "Nombre del proyecto: ")
+#else:
+
+proyecto = sys.argv[1]
+
+path_pro = "proyectos/" + str(proyecto) + "/"
+
+if not os.path.exists(path_pro):
+    os.mkdir(path_pro)
+
+#if not sys.argv[2]:
+#    version = path_pro + str(datetime.datetime.now())
+#else:
+version = path_pro + sys.argv[2]
+
+os.mkdir(version)
+
+vdgen(elementos)
 #
-# df(elemento1.press_y).to_csv('elemento1_presion_y.csv')
+print("\nCreando archivos de excel:")
+
+for k, elemento in enumerate(elementos, 1):
+
+    print(("#"*k) + " " + str(k))
+
+    w_name = str(k) + "_elemento.xlsx"
+    completeName = os.path.join(version, w_name)
+
+    w_elem = pd.ExcelWriter(completeName)
+    for att, value in elemento.__dict__.items():
+        if type(value) != float and type(value) != list and type(value) != int and type(value) != str:
+            x_ = value.tolist()
+            df(x_).to_excel(w_elem, str(att))
+    w_elem.save()
+
+    data_ = load_workbook(completeName)
+    wb3 = data_.create_sheet('datos', 0)
+    count_e = 1
+    for att, value in elemento.__dict__.items():
+        if type(value) == float or type(value) == int or type(value) == str or type(value) == list:
+
+          wb3.cell(count_e, 1, value=str(att))
+          wb3.cell(count_e, 2, value=str(value))
+          count_e += 1
+
+    data_.save(completeName)
+    percent = round(100 / len(elementos), 0)
+
+copyfile("elementos.py", os.path.join(version, "elementos.py"))
+print("Programa finalizado.")
