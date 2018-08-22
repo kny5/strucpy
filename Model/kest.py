@@ -2,6 +2,7 @@ import numpy as np
 from pandas import DataFrame as df
 import pandas as pd
 import sys
+import elementos
 
 def matrix_data(dict__):
     def max_ve():
@@ -28,19 +29,20 @@ def matrix_data(dict__):
     kest = np.delete(kest, 0, axis=0)
     kest = np.delete(kest, 0, axis=1)
     pcur_ = np.delete(pcur_, 0, axis=0)
+    pcur_ = pcur_ + elementos.v_c_n
     dn_est = np.dot(kest.I, pcur_)
 
     writerex = pd.ExcelWriter("proyectos/" + str(sys.argv[1]) + "/" + str(sys.argv[2]) + "/datos_generales.xlsx")
     df(kest).to_excel(writerex, "kest")
     df(pcur).to_excel(writerex,"pcur")
-    #df(v_cargas_nodales).to_excel(writerex, "cargas nodales")
+    df(elementos.v_c_n).to_excel(writerex, "cargas nodales")
     df(pcur_).to_excel(writerex, "pcurg")
     df(dn_est).to_excel(writerex, "dn_est")
 
     writerex.save()
     return dn_est
 
-def vdgen(dict__, _scc=20):
+def vdgen(dict__, _scc=elementos.SCC):
     dn_est = matrix_data(dict__)
     for key in dict__:
         vdgen_p = np.zeros(12)
@@ -127,7 +129,7 @@ def vdgen(dict__, _scc=20):
     # fuerza_axial
             f_ = np.zeros(_scc + 1)
             f_[0] = fr_local[0]
-            print(df(fr_local))
+            #print(df(fr_local))
             for i_ in range(1, _scc + 1):
                 f_[i_] = f_[i_ - 1] + key.pp_scc
                 #print(f_[i_])

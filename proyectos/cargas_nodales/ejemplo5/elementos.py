@@ -1,9 +1,6 @@
 from Model.Classes import *
 from gc import get_objects
 
-SCC = 20
-poisson = 0.25
-
 elemento1 = Concreto()
 elemento1.l = 400
 elemento1.h = 40

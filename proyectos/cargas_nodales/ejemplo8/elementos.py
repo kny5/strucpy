@@ -1,7 +1,7 @@
 from Model.Classes import *
 from gc import get_objects
 
-SCC = 20
+SCC = 50
 poisson = 0.25
 
 elemento1 = Concreto()

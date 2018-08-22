@@ -1,9 +1,9 @@
 import math
 import numpy as np
 from numpy import matlib
+import elementos
 
-
-def calculations(objectos, _scc=20, _poisson=0.25):
+def calculations(objectos, _scc=elementos.SCC, _poisson=elementos.poisson):
     for objeto in objectos:
         long = objeto.l
         deltax = long / _scc
