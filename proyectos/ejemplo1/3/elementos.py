@@ -50,15 +50,15 @@ elemento4 = Concreto()
 elemento4.l = 781.02
 elemento4.h = 40
 elemento4.b = 40
+elemento4.nu = -26.565
 elemento4.b_prima = 40
+elemento4.lm = 30.8
 elemento4.kv = 0
+elemento4.kh = 0
 elemento4.e = 221.359
 elemento4.p_mat = 2.4
 elemento4.ve = [0, 0, 0, 0, 0, 0, 7, 8, 9, 10, 11, 12]
-elemento4.wy = 8
-elemento4.aw = 30.80
-elemento4.nu = -26.565
-elemento4.lm = 30.8
+elemento4.apoyos = [0]
 
 v_c_n = [0,0,0,0,0,0,0,0,0,0,0,0]
 

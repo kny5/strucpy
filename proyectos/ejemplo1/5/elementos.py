@@ -1,6 +1,9 @@
 from Model.Classes import *
 from gc import get_objects
 
+SCC = 20
+poisson = 0.25
+
 elemento1 = Concreto()
 elemento1.l = 400
 elemento1.h = 40
@@ -44,6 +47,8 @@ elemento3.ve = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 elemento3.apoyos = [0]
 
 
+
+v_c_n = [0,0,0,0,0,0,0,0,0,0,0,0]
 
 lista = []
 #

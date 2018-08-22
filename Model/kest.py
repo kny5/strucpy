@@ -3,6 +3,7 @@ from pandas import DataFrame as df
 import pandas as pd
 import sys
 import elementos
+import math
 
 def matrix_data(dict__):
     def max_ve():
@@ -132,6 +133,9 @@ def vdgen(dict__, _scc=elementos.SCC):
             #print(df(fr_local))
             for i_ in range(1, _scc + 1):
                 f_[i_] = f_[i_ - 1] + key.pp_scc
-                #print(f_[i_])
+                #print(f_[i_])}
+            for ef_, j_ in enumerate(f_,0):
+                f_[ef_] = f_[ef_] + ef_ * ((key.wy * (key.l / 100) * math.sin(math.radians(key.aw))) / _scc)
+
             key.fax = f_
     return True
