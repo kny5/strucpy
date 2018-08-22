@@ -43,7 +43,7 @@ def matrix_data(dict__):
 def vdgen(dict__, _scc=20):
     dn_est = matrix_data(dict__)
     for key in dict__:
-        vdgen_p = np.empty(12)
+        vdgen_p = np.zeros(12)
         for k, i_ in enumerate(key.ve):
             if i_ == 0:
                 pass
@@ -84,7 +84,7 @@ def vdgen(dict__, _scc=20):
 
     # cortante
             def cor__(v__, dr_, a, b, c):
-                v_ = np.empty(_scc + 1)
+                v_ = np.zeros(_scc + 1)
                 for __j in range(2, _scc - 1):
                     v_[__j] = (dr_[__j + 2] - 2*dr_[__j+1] + 2*dr_[__j-1] - dr_[__j - 2]) * v__
 
@@ -100,7 +100,7 @@ def vdgen(dict__, _scc=20):
     # momentos
             def mome__(dr_, m__, a):
 
-                m_ = np.empty(_scc + 1)
+                m_ = np.zeros(_scc + 1)
 
                 for j_ in range(1, _scc):
                     m_[j_] = (dr_[j_ + 1] - 2*dr_[j_] + dr_[j_ - 1]) * m__
@@ -115,7 +115,7 @@ def vdgen(dict__, _scc=20):
 
     # presiones
             def pres__(dr_, k_):
-                p_ = np.empty(_scc + 1)
+                p_ = np.zeros(_scc + 1)
                 for i in range(len(p_)):
                     p_[i] = dr_[i] * k_ * 10
                 return p_
@@ -126,10 +126,10 @@ def vdgen(dict__, _scc=20):
 
     # fuerza_axial
             f_ = np.zeros(_scc + 1)
-            f_[0] = fr_local[6]
-
+            f_[0] = fr_local[0]
+            print(df(fr_local))
             for i_ in range(1, _scc + 1):
-                f_[i_] = f_[i_ - 1] - key.pp_scc
+                f_[i_] = f_[i_ - 1] + key.pp_scc
                 #print(f_[i_])
             key.fax = f_
     return True

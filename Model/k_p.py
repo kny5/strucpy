@@ -269,11 +269,11 @@ def calculations(objectos, _scc=20, _poisson=0.25):
 
         vdlzz = v_maker3(dlzz, vyy, vplocal_z, objeto.iyy())
 
-        pcu_local = np.empty(12)
+        pcu_local = np.zeros(12)
 
         pcu_local[0] = p_axial
         pcu_local[1] = - vdlyy[0]
-        pcu_local[2] = - dlzz[0]
+        pcu_local[2] = - vdlzz[0]
         pcu_local[3] = 0
         pcu_local[4] = - mdlzz[0]
         pcu_local[5] = mdlyy[0]
