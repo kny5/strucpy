@@ -79,11 +79,14 @@ def vdgen(dict__, _scc=elementos.SCC):
             z[-2] = 2 * key.dx * dlen[10]
             z[-1] = 3 * dlen[8]
 
+            print(df(z))
+
             desp_imp_y = np.dot(-key.kzz.I, y).A1
             desp_imp_z = np.dot(-key.kyy.I, z).A1
+            print(df(desp_imp_z))
     # d_real
             dry = desp_imp_y + key.dlyy
-            drz = desp_imp_z + key.dlzz
+            drz = desp_imp_z - key.dlzz
 
     # cortante
             def cor__(v__, dr_, a, b, c):
