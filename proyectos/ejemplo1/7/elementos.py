@@ -20,32 +20,33 @@ elemento1.nu = 0
 elemento1.lm = 90
 
 elemento2 = Concreto()
-elemento2.l = 400
+elemento2.l = 600
 elemento2.h = 40
 elemento2.b = 40
 elemento2.nu = 0
 elemento2.b_prima = 40
-elemento2.lm = 90
+elemento2.lm = 0
 elemento2.kv = 0
 elemento2.kh = 0
 elemento2.e = 221.359
 elemento2.p_mat = 2.4
-elemento2.ve = [0, 0, 0, 0, 0, 0, 7, 8, 9, 10, 11, 12]
+elemento2.ve = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 elemento2.apoyos = [0]
 
 elemento3 = Concreto()
-elemento3.l = 600
+elemento3.l = 400
 elemento3.h = 40
 elemento3.b = 40
 elemento3.nu = 0
 elemento3.b_prima = 40
-elemento3.lm = 0
+elemento3.lm = 90
 elemento3.kv = 0
 elemento3.kh = 0
 elemento3.e = 221.359
 elemento3.p_mat = 2.4
-elemento3.ve = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+elemento3.ve = [0, 0, 0, 0, 0, 0, 7, 8, 9, 10, 11, 12]
 elemento3.apoyos = [0]
+
 
 
 

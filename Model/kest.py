@@ -60,7 +60,12 @@ def vdgen(dict__, _scc=elementos.SCC):
     # f_real_local
             pcu_loc = key.pculocal
             pcu_loc[6] = - pcu_loc[6]
-            fr_local = pcu_loc - f
+            print(len(vdgen_p))
+            key.apoyos = np.asarray(key.apoyos)
+            f_g_springs = np.multiply(vdgen_p, key.apoyos)
+            print(f_g_springs)
+            f_l_springs = np.dot(tr.T, f_g_springs).A1
+            fr_local = pcu_loc - f + f_l_springs
     # desp_local
             dlen = np.dot(tr.T, vdgen_p).A1
     # desp_
@@ -79,11 +84,11 @@ def vdgen(dict__, _scc=elementos.SCC):
             z[-2] = 2 * key.dx * dlen[10]
             z[-1] = 3 * dlen[8]
 
-            print(df(z))
+            #print(df(z))
 
             desp_imp_y = np.dot(-key.kzz.I, y).A1
             desp_imp_z = np.dot(-key.kyy.I, z).A1
-            print(df(desp_imp_z))
+            #print(df(desp_imp_z))
     # d_real
             dry = desp_imp_y + key.dlyy
             drz = desp_imp_z - key.dlzz

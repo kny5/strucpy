@@ -151,10 +151,6 @@ def calculations(objectos, _scc=elementos.SCC, _poisson=elementos.poisson):
         keb[11, 7] = - m2zz[_scc]
         keb[11, 11] = tm2zz[_scc]
 
-        if objeto.apoyos:
-            for i, k in enumerate(objeto.apoyos):
-                keb[i, i] += k
-
         tr = np.matlib.zeros(shape=(12, 12))
         # rotational matrix
         cosnu = math.cos(math.radians(a_nu))
@@ -197,6 +193,10 @@ def calculations(objectos, _scc=elementos.SCC, _poisson=elementos.poisson):
         tr[11, 11] = cosnu
 
         kebg = np.dot(np.dot(tr, keb), tr.T)
+
+        if objeto.apoyos:
+            for i, k in enumerate(objeto.apoyos,0):
+                kebg[i, i] += k
 
         objeto.tr = tr
 
