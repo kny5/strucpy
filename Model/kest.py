@@ -146,4 +146,8 @@ def vdgen(dict__, _scc=elementos.SCC):
                 f_[ef_] = f_[ef_] + ef_ * ((key.wy * (key.l / 100) * math.sin(math.radians(key.aw))) / _scc)
 
             key.fax = f_
+
+    # torsion Mx
+            key.mx = np.full(_scc +1, f[3])
+
     return True
