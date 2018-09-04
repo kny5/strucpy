@@ -133,14 +133,26 @@ class Especial(Elemento):
         Elemento.__init__(self)
         self.b = 0  # ancho de la sección
         self.h = 0  # altura de la sección
-        self.ixx = 0  # inercia del eje x
-        self.iyy = 0  # inercia del eje y
-        self.j = 0  # momento polar de inercia
+        self.izz_ = 0  # inercia del eje x
+        self.iyy_ = 0  # inercia del eje y
+        self.j_ = 0  # momento polar de inercia
         self.e = 0  # modulo de elasticidad
-        self.peso_p = 0  # peso propio
-        self.a1 = self.b
-        self.a2 = self.h
-        self.area = 0
+        self.p_mat = 0  # peso propio
+        #self.a1 = self.b
+        #self.a2 = self.h
+        self.area_ = 0
+    def a1(self):
+        return self.b
+    def a2(self):
+        return self.h
+    def area(self):
+        return self.area_
+    def izz(self):
+        return self.izz_
+    def iyy(self):
+        return self.iyy_
+    def j(self):
+        return self.j_
 
 
 class Acero(Elemento):
