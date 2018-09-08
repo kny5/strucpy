@@ -4,7 +4,7 @@ from gc import get_objects
 SCC = 10
 poisson = 0.25
 
-elemento1 = Concreto()
+elemento1 = Or()
 elemento1.l = 800
 elemento1.h = 40
 elemento1.b = 40
@@ -20,11 +20,12 @@ elemento1.nu = 0
 elemento1.lm = 90
 elemento1.apoyos = [1,3,2,100,100,100,4,6,5,100,100,100]
 
+elemento1.armadura = False
 
 v_c_n = [20,0,-50,0,0,0,0,-10,0,0,0,0]
 
 lista = []
 #
 for element in get_objects():
-    if isinstance(element, Concreto):
+    if isinstance(element, Or):
         lista.append(element)

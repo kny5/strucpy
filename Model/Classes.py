@@ -160,7 +160,7 @@ class Acero(Elemento):
         Elemento.__init__(self)
         self.e = 0
         self.p_mat = 7.849
-
+        self.armadura = False
 
 class Or(Acero):
     """Propiedades específicas del tipo OR"""

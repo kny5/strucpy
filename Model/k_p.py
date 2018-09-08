@@ -223,12 +223,19 @@ def calculations(objectos, _scc=elementos.SCC, _poisson=elementos.poisson):
                   ((deltax ** 3) / (m_elast * objeto.izz()))
 
         w_scc_z = ((wz * (long / 100)) / _scc) * ((deltax ** 3) / (m_elast * objeto.iyy()))
-
-        vplocal_y = np.insert(np.append(np.full((_scc - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
-        vplocal_z = np.insert(np.append(np.full((_scc - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
-
+        
+        if objecto.armadura == False:
+            
+            vplocal_y = np.insert(np.append(np.full((_scc - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
+            vplocal_z = np.insert(np.append(np.full((_scc - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
+        
+        else:
+            p_elem = pp * (long/100)
+            vplocal_y = np.zeros(_scc + 1)
+            vplocal_z = np.zeros(_scc + 1)
+            p_vertical = -(coslm * p_elem) / 2 
+        
         dlzz = np.dot(kzz.I, -vplocal_z).A1
-
         dlyy = np.dot(kyy.I, -vplocal_y).A1
 
         objeto.dlzz = dlzz
@@ -266,23 +273,36 @@ def calculations(objectos, _scc=elementos.SCC, _poisson=elementos.poisson):
             return vector
 
         vdlyy = v_maker3(dlyy, vzz, vplocal_y, objeto.izz())
-
         vdlzz = v_maker3(dlzz, vyy, vplocal_z, objeto.iyy())
 
         pcu_local = np.zeros(12)
-
-        pcu_local[0] = p_axial
-        pcu_local[1] = - vdlyy[0]
-        pcu_local[2] = - vdlzz[0]
-        pcu_local[3] = 0
-        pcu_local[4] = - mdlzz[0]
-        pcu_local[5] = mdlyy[0]
-        pcu_local[6] = p_axial
-        pcu_local[7] = vdlyy[_scc]
-        pcu_local[8] = vdlzz[_scc]
-        pcu_local[9] = 0
-        pcu_local[10] = mdlzz[_scc]
-        pcu_local[11] = - mdlyy[_scc]
+        
+        if objeto.armadura == False:
+            pcu_local[0] = p_axial
+            pcu_local[1] = - vdlyy[0]
+            pcu_local[2] = - vdlzz[0]
+            pcu_local[3] = 0
+            pcu_local[4] = - mdlzz[0]
+            pcu_local[5] = mdlyy[0]
+            pcu_local[6] = p_axial
+            pcu_local[7] = vdlyy[_scc]
+            pcu_local[8] = vdlzz[_scc]
+            pcu_local[9] = 0
+            pcu_local[10] = mdlzz[_scc]
+            pcu_local[11] = - mdlyy[_scc]
+        else:
+            pcu_local[0] = p_axial
+            pcu_local[1] = p_vertical
+            pcu_local[2] = 0
+            pcu_local[3] = 0
+            pcu_local[4] = 0
+            pcu_local[5] = 0
+            pcu_local[6] = p_axial
+            pcu_local[7] = p_vertical
+            pcu_local[8] = 0
+            pcu_local[9] = 0
+            pcu_local[10] = 0
+            pcu_local[11] = 0
 
         objeto.pculocal = pcu_local
         objeto.pc_ = np.dot(tr, pcu_local).A1
