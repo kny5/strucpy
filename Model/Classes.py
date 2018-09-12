@@ -78,10 +78,11 @@ class Elemento:
                         elif obs_.position == self.end:
                             self._nodoEnd = obs_
                             print('nodo existente para end')
-            #if self._nodoStart is None:
-            self._nodoStart = Nodo(self.start, **self.start_conf)
-            #if self._nodoEnd is None:
-            self._nodoEnd = Nodo(self.end, **self.end_conf)
+
+            if self._nodoStart is None:
+                self._nodoStart = Nodo(self.start, **self.start_conf)
+            if self._nodoEnd is None:
+                self._nodoEnd = Nodo(self.end, **self.end_conf)
                 # else
             self.ve = self._nodoStart.ve_parcial + self._nodoEnd.ve_parcial
             self.l = abs((((self.end[0] - self.start[0]) ** 2) + ((self.end[1] - self.start[1]) ** 2) + (
