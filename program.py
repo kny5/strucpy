@@ -58,7 +58,8 @@ for k, elemento in enumerate(elementos, 1):
 
     w_elem = pd.ExcelWriter(completeName)
     for att, value in elemento.__dict__.items():
-        if type(value) != float and type(value) != list and type(value) != int and type(value) != str:
+        if type(value) != float and type(value) != list and type(value) != int and type(value) != str \
+                and type(value) != bool and type(value) != tuple and type(value) != dict:
             x_ = value.tolist()
             df(x_).to_excel(w_elem, str(att))
     w_elem.save()
@@ -67,7 +68,7 @@ for k, elemento in enumerate(elementos, 1):
     wb3 = data_.create_sheet('datos', 0)
     count_e = 1
     for att, value in elemento.__dict__.items():
-        if type(value) == float or type(value) == int or type(value) == str or type(value) == list:
+        if type(value) == float or type(value) == int or type(value) == str or type(value) == list or type(value) == bool:
 
           wb3.cell(count_e, 1, value=str(att))
           wb3.cell(count_e, 2, value=str(value))

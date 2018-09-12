@@ -224,7 +224,7 @@ def calculations(objectos, _scc=elementos.SCC, _poisson=elementos.poisson):
 
         w_scc_z = ((wz * (long / 100)) / _scc) * ((deltax ** 3) / (m_elast * objeto.iyy()))
         
-        if objecto.armadura == False:
+        if objeto.armadura == False:
             
             vplocal_y = np.insert(np.append(np.full((_scc - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
             vplocal_z = np.insert(np.append(np.full((_scc - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)

@@ -1,53 +1,46 @@
 import math
 import itertools
+from gc import get_objects
 
 """
 Catalogo de clases
 """
 
-
-#class workspace:
-#    def __init__(self, x, y, z):
-#        self.id = " "
-#        self.max_x = x
-#        self.max_y = y
-#        self.max_z = z
-#        self.origin = [0, 0, 0]
-#        self.max_all = [x, y, z]
+ac_nodo = 0
 
 
-#class Nodo():
-#    id_gen = itertools.count(1)
-#
-#    def __new__(self, x, y, z, universe):
-#        while x in range(0, universe.max_x) and y in range(0, universe.max_y) and z in range(0, universe.max_z):
-#            try:
-#                return super(Nodo, self).__new__(self)
-#                break
-#
-#            except:
-#                return None
-#
-#    def __init__(self, x, y, z, *args):
-#        self.id = str(next(self.id_gen))
-#        self.x = x
-#        self.y = y
-#        self.z = z
-#        self.position = [x, y, z]
-#
-#    def set_ve(self, dx, dy, dz, mx, my, mz):
-#        self.ve__ = [dx, dy, dz, mx, my, mz]
-#
-#
+class Nodo:
+    n_id_gen = itertools.count(1)
+
+    def __init__(self, position, **kwargs):
+        self.n_id = str(next(self.n_id_gen))
+        self.x = position[0]
+        self.y = position[1]
+        self.z = position[2]
+        self.position = position
+#   def set_ve(self, dx=True, dy=True, dz=True, mx=True, my=True, mz=True):
+        self._veBool = (kwargs['dx'], kwargs['dy'], kwargs['dz'], kwargs['mx'], kwargs['my'], kwargs['mz'])
+        self.ve_parcial = []
+        for _bool in self._veBool:
+            if _bool == True:
+                global ac_nodo
+                ac_nodo += 1
+                self.ve_parcial.append(ac_nodo)
+            else:
+                self.ve_parcial.append(0)
+    def tolist(self):
+        return [self.position[0], self.position[1], self.position[2]]
+
+
 class Elemento:
     """Propiedades generales de elemento"""
     countrefs = 0
 
-    id_gen = itertools.count(1)
+    e_id_gen = itertools.count(1)
 
     def __init__(self):
-        self.l = 0
-        self.id = str(next(self.id_gen))
+        #self.l = 0
+        self.e_id = str(next(self.e_id_gen))
         self.nu = 0  # ángulo plano xz
         self.lm = 0  # ángulo plano xy
         self.kv = 0  # módulo de reacción vertical
@@ -55,37 +48,74 @@ class Elemento:
         self.wy = 0  # carga uniformemente dist, TON/ML y
         self.wz = 0  # carga uniforme... z
         self.aw = 0  # angulo de carga
-        self.apoyos = []
+        self.apoyos = None
+        self.start = None
+        self.end = None
+        self._nodoStart = None
+        self._nodoEnd = None
+        self.start_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
+        self.end_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
+        self.ve = None
 
-    #def set_nodos(self, nodo_0, nodo_1):
-    #    self.nodos = [nodo_0, nodo_1]
-    #    self.abs = [self.nodos[1].x - self.nodos[0].x,\
-    #                self.nodos[1].y - self.nodos[0].y,\
-    #                self.nodos[1].z - self.nodos[0].z]
+
+    def set_nodes(self):
+        if self.ve is not None:
+            print('updating?')
+            #global ac_nodo
+            #ac_nodo = 0
+        if self.start != self.end:# and self.start is not None and self.end is not None and self.ve is None:
+            if self.e_id == 1:
+                self._nodoStart = Nodo(self.start, **self.start_conf)
+                self._nodoEnd = Nodo(self.end, **self.end_conf)
+                self.ve = self._nodoStart.ve_parcial + self._nodoEnd.ve_parcial
+            else:
+                for obs_ in get_objects():
+                    if isinstance(obs_, Nodo):
+                        print('Existen instancias de Nodo')
+                        if obs_.position == self.start:
+                            self._nodoStart = obs_
+                            print('nodo existente para start')
+                        elif obs_.position == self.end:
+                            self._nodoEnd = obs_
+                            print('nodo existente para end')
+            #if self._nodoStart is None:
+            self._nodoStart = Nodo(self.start, **self.start_conf)
+            #if self._nodoEnd is None:
+            self._nodoEnd = Nodo(self.end, **self.end_conf)
+                # else
+            self.ve = self._nodoStart.ve_parcial + self._nodoEnd.ve_parcial
+            self.l = abs((((self.end[0] - self.start[0]) ** 2) + ((self.end[1] - self.start[1]) ** 2) + (
+                        (self.end[2] - self.start[2]) ** 2)) ** 0.5)
+
+        else:
+            print("Error No Start or End points")
+        if self.start == self.end:
+            print('values are the same')
+            print(self.start, self.end)
+
+        return self.ve
+
+
 #
-    #def long(self):
-    #    ab = abs(((self.abs[0] ** 2) + (self.abs[1] ** 2) + (self.abs[2] ** 2)) ** 0.5)
-    #    return ab
+# def alpha(self):
+#    alpha = math.degrees(math.acos(self.abs[0]/self.long()))
+#    return alpha
 #
-    #def alpha(self):
-    #    alpha = math.degrees(math.acos(self.abs[0]/self.long()))
-    #    return alpha
+# def beta(self):
+#    beta = math.degrees(math.acos(self.abs[1]/self.long()))
+#    return beta
 #
-    #def beta(self):
-    #    beta = math.degrees(math.acos(self.abs[1]/self.long()))
-    #    return beta
+# def gama(self):
+#    gama = math.degrees(math.acos(self.abs[2]/self.long()))
+#    return gama
 #
-    #def gama(self):
-    #    gama = math.degrees(math.acos(self.abs[2]/self.long()))
-    #    return gama
-#
-    #def vector_ensamble(self):
-    #    ve = []
-    #    for i in self.nodos[0].ve__:
-    #        ve.append(i)
-    #    for j in self.nodos[1].ve__:
-    #        ve.append(j)
-    #    return ve
+# def vector_ensamble(self):
+#    ve = []
+#    for i in self.nodos[0].ve__:
+#        ve.append(i)
+#    for j in self.nodos[1].ve__:
+#        ve.append(j)
+#    return ve
 #
 
 
@@ -138,19 +168,25 @@ class Especial(Elemento):
         self.j_ = 0  # momento polar de inercia
         self.e = 0  # modulo de elasticidad
         self.p_mat = 0  # peso propio
-        #self.a1 = self.b
-        #self.a2 = self.h
+        # self.a1 = self.b
+        # self.a2 = self.h
         self.area_ = 0
+
     def a1(self):
         return self.b
+
     def a2(self):
         return self.h
+
     def area(self):
         return self.area_
+
     def izz(self):
         return self.izz_
+
     def iyy(self):
         return self.iyy_
+
     def j(self):
         return self.j_
 
@@ -161,6 +197,7 @@ class Acero(Elemento):
         self.e = 0
         self.p_mat = 7.849
         self.armadura = False
+
 
 class Or(Acero):
     """Propiedades específicas del tipo OR"""
