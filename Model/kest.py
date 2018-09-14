@@ -4,6 +4,8 @@ import pandas as pd
 import sys
 import elementos
 import math
+from Model.Classes import Nodos
+
 
 def matrix_data(dict__):
     def max_ve():
@@ -14,6 +16,7 @@ def matrix_data(dict__):
                 max_val = try_ve
         return max_val
     m_ve = max_ve()
+    print('[Grados]:\t' + '[' + str(m_ve) + ']')
 # matrix_data
     kest = np.matlib.zeros(shape=(m_ve + 1, m_ve + 1))
     pcur_ = np.zeros(m_ve + 1)
@@ -30,20 +33,25 @@ def matrix_data(dict__):
     kest = np.delete(kest, 0, axis=0)
     kest = np.delete(kest, 0, axis=1)
     pcur_ = np.delete(pcur_, 0, axis=0)
-    pcur_ = pcur_ + elementos.v_c_n
+    v_c_n = []
+    for elem_vcn in Nodos:
+        v_c_n += elem_vcn.n_vcn
+    pcur_ = pcur_ + v_c_n
     dn_est = np.dot(kest.I, pcur_)
 
     writerex = pd.ExcelWriter("proyectos/" + str(sys.argv[1]) + "/" + str(sys.argv[2]) + "/datos_generales.xlsx")
     df(kest).to_excel(writerex, "kest")
     df(pcur).to_excel(writerex,"pcur")
-    df(elementos.v_c_n).to_excel(writerex, "cargas nodales")
+    df(v_c_n).to_excel(writerex, "cargas nodales")
     df(pcur_).to_excel(writerex, "pcurg")
     df(dn_est).to_excel(writerex, "dn_est")
 
     writerex.save()
     return dn_est
 
+
 def vdgen(dict__, _scc=elementos.SCC):
+    print('[Secciones]:\t' + '[' + str(_scc) + ']')
     dn_est = matrix_data(dict__)
     for key in dict__:
         vdgen_p = np.zeros(12)
@@ -60,10 +68,8 @@ def vdgen(dict__, _scc=elementos.SCC):
     # f_real_local
             pcu_loc = key.pculocal
             pcu_loc[6] = - pcu_loc[6]
-            print(len(vdgen_p))
             key.apoyos = np.asarray(key.apoyos)
             f_g_springs = np.multiply(vdgen_p, key.apoyos)
-            print(f_g_springs)
             f_l_springs = np.dot(tr.T, f_g_springs).A1
             fr_local = pcu_loc - f + f_l_springs
     # desp_local
@@ -78,17 +84,14 @@ def vdgen(dict__, _scc=elementos.SCC):
             key.desp_imp_antes_y = y
 
             z = np.zeros(_scc + 1)
-
             z[0] = 3 * dlen[2]
             z[1] = -2 * key.dx * dlen[4]
             z[-2] = 2 * key.dx * dlen[10]
             z[-1] = 3 * dlen[8]
 
-            #print(df(z))
-
             desp_imp_y = np.dot(-key.kzz.I, y).A1
             desp_imp_z = np.dot(-key.kyy.I, z).A1
-            #print(df(desp_imp_z))
+
     # d_real
             dry = desp_imp_y + key.dlyy
             drz = desp_imp_z - key.dlzz
@@ -98,7 +101,6 @@ def vdgen(dict__, _scc=elementos.SCC):
                 v_ = np.zeros(_scc + 1)
                 for __j in range(2, _scc - 1):
                     v_[__j] = (dr_[__j + 2] - 2*dr_[__j+1] + 2*dr_[__j-1] - dr_[__j - 2]) * v__
-
                 v_[0] = a * fr_local[1 + c]
                 v_[1] = (v_[0] + v_[2]) / 2
                 v_[-1] = b * fr_local[7 + c]
@@ -110,15 +112,11 @@ def vdgen(dict__, _scc=elementos.SCC):
 
     # momentos
             def mome__(dr_, m__, a):
-
                 m_ = np.zeros(_scc + 1)
-
                 for j_ in range(1, _scc):
                     m_[j_] = (dr_[j_ + 1] - 2*dr_[j_] + dr_[j_ - 1]) * m__
-
                 m_[0] = fr_local[4 + a]
                 m_[-1] = -fr_local[10 + a]
-
                 return m_
 
             key.mome_y = mome__(drz, key.myy, 0)
@@ -130,18 +128,20 @@ def vdgen(dict__, _scc=elementos.SCC):
                 for i in range(len(p_)):
                     p_[i] = dr_[i] * k_ * 10
                 return p_
+
             key.press_y = pres__(dry, key.kv)
             key.press_z = pres__(drz, key.kh)
+
             key.dry = dry
             key.drz = drz
 
     # fuerza_axial
             f_ = np.zeros(_scc + 1)
             f_[0] = fr_local[0]
-            #print(df(fr_local))
+
             for i_ in range(1, _scc + 1):
                 f_[i_] = f_[i_ - 1] + key.pp_scc
-                #print(f_[i_])}
+
             for ef_, j_ in enumerate(f_,0):
                 f_[ef_] = f_[ef_] + ef_ * ((key.wy * (key.l / 100) * math.sin(math.radians(key.aw))) / _scc)
 

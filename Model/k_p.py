@@ -3,8 +3,9 @@ import numpy as np
 from numpy import matlib
 import elementos
 
-def calculations(objectos, _scc=elementos.SCC, _poisson=elementos.poisson):
-    for objeto in objectos:
+def calculations(objetos, _scc=elementos.SCC, _poisson=elementos.poisson):
+    for objeto in objetos:
+        objeto.set_nodes()
         long = objeto.l
         deltax = long / _scc
         objeto.dx = deltax

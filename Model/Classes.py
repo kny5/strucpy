@@ -1,6 +1,5 @@
 import math
 import itertools
-from gc import get_objects
 
 """
 Catalogo de clases
@@ -8,7 +7,8 @@ Catalogo de clases
 
 ac_nodo = 0
 
-
+Nodos = []
+Elementos = []
 class Nodo:
     n_id_gen = itertools.count(1)
 
@@ -21,13 +21,24 @@ class Nodo:
 #   def set_ve(self, dx=True, dy=True, dz=True, mx=True, my=True, mz=True):
         self._veBool = (kwargs['dx'], kwargs['dy'], kwargs['dz'], kwargs['mx'], kwargs['my'], kwargs['mz'])
         self.ve_parcial = []
+        self.n_vcn = []
+        self.n_apoyo = []
         for _bool in self._veBool:
-            if _bool == True:
+            if _bool:
                 global ac_nodo
                 ac_nodo += 1
                 self.ve_parcial.append(ac_nodo)
-            else:
+                self.n_vcn.append(0)
+                self.n_apoyo.append(0)
+            elif _bool is False:
                 self.ve_parcial.append(0)
+                self.n_apoyo.append(0)
+            elif type(_bool) is tuple and type(_bool) is not bool:
+                self.n_vcn.append(_bool[0])
+                self.n_apoyo.append(_bool[1])
+        global Nodos
+        Nodos.append(self)
+
     def tolist(self):
         return [self.position[0], self.position[1], self.position[2]]
 
@@ -39,10 +50,9 @@ class Elemento:
     e_id_gen = itertools.count(1)
 
     def __init__(self):
-        #self.l = 0
         self.e_id = str(next(self.e_id_gen))
-        self.nu = 0  # ángulo plano xz
-        self.lm = 0  # ángulo plano xy
+        self.nu = None  # ángulo plano xz
+        self.lm = None  # ángulo plano xy
         self.kv = 0  # módulo de reacción vertical
         self.kh = 0  # módulo de reacción horizontal
         self.wy = 0  # carga uniformemente dist, TON/ML y
@@ -56,28 +66,20 @@ class Elemento:
         self.start_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
         self.end_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
         self.ve = None
-
+        global Elementos
+        Elementos.append(self)
 
     def set_nodes(self):
-        if self.ve is not None:
-            print('updating?')
-            #global ac_nodo
-            #ac_nodo = 0
-        if self.start != self.end:# and self.start is not None and self.end is not None and self.ve is None:
+        if self.start != self.end:
             if self.e_id == 1:
                 self._nodoStart = Nodo(self.start, **self.start_conf)
                 self._nodoEnd = Nodo(self.end, **self.end_conf)
-                self.ve = self._nodoStart.ve_parcial + self._nodoEnd.ve_parcial
             else:
-                for obs_ in get_objects():
-                    if isinstance(obs_, Nodo):
-                        print('Existen instancias de Nodo')
-                        if obs_.position == self.start:
-                            self._nodoStart = obs_
-                            print('nodo existente para start')
-                        elif obs_.position == self.end:
-                            self._nodoEnd = obs_
-                            print('nodo existente para end')
+                for nodo in Nodos:
+                    if nodo.position == self.start:
+                        self._nodoStart = nodo
+                    elif nodo.position == self.end:
+                        self._nodoEnd = nodo
 
             if self._nodoStart is None:
                 self._nodoStart = Nodo(self.start, **self.start_conf)
@@ -87,37 +89,23 @@ class Elemento:
             self.ve = self._nodoStart.ve_parcial + self._nodoEnd.ve_parcial
             self.l = abs((((self.end[0] - self.start[0]) ** 2) + ((self.end[1] - self.start[1]) ** 2) + (
                         (self.end[2] - self.start[2]) ** 2)) ** 0.5)
-
+            plane_xz = (((self._nodoEnd.x - self._nodoStart.x)**2) + ((self._nodoEnd.z - self._nodoStart.z)**2)) ** 0.5
+            if plane_xz != 0:
+                _nu_ = math.degrees(math.asin((self._nodoEnd.z - self._nodoStart.z) / plane_xz))
+                if self._nodoEnd.x - self._nodoStart.x < 0:
+                    self.nu = 180 - _nu_
+                else:
+                    self.nu = _nu_
+            else:
+                self.nu = 0
+            self.lm = math.degrees(math.asin((self._nodoEnd.y - self._nodoStart.y)/self.l))
+            self.apoyos = self._nodoStart.n_apoyo + self._nodoEnd.n_apoyo
         else:
             print("Error No Start or End points")
         if self.start == self.end:
             print('values are the same')
             print(self.start, self.end)
-
-        return self.ve
-
-
-#
-# def alpha(self):
-#    alpha = math.degrees(math.acos(self.abs[0]/self.long()))
-#    return alpha
-#
-# def beta(self):
-#    beta = math.degrees(math.acos(self.abs[1]/self.long()))
-#    return beta
-#
-# def gama(self):
-#    gama = math.degrees(math.acos(self.abs[2]/self.long()))
-#    return gama
-#
-# def vector_ensamble(self):
-#    ve = []
-#    for i in self.nodos[0].ve__:
-#        ve.append(i)
-#    for j in self.nodos[1].ve__:
-#        ve.append(j)
-#    return ve
-#
+        return None
 
 
 class Concreto(Elemento):
