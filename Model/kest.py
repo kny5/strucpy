@@ -5,12 +5,13 @@ import sys
 import elementos
 import math
 from Model.Classes import Nodos
-
+from Model.k_p import calculations
 
 def matrix_data(dict__):
     def max_ve():
         max_val = 0
         for ky in dict__:
+            calculations(ky)
             try_ve = max(ky.ve)
             if try_ve > max_val:
                 max_val = try_ve
@@ -36,6 +37,7 @@ def matrix_data(dict__):
     v_c_n = []
     for elem_vcn in Nodos:
         v_c_n += elem_vcn.n_vcn
+    print(v_c_n)
     pcur_ = pcur_ + v_c_n
     dn_est = np.dot(kest.I, pcur_)
 
@@ -53,6 +55,7 @@ def matrix_data(dict__):
 def vdgen(dict__, _scc=elementos.SCC):
     print('[Secciones]:\t' + '[' + str(_scc) + ']')
     dn_est = matrix_data(dict__)
+
     for key in dict__:
         vdgen_p = np.zeros(12)
         for k, i_ in enumerate(key.ve):
@@ -93,8 +96,8 @@ def vdgen(dict__, _scc=elementos.SCC):
             desp_imp_z = np.dot(-key.kyy.I, z).A1
 
     # d_real
-            dry = desp_imp_y + key.dlyy
-            drz = desp_imp_z - key.dlzz
+            key.dry = desp_imp_y + key.dlyy
+            key.drz = desp_imp_z - key.dlzz
 
     # cortante
             def cor__(v__, dr_, a, b, c):
@@ -107,8 +110,8 @@ def vdgen(dict__, _scc=elementos.SCC):
                 v_[-2] = (v_[-1] + v_[-3]) / 2
                 return v_
 
-            key.cor_y = cor__(key.vzz, dry, -1, 1, 0)
-            key.cor_z = cor__(key.vyy, drz, 1, -1, 1)
+            key.cor_y = cor__(key.vzz, key.dry, -1, 1, 0)
+            key.cor_z = cor__(key.vyy, key.drz, 1, -1, 1)
 
     # momentos
             def mome__(dr_, m__, a):
@@ -119,8 +122,8 @@ def vdgen(dict__, _scc=elementos.SCC):
                 m_[-1] = -fr_local[10 + a]
                 return m_
 
-            key.mome_y = mome__(drz, key.myy, 0)
-            key.mome_z = mome__(dry, key.mzz, 1)
+            key.mome_y = mome__(key.drz, key.myy, 0)
+            key.mome_z = mome__(key.dry, key.mzz, 1)
 
     # presiones
             def pres__(dr_, k_):
@@ -129,11 +132,20 @@ def vdgen(dict__, _scc=elementos.SCC):
                     p_[i] = dr_[i] * k_ * 10
                 return p_
 
-            key.press_y = pres__(dry, key.kv)
-            key.press_z = pres__(drz, key.kh)
+            key.press_y = pres__(key.dry, key.kv)
+            key.press_z = pres__(key.drz, key.kh)
 
-            key.dry = dry
-            key.drz = drz
+            #key.toDeactivate = []
+            #key.press_y[0] = 1
+            #key.press_y[-1] = 0
+
+            #for sccToDeactivate in key.press_y:
+            #    print(sccToDeactivate)
+            #    if float(sccToDeactivate) < 0.0:
+            #        print('desactivar')
+            #        key.toDeactivate.append(True)
+            #    else:
+            #        key.toDeactivate.append(False)
 
     # fuerza_axial
             f_ = np.zeros(_scc + 1)

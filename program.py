@@ -4,7 +4,7 @@ from pyfiglet import Figlet
 f = Figlet(font='slant')
 print(f.renderText('Strucpy') + '[MDF]\t[v0.1]\t[2018]' + '\n')
 
-from Model.k_p import calculations as calc
+#from Model.k_p import calculations as calc
 from Model.kest import vdgen
 import pandas as pd
 from openpyxl import load_workbook
@@ -28,13 +28,13 @@ version = path_pro + sys.argv[2]
 
 os.mkdir(version)
 
-calc(Elementos)
+#calc(Elementos)
 
 print('[Elementos]:\t' + '[' + str(len(Elementos)) + ']')
-print('[Nodos]:\t' + '[' + str(len(Nodos)) + ']')
+
 
 vdgen(Elementos)
-
+print('[Nodos]:\t' + '[' + str(len(Nodos)) + ']')
 #map(vdgen, Elementos)
 
 print("\n[Creando archivos de excel]\n")

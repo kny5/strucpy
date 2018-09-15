@@ -77,7 +77,7 @@ elemento2.end_conf['mz'] = False
 
 elemento3.end_conf['mx'] = False
 elemento3.end_conf['my'] = False
-elemento3.end_conf['mz'] = False
+elemento3.end_conf['mz'] = (1,2)
 
 elemento1.armadura = True
 elemento2.armadura = True

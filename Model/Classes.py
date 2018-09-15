@@ -5,10 +5,11 @@ import itertools
 Catalogo de clases
 """
 
-ac_nodo = 0
-
 Nodos = []
 Elementos = []
+ac_nodo = 0
+
+
 class Nodo:
     n_id_gen = itertools.count(1)
 
@@ -18,24 +19,25 @@ class Nodo:
         self.y = position[1]
         self.z = position[2]
         self.position = position
-#   def set_ve(self, dx=True, dy=True, dz=True, mx=True, my=True, mz=True):
-        self._veBool = (kwargs['dx'], kwargs['dy'], kwargs['dz'], kwargs['mx'], kwargs['my'], kwargs['mz'])
         self.ve_parcial = []
         self.n_vcn = []
         self.n_apoyo = []
-        for _bool in self._veBool:
-            if _bool:
+
+        for value in list(kwargs.values()):
+            if value:
+                try:
+                    self.n_vcn.append(value[0])
+                    self.n_apoyo.append(value[1])
+                except TypeError:
+                    self.n_vcn.append(0)
+                    self.n_apoyo.append(0)
                 global ac_nodo
                 ac_nodo += 1
                 self.ve_parcial.append(ac_nodo)
-                self.n_vcn.append(0)
-                self.n_apoyo.append(0)
-            elif _bool is False:
+            else:
                 self.ve_parcial.append(0)
                 self.n_apoyo.append(0)
-            elif type(_bool) is tuple and type(_bool) is not bool:
-                self.n_vcn.append(_bool[0])
-                self.n_apoyo.append(_bool[1])
+
         global Nodos
         Nodos.append(self)
 
@@ -66,6 +68,7 @@ class Elemento:
         self.start_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
         self.end_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
         self.ve = None
+        self.toDeactivate = None
         global Elementos
         Elementos.append(self)
 
@@ -105,7 +108,8 @@ class Elemento:
         if self.start == self.end:
             print('values are the same')
             print(self.start, self.end)
-        return None
+            return False
+        return True
 
 
 class Concreto(Elemento):
