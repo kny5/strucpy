@@ -1,7 +1,5 @@
 from Model.Classes import Concreto
-
-SCC = 20
-poisson = 0.25
+#import jsonpickle
 
 elemento1 = Concreto()
 elemento1.h = 5
@@ -95,3 +93,10 @@ elemento4.start = (0,0,0)
 elemento4.end = (300,250,0)
 elemento5.start = (600,0,0)
 elemento5.end = (300,250,0)
+
+#json_object = jsonpickle.encode(elemento1)
+
+#print(json_object)
+
+#with open("_input.json", 'w') as f:
+#    f.write(str(json_object))

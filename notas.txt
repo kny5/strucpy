@@ -1,0 +1,16 @@
+Usar np.vstack para todos los vectores en salida de datos.
+	El tamaño resultante de las matrices será _scc x iteraciones(tamaño de muestra)
+
+Determinar tamaño de muestra dependiendo de it.product, el número de combinaciones posibles de los rangos y pasos a analizar.
+	Checar github para ello.
+
+Usar max() y min() en las matrices de resultados para encontrar los datos relevantes de la envolvente.
+
+Implementar un sistema de base de datos.
+
+Hacer primer prueba de pynsist, desde linux.
+
+Separar función kzz de k_p para fines de desactivación de nodos.
+
+Terminar método de aproximación de bisection para b en cimentaciones.
+	

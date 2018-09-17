@@ -18,7 +18,7 @@ elemento1.wz = 0
 elemento1.aw = 0
 elemento1.nu = 0
 elemento1.lm = 90
-elemento1.apoyos = [1,3,2,100,100,100,4,6,5,100,100,100]
+elemento1.apoyos = [1, 3, 2, 100, 100, 100, 4, 6, 5, 100, 100, 100]
 
 
 v_c_n = [20,0,-50,0,0,0,0,-10,0,0,0,0]

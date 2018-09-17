@@ -1,18 +1,10 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QFormLayout, QLineEdit, QPushButton
 sys.path.append('../')
-from Model.dataClasses import *
-
-workspace = workspace(100, 100, 100)
-
-node0 = Nodo(20, 30, 14, workspace)
-node1 = Nodo(67, 56, 34, workspace)
-
-node0.set_ve(34,34,34,56,56,56)
-node1.set_ve(78,78,78,12,12,12)
+from Model.Classes import *
 
 e1 = Concreto()
-e1.set_nodos(node0,node1)
+
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -46,11 +38,7 @@ def windower(y):
                 pass
 
     window.form_layout.addRow(QWidget(), QPushButton("Guardar"))
-    window.setWindowTitle(type(y).__name__ + " " + y.id)
+    window.setWindowTitle(type(y).__name__ + " " + y.e_id)
     sys.exit(app.exec_())
 
-
-windower(workspace)
-windower(node0)
-windower(node1)
 windower(e1)

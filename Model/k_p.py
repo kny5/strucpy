@@ -1,33 +1,33 @@
 import math
-import numpy as np
-from numpy import matlib
-import elementos
+#import numpy as np
+#from numpy import matlib
+#import elementos
 
-def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
-    #for objeto in objetos:
-    objeto.set_nodes()
-    long = objeto.l
+def calculations(self):
+    _scc = self.SCC
+    _poisson = self.poisson
+    long = self.l
     deltax = long / _scc
-    objeto.dx = deltax
-    a_nu = objeto.nu
-    a_lm = objeto.lm
-    f_a = (objeto.kv * objeto.a1() * deltax ** 4) / (1000 * objeto.e * objeto.izz())
-    f_b = (objeto.kh * objeto.a2() * deltax ** 4) / (1000 * objeto.e * objeto.iyy())
-    mzz = (objeto.e * objeto.izz()) / deltax ** 2
-    myy = (objeto.e * objeto.iyy()) / deltax ** 2
-    vzz = (objeto.e * objeto.izz()) / (2 * deltax ** 3)
-    vyy = (objeto.e * objeto.iyy()) / (2 * deltax ** 3)
-    axial = (objeto.e * objeto.area()) / objeto.l
-    torsion = ((objeto.e / (2 * (1 + _poisson))) * objeto.j()) / objeto.l
-    wy = objeto.wy
-    wz = objeto.wz
-    aw = objeto.aw
-    p_mat = objeto.p_mat
-    m_elast = objeto.e
-    objeto.vzz = vzz
-    objeto.vyy = vyy
-    objeto.myy = myy
-    objeto.mzz = mzz
+    self.dx = deltax
+    a_nu = self.nu
+    a_lm = self.lm
+    f_a = (self.kv * self.a1() * deltax ** 4) / (1000 * self.e * self.izz())
+    f_b = (self.kh * self.a2() * deltax ** 4) / (1000 * self.e * self.iyy())
+    mzz = (self.e * self.izz()) / deltax ** 2
+    myy = (self.e * self.iyy()) / deltax ** 2
+    vzz = (self.e * self.izz()) / (2 * deltax ** 3)
+    vyy = (self.e * self.iyy()) / (2 * deltax ** 3)
+    axial = (self.e * self.area()) / self.l
+    torsion = ((self.e / (2 * (1 + _poisson))) * self.j()) / self.l
+    wy = self.wy
+    wz = self.wz
+    aw = self.aw
+    p_mat = self.p_mat
+    m_elast = self.e
+    self.vzz = vzz
+    self.vyy = vyy
+    self.myy = myy
+    self.mzz = mzz
 
     def k__(c):
         k = np.matlib.zeros(shape=((_scc + 1), (_scc + 1)))
@@ -42,18 +42,16 @@ def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
         return k
 
     kzz = k__(f_a)
-    objeto.kzz = kzz
+    self.kzz = kzz
     kyy = k__(f_b)
-    objeto.kyy = kyy
+    self.kyy = kyy
 
-    if type(objeto.toDeactivate) is not None and type(objeto.toDeactivate) is list:
-        for i, _bool in enumerate(objeto.toDeactivate, 0):
-            if _bool:
+    try:
+        for i, _bool in enumerate(self.toDeactivate, 0):
+            if _bool and i != 0 and i != _scc:
                 kzz[i,i] -= f_a
-            #else:
-                #holabb
-    #else:
-        #objeto.status = True
+    except TypeError:
+        pass
 
     def imext__(v, *args):
         n1_ = v[1]
@@ -205,21 +203,21 @@ def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
     kebg = np.dot(np.dot(tr, keb), tr.T)
 
     try:
-        for i, k in enumerate(objeto.apoyos,0):
+        for i, k in enumerate(self.apoyos, 0):
             kebg[i, i] += k
     except TypeError:
         pass
 
-    objeto.tr = tr
+    self.tr = tr
 
-    objeto.keb = keb
+    self.keb = keb
 
-    objeto.kebg = kebg
+    self.kebg = kebg
 
     ###########
-    pp = objeto.area() * (p_mat / 10000)
+    pp = self.area() * (p_mat / 10000)
 
-    objeto.pp_scc = ((pp * (long / 100)) / _scc) * sinlm
+    self.pp_scc = ((pp * (long / 100)) / _scc) * sinlm
 
     p_axial = ((- sinlm *
                 pp * (long / 100)) / 2) + \
@@ -227,16 +225,16 @@ def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
                 (long / 100)) / 2)
 
     p_scc_y = ((pp * (long / 100) * coslm) / _scc) * \
-              ((deltax ** 3) / (m_elast * objeto.izz()))
+              ((deltax ** 3) / (m_elast * self.izz()))
 
     p_scc_z = 0
     w_scc_y = ((((wy * long) / 100) *
                 math.cos(math.radians(aw))) / _scc) * \
-              ((deltax ** 3) / (m_elast * objeto.izz()))
+              ((deltax ** 3) / (m_elast * self.izz()))
 
-    w_scc_z = ((wz * (long / 100)) / _scc) * ((deltax ** 3) / (m_elast * objeto.iyy()))
+    w_scc_z = ((wz * (long / 100)) / _scc) * ((deltax ** 3) / (m_elast * self.iyy()))
 
-    if objeto.armadura == False:
+    if self.armadura == False:
 
         vplocal_y = np.insert(np.append(np.full((_scc - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
         vplocal_z = np.insert(np.append(np.full((_scc - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
@@ -250,8 +248,8 @@ def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
     dlzz = np.dot(kzz.I, -vplocal_z).A1
     dlyy = np.dot(kyy.I, -vplocal_y).A1
 
-    objeto.dlzz = dlzz
-    objeto.dlyy = dlyy
+    self.dlzz = dlzz
+    self.dlyy = dlyy
 
     def v_maker2(dl, m__):
         vector = np.empty(_scc + 1)
@@ -262,10 +260,10 @@ def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
         return vector
 
     mdlyy = v_maker2(dlyy, mzz)
-    objeto.mdlyy = mdlyy
+    self.mdlyy = mdlyy
 
     mdlzz = v_maker2(dlzz, myy)
-    objeto.mdlzz = mdlzz
+    self.mdlzz = mdlzz
 
     def v_maker3(dl, v__, vplocal, i__):
         vector = np.empty(_scc + 1)
@@ -284,12 +282,12 @@ def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
 
         return vector
 
-    vdlyy = v_maker3(dlyy, vzz, vplocal_y, objeto.izz())
-    vdlzz = v_maker3(dlzz, vyy, vplocal_z, objeto.iyy())
+    vdlyy = v_maker3(dlyy, vzz, vplocal_y, self.izz())
+    vdlzz = v_maker3(dlzz, vyy, vplocal_z, self.iyy())
 
     pcu_local = np.zeros(12)
 
-    if objeto.armadura == False:
+    if self.armadura == False:
         pcu_local[0] = p_axial
         pcu_local[1] = - vdlyy[0]
         pcu_local[2] = - vdlzz[0]
@@ -316,7 +314,7 @@ def calculations(objeto, _scc=elementos.SCC, _poisson=elementos.poisson):
         pcu_local[10] = 0
         pcu_local[11] = 0
 
-    objeto.pculocal = pcu_local
-    objeto.pc_ = np.dot(tr, pcu_local).A1
+    self.pculocal = pcu_local
+    self.pc_ = np.dot(tr, pcu_local).A1
 
-    return True
+    return None
