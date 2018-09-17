@@ -2,21 +2,330 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f5609e8-a638-4429-ae08-442e84f69e08" name="Default" comment="Añadido configuración de (carga, resorte) prueba de asignación superada, previo a agregar desactivación de nodos y aproximación de b.">
-      <change afterPath="$PROJECT_DIR$/Model/_input.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/collector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/input.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/new.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/k_p.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/k_p.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/kest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/kest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elementos.py" beforeDir="false" afterPath="$PROJECT_DIR$/elementos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/program.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/12/elementos.py" beforeDir="false" afterPath="$PROJECT_DIR$/proyectos/ejemplo1/12/elementos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/25/elementos.py" beforeDir="false" afterPath="$PROJECT_DIR$/proyectos/ejemplo1/25/elementos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_input.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm/datos_generales.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm/elementos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm2/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm2/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm2/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm2/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm2/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm2/datos_generales.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm2/elementos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3/datos_generales.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm32018-09-15 00:26:11.192297/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm32018-09-15 00:26:11.192297/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm32018-09-15 00:26:11.192297/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm32018-09-15 00:26:11.192297/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm32018-09-15 00:26:11.192297/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm32018-09-15 00:26:11.192297/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:27:23.282438/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:27:23.282438/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:27:23.282438/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:27:23.282438/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:27:23.282438/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:27:23.282438/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:44:12.075054/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:44:12.075054/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:44:12.075054/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:44:12.075054/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:44:12.075054/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:44:12.075054/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:45:39.854335/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:45:39.854335/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:45:39.854335/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:45:39.854335/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:45:39.854335/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:45:39.854335/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:46:56.865667/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:46:56.865667/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:46:56.865667/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:46:56.865667/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:46:56.865667/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:46:56.865667/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:47:36.844195/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:47:36.844195/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:47:36.844195/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:47:36.844195/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:47:36.844195/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:47:36.844195/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:50:28.113428/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:50:28.113428/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:50:28.113428/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:50:28.113428/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:50:28.113428/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 00:50:28.113428/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:43:51.671489/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:43:51.671489/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:43:51.671489/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:43:51.671489/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:43:51.671489/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:43:51.671489/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:44:04.372864/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:44:04.372864/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:44:04.372864/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:44:04.372864/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:44:04.372864/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 01:44:04.372864/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:24:58.646824/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:24:58.646824/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:24:58.646824/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:24:58.646824/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:24:58.646824/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:24:58.646824/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:25:34.861058/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:25:34.861058/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:25:34.861058/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:25:34.861058/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:25:34.861058/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:25:34.861058/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:26:54.350295/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:26:54.350295/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:26:54.350295/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:26:54.350295/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:26:54.350295/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:26:54.350295/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:27:46.280228/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:27:46.280228/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:27:46.280228/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:27:46.280228/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:27:46.280228/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:27:46.280228/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:40:54.318030/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:40:54.318030/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:40:54.318030/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:40:54.318030/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:40:54.318030/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:40:54.318030/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:41:14.662672/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:41:14.662672/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:41:14.662672/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:41:14.662672/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:41:14.662672/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:41:14.662672/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:47:10.513606/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:47:10.513606/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:47:10.513606/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:47:10.513606/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:47:10.513606/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:47:10.513606/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:53:23.368117/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:53:23.368117/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:53:23.368117/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:53:23.368117/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:53:23.368117/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 02:53:23.368117/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:23:53.225166/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:23:53.225166/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:23:53.225166/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:23:53.225166/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:23:53.225166/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:23:53.225166/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:34:09.026885/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:34:09.026885/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:34:09.026885/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:34:09.026885/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:34:09.026885/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:34:09.026885/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:35:18.774290/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:35:18.774290/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:35:18.774290/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:35:18.774290/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:35:18.774290/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:35:18.774290/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:53:57.370006/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:53:57.370006/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:53:57.370006/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:53:57.370006/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:53:57.370006/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:53:57.370006/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:55:22.084447/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:55:22.084447/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:55:22.084447/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:55:22.084447/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:55:22.084447/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:55:22.084447/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:31.879389/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:31.879389/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:31.879389/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:31.879389/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:31.879389/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:31.879389/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:39.621297/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:39.621297/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:39.621297/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:39.621297/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:39.621297/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 03:59:39.621297/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:04:09.426074/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:04:09.426074/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:04:09.426074/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:04:09.426074/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:04:09.426074/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:04:09.426074/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:07:26.501586/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:07:26.501586/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:07:26.501586/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:07:26.501586/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:07:26.501586/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:07:26.501586/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:12:36.445260/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:12:36.445260/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:12:36.445260/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:12:36.445260/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:12:36.445260/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:12:36.445260/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:14:29.326239/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:14:29.326239/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:14:29.326239/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:14:29.326239/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:14:29.326239/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:14:29.326239/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:16:48.472257/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:16:48.472257/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:16:48.472257/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:16:48.472257/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:16:48.472257/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:16:48.472257/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:18:22.516681/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:18:22.516681/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:18:22.516681/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:18:22.516681/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:18:22.516681/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:18:22.516681/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:21:30.687036/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:21:30.687036/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:21:30.687036/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:21:30.687036/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:21:30.687036/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:21:30.687036/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:23:20.979439/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:23:20.979439/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:23:20.979439/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:23:20.979439/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:23:20.979439/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 04:23:20.979439/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:03:49.609341/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:03:49.609341/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:03:49.609341/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:03:49.609341/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:03:49.609341/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:03:49.609341/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:05:23.333279/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:05:23.333279/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:05:23.333279/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:05:23.333279/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:05:23.333279/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:05:23.333279/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:10:12.614946/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:10:12.614946/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:10:12.614946/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:10:12.614946/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:10:12.614946/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:10:12.614946/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:11:45.169540/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:11:45.169540/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:11:45.169540/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:11:45.169540/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:11:45.169540/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:11:45.169540/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:17:23.803612/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:17:23.803612/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:17:23.803612/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:17:23.803612/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:17:23.803612/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:17:23.803612/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:21:29.493561/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:21:29.493561/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:21:29.493561/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:21:29.493561/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:21:29.493561/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 14:21:29.493561/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:31:12.596083/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:33:10.200317/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:34:51.254080/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:34:51.254080/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:34:51.254080/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:34:51.254080/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:34:51.254080/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:34:51.254080/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:37:46.168712/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:37:46.168712/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:37:46.168712/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:37:46.168712/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:37:46.168712/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:37:46.168712/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:44:30.017004/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:44:30.017004/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:44:30.017004/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:44:30.017004/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:44:30.017004/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 15:44:30.017004/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:04:53.929161/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:04:53.929161/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:04:53.929161/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:04:53.929161/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:04:53.929161/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:04:53.929161/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:05:58.722842/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:05:58.722842/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:05:58.722842/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:05:58.722842/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:05:58.722842/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:05:58.722842/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:06:57.665767/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:06:57.665767/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:06:57.665767/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:06:57.665767/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:06:57.665767/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:06:57.665767/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:26.767914/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:26.767914/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:26.767914/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:26.767914/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:26.767914/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:26.767914/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:53.959849/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:53.959849/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:53.959849/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:53.959849/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:53.959849/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:08:53.959849/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:10:28.881772/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:10:28.881772/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:10:28.881772/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:10:28.881772/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:10:28.881772/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:10:28.881772/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 16:58:27.680619/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:04:19.586787/elementos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:16:06.498151/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:16:07.112759/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:16:07.714961/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:16:08.314076/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:16:08.916710/5_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:17:22.298806/1_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:17:22.916944/2_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:17:23.522177/3_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:17:24.126354/4_elemento.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyectos/test/ve_atm3_2018-09-15 17:17:24.731630/5_elemento.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +382,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/program.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
@@ -85,7 +394,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/Classes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
+            <state relative-caret-position="-253">
               <caret line="67" column="49" lean-forward="true" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
               <folding>
                 <element signature="e#28#39#0" expanded="true" />
@@ -94,10 +403,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/kest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-77">
+            <state relative-caret-position="322">
               <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -634,16 +943,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/program.py">
+    <entry file="file://$PROJECT_DIR$/Model/kest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="322">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1537128777495" expanded="true" signature="134:135" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/Classes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
+        <state relative-caret-position="-253">
           <caret line="67" column="49" lean-forward="true" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
           <folding>
             <element signature="e#28#39#0" expanded="true" />
@@ -651,14 +964,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/kest.py">
+    <entry file="file://$PROJECT_DIR$/program.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1537128777495" expanded="true" signature="134:135" ph="..." />
-          </folding>
+        <state relative-caret-position="184">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
