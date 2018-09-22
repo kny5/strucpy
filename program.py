@@ -7,7 +7,7 @@ print('importing modules')
 from Model.kest import vdgen
 print('Creando elementos')
 
-import elementos
+import prueba_cargas2
 
 vdgen()
 

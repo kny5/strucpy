@@ -1,22 +1,5 @@
 import numpy as np
 import math
-from Model.Classes import Analisis
-
-# from pandas import DataFrame as df
-
-Elementos = Analisis.Elementos
-
-Nodos = Analisis.Nodos
-
-Max_val = Analisis.Max_val
-
-
-def vdgen():
-    print('Iniciando calculos')
-
-    for self in Elementos:
-        self.set_nodes()
-        self.calculations()
 
 
 def structure_matrix(self):
@@ -37,7 +20,8 @@ def set_loads(self, load):
     self.dn_est = np.dot(self.kest.I, pcur_sum)
 
 
-def get_results(self, elemento):
+def get_data(self, elemento):
+
     vdgen_p = np.zeros(12)
     for k, i_ in enumerate(elemento.ve):
         if i_ == 0:
@@ -116,17 +100,18 @@ def get_results(self, elemento):
     elemento.press_y = pres__(elemento.dry, elemento.kv)
     elemento.press_z = pres__(elemento.drz, elemento.kh)
 
-    elemento.toDeactivate = []
+    if elemento.kv > 0:
+        elemento.toDeactivate = []
+        for sccToDeactivate in elemento.press_y:
 
-    for sccToDeactivate in elemento.press_y:
-        # print(sccToDeactivate)
-        if float(sccToDeactivate) > 0.0 and not elemento.armadura:
-            # print('desactivar')
-            elemento.toDeactivate.append(True)
-        else:
-            elemento.toDeactivate.append(False)
+            if float(sccToDeactivate) > 0.0 and not elemento.armadura:
 
-    deactivator = all(elemento.toDeactivate)
+                elemento.toDeactivate.append(True)
+            else:
+                elemento.toDeactivate.append(False)
+
+        if all(elemento.toDeactivate) is True:
+            return True
 
     # fuerza_axial
     f_ = np.zeros(elemento._scc + 1)
@@ -142,4 +127,4 @@ def get_results(self, elemento):
     # torsion Mx
     elemento.mx = np.full(elemento._scc + 1, f[3])
 
-    return deactivator
+    return False
