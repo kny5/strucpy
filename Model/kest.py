@@ -15,7 +15,7 @@ def vdgen():
     print('Iniciando calculos')
 
     for self in Elementos:
-        self.set_nodes()
+        self.set_nodes
         self.calculations()
 
 

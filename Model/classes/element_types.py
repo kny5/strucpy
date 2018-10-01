@@ -1,41 +1,49 @@
 import math
-import itertools
+from itertools import count as it_counts
+
+
+class Node:
+
+    n_id_gen = it_counts(1)
+    counter = 0
+
+    def __init__(self, position):
+        self.n_id = str(next(self.n_id_gen))
+        self.x = position[0]
+        self.y = position[1]
+        self.z = position[2]
+        self.position = position
+        self.n_ve = []
+        self.n_springs = []
+        self.n_vcn = []
 
 
 class Element:
     """Propiedades aplicadas para todos los elementos"""
-
     SCC = 20
     poisson = 0.25
-    countrefs = 0
-    _e_id_gen = itertools.count(1)
+    _e_id_gen = it_counts(1)
 
-    def __init__(self):
+    def __init__(self, kv=0, kh=0, wy=0, wz=0, aw=0, marco=0, start='(x,y,z)', end='(x,y,z)'):
         self.e_id = str(next(self._e_id_gen))
-        self.kv = 0  # módulo de reacción vertical
-        self.kh = 0  # módulo de reacción horizontal
-        self.wy = 0  # carga uniformemente dist, TON/ML y
-        self.wz = 0  # carga uniforme... z
-        self.aw = 0  # angulo de carga
-        self.marco = 0
-        self.start = None
-        self.end = None
+        self.kv = kv  # módulo de reacción vertical
+        self.kh = kh  # módulo de reacción horizontal
+        self.wy = wy  # carga uniformemente dist, TON/ML y
+        self.wz = wz  # carga uniforme... z
+        self.aw = aw  # angulo de carga
+        self.marco = marco
+        self.start = start
+        self.end = end
         self.start_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
         self.end_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
 
-    #def calc(self):
-    #    return local_matrix(self)
-
-
 class Concrete(Element):
     """Propiedades específicas del concreto"""
-    Element.countrefs += 1
-
-    def __init__(self):
-        Element.__init__(self)
-        self.b = 0  # ancho de zapata
-        self.h = 0  # altura de zapata
-        self.b_prima = 0  # ancho de Contratrabe
+    def __init__(self, b=0, h=0, b_prima=0, kv=0, kh=0, wy=0, wz=0, aw=0, marco=0, start='(x,y,z)', end='(x,y,z)'):
+        Element.__init__(self, kv=kv, kh=kh, wy=wy, wz=wz, aw=aw, marco=marco, start=start, end=end)
+        self.b = b  # ancho de zapata
+        self.h = h  # altura de zapata
+        self.b_prima = b_prima  # ancho de Contratrabe
         self.e = 221.359  # modulo de elasticidad
         self.p_mat = 2.4  # ton/m3
 
@@ -65,8 +73,6 @@ class Concrete(Element):
 
 
 class Custom(Element):
-    Element.countrefs += 1
-
     def __init__(self):
         Element.__init__(self)
         self.b = 0  # ancho de la sección
@@ -76,8 +82,6 @@ class Custom(Element):
         self.j_ = 0  # momento polar de inercia
         self.e = 0  # modulo de elasticidad
         self.p_mat = 0  # peso propio
-        # self.a1 = self.b
-        # self.a2 = self.h
         self.area_ = 0
 
     def a1(self):
@@ -109,8 +113,6 @@ class Steel(Element):
 
 class Or(Steel):
     """Propiedades específicas del tipo OR"""
-    Element.countrefs += 1
-
     def __init__(self):
         Steel.__init__(self)
         self.d = 0
@@ -148,8 +150,6 @@ class Or(Steel):
 
 class Ir(Steel):
     """Propiedades específicas del tipo IR"""
-    Element.countrefs += 1
-
     def __init__(self):
         Steel.__init__(self)
         self.d = 0
@@ -185,8 +185,6 @@ class Ir(Steel):
 
 class Oc(Steel):
     """Propiedades específicas del tipo OC"""
-    Element.countrefs += 1
-
     def __init__(self):
         Steel.__init__(self)
         self.d = 0

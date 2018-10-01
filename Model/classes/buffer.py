@@ -1,115 +1,86 @@
-from Model.classes.element_types import Concrete, Or, Oc, Custom, Ir
-from Model.classes.node import Node
+from Model.classes.element_types import Concrete, Or, Oc, Custom, Ir, Node
+from Model.functions.local_matrix import local_matrix
+from Model.functions.get_data import get_data
 from Model.functions.set_nodes import set_nodes
+from Model.functions.k_mtx import k_mtx
+import numpy as np
+
 
 class Buffer:
-
-    nodes = Node
-    Concreto = Concrete
-    OR = Or
-    OC = Oc
-    Especial = Custom
-    IR = Ir
 
     def __init__(self, id):
         super().__init__()
         self.id = id
         self.Elements = []
         self.Nodes = []
-        self.freedom_degrees = []
-        self.nodal_loads_vector = []
-        self.nodal_loads_matrix = []
-        self.marcos = []
-        self.dn_est = None
-        self.ac_nodo = []
-        self.Max_val = []
+        self.freedom = 0
+        self.vcn = []
+        self.v_springs = []
 
-    def set_nodes(self, elemento):
-        elemento._nodoStart = None
-        elemento._nodoEnd = None
-        elemento.lm = None
-        elemento.l = None
-        elemento.nu = None
-        elemento.ve = None
+    def b_aproximation(self):
+        pass
 
-        if elemento.start != elemento.end:
+    def structure_matrix(self):
+        setattr(self, 'kest', np.matlib.zeros(shape=(self.freedom, self.freedom)))
+        setattr(self, 'pcur_', np.zeros(self.freedom))
 
-            if len(self.Elements) == 0 and len(self.Nodes) == 0:
-                elemento._nodoStart = self.nodes(elemento.start, **elemento.start_conf)
-                elemento._nodoEnd = self.nodes(elemento.end, **elemento.end_conf)
-            else:
-                for nodo in self.Nodes:
-                    if nodo.position == elemento.start:
-                        elemento._nodoStart = nodo
-                    elif nodo.position == elemento.end:
-                        elemento._nodoEnd = nodo
+        for element in self.Elements:
+            for _c, _i in enumerate(element.ve):
+                if _i != 0:
+                    self.pcur_[_i - 1] += element.pc_[_c]
+                for _k, _j in enumerate(element.ve):
+                    if _j != 0:
+                        self.kest[_i - 1, _j - 1] += element.kebg.item(_c, _k)
 
-            if elemento._nodoStart is None:
-                elemento._nodoStart = self.nodes(elemento.start, **elemento.start_conf)
-            if elemento._nodoEnd is None:
-                elemento._nodoEnd = self.nodes(elemento.end, **elemento.end_conf)
+    def set_loads(self, load=0):
+        self.vcn = []
+        self.v_springs = []
+        for node in self.Nodes:
+            self.vcn += node.n_vcn
+            self.v_springs += node.n_springs
+        pcur_sum = self.pcur_ + load + self.vcn
+        setattr(self, 'dn_est', np.dot(self.kest.I, pcur_sum))
 
-            elemento.ve = elemento._nodoStart.ve_parcial + elemento._nodoEnd.ve_parcial
+    def run(self):
+        # ciclo primario
+        for element in self.Elements:
+            # vector de ensamble y datos primarios geométricos.
+            set_nodes(self, element)
 
-            elemento.l = abs((((elemento.end[0] - elemento.start[0]) ** 2) +
-                              ((elemento.end[1] - elemento.start[1]) ** 2) +
-                              ((elemento.end[2] - elemento.start[2]) ** 2)) ** 0.5)
-            plane_xz = (((elemento._nodoEnd.x - elemento._nodoStart.x) ** 2) +
-                        ((elemento._nodoEnd.z - elemento._nodoStart.z) ** 2)) ** 0.5
+    # ciclo while donde k_mtx recibe datos para restar f_a en las posiciones indicadas, mientras estado = Falso repetir.
 
-            if plane_xz != 0:
-                _nu_ = math.degrees(math.asin((elemento._nodoEnd.z - elemento._nodoStart.z) / plane_xz))
-                if elemento._nodoEnd.x - elemento._nodoStart.x < 0:
-                    elemento.nu = 180 - _nu_
-                else:
-                    elemento.nu = _nu_
-            else:
-                elemento.nu = 0
-            elemento.lm = math.degrees(math.asin((elemento._nodoEnd.y - elemento._nodoStart.y) / elemento.l))
-            elemento.apoyos = elemento._nodoStart.n_apoyo + elemento._nodoEnd.n_apoyo
-        else:
-            print("Error No Start or End points")
-            print('values are the same')
-            print(elemento.start, elemento.end)
-            return False
+            # matriz k
+            k_mtx(element)
 
-        print(("¬" * int(elemento.id)) + " " + elemento.id)
-        print(elemento.ve)
+            # for element in self.Elements:
+            # operaciones locales
+            local_matrix(element)
 
-        return True
+        # operaciones generales, creación matriz general de la estructura y multiplicación de matriz, vector general.
+        self.structure_matrix()
 
-    def run(self, method):
-        if method == 'normal':
+        # estableciendo las cargas.
+        self.set_loads()
 
-            for element in self.Elements:
-                element.set_nodes()
-            y = False
-            while not y:
-                for element in self.Elements:
-                    self.set_local_data(element)
-                self.set_general_matrix()
-                y = self.results(element)
+        # ciclo secundario
+        for element in self.Elements:
+            # obteniendo resultados de general hacia individual.
+            get_data(self, element)
 
-        elif method == 'montecarlo':
-            pass
-        elif method == 'aproximar_b':
-            pass
-
-    def add_element(self, type, id, start, end):
+    def add_to_node(self, id, node, *kwargs):
         for element in self.Elements:
             if element.e_id == id:
-                return False
-            elif element.start == start and element.end == end:
-                return False
-        try:
-            x = type
-            x.e_id = id
-            x.start = start
-            x.end = end
-            self.Elements.append(x)
-            return True
-        except TypeError:
-            return False
+                for arg in kwargs:
+                    if node == 'start':
+                        element.start_conf.__setitem__(arg[0], arg[1])
+                    elif node == 'end':
+                        element.end_conf.__setitem__(arg[0], arg[1])
+
+    def add_element(self, element_type, id=None):
+        x = element_type
+        x.e_id = id
+        self.Elements.append(x)
+        return True
 
     def delete_element_by_id(self, element_id):
         for element in self.Elements:
@@ -125,9 +96,20 @@ class Buffer:
 
 
 x = Buffer(1)
-x.add_element(Concrete(), 1, (0,0,0), (300,0,0))
-x.add_element(Concrete(), 2, (0,0,0), (100,0,0))
-x.add_element(Concrete(), 3, (100,0,0), (300,0,0))
 
-for elemento in x.Elements:
-    x.set_nodes(elemento)
+x.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 300), end=(900, 0, 300)), id=1)
+x.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 0), end=(900, 0, 0)), id=2)
+x.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 0), end=(0, 0, 300)), id=3)
+x.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(900, 0, 0), end=(900, 0, 300)), id=4)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 0, 300), end=(0, 500, 300)), id=5)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(900, 0, 300), end=(900, 500, 300)), id=6)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 0, 0), end=(0, 500, 0)), id=7)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(900, 0, 0), end=(900, 500, 0)), id=8)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 300), end=(900, 500, 300)), id=9)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 0), end=(900, 500, 0)), id=10)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 0), end=(0, 500, 300)), id=11)
+x.add_element(Concrete(h=40, b=40, b_prima=40, start=(900, 500, 0), end=(900, 500, 300)), id=12)
+
+x.add_to_node(5, 'end', ('dy', (10, 0)))
+
+x.run()

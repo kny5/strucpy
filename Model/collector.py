@@ -11,7 +11,7 @@ except IndexError:
         read_input = jsonpickle.loads(inputFile.read())
 
 try:
-    read_input.set_nodes()
+    read_input.set_nodes
     read_input.calculations()
 
 #except AttributeError:

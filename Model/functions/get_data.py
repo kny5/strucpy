@@ -2,24 +2,6 @@ import numpy as np
 import math
 
 
-def structure_matrix(self):
-    self.kest = np.matlib.zeros(shape=(max(self.Max_val), max(self.Max_val)))
-    self.pcur_ = np.zeros(max(self.Max_val))
-
-    for key in self.Elementos:
-        for _c, _i in enumerate(key.ve):
-            if _i != 0:
-                self.pcur_[_i - 1] += key.pc_[_c]
-            for _k, _j in enumerate(key.ve):
-                if _j != 0:
-                    self.kest[_i - 1, _j - 1] += key.kebg.item(_c, _k)
-
-
-def set_loads(self, load):
-    pcur_sum = self.pcur_ + load
-    self.dn_est = np.dot(self.kest.I, pcur_sum)
-
-
 def get_data(self, elemento):
 
     vdgen_p = np.zeros(12)
@@ -36,25 +18,25 @@ def get_data(self, elemento):
     # f_real_local
     pcu_loc = elemento.pculocal
     pcu_loc[6] = - pcu_loc[6]
-    elemento.apoyos = np.asarray(elemento.apoyos)
-    f_g_springs = np.multiply(vdgen_p, elemento.apoyos)
+    elemento.springs = np.asarray(elemento.springs)
+    f_g_springs = np.multiply(vdgen_p, elemento.springs)
     f_l_springs = np.dot(tr.T, f_g_springs).A1
     fr_local = pcu_loc - f + f_l_springs
     # desp_local
     dlen = np.dot(tr.T, vdgen_p).A1
     # desp_
-    y = np.zeros(elemento._scc + 1)
+    y = np.zeros(elemento.SCC + 1)
     y[0] = -3 * dlen[1]
-    y[1] = -2 * elemento.dx * dlen[5]
-    y[-2] = 2 * elemento.dx * dlen[11]
+    y[1] = -2 * (elemento.long / elemento.SCC) * dlen[5]
+    y[-2] = 2 * (elemento.long / elemento.SCC) * dlen[11]
     y[-1] = -3 * dlen[7]
 
     elemento.desp_imp_antes_y = y
 
-    z = np.zeros(elemento._scc + 1)
+    z = np.zeros(elemento.SCC + 1)
     z[0] = 3 * dlen[2]
-    z[1] = -2 * elemento.dx * dlen[4]
-    z[-2] = 2 * elemento.dx * dlen[10]
+    z[1] = -2 * (elemento.long / elemento.SCC) * dlen[4]
+    z[-2] = 2 * (elemento.long / elemento.SCC) * dlen[10]
     z[-1] = 3 * dlen[8]
 
     desp_imp_y = np.dot(-elemento.kzz.I, y).A1
@@ -66,8 +48,8 @@ def get_data(self, elemento):
 
     # cortante
     def cor__(v__, dr_, a, b, c):
-        v_ = np.zeros(elemento._scc + 1)
-        for __j in range(2, elemento._scc - 1):
+        v_ = np.zeros(elemento.SCC + 1)
+        for __j in range(2, elemento.SCC - 1):
             v_[__j] = (dr_[__j + 2] - 2 * dr_[__j + 1] + 2 * dr_[__j - 1] - dr_[__j - 2]) * v__
         v_[0] = a * fr_local[1 + c]
         v_[1] = (v_[0] + v_[2]) / 2
@@ -80,8 +62,8 @@ def get_data(self, elemento):
 
     # momentos
     def mome__(dr_, m__, a):
-        m_ = np.zeros(elemento._scc + 1)
-        for j_ in range(1, elemento._scc):
+        m_ = np.zeros(elemento.SCC + 1)
+        for j_ in range(1, elemento.SCC):
             m_[j_] = (dr_[j_ + 1] - 2 * dr_[j_] + dr_[j_ - 1]) * m__
         m_[0] = fr_local[4 + a]
         m_[-1] = -fr_local[10 + a]
@@ -92,7 +74,7 @@ def get_data(self, elemento):
 
     # presiones
     def pres__(dr_, k_):
-        p_ = np.zeros(elemento._scc + 1)
+        p_ = np.zeros(elemento.SCC + 1)
         for i in range(len(p_)):
             p_[i] = dr_[i] * k_ * 10
         return p_
@@ -100,31 +82,34 @@ def get_data(self, elemento):
     elemento.press_y = pres__(elemento.dry, elemento.kv)
     elemento.press_z = pres__(elemento.drz, elemento.kh)
 
-    if elemento.kv > 0:
-        elemento.toDeactivate = []
-        for sccToDeactivate in elemento.press_y:
-
-            if float(sccToDeactivate) > 0.0 and not elemento.armadura:
-
-                elemento.toDeactivate.append(True)
-            else:
-                elemento.toDeactivate.append(False)
-
-        if all(elemento.toDeactivate) is True:
-            return True
+    # if elemento.kv > 0:
+    #     setattr(elemento, "toActivate", [])
+    #     for _i, active in enumerate(elemento.press_y):
+    #
+    #         if _i == 0 or _i == elemento.SCC:
+    #             elemento.toActivate.append(True)
+    #
+    #         elif active > 0:
+    #             elemento.toActivate.append(False)
+    #
+    #         else:
+    #             elemento.toActivate.append(True)
+    #
+    #     if not all(elemento.toActivate):
+    #         return False
 
     # fuerza_axial
-    f_ = np.zeros(elemento._scc + 1)
+    f_ = np.zeros(elemento.SCC + 1)
     f_[0] = fr_local[0]
 
-    for i_ in range(1, elemento._scc + 1):
+    for i_ in range(1, elemento.SCC + 1):
         f_[i_] = f_[i_ - 1] + elemento.pp_scc
 
     for ef_, j_ in enumerate(f_, 0):
-        f_[ef_] = f_[ef_] + ef_ * ((elemento.wy * (elemento.l / 100) * math.sin(math.radians(elemento.aw))) / elemento._scc)
+        f_[ef_] = f_[ef_] + ef_ * ((elemento.wy * (elemento.long / 100) * math.sin(math.radians(elemento.aw))) / elemento.SCC)
 
     elemento.fax = f_
     # torsion Mx
-    elemento.mx = np.full(elemento._scc + 1, f[3])
+    elemento.mx = np.full(elemento.SCC + 1, f[3])
 
-    return False
+    return True

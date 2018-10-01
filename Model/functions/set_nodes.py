@@ -1,57 +1,72 @@
+from Model.classes.element_types import Node
 import math
-#from Model.classes.node import Node
 
 
-def set_nodes(elemento):
-    elemento._nodoStart = None
-    elemento._nodoEnd = None
-    elemento.lm = None
-    elemento.l = None
-    elemento.nu = None
-    elemento.ve = None
-
-    if elemento.start != elemento.end:
-
-        if len(self.Elements) == 0 and len(self.Nodes) == 0:
-            elemento._nodoStart = self.nodes(elemento.start, **elemento.start_conf)
-            elemento._nodoEnd = self.nodes(elemento.end, **elemento.end_conf)
-        else:
-            for nodo in self.Nodes:
-                if nodo.position == elemento.start:
-                    elemento._nodoStart = nodo
-                elif nodo.position == elemento.end:
-                    elemento._nodoEnd = nodo
-
-        if elemento._nodoStart is None:
-            elemento._nodoStart = self.nodes(elemento.start, **elemento.start_conf)
-        if elemento._nodoEnd is None:
-            elemento._nodoEnd = self.nodes(elemento.end, **elemento.end_conf)
-
-        elemento.ve = elemento._nodoStart.ve_parcial + elemento._nodoEnd.ve_parcial
-
-        elemento.l = abs((((elemento.end[0] - elemento.start[0]) ** 2) +
-                          ((elemento.end[1] - elemento.start[1]) ** 2) +
-                          ((elemento.end[2] - elemento.start[2]) ** 2)) ** 0.5)
-        plane_xz = (((elemento._nodoEnd.x - elemento._nodoStart.x) ** 2) +
-                    ((elemento._nodoEnd.z - elemento._nodoStart.z) ** 2)) ** 0.5
-
-        if plane_xz != 0:
-            _nu_ = math.degrees(math.asin((elemento._nodoEnd.z - elemento._nodoStart.z) / plane_xz))
-            if elemento._nodoEnd.x - elemento._nodoStart.x < 0:
-                elemento.nu = 180 - _nu_
+def set_nodes(self, element):
+        #   check for other existent nodes
+    for node in self.Nodes:
+        if node.position == element.start:
+            setattr(element, "nodeStart", node)
+        elif node.position == element.end:
+            setattr(element, "nodeEnd", node)
+    #   creating new nodes
+    try:
+        if element.nodeStart:
+            pass
+    except AttributeError:
+        element.nodeStart = Node(element.start)
+        self.Nodes.append(element.nodeStart)
+        for _bool in element.start_conf.values():
+            if _bool:
+                self.freedom += 1
+                element.nodeStart.n_ve.append(self.freedom)
+                try:
+                    element.nodeStart.n_vcn.append(_bool[0])
+                    element.nodeStart.n_springs.append(_bool[1])
+                except TypeError:
+                    element.nodeStart.n_vcn.append(0)
+                    element.nodeStart.n_springs.append(0)
             else:
-                elemento.nu = _nu_
+                element.nodeStart.n_ve.append(0)
+    #   ...and repeat for nodeEnd
+    try:
+        if element.nodeEnd:
+            pass
+    except AttributeError:
+        element.nodeEnd = Node(element.end)
+        self.Nodes.append(element.nodeEnd)
+        for _bool in element.end_conf.values():
+            if _bool:
+                self.freedom += 1
+                element.nodeEnd.n_ve.append(self.freedom)
+                try:
+                    element.nodeEnd.n_vcn.append(_bool[0])
+                    element.nodeEnd.n_springs.append(_bool[1])
+                except TypeError:
+                    element.nodeEnd.n_vcn.append(0)
+                    element.nodeEnd.n_springs.append(0)
+            else:
+                element.nodeEnd.n_ve.append(0)
+
+    element.ve = element.nodeStart.n_ve + element.nodeEnd.n_ve
+    element.springs = element.nodeStart.n_springs + element.nodeEnd.n_springs
+
+    element.long = abs((((element.end[0] - element.start[0]) ** 2) +
+                     ((element.end[1] - element.start[1]) ** 2) +
+                     ((element.end[2] - element.start[2]) ** 2)) ** 0.5)
+
+    plane_xz = (((element.nodeEnd.x - element.nodeStart.x) ** 2) +
+                ((element.nodeEnd.z - element.nodeStart.z) ** 2)) ** 0.5
+
+    if plane_xz != 0:
+        _nu_ = math.degrees(math.asin((element.nodeEnd.z - element.nodeStart.z) / plane_xz))
+        if element.nodeEnd.x - element.nodeStart.x < 0:
+            element.nu = 180 - _nu_
         else:
-            elemento.nu = 0
-        elemento.lm = math.degrees(math.asin((elemento._nodoEnd.y - elemento._nodoStart.y) / elemento.l))
-        elemento.apoyos = elemento._nodoStart.n_apoyo + elemento._nodoEnd.n_apoyo
+            element.nu = _nu_
     else:
-        print("Error No Start or End points")
-        print('values are the same')
-        print(elemento.start, elemento.end)
-        return False
+        element.nu = 0
 
-    print(("¬" * int(elemento.id)) + " " + elemento.id)
-    print(elemento.ve)
+    element.lm = math.degrees(math.asin((element.nodeEnd.y - element.nodeStart.y) / element.long))
 
-    return True
+
