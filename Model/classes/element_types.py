@@ -37,6 +37,7 @@ class Element:
         self.start_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
         self.end_conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
 
+
 class Concrete(Element):
     """Propiedades específicas del concreto"""
     def __init__(self, b=0, h=0, b_prima=0, kv=0, kh=0, wy=0, wz=0, aw=0, marco=0, start='(x,y,z)', end='(x,y,z)'):

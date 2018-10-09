@@ -4,6 +4,7 @@ from Model.functions.get_data import get_data
 from Model.functions.set_nodes import set_nodes
 from Model.functions.k_mtx import k_mtx
 import numpy as np
+from matplotlib import pyplot as plt
 
 
 class Buffer:
@@ -16,6 +17,18 @@ class Buffer:
         self.freedom = 0
         self.vcn = []
         self.v_springs = []
+
+    def plot(self, id):
+        for element in self.Elements:
+            if element.e_id == id:
+                for value in element.__dict__.values():
+                    if isinstance(value, np.ndarray) and value.size == 21:
+                        try:
+                            plt.subplot(value)
+                            plt.show()
+                        except TypeError:
+                            plt.plot(value)
+                            plt.show()
 
     def b_aproximation(self):
         pass
@@ -94,9 +107,11 @@ class Buffer:
                 self.Elements.remove(element)
         return True
 
+    def select_element_by_id(self, id):
+        pass
+
 
 x = Buffer(1)
-
 x.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 300), end=(900, 0, 300)), id=1)
 x.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 0), end=(900, 0, 0)), id=2)
 x.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 0), end=(0, 0, 300)), id=3)
@@ -109,7 +124,27 @@ x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 300), end=(900, 50
 x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 0), end=(900, 500, 0)), id=10)
 x.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 0), end=(0, 500, 300)), id=11)
 x.add_element(Concrete(h=40, b=40, b_prima=40, start=(900, 500, 0), end=(900, 500, 300)), id=12)
-
 x.add_to_node(5, 'end', ('dy', (10, 0)))
-
 x.run()
+
+y = Buffer(2)
+y.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 300), end=(900, 0, 300), marco=1), id=1)
+y.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 0), end=(900, 0, 0), marco=1), id=2)
+y.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(0, 0, 0), end=(0, 0, 300)), id=3)
+y.add_element(Concrete(h=120, b=150, b_prima=40, kv=2, start=(900, 0, 0), end=(900, 0, 300)), id=4)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 0, 300), end=(0, 500, 300)), id=5)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(900, 0, 300), end=(900, 500, 300)), id=6)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 0, 0), end=(0, 500, 0)), id=7)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(900, 0, 0), end=(900, 500, 0)), id=8)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 300), end=(900, 500, 300)), id=9)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 0), end=(900, 500, 0)), id=10)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(0, 500, 0), end=(0, 500, 300)), id=11)
+y.add_element(Concrete(h=40, b=40, b_prima=40, start=(900, 500, 0), end=(900, 500, 300)), id=12)
+y.run()
+
+z = Buffer(3)
+
+z.add_element(Or(), id=1)
+z.add_element(Or(), id=2)
+z.add_element(Or(), id=3)
+

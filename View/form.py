@@ -1,9 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QFormLayout, QLineEdit, QPushButton
 sys.path.append('../')
-from Model.Classes import *
+from Model.classes.element_types import Concrete
 
-e1 = Concreto()
+e1 = Concrete()
 
 
 class MainWindow(QWidget):

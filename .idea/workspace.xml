@@ -2,73 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f5609e8-a638-4429-ae08-442e84f69e08" name="Default" comment="Añadido configuración de (carga, resorte) prueba de asignación superada, previo a agregar desactivación de nodos y aproximación de b.">
-      <change afterPath="$PROJECT_DIR$/Model/classes/buffer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/classes/element_types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/classes/node.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/functions/get_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/functions/local_matrix.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/functions/output_excel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/functions/set_nodes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/new.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/_input.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/input.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/kest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/kest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/pyqt-boilerplate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/elementos.py" beforeDir="false" afterPath="$PROJECT_DIR$/elementos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/program.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo2/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo3/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo4/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo4/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo5/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo5/2_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo5/3_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo5/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo5/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo6/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo6/2_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo6/3_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo6/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo6/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo7/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo7/2_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo7/3_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo7/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo7/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo8/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo8/2_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo8/3_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo8/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ejemplo8/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm1/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm2/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm3/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm5/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm6/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm7/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm7/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/cargas_nodales/ve_atm7/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/12/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/12/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/12/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/25/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/25/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/25/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/7/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/7/2_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/7/3_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/7/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/7/elementos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/8/1_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/8/2_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/8/3_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/8/4_elemento.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/8/datos_generales.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectos/ejemplo1/8/elementos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Classes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/classes/buffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/classes/buffer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/classes/element_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/classes/element_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/collector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/functions/k_mtx.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/functions/k_mtx.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/k_p.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/k_p.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/kest.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/kest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elementos.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/elementos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/program.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,9 +78,89 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-780105680">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="40" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="40" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="404" />
+          <entry key="dummy" value="4" />
+          <entry key="py" value="9046" />
+          <entry key="txt" value="111" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="115" />
+          <entry key="Python" value="9450" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Model/classes/buffer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1950">
+              <caret line="150" selection-start-line="150" selection-end-line="150" />
+              <folding>
+                <element signature="e#0#74#0" expanded="true" />
+                <marker date="1538966418701" expanded="true" signature="562:1012" ph="..." />
+                <marker date="1538966418701" expanded="true" signature="1565:1872" ph="..." />
+                <marker date="1538966418701" expanded="true" signature="2763:2772" ph="..." />
+                <marker date="1538966418701" expanded="true" signature="2763:3097" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prueba_cargas.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/classes/element_types.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="779">
+              <caret line="42" column="99" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="true" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/form.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="798">
+              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -153,15 +179,26 @@
       <find>wy</find>
       <find>self.dx()</find>
       <find>iyy</find>
-      <find>mzz</find>
-      <find>kzz</find>
       <find>zeros</find>
       <find>print</find>
       <find>objecto.tr</find>
       <find>key.dry</find>
       <find>key.vd</find>
-      <find>_scc</find>
       <find>v_c_n</find>
+      <find>mzz</find>
+      <find>element</find>
+      <find>nodeStart</find>
+      <find>Start</find>
+      <find>element.start</find>
+      <find>element.start_conf</find>
+      <find>Max_val</find>
+      <find>apoyos</find>
+      <find>_scc</find>
+      <find>self</find>
+      <find>deltax</find>
+      <find>kzz</find>
+      <find>kyy</find>
+      <find>l</find>
     </findStrings>
     <replaceStrings>
       <replace>dcopy</replace>
@@ -177,6 +214,21 @@
       <replace>m2zz</replace>
       <replace>dx</replace>
       <replace>elementos.SCC</replace>
+      <replace>self.mzz</replace>
+      <replace>self</replace>
+      <replace>nodeEnd</replace>
+      <replace>End</replace>
+      <replace>position</replace>
+      <replace>conf</replace>
+      <replace>freedom</replace>
+      <replace>v_springs</replace>
+      <replace>SCC</replace>
+      <replace>elemento</replace>
+      <replace>element</replace>
+      <replace>(self.long / self.SCC)</replace>
+      <replace>self.kzz</replace>
+      <replace>self.kyy</replace>
+      <replace>long</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -211,7 +263,6 @@
         <option value="$PROJECT_DIR$/input.py" />
         <option value="$PROJECT_DIR$/input.json" />
         <option value="$PROJECT_DIR$/Model/collectors.py" />
-        <option value="$PROJECT_DIR$/View/form.py" />
         <option value="$PROJECT_DIR$/Model/k_p.py" />
         <option value="$PROJECT_DIR$/Model/_input.json" />
         <option value="$PROJECT_DIR$/Model/input.json" />
@@ -227,21 +278,22 @@
         <option value="$PROJECT_DIR$/Model/classes/Nodes.py" />
         <option value="$PROJECT_DIR$/Model/Classes.py" />
         <option value="$PROJECT_DIR$/Model/classes/elements.py" />
-        <option value="$PROJECT_DIR$/Model/functions/get_data.py" />
-        <option value="$PROJECT_DIR$/Model/functions/local_matrix.py" />
         <option value="$PROJECT_DIR$/Model/classes/nodes.py" />
-        <option value="$PROJECT_DIR$/Model/classes/element_types.py" />
-        <option value="$PROJECT_DIR$/Model/functions/set_nodes.py" />
-        <option value="$PROJECT_DIR$/Model/classes/buffer.py" />
         <option value="$PROJECT_DIR$/Model/classes/node.py" />
+        <option value="$PROJECT_DIR$/Model/functions/set_nodes.py" />
+        <option value="$PROJECT_DIR$/Model/functions/local_matrix.py" />
+        <option value="$PROJECT_DIR$/Model/functions/get_data.py" />
+        <option value="$PROJECT_DIR$/Model/functions/k_mtx.py" />
+        <option value="$PROJECT_DIR$/View/form.py" />
+        <option value="$PROJECT_DIR$/Model/classes/element_types.py" />
+        <option value="$PROJECT_DIR$/Model/classes/buffer.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="1" />
-    <option name="width" value="1370" />
-    <option name="height" value="773" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="1555" />
+    <option name="height" value="1090" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -270,8 +322,7 @@
             <path>
               <item name="strucpy" type="b2602c69:ProjectViewProjectNode" />
               <item name="strucpy" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="functions" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,18 +334,18 @@
   <component name="PropertiesComponent">
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/test.py" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Model" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\repos\strucpy\dev_files" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Model" />
       <recent name="C:\repos\new\dev_files" />
       <recent name="C:\repos\new\Model" />
-      <recent name="C:\repos\new\output" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -314,54 +365,15 @@
       <module name="new" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model/classes" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/classes/buffer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="collector" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="new" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/collector.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="elementos" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="new" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/elementos.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -391,7 +403,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="matplot" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="new" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -399,13 +411,55 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dev_files" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dev_files/matplot.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="opengl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="new" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dev_files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dev_files/opengl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="qt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="new" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dev_files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dev_files/qt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -413,19 +467,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.form" />
-      <item itemvalue="Python.collector" />
-      <item itemvalue="Python.elementos" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.buffer" />
+      <item itemvalue="Python.matplot" />
+      <item itemvalue="Python.opengl" />
+      <item itemvalue="Python.qt" />
+      <item itemvalue="Python.form" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.buffer" />
+        <item itemvalue="Python.form" />
         <item itemvalue="Python.buffer" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.qt" />
+        <item itemvalue="Python.opengl" />
       </list>
     </recent_temporary>
   </component>
@@ -454,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536986325999</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="nuevo algoritmo en buffer y asignación de elementos nodos, previo a desactivación de nodos y demás funciones.">
+      <created>1538437340358</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1538437340358</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -467,18 +528,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="1" width="1370" height="773" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.501462" side_tool="true" weight="0.15687732" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49853802" visible="true" weight="0.1598513" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49853802" visible="true" weight="0.14276272" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="0" visible="true" weight="0.39941263" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="0" visible="true" weight="0.3156533" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32748538" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.5366569" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.53824365" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.5355757" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.21862872" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.40934843" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -511,12 +573,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/dev_files/pyqt-boilerplate" />
       <path value="$PROJECT_DIR$/pyqt-boilerplate" />
     </ignored-roots>
     <MESSAGE value="En algún momento optimizando matrix_gen a k_p" />
-    <option name="LAST_COMMIT_MESSAGE" value="En algún momento optimizando matrix_gen a k_p" />
+    <MESSAGE value="nuevo algoritmo en buffer y asignación de elementos nodos, previo a desactivación de nodos y demás funciones." />
+    <option name="LAST_COMMIT_MESSAGE" value="nuevo algoritmo en buffer y asignación de elementos nodos, previo a desactivación de nodos y demás funciones." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -525,36 +589,6 @@
           <url>file://$PROJECT_DIR$/dev_files/matrix.py</url>
           <line>270</line>
           <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model/functions/set_nodes.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model/functions/set_nodes.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model/classes/node.py</url>
-          <line>27</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model/classes/node.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model/classes/node.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model/classes/node.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -567,7 +601,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/setup.py" />
     <entry file="file://$PROJECT_DIR$/dev_files/glumpy1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
@@ -596,20 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev_files/opengl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="125" column="38" selection-start-line="125" selection-start-column="38" selection-end-line="125" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev_files/qt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/test.py" />
     <entry file="file://$PROJECT_DIR$/dev_files/3dspace.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -630,62 +649,29 @@
     <entry file="file://$PROJECT_DIR$/input.py" />
     <entry file="file://$PROJECT_DIR$/Model/collectors.py" />
     <entry file="file://$PROJECT_DIR$/proyectos/test/ve_atm3/elementos" />
-    <entry file="file://$PROJECT_DIR$/View/form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input.json" />
     <entry file="file://$PROJECT_DIR$/Model/_input.json" />
     <entry file="file://$PROJECT_DIR$/Model/input.json" />
-    <entry file="file://$PROJECT_DIR$/Model/k_p.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/program.py">
+    <entry file="file://$PROJECT_DIR$/dev_files/program.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elementos.py">
+    <entry file="file://$PROJECT_DIR$/dev_files/elementos.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/output_excel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/views/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/bin/app">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/demo.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/app.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/app.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/app.icns">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/views/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/bin/app" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/demo.svg" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/app.svg" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/app.ico" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/resources/icons/app.icns" />
     <entry file="file://$PROJECT_DIR$/prueba_cargas2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -693,119 +679,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/README.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/README.rst" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app.spec" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/views/MainWindow.py" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/pyuic.json" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/Pipfile.lock" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app.pro" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/__main__.py" />
+    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/notas.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app.spec">
+    <entry file="file://$PROJECT_DIR$/Model/classes/node.py" />
+    <entry file="file://$PROJECT_DIR$/Model/Classes.py" />
+    <entry file="file://$PROJECT_DIR$/dev_files/kest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/views/MainWindow.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/pyuic.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/Pipfile.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6215" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app.pro">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prueba_cargas.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev_files/matplot.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/kest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
+        <state relative-caret-position="361">
           <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-end-line="36" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/Classes.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/Model/functions/set_nodes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/collector.py">
+    <entry file="file://$PROJECT_DIR$/Model/functions/output_excel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/functions/local_matrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/functions/k_mtx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev_files/collector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notas.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/local_matrix.py">
+    <entry file="file://$PROJECT_DIR$/Model/functions/get_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        <state relative-caret-position="1748">
+          <caret line="92" column="46" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/get_data.py">
+    <entry file="file://$PROJECT_DIR$/dev_files/k_p.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="114">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-656">
+        <state relative-caret-position="-6">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <marker date="1537293926731" expanded="true" signature="124:147" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/classes/node.py">
+    <entry file="file://$PROJECT_DIR$/dev_files/matplot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+        <state relative-caret-position="176">
+          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev_files/opengl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev_files/qt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/classes/buffer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1984">
-          <caret line="129" column="50" lean-forward="true" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="50" />
+        <state relative-caret-position="1950">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
           <folding>
-            <element signature="e#0#69#0" expanded="true" />
-            <marker date="1537433829418" expanded="true" signature="2961:2966" ph="..." />
-            <marker date="1537433829418" expanded="true" signature="2988:2997" ph="..." />
+            <element signature="e#0#74#0" expanded="true" />
+            <marker date="1538966418701" expanded="true" signature="562:1012" ph="..." />
+            <marker date="1538966418701" expanded="true" signature="1565:1872" ph="..." />
+            <marker date="1538966418701" expanded="true" signature="2763:2772" ph="..." />
+            <marker date="1538966418701" expanded="true" signature="2763:3097" ph="..." />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_cargas.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/classes/element_types.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="779">
+          <caret line="42" column="99" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="99" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/set_nodes.py">
+    <entry file="file://$PROJECT_DIR$/View/form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="56" column="15" lean-forward="true" selection-start-line="3" selection-end-line="57" />
+        <state relative-caret-position="798">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
