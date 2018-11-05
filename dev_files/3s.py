@@ -4,6 +4,9 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
+from Model.functions.read_dxf import read_dxf
+
+
 verticies = (
     (1, -1, -1),
     (1, 1, -1),
@@ -30,12 +33,13 @@ edges = (
     (5, 7)
     )
 
+vectors = read_dxf('test.dxf')
+
 
 def cube():
     glBegin(GL_LINES)
-    for edge in edges:
-        for vertex in edge:
-            glVertex3fv(verticies[vertex])
+    for vector in vectors:
+        glVertex3fv(vector.start, vector.end)
     glEnd()
 
 
@@ -44,11 +48,12 @@ def main():
     display = (800, 600)
     pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
 
-    gluPerspective(45, (display[0]/display[1]), 0, 20.0)
+    gluPerspective(100, 0.5, 0, 1.0)
+
+    help(gluPerspective)
 
 
-
-    glTranslatef(0.0, 0.0, -4)
+    glTranslatef(0.0, 20.0, -40)
 
     while True:
         for event in pygame.event.get():

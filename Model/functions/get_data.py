@@ -82,22 +82,6 @@ def get_data(self, elemento):
     elemento.press_y = pres__(elemento.dry, elemento.kv)
     elemento.press_z = pres__(elemento.drz, elemento.kh)
 
-    # if elemento.kv > 0:
-    #     setattr(elemento, "toActivate", [])
-    #     for _i, active in enumerate(elemento.press_y):
-    #
-    #         if _i == 0 or _i == elemento.SCC:
-    #             elemento.toActivate.append(True)
-    #
-    #         elif active > 0:
-    #             elemento.toActivate.append(False)
-    #
-    #         else:
-    #             elemento.toActivate.append(True)
-    #
-    #     if not all(elemento.toActivate):
-    #         return False
-
     # fuerza_axial
     f_ = np.zeros(elemento.SCC + 1)
     f_[0] = fr_local[0]
@@ -112,4 +96,4 @@ def get_data(self, elemento):
     # torsion Mx
     elemento.mx = np.full(elemento.SCC + 1, f[3])
 
-    return True
+    return elemento.press_y

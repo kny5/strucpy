@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>chip.png</file>
+    <file>controls.png</file>
+    <file>smooth-line-chart.png</file>
+    <file>processing.png</file>
+    <file>cartesian.png</file>
+    <file>cad.png</file>
+    <file>bridge.png</file>
+    <file>acute-angle-of-45-degrees.png</file>
+  </qresource>
+</RCC>

@@ -1,41 +1,42 @@
-import pyglet
-# import all of opengl functions
-from pyglet.gl import *
-
-win = pyglet.window.Window()
-
-
-def cube(dim, orig):
-    lis = [orig, orig, orig]
-    glVertex3f(orig,dim,orig)
-    glVertex3f(dim,orig,dim)
-    for i in range(len(lis)):
-        lis[i] = dim
-        glVertex3f(lis[0], lis[1], lis[2])
-        print(lis)
-    for j in range(len(lis)):
-        lis[j] = orig
-        glVertex3f(lis[0], lis[1], lis[2])
-        print(lis)
-    return True
+from pyqtgraph.Qt import QtCore, QtGui
+import pyqtgraph.opengl as gl
+import pyqtgraph as pg
+import numpy as np
 
 
-@win.event
-def on_draw():
-    # create a line context
-
-    glPushMatrix()
-    glRotatef(45, 0, 0, 0)
-    glPointSize(10)
-    #gluLookAt(-10, -200, 5, 100, 100, 100, 0, 1, 0)
-    glScalef(0.9, 0.9, 0.9)
-    glBegin(GL_POINTS)
-    # create a line, x,y,z
+app = QtGui.QApplication([])
+w = gl.GLViewWidget()
+w.opts['distance'] = 40
+w.show()
+w.setWindowTitle('3d wire crankshaft')
 
 
-    cube(300, 100)
+i=0
+crankshaft=np.array(([0,0,0],[2,0,0],[2,np.cos(i),np.sin(i)],[2.5,np.cos(i),np.sin(i)],[2.5,-np.cos(i),-np.sin(i)],[3,-np.cos(i),-np.sin(i)],[3,0,0],[6,0,0]))
 
-    glEnd()
+plt=gl.GLLinePlotItem(pos=crankshaft)
 
+w.addItem(plt)
 
-pyglet.app.run()
+conrod1=np.array(([2.25,np.cos(i),np.sin(i)],[2.25,np.cos(i)+2.5,0]))
+plt1=gl.GLLinePlotItem(pos=conrod1)
+w.addItem(plt1)
+
+conrod2=np.array(([3.25,-np.cos(i),-np.sin(i)],[3.25,-np.cos(i)-2.5,0]))
+plt2=gl.GLLinePlotItem(pos=conrod2)
+w.addItem(plt2)
+
+def crankshaft():
+  global i
+  crankshaft=np.array(([0,0,0],[2,0,0],[2,np.cos(i),np.sin(i)],[2.5,np.cos(i),np.sin(i)],[2.5,-np.cos(i),-np.sin(i)],[3,-np.cos(i),-np.sin(i)],[3,0,0],[6,0,0]))
+  conrod1=np.array(([2.25,np.cos(i),np.sin(i)],[2.25,np.cos(i)+2.5,0]))
+  conrod2=np.array(([2.75,-np.cos(i),-np.sin(i)],[2.75,-np.cos(i)-2.5,0]))
+  plt.setData(pos=crankshaft)
+  plt1.setData(pos=conrod1)
+  plt2.setData(pos=conrod2)
+  i+=0.05
+
+time=QtCore.QTimer()
+time.timeout.connect(crankshaft)
+time.start(0.5)
+app.exec_()

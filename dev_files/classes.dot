@@ -1,0 +1,21 @@
+digraph "classes" {
+charset="utf-8"
+rankdir=BT
+"0" [label="{Concrete|b : int\lb_prima : int\le : float\lh : int\lp_mat : float\l|a1()\la2()\larea()\liyy()\lizz()\lj()\l}", shape="record"];
+"1" [label="{Custom|area_ : int\lb : int\le : int\lh : int\liyy_ : int\lizz_ : int\lj_ : int\lp_mat : int\l|a1()\la2()\larea()\liyy()\lizz()\lj()\l}", shape="record"];
+"2" [label="{Element|SCC : int\law : int\le_id : str\lend\lend_conf : dict\lkh : int\lkv : int\lmarco : int\lpoisson : float\lstart\lstart_conf : dict\lvector\lwy : int\lwz : int\l|}", shape="record"];
+"3" [label="{Geometry|array\lcentroid : list\lgem_id_gen : count\lmax\lpoint_max : list\l|}", shape="record"];
+"4" [label="{Ir|bf : int\ld : int\ltf : int\ltw : int\l|a1()\la2()\larea()\liyy()\lizz()\lj()\l}", shape="record"];
+"5" [label="{Node|counter : int\ln_id : str\ln_id_gen : count\ln_springs : list\ln_vcn : list\ln_ve : list\lposition : tuple\lx\ly\lz\l|}", shape="record"];
+"6" [label="{Oc|d : int\lt : int\l|a1()\la2()\larea()\liyy()\lizz()\lj()\l}", shape="record"];
+"7" [label="{Or|bf : int\ld : int\ltf : int\ltw : int\l|a1()\la2()\larea()\liyy()\lizz()\lj()\l}", shape="record"];
+"8" [label="{Steel|armadura : bool\le : int\lp_mat : float\l|}", shape="record"];
+"9" [label="{Vector|end\lstart\lv_id\lv_id_gen : count\l|}", shape="record"];
+"0" -> "2" [arrowhead="empty", arrowtail="none"];
+"1" -> "2" [arrowhead="empty", arrowtail="none"];
+"4" -> "8" [arrowhead="empty", arrowtail="none"];
+"6" -> "8" [arrowhead="empty", arrowtail="none"];
+"7" -> "8" [arrowhead="empty", arrowtail="none"];
+"8" -> "2" [arrowhead="empty", arrowtail="none"];
+"9" -> "2" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="vector", style="solid"];
+}

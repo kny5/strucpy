@@ -38,7 +38,7 @@ def windower(y):
                 pass
 
     window.form_layout.addRow(QWidget(), QPushButton("Guardar"))
-    window.setWindowTitle(type(y).__name__ + " " + y.e_id)
+    window.setWindowTitle(type(y).__name__ + " " + str(y.e_id))
     sys.exit(app.exec_())
 
 windower(e1)
