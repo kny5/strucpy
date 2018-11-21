@@ -1,9 +1,9 @@
 from pyqtgraph.Qt import QtGui
 import pyqtgraph.opengl as gl
-from Model.functions.read_dxf import read_dxf
+from read_dxf import read_dxf
 import pyqtgraph as pg
 from PyQt5.QtWidgets import QFileDialog as qfd
-from Model.classes.element_types import Geometry
+from element_types import Geometry
 
 app = QtGui.QApplication([])
 pg.setConfigOption('leftButtonPan', True)
@@ -14,9 +14,9 @@ w.show()
 
 w.setWindowTitle('Strucpy v0.1 [BETA]')
 
-# read = qfd.getOpenFileName(w, "Open DXF", "c:\\", "dfx files (*.dxf)")
-# vectors = read_dxf(read[0])
-vectors = read_dxf('lienzo.dxf')
+read = qfd.getOpenFileName(w, "Open DXF", "c:\\", "dfx files (*.dxf)")
+vectors = read_dxf(read[0])
+# vectors = read_dxf('lienzo.dxf')
 
 geometry = Geometry(vectors)
 w.opts['distance'] = geometry.max * 2.25
