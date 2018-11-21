@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Frame</class>
+ <widget class="QFrame" name="Frame">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>828</width>
+    <height>502</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::WheelFocus</enum>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowOpacity">
+   <double>0.990000000000000</double>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::Panel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Plain</enum>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGraphicsView" name="graphicsView">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/prefijoNuevo/splash_logo.png);</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../Users/ANAYA/Pictures/mercadolibre/Bone/xx.qrc"/>
+ </resources>
+ <connections/>
+</ui>
