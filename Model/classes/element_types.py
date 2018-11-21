@@ -216,7 +216,7 @@ class Custom:
     iyy = Value(default=0.0, text='Eje Y: Inercia')
     j_ = Value(default=0.0, text='Inercia: Momento Polar')
     e = Value(default=0.0, text='Elasticidad: Modulo')
-    p_mat = Value(default=0.0, text='Elemento: Peso')
+    p_mat = Value(default=0.0, text='Material: Peso')
     area_ = Value(default=0.0, text='Sección: Área')  # verificar dato
 
     def _a1(self):

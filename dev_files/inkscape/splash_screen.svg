@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="splash_screen.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4798">
+      <stop
+         style="stop-color:#000080;stop-opacity:1;"
+         offset="0"
+         id="stop4794" />
+      <stop
+         style="stop-color:#000080;stop-opacity:0;"
+         offset="1"
+         id="stop4796" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4798"
+       id="radialGradient4802"
+       cx="85.805031"
+       cy="113.81744"
+       fx="85.805031"
+       fy="113.81744"
+       r="53.313541"
+       gradientTransform="matrix(-12.984611,-0.05041542,0.01574602,-4.0554308,1199.6962,581.70743)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.56"
+     inkscape:cx="290.85825"
+     inkscape:cy="686.55208"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;vector-effect:none;fill:url(#radialGradient4802);fill-opacity:1;stroke:#4d4d4d;stroke-width:0.19377415;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4485"
+       width="106.43331"
+       height="63.306225"
+       x="28.718735"
+       y="87.072968" />
+    <text
+       id="text4817"
+       y="135.81207"
+       x="41.303707"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.9971149px;line-height:1.25;font-family:Raleway;-inkscape-font-specification:Raleway;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;stroke-width:0.24963936"
+       xml:space="preserve"><tspan
+         style="fill:#ececec;stroke-width:0.24963936"
+         y="135.81207"
+         x="41.303707"
+         id="tspan4815"
+         sodipodi:role="line">Análisis por Simulación, Estadística, Diferencias Finitas</tspan><tspan
+         id="tspan4835"
+         style="fill:#ececec;stroke-width:0.24963936"
+         y="138.30847"
+         x="41.303707"
+         sodipodi:role="line">para Estructuras de Acero y Concreto.</tspan></text>
+    <g
+       id="g5144"
+       transform="translate(-0.3031216,-1.8877863)">
+      <g
+         style="opacity:0.16400003;fill:#cccccc;stroke:#333333"
+         id="g4813-2"
+         transform="translate(2.5403355,16.183568)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.98513985px;line-height:1.25;font-family:Raleway;-inkscape-font-specification:Raleway;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:#333333;stroke-width:2.37314248"
+           x="39.618542"
+           y="102.74115"
+           id="text4489-1"><tspan
+             sodipodi:role="line"
+             x="39.618542"
+             y="102.74115"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Raleway;-inkscape-font-specification:Raleway;letter-spacing:0.9921875px;word-spacing:0px;fill:#cccccc;stroke:#333333;stroke-width:2.37314248"
+             id="tspan4491-6"
+             dx="0"><tspan
+   style="letter-spacing:1.70656252px;fill:#cccccc;stroke:#333333"
+   id="tspan4605-8">S</tspan>tructpy</tspan></text>
+      </g>
+      <g
+         id="g4813"
+         transform="translate(1.9957287,-2.2366608)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.98513985px;line-height:1.25;font-family:Raleway;-inkscape-font-specification:Raleway;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.37314248"
+           x="39.618542"
+           y="122.32032"
+           id="text4489"><tspan
+             sodipodi:role="line"
+             x="39.618542"
+             y="122.32032"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Raleway;-inkscape-font-specification:Raleway;letter-spacing:0.9921875px;word-spacing:0px;fill:#ececec;stroke:#e6e6e6;stroke-width:2.37314248"
+             id="tspan4491"
+             dx="0"><tspan
+   style="letter-spacing:1.70656252px"
+   id="tspan4605">S</tspan>tructpy</tspan></text>
+      </g>
+      <circle
+         r="3.1520967"
+         cy="114.9383"
+         cx="107.06113"
+         id="path5105"
+         style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;stroke:#e6e6e6;stroke-width:0.2876637;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;line-height:1.25;font-family:Raleway;-inkscape-font-specification:Raleway;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="121.33624"
+       y="123.05713"
+       id="text5197"><tspan
+         sodipodi:role="line"
+         id="tspan5195"
+         x="121.33624"
+         y="123.05713"
+         style="fill:#ececec;stroke:none;stroke-width:0.26458332">beta</tspan></text>
+  </g>
+</svg>
