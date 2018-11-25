@@ -19,4 +19,3 @@ def k_mtx(element):
 
     element.kzz = k__(f_a)
     element.kyy = k__(f_b)
-3

@@ -4,10 +4,11 @@ import math
 
 
 def local_matrix(self):
-    self.mzz = (self.e * self.izz()) / (self.vector.long / self.SCC) ** 2
-    self.myy = (self.e * self.iyy()) / (self.vector.long / self.SCC) ** 2
-    self.vzz = (self.e * self.izz()) / (2 * (self.vector.long / self.SCC) ** 3)
-    self.vyy = (self.e * self.iyy()) / (2 * (self.vector.long / self.SCC) ** 3)
+    d_x = self.vector.long / self.SCC
+    self.mzz = (self.e * self.izz()) / d_x ** 2
+    self.myy = (self.e * self.iyy()) / d_x ** 2
+    self.vzz = (self.e * self.izz()) / (2 * d_x ** 3)
+    self.vyy = (self.e * self.iyy()) / (2 * d_x ** 3)
     axial = (self.e * self.area()) / self.vector.long
     torsion = ((self.e / (2 * (1 + self.poisson))) * self.j()) / self.vector.long
 
@@ -27,16 +28,16 @@ def local_matrix(self):
 
     d1zz = imext__(np.dot(self.kzz.I, -(np.insert(np.zeros(self.SCC), 0, 3))).A1, (0, -6, 2))
     d2zz = imext__(np.dot(self.kzz.I, -(np.append(np.zeros(self.SCC), 3))).A1, (-1, -6, -3))
-    te1zz = imext__(np.dot(self.kzz.I, -(np.insert(np.zeros(self.SCC), 1, 2 * (self.vector.long / self.SCC)))).A1,
-                    (0, 8 * (self.vector.long / self.SCC)), (1, 2 * (self.vector.long / self.SCC)))
-    te2zz = imext__(np.dot(self.kzz.I, -(np.insert(np.zeros(self.SCC), -1, 2 * (self.vector.long / self.SCC)))).A1,
-                    (-1, 8 * (self.vector.long / self.SCC)), (-2, 2 * (self.vector.long / self.SCC)))
+    te1zz = imext__(np.dot(self.kzz.I, -(np.insert(np.zeros(self.SCC), 1, 2 * d_x))).A1,
+                    (0, 8 * d_x), (1, 2 * d_x))
+    te2zz = imext__(np.dot(self.kzz.I, -(np.insert(np.zeros(self.SCC), -1, 2 * d_x))).A1,
+                    (-1, 8 * d_x), (-2, 2 * d_x))
     d1yy = imext__(np.dot(self.kyy.I, -(np.insert(np.zeros(self.SCC), 0, 3))).A1, (0, -6, 2))
     d2yy = imext__(np.dot(self.kyy.I, -(np.append(np.zeros(self.SCC), 3))).A1, (-1, -6, -3))
-    te1yy = imext__(np.dot(self.kyy.I, -(np.insert(np.zeros(self.SCC), 1, 2 * (self.vector.long / self.SCC)))).A1,
-                    (0, 8 * (self.vector.long / self.SCC)), (1, 2 * (self.vector.long / self.SCC)))
-    te2yy = imext__(np.dot(self.kyy.I, -(np.insert(np.zeros(self.SCC), -1, 2 * (self.vector.long / self.SCC)))).A1,
-                    (-1, 8 * (self.vector.long / self.SCC)), (-2, 2 * (self.vector.long / self.SCC)))
+    te1yy = imext__(np.dot(self.kyy.I, -(np.insert(np.zeros(self.SCC), 1, 2 * d_x))).A1,
+                    (0, 8 * d_x), (1, 2 * d_x))
+    te2yy = imext__(np.dot(self.kyy.I, -(np.insert(np.zeros(self.SCC), -1, 2 * d_x))).A1,
+                    (-1, 8 * d_x), (-2, 2 * d_x))
 
     def tmv__(vector, m__, v=False):
         x = np.zeros(self.SCC + 1)
@@ -161,15 +162,15 @@ def local_matrix(self):
                 (self.vector.long / 100)) / 2)
 
     p_scc_y = ((pp * (self.vector.long / 100) * coslm) / self.SCC) * \
-              (((self.vector.long / self.SCC) ** 3) / (self.e * self.izz()))
+              ((d_x ** 3) / (self.e * self.izz()))
 
     p_scc_z = 0
     w_scc_y = ((((self.wy * self.vector.long) / 100) *
                 math.cos(math.radians(self.aw))) / self.SCC) * \
-              (((self.vector.long / self.SCC) ** 3) / (self.e * self.izz()))
+              ((d_x ** 3) / (self.e * self.izz()))
 
     w_scc_z = ((self.wz * (self.vector.long / 100)) /
-               self.SCC) * (((self.vector.long / self.SCC) ** 3) / (self.e * self.iyy()))
+               self.SCC) * ((d_x ** 3) / (self.e * self.iyy()))
 
     try:
         if self.armour is True:
@@ -208,14 +209,14 @@ def local_matrix(self):
     def v_maker3(dl, v__, vplocal, i__):
         vector = np.empty(self.SCC + 1)
         vector[0] = ((dl[2] - (2 * dl[1]) + (2 * dl[1]) - ((8 * dl[1]) - dl[2])) * v__) + \
-                    ((vplocal[1] / 2) * (self.e * i__ / ((self.vector.long / self.SCC) ** 3)))
+                    ((vplocal[1] / 2) * (self.e * i__ / (d_x ** 3)))
 
         vector[1] = (dl[3] - (2 * dl[2]) + (2 * dl[0]) - dl[1]) * v__
 
         vector[-2] = (dl[-2] - (2 * dl[-1]) + (2 * dl[-3]) - dl[-4]) * v__
 
         vector[-1] = ((((8 * dl[-2]) - dl[-3]) - (2 * dl[-2]) + (2 * dl[-2]) - dl[-3]) * v__) - \
-                     ((vplocal[1] / 2) * (self.e * i__ / ((self.vector.long / self.SCC) ** 3)))
+                     ((vplocal[1] / 2) * (self.e * i__ / (d_x ** 3)))
 
         for i in range(2, self.SCC - 1):
             vector[i] = (dl[i + 2] - (2 * dl[i + 1]) + (2 * dl[i - 1]) - dl[i - 2]) * v__
@@ -248,4 +249,4 @@ def local_matrix(self):
     self.pculocal = pcu_local
     self.pc_ = np.dot(tr, pcu_local).A1
 
-    return True
+    return self

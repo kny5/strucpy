@@ -6,24 +6,24 @@ def get_data(self, elemento):
 
     vdgen_p = np.zeros(12)
     for k, i_ in enumerate(elemento.ve):
-        if i_ == 0:
-            pass
-        else:
+        if i_ != 0:
             vdgen_p[k] = self.dn_est[0, i_ - 1]
+        else:
+            pass
+
     # p_global
     p_global = np.dot(elemento.kebg, vdgen_p).A1
     # fuerza_local
-    tr = elemento.tr
-    f = np.dot(tr.T, p_global).A1
+    f = np.dot(elemento.tr.T, p_global).A1
     # f_real_local
     pcu_loc = elemento.pculocal
     pcu_loc[6] = - pcu_loc[6]
     elemento.springs = np.asarray(elemento.springs)
     f_g_springs = np.multiply(vdgen_p, elemento.springs)
-    f_l_springs = np.dot(tr.T, f_g_springs).A1
+    f_l_springs = np.dot(elemento.tr.T, f_g_springs).A1
     fr_local = pcu_loc - f + f_l_springs
     # desp_local
-    dlen = np.dot(tr.T, vdgen_p).A1
+    dlen = np.dot(elemento.tr.T, vdgen_p).A1
     # desp_
     y = np.zeros(elemento.SCC + 1)
     y[0] = -3 * dlen[1]
@@ -96,4 +96,4 @@ def get_data(self, elemento):
     # torsion Mx
     elemento.mx = np.full(elemento.SCC + 1, f[3])
 
-    return elemento.press_y
+    return elemento

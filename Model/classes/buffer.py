@@ -12,15 +12,9 @@ class Buffer:
         self.id = id
         self.Elements = []
         self.Nodes = []
-        self.freedom = 0
         self.vcn = []
         self.v_springs = []
-
-    def open_dxf(self):
-        pass
-
-    def plot(self):
-        pass
+        self.freedom = 0
 
     def b_aproximation(self):
         pass
@@ -52,7 +46,8 @@ class Buffer:
             # vector de ensamble y datos primarios geométricos.
             set_nodes(self, element)
 
-    # ciclo while donde k_mtx recibe datos para restar f_a en las posiciones indicadas, mientras estado = Falso repetir.
+            # ciclo while donde k_mtx recibe datos para restar f_a en las posiciones indicadas,
+            # mientras estado = Falso repetir.
 
             # matriz k
             k_mtx(element)
@@ -71,15 +66,6 @@ class Buffer:
         for element in self.Elements:
             # obteniendo resultados de general hacia individual.
             get_data(self, element)
-
-    def add_to_node(self, id, node, *kwargs):
-        for element in self.Elements:
-            if element.e_id == id:
-                for arg in kwargs:
-                    if node == 'start':
-                        element.start_conf.__setitem__(arg[0], arg[1])
-                    elif node == 'end':
-                        element.end_conf.__setitem__(arg[0], arg[1])
 
     def add_element(self, element_type, id=None):
         x = element_type
