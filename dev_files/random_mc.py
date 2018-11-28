@@ -15,8 +15,8 @@ def random_vector(list, grados, iterations=1000):
     
 
 x = list(range(-15,16,1))
-#x = np.arange(0,15,1)
-#print(len(x))
+#data = np.arange(0,15,1)
+#print(len(data))
 y = list(range(-35,36,1))
 #y = np.arange(-10,-35,-1)
 
@@ -27,9 +27,9 @@ a = list(range(-150,151,1))
 #a = np.arange(0,150,1)
 
 w = list(it.product(x,y,z,a))
-#w = np.array(it.product(x,y,z,a))
+#w = np.array(it.product(data,y,z,a))
 
-#print(x, y, z)
+#print(data, y, z)
 
 #print(w)
 

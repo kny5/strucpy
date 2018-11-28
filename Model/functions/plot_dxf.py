@@ -20,9 +20,9 @@ vectors = read_dxf(read[0])
 
 geometry = Geometry(vectors)
 w.opts['distance'] = geometry.max * 2.25
-# w.opts['center'] = QtGui.QVector3D(geometry.centroid[0],
-#                                   geometry.centroid[1],
-#                                   geometry.centroid[2])
+w.opts['center'] = QtGui.QVector3D(geometry.centroid[0],
+                                   geometry.centroid[1],
+                                   geometry.centroid[2])
 
 plt = gl.GLLinePlotItem(pos=geometry.array,
                         mode='lines',
@@ -31,18 +31,16 @@ plt = gl.GLLinePlotItem(pos=geometry.array,
                         width=1)
 w.addItem(plt)
 
-ground = gl.GLGridItem(antialias=True, glOptions='translucent', color=[255, 255, 255, 0.1])
-ground.setSize(x=geometry.max * 2.1, y=geometry.max * 2.1)
-ground.setSpacing(x=100, y=100)
+# ground = gl.GLGridItem(antialias=True, glOptions='translucent', color=[255, 255, 255, 0.1])
+# ground.setSize(data=geometry.max * 2.1, y=geometry.max * 2.1)
+# ground.setSpacing(data=100, y=100)
 # w.addItem(ground)
 
-select = gl.GLLinePlotItem(pos=geometry.array[:1001],
-                           mode='lines',
-                           antialias=True,
-                           width=7,
-                           color=[0, 255, 0, 0.7])
-w.addItem(select)
-
-selct_area = w.itemsAt(region=[100, 100, 10, 10])
+# select = gl.GLLinePlotItem(pos=geometry.array[:1001],
+#                            mode='lines',
+#                            antialias=True,
+#                            width=7,
+#                            color=[0, 255, 0, 0.7])
+# w.addItem(select)
 
 app.exec_()

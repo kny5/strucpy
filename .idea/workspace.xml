@@ -5,84 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f5609e8-a638-4429-ae08-442e84f69e08" name="Default" comment="Añadido configuración de (carga, resorte) prueba de asignación superada, previo a agregar desactivación de nodos y aproximación de b.">
-      <change afterPath="$PROJECT_DIR$/Model/functions/elementize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/functions/select_functs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/classes/element_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/classes/element_types.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/functions/asm_vector.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/functions/asm_vector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/element_types.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/.sconsign.dblite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledAsyncgenType.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledAsyncgenType.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledCellType.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledCellType.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledCodeHelpers.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledCodeHelpers.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledCoroutineType.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledCoroutineType.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledFrameType.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledFrameType.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledFunctionType.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledFunctionType.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledGeneratorType.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledGeneratorType.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledMethodType.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/CompiledMethodType.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/InspectPatcher.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/InspectPatcher.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/MainProgram.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/MainProgram.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/MetaPathBasedLoader.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/MetaPathBasedLoader.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__constants.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__constants.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__constants.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__frozen.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__frozen.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__helpers.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__helpers.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/__helpers.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/build_definitions.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/module.__main__.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/module.__main__.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/allocator.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/builtins.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/calling.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/compiled_asyncgen.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/compiled_cell.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/compiled_coroutine.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/compiled_frame.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/compiled_function.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/compiled_generator.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/compiled_method.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/constants_blob.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/exceptions.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/freelists.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/attributes.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/boolean.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/bytearrays.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/complex.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/dictionaries.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/ints.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/iterators.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/lists.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/mappings.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/operations.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/printing.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/raising.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/rangeobjects.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/richcomparisons.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/sequences.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/slices.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helper/subscripts.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/helpers.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/importing.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/prelude.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/threading.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/tracing.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/nuitka/unfreezing.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/linux_build/plot_dxf.build/scons-report.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/plot_dxf.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/plot_dxf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/functions/plot_dxf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_files/plot_dxf/read_dxf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/functions/elementize.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/functions/elementize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/functions/plot_dxf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/functions/plot_dxf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/functions/read_dxf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/functions/read_dxf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/functions/set_nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/functions/set_nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/random_mc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/random_mc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_files/random_mc.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/random_mc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_files/scripts/cursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/scripts/cursor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_files/scripts/form_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/scripts/form_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_files/scripts/matplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_files/scripts/matplot.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,29 +100,29 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="dxf" value="2" />
-          <entry key="py" value="130" />
+          <entry key="py" value="137" />
           <entry key="ui" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="130" />
+          <entry key="Python" value="137" />
           <entry key="Qt UI file" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="3047" />
+          <entry key="Python Console" value="4550" />
           <entry key="dummy" value="19" />
-          <entry key="py" value="27774" />
+          <entry key="py" value="33621" />
           <entry key="txt" value="111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="130" />
-          <entry key="Python" value="30821" />
+          <entry key="Python" value="38171" />
         </counts>
       </usages-collector>
     </session>
@@ -197,11 +132,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Model/classes/element_types.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+            <state relative-caret-position="342">
+              <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -210,35 +145,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model/functions/elementize.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <marker date="1543223502797" expanded="true" signature="81:86" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model/classes/buffer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-                <marker date="1543054429391" expanded="true" signature="2165:2171" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/functions/set_nodes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="144">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/functions/read_dxf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/functions/select_functs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="69" selection-start-line="1" selection-start-column="69" selection-end-line="1" selection-end-column="69" />
+              <folding>
+                <marker date="1543404589128" expanded="true" signature="31:36" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -246,34 +180,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/functions/asm_vector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="143">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
-                <marker date="1543225780404" expanded="true" signature="74:83" ph="..." />
+                <marker date="1543403451250" expanded="true" signature="52:59" ph="..." />
+                <marker date="1543403451250" expanded="true" signature="369:378" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model/functions/plot_dxf.py">
+        <entry file="file://$PROJECT_DIR$/Model/functions/local_matrix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="-3007">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
               <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Model/functions/read_dxf.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -361,8 +284,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Model/opengl.py" />
-        <option value="$PROJECT_DIR$/Model/Space.py" />
         <option value="$PROJECT_DIR$/Model/3s.py" />
         <option value="$PROJECT_DIR$/Model/glumpy1.py" />
         <option value="$PROJECT_DIR$/Model/vispy1.py" />
@@ -400,26 +321,27 @@
         <option value="$PROJECT_DIR$/dev_files/3dspace.py" />
         <option value="$PROJECT_DIR$/dev_files/plot_dfx.py" />
         <option value="$PROJECT_DIR$/dev_files/cursor.py" />
-        <option value="$PROJECT_DIR$/Model/functions/read_dxf.py" />
         <option value="$PROJECT_DIR$/dev_files/plot_dxf.py" />
         <option value="$PROJECT_DIR$/View/form.py" />
         <option value="$PROJECT_DIR$/dev_files/form_gen.py" />
         <option value="$PROJECT_DIR$/Model/functions/get_data.py" />
         <option value="$PROJECT_DIR$/Model/functions/k_mtx.py" />
         <option value="$PROJECT_DIR$/Model/functions/local_matrix.py" />
-        <option value="$PROJECT_DIR$/Model/functions/set_nodes.py" />
         <option value="$PROJECT_DIR$/Model/classes/buffer.py" />
-        <option value="$PROJECT_DIR$/Model/classes/element_types.py" />
+        <option value="$PROJECT_DIR$/Model/functions/plot_dxf.py" />
+        <option value="$PROJECT_DIR$/Model/functions/set_nodes.py" />
         <option value="$PROJECT_DIR$/Model/functions/elementize.py" />
         <option value="$PROJECT_DIR$/Model/functions/asm_vector.py" />
+        <option value="$PROJECT_DIR$/Model/functions/read_dxf.py" />
+        <option value="$PROJECT_DIR$/Model/functions/select_functs.py" />
+        <option value="$PROJECT_DIR$/Model/classes/element_types.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="660" />
-    <option name="height" value="500" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -433,6 +355,23 @@
             <path>
               <item name="strucpy" type="b2602c69:ProjectViewProjectNode" />
               <item name="strucpy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strucpy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strucpy" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strucpy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strucpy" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strucpy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strucpy" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -473,28 +412,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.elementize">
-    <configuration name="element_types" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="new" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model/classes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/classes/element_types.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.read_dxf">
     <configuration name="elementize" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="new" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -507,27 +425,6 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/functions/elementize.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="form" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="new" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/View" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View/form.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -555,13 +452,46 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="plot_dxf" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="new" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model/functions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/functions/plot_dxf.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="read_dxf" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="new" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model/functions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/functions/read_dxf.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="set_nodes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="new" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Model/functions" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -569,7 +499,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model/functions/set_nodes.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -577,19 +507,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.element_types" />
       <item itemvalue="Python.form_gen" />
-      <item itemvalue="Python.form" />
       <item itemvalue="Python.set_nodes" />
       <item itemvalue="Python.elementize" />
+      <item itemvalue="Python.read_dxf" />
+      <item itemvalue="Python.plot_dxf" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.elementize" />
+        <item itemvalue="Python.read_dxf" />
+        <item itemvalue="Python.read_dxf" />
         <item itemvalue="Python.set_nodes" />
-        <item itemvalue="Python.element_types" />
-        <item itemvalue="Python.form_gen" />
-        <item itemvalue="Python.form" />
+        <item itemvalue="Python.set_nodes" />
+        <item itemvalue="Python.read_dxf" />
       </list>
     </recent_temporary>
   </component>
@@ -641,9 +571,9 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5059423" side_tool="true" weight="0.14077991" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49405771" visible="true" weight="0.14210178" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49405771" visible="true" weight="0.14210178" />
       <window_info id="Structure" order="2" sideWeight="0.5030675" side_tool="true" weight="0.18175809" />
-      <window_info anchor="bottom" id="Python Console" order="0" visible="true" weight="0.23803364" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="0" visible="true" weight="0.36351874" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.4087969" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32858992" />
@@ -688,7 +618,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/pyuic.json" />
     <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/Pipfile.lock" />
     <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app.pro" />
     <entry file="file://$PROJECT_DIR$/pyqt-boilerplate/app/__main__.py" />
@@ -774,33 +703,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/element_types.py" />
-    <entry file="file://$PROJECT_DIR$/Model/functions/get_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/elementize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <marker date="1543223502797" expanded="true" signature="81:86" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/classes/element_types.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev_files/plot_dxf/read_dxf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -819,16 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/local_matrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-702">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/classes/buffer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
@@ -840,39 +732,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/set_nodes.py">
+    <entry file="file://$PROJECT_DIR$/Model/functions/get_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/functions/asm_vector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <marker date="1543225780404" expanded="true" signature="74:83" ph="..." />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/functions/plot_dxf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="216">
+          <caret line="24" column="56" lean-forward="true" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Model/functions/set_nodes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/functions/elementize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="39" selection-start-column="39" selection-end-column="39" />
+          <folding>
+            <marker date="1543401742988" expanded="true" signature="73:78" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/functions/local_matrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3007">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/functions/select_functs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="69" selection-start-line="1" selection-start-column="69" selection-end-line="1" selection-end-column="69" />
+          <folding>
+            <marker date="1543404589128" expanded="true" signature="31:36" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Model/functions/read_dxf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="305">
+          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/functions/asm_vector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <marker date="1543403451250" expanded="true" signature="52:59" ph="..." />
+            <marker date="1543403451250" expanded="true" signature="369:378" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/classes/element_types.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

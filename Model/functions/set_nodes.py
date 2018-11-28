@@ -1,18 +1,18 @@
-from Model.classes.element_types import Node
+def set_nodes(element, nodes):
+    for node in nodes:
+        if element.vector.start == node.position:
+            element.nodeStart = node
+        elif element.vector.end == node.position:
+            element.nodeEnd = node
+    element._set_asm()
+    return element
 
 
-def set_nodes(vectors):
-    __set = set([])
-    for vector in vectors:
-        __set.update(vector.start)
-        __set.update(vector.end)
-    for node in __set:
-        __x = Node(node)
-        for vector in vectors:
-            if vector.start == node:
-                vector.nodeStart = __x
-            elif vector.end == node:
-                vector.nodeEnd = __x
-    # save this as nodes
-    return list(__set)
-
+# def set_nodes(vectors, nodes):
+#     for vector in vectors:
+#         for node in nodes:
+#             if vector.start == node.position:
+#                 vector.nodeStart = node
+#             elif vector.end == node.position:
+#                 vector.nodeEnd = node
+#     return vectors

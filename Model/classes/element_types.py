@@ -4,14 +4,7 @@ import numpy as np
 
 
 class Geometry:
-    def __init__(self, vectors):
-        __array = []
-
-        for vector in vectors:
-            __array.append(np.asarray(vector.start))
-            __array.append(np.asarray(vector.end))
-
-        array_np = np.asarray(__array)
+    def __init__(self, array_np):
 
         x_min = array_np[:, 0].min()
         y_min = array_np[:, 1].min()
@@ -20,23 +13,25 @@ class Geometry:
         x_max = array_np[:, 0].max()
         y_max = array_np[:, 1].max()
 
-        magic = np.ndarray([(x_max + x_min) / 2, (y_max + y_min) / 2, z_min])
+        magic = [(x_max + x_min) / 2, (y_max + y_min) / 2, z_min]
 
-        translate = []
 
-        for vector in __array:
-            translate.append(np.subtract(vector, magic))
 
-        self.array = np.asarray(translate)
-        # x axis
-        x_min = self.array[:, 0].min()
-        x_max = self.array[:, 0].max()
+        # translate = []
+        #
+        for vector in array_np:
+            np.subtract(vector, magic)
+
+        # self.array = np.asarray(translate)
+        # data axis
+        x_min = array_np[:, 0].min()
+        x_max = array_np[:, 0].max()
         # y axis
-        y_min = self.array[:, 1].min()
-        y_max = self.array[:, 1].max()
+        y_min = array_np[:, 1].min()
+        y_max = array_np[:, 1].max()
         # z axis
-        z_min = self.array[:, 2].min()
-        z_max = self.array[:, 2].max()
+        z_min = array_np[:, 2].min()
+        z_max = array_np[:, 2].max()
 
         self.centroid = ((x_max + x_min) / 2, (y_max + y_min) / 2, (z_max + z_min) / 2)
         self.point_max = (x_max, y_max, z_max)
@@ -87,8 +82,8 @@ class Node:
         self.conf_springs = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
         self.conf_vcn = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
         self.conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
-        self.n_springs = self.conf_springs.values()
-        self.n_vcn = self.conf_vcn.values()
+        self.n_springs = list(self.conf_springs.values())
+        self.n_vcn = list(self.conf_vcn.values())
 
 
 class Element:

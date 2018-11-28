@@ -35,7 +35,7 @@ class Ui_Dialog(object):
 
         # self.ok_btn.clicked.connect(self.func_add)
         self.buttonBox.setStandardButtons(self.cancel_btn | self.ok_btn)
-        # self.buttonBox.accepted.connect(self.func_add)x
+        # self.buttonBox.accepted.connect(self.func_add)data
         self.buttonBox.setObjectName("buttonBox")
 
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 270, 260))
