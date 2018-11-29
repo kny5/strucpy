@@ -10,14 +10,13 @@ def read_dxf(file):
     __vectors = []
     x = [x for x in dxfg.readfile(file).entities._entities if isinstance(x, dxfg.dxfentities.Line)]
     for entity in x:
-        __array_vectors += [entity.start, entity.end]
-        __vectors += [Vector(entity.start, entity.end)]
-
+        __array_vectors += [(entity.start[0], -entity.start[2], entity.start[1]), (entity.end[0], -entity.end[2], entity.end[1])]
+        __vectors += [Vector((entity.start[0], -entity.start[2], entity.start[1]), (entity.end[0], -entity.end[2], entity.end[1]))]
     return __array_vectors, __vectors
 
 
 start = time.time()
-data = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
+data = read_dxf('c:/repos/strucpy/dev_files/dxf/test.dxf')
 nodes = list(map(Node, set(data[0])))
 
 # vectors = set_nodes(data[1], nodes)

@@ -40,7 +40,7 @@ class Geometry:
 
 class Vector:
     def __init__(self, start, end):
-        if start[2] > end[2]:
+        if start[1] > end[1]:
             self.start = end
             self.end = start
         else:
@@ -66,7 +66,7 @@ class Vector:
         self.lm = math.degrees(math.asin((self.end[1] - self.start[1]) / self.long))
 
     def reformat(self):
-        if self.start[2] > self.end[2]:
+        if self.start[1] > self.end[1]:
             start = self.start
             self.start = self.end
             self.end = start
