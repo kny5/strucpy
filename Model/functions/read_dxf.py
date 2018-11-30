@@ -10,8 +10,8 @@ def read_dxf(file):
     __vectors = []
     x = [x for x in dxfg.readfile(file).entities._entities if isinstance(x, dxfg.dxfentities.Line)]
     for entity in x:
-        __array_vectors += [(entity.start[0], -entity.start[2], entity.start[1]), (entity.end[0], -entity.end[2], entity.end[1])]
-        __vectors += [Vector((entity.start[0], -entity.start[2], entity.start[1]), (entity.end[0], -entity.end[2], entity.end[1]))]
+        __array_vectors += [(entity.start[0], entity.start[2], -entity.start[1]), (entity.end[0], entity.end[2], -entity.end[1])]
+        __vectors += [Vector((entity.start[0], entity.start[2], -entity.start[1]), (entity.end[0], entity.end[2], -entity.end[1]))]
     return __array_vectors, __vectors
 
 
