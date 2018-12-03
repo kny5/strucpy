@@ -106,8 +106,9 @@ class Element:
         self.nodeEnd = None
         self.ve = None
 
-    def _set_asm(self):
+    def asm(self):
         self.ve = self.nodeStart.n_ve + self.nodeEnd.n_ve
+
 
 
 class Concrete:

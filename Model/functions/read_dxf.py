@@ -1,8 +1,10 @@
 import dxfgrabber as dxfg
-from Model.classes.element_types import Vector, Node, Element
+from Model.classes.element_types import Vector
 import time
 from Model.functions.set_nodes import set_nodes
 from Model.functions.asm_vector import asm_v
+from operator import add
+from functools import reduce
 
 
 def read_dxf(file):
@@ -16,13 +18,19 @@ def read_dxf(file):
 
 
 start = time.time()
-data = read_dxf('c:/repos/strucpy/dev_files/dxf/test.dxf')
-nodes = list(map(Node, set(data[0])))
 
-# vectors = set_nodes(data[1], nodes)
+data = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
 
-freedomDegrees = asm_v(nodes)
-e_list = list(map(Element, data[1]))
-elements = list(map(lambda x: set_nodes(x, nodes), e_list))
+print(time.time()-start)
+
+vectors = data[1]
+
+elements_nodes = set_nodes(vectors, data[0])
+
+print(time.time()-start)
+
+freedomDegrees = asm_v(elements_nodes[1])
+
+asm_vector = [x.asm() for x in elements_nodes[0]]
 
 print(time.time()-start)
