@@ -1,41 +1,37 @@
 import math
 from itertools import count as it_counts
-import numpy as np
+# import numpy as np
 
-
-class Geometry:
-    def __init__(self, array_np):
-
-        x_min = array_np[:, 0].min()
-        y_min = array_np[:, 1].min()
-        z_min = array_np[:, 2].min()
-
-        x_max = array_np[:, 0].max()
-        y_max = array_np[:, 1].max()
-
-        magic = [(x_max + x_min) / 2, (y_max + y_min) / 2, z_min]
-
-
-
-        # translate = []
-        #
-        for vector in array_np:
-            np.subtract(vector, magic)
-
-        # self.array = np.asarray(translate)
-        # data axis
-        x_min = array_np[:, 0].min()
-        x_max = array_np[:, 0].max()
-        # y axis
-        y_min = array_np[:, 1].min()
-        y_max = array_np[:, 1].max()
-        # z axis
-        z_min = array_np[:, 2].min()
-        z_max = array_np[:, 2].max()
-
-        self.centroid = ((x_max + x_min) / 2, (y_max + y_min) / 2, (z_max + z_min) / 2)
-        self.point_max = (x_max, y_max, z_max)
-        self.max = max(self.point_max)
+# class Geometry:
+#     def __init__(self, array_np):
+#
+#         x_min = array_np[:, 0].min()
+#         y_min = array_np[:, 1].min()
+#         z_min = array_np[:, 2].min()
+#
+#         x_max = array_np[:, 0].max()
+#         y_max = array_np[:, 1].max()
+#
+#         magic = [(x_max + x_min) / 2, (y_max + y_min) / 2, z_min]
+#         # translate = []
+#         #
+#         for vector in array_np:
+#             np.subtract(vector, magic)
+#
+#         # self.array = np.asarray(translate)
+#         # data axis
+#         x_min = array_np[:, 0].min()
+#         x_max = array_np[:, 0].max()
+#         # y axis
+#         y_min = array_np[:, 1].min()
+#         y_max = array_np[:, 1].max()
+#         # z axis
+#         z_min = array_np[:, 2].min()
+#         z_max = array_np[:, 2].max()
+#
+#         self.centroid = ((x_max + x_min) / 2, (y_max + y_min) / 2, (z_max + z_min) / 2)
+#         self.point_max = (x_max, y_max, z_max)
+#         self.max = max(self.point_max)
 
 
 class Vector:
@@ -108,7 +104,6 @@ class Element:
 
     def asm(self):
         self.ve = self.nodeStart.n_ve + self.nodeEnd.n_ve
-
 
 
 class Concrete:
