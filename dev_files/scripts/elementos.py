@@ -100,4 +100,4 @@ elemento5.end = (300,250,0)
 #print(json_object)
 
 #with open("_input.json", 'w') as f:
-#    f.write(str(json_object))
+#    f.write(__str(json_object))

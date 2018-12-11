@@ -16,7 +16,7 @@ w.setWindowTitle('Strucpy v0.1 [BETA]')
 
 # read = qfd.getOpenFileName(w, "Open DXF", "c:\\", "dfx files (*.dxf)")
 # vectors = read_dxf(read[0])
-vectors = read_dxf('lienzo.dxf')
+vectors = read_dxf('l.dxf')
 
 geometry = Geometry(vectors)
 w.opts['distance'] = geometry.max * 2.25

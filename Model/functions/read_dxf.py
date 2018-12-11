@@ -14,25 +14,25 @@ def read_dxf(file):
     for entity in x:
         __array_vectors += [(entity.start[0], entity.start[2], -entity.start[1]), (entity.end[0], entity.end[2], -entity.end[1])]
         __vectors += [Vector((entity.start[0], entity.start[2], -entity.start[1]), (entity.end[0], entity.end[2], -entity.end[1]))]
-    return __array_vectors, __vectors
-
-
-start = time.time()
-
-data = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
-
-print(time.time()-start)
-
-vectors = data[1]
-
-elements_nodes = set_nodes(vectors, data[0])
-
-print(time.time()-start)
-
-freedomDegrees = asm_v(elements_nodes[1])
-
-asm_vector = [x.asm() for x in elements_nodes[0]]
-
-# loads = []
-
-print(time.time()-start)
+    return __array_vectors, __vectors, [[point.start, point.end] for point in x], max(max(__array_vectors))
+#
+#
+# start = time.time()
+#
+# data = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
+#
+# print(time.time()-start)
+#
+# vectors = data[1]
+#
+# elements_nodes = set_nodes(vectors, data[0])
+#
+# print(time.time()-start)
+#
+# freedomDegrees = asm_v(elements_nodes[1])
+#
+# asm_vector = [x.asm() for x in elements_nodes[0]]
+#
+# # loads = []
+#
+# print(time.time()-start)
