@@ -93,9 +93,9 @@ while not ctx.should_close():
 
         bimpy.end()
 
-        bimpy.begin('Hello')
-        bimpy.slider_float("lolo", std, 0.0, 100.0)
-        bimpy.end()
-        bimpy.begin('console')
-        bimpy.end()
-        # ctx.render()
+        # bimpy.begin('Hello')
+        # bimpy.slider_float("lolo", std, 0.0, 100.0)
+        # bimpy.end()
+        # bimpy.begin('console')
+        # bimpy.end()
+        ctx.render()
