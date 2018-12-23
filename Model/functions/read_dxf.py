@@ -8,31 +8,27 @@ from Model.functions.asm_vector import asm_v
 
 
 def read_dxf(file):
-    __array_vectors = []
-    __vectors = []
-    x = [x for x in dxfg.readfile(file).entities._entities if isinstance(x, dxfg.dxfentities.Line)]
-    for entity in x:
-        __array_vectors += [(entity.start[0], entity.start[2], -entity.start[1]), (entity.end[0], entity.end[2], -entity.end[1])]
-        __vectors += [Vector((entity.start[0], entity.start[2], -entity.start[1]), (entity.end[0], entity.end[2], -entity.end[1]))]
-    return __array_vectors, __vectors, [[point.start, point.end] for point in x], max(max(__array_vectors))
-#
-#
-# start = time.time()
-#
-# data = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
-#
-# print(time.time()-start)
-#
-# vectors = data[1]
-#
-# elements_nodes = set_nodes(vectors, data[0])
-#
-# print(time.time()-start)
-#
-# freedomDegrees = asm_v(elements_nodes[1])
-#
-# asm_vector = [x.asm() for x in elements_nodes[0]]
-#
-# # loads = []
-#
-# print(time.time()-start)
+    convention_switch_array = []
+    vector_objects = []
+    array_dxf = [[line.start, line.end] for line in dxfg.readfile(file).entities._entities if isinstance(line, dxfg.dxfentities.Line)]
+    for line in array_dxf:
+        start = (line[0][0], line[0][2], -line[0][1])
+        end = (line[1][0], line[1][2], -line[1][1])
+        convention_switch_array += [start, end]
+        vector_objects.append(Vector(start, end))
+
+    max_point_convention = max(convention_switch_array)
+    min_point_convention = min(convention_switch_array)
+
+    return convention_switch_array, vector_objects, max_point_convention, min_point_convention
+
+
+start = time.time()
+data = read_dxf('c:/repos/strucpy/dev_files/dxf/irregular2.dxf')
+print(time.time()-start)
+vectors = data[1]
+elements_nodes = set_nodes(vectors, data[0])
+print(time.time()-start)
+freedomDegrees = asm_v(elements_nodes[1])
+asm_vector = [x.asm() for x in elements_nodes[0]]
+print(time.time()-start)

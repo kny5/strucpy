@@ -1,94 +1,120 @@
-from pyqtgraph.Qt import QtGui
+# from pyqtgraph.Qt import QtGui
+from PyQt5 import QtGui
 import pyqtgraph.opengl as gl
 from read_dxf import read_dxf
 import pyqtgraph as pg
 # from PyQt5.QtWidgets import QFileDialog as qfd
-# from Model.classes.element_types import Geometry
 from numpy import asarray
+import numpy as np
+import time
+
+start = time.time()
+
+vectors = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
+normal = vectors[0]
+
+
+def projection(point):
+    _a = 3 ** 0.5
+    _b = 2 ** 0.5
+    _c = 1 / 6 ** 0.5
+    _rotation_matrix = np.array([[_a, 0, -_a], [1, 2, 1], [_b, -_b, _b]]) * _c
+    _x_y = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 0]])
+    _x_z = np.array([[1, 0, 0], [0, 0, 0], [0, 0, 1]])
+    _y_z = np.array([[0, 0, 0], [0, 1, 0], [0, 0, 1]])
+    _translated_mtrix = _rotation_matrix.dot(point)
+    _isometric = _translated_mtrix.dot(_x_y)
+    _top = _x_y.dot(point)
+    _right = _x_z.dot(point)
+    _front = _y_z.dot(point)
+
+    class point_plot:
+        pass
+
+    _points = point_plot()
+    _points.isometric = (_isometric[0], _isometric[1])
+    _points.front = (_front[1], _front[2])
+    _points.right = (_right[0], _right[2])
+    _points.top = (_top[0], _top[1])
+    # return (isometric[0], isometric[1]), (front[1], front[2]), (right[0], right[2]), (top[0], top[1])
+    return _points
+
+
+points = asarray(list(map(projection, normal)))
+isometric = asarray([point.isometric for point in points])
+top = asarray([point.top for point in points])
+right = asarray([point.right for point in points])
+front = asarray([point.front for point in points])
+max_point = vectors[2]
+min_point = vectors[3]
+max_distance = max(max_point)
+axis_long = max_distance / 2
 
 app = QtGui.QApplication([])
 pg.setConfigOption('leftButtonPan', True)
 pg.setConfigOption('useOpenGL', True)
+# c = pg.PlotCurveItem(y=np.sin(np.linspace(0, 20, 1000)), pen='r', clickable=True)
+
 w = gl.GLViewWidget()
 w.setBackgroundColor(0.15)
 w.show()
-
 w.setWindowTitle('Strucpy v0.1 [BETA]')
+# w.pixelSize()
 
 # read = qfd.getOpenFileName(w, "Open DXF", "c:\\", "dfx files (*.dxf)")
 # vectors = read_dxf(read[0])
-vectors = read_dxf('c:/repos/strucpy/dev_files/dxf/irregular.dxf')
-# geometry = Geometry(vectors)
-w.opts['distance'] = vectors[3] * 3
-# w.opts['center'] = QtGui.QVector3D(geometry.centroid[0],
-#                                    geometry.centroid[1],
-#                                    geometry.centroid[2])
-# w.opts['viewport'] = (200, 300)
-# w.pan(0,0,0)
-# w.setCameraPosition(pos=(10000,10,1000), distance=1000, elevation=10, azimuth=100)
-plt = gl.GLLinePlotItem(pos=asarray(vectors[0]),
-                        mode='lines',
-                        antialias=True,
-                        color=[0.4, 0.2, 0.3, 0.9],
-                        width=1)
-w.addItem(plt)
+# w.showFullScreen()
 
-plt2 = gl.GLLinePlotItem(pos=asarray(vectors[2]),
-                        mode='lines',
-                        antialias=True,
-                        color=[0.4, 0.2, 2.3, 0.9],
-                        width=1)
-w.addItem(plt2)
 
-ground = gl.GLGridItem(antialias=True, glOptions='translucent', color=[255, 255, 255, 0.1])
-ground.setSize(x=10000, y=10000)
-ground.setSpacing(x=1000, y=1000)
-# w.addItem(ground)
+w.opts['center'] = QtGui.QVector3D((max_point[0] - min_point[0]) / 2 + min_point[0],
+                                   (max_point[1] - min_point[1]) / 2 + min_point[1],
+                                   max_point[2])
 
-axis_long = vectors[3] / 10
-axis_x = gl.GLLinePlotItem(
-    pos=asarray([(0, 0, 0), (axis_long, 0, 0)]),
-    mode='lines',
-    antialias=True,
-    color=[1.0, 0.0, 0.0, 0.7])
-w.addItem(axis_x)
+w.setCameraPosition(distance=max_distance * 3, azimuth=90, elevation=-45)
 
-axis_y = gl.GLLinePlotItem(
-    pos=asarray([(0, 0, 0), (0, axis_long, 0)]),
-    mode='lines',
-    antialias=True,
-    color=[0.0, 1.0, 0.0, 0.7])
-w.addItem(axis_y)
+plt_isom = gl.GLLinePlotItem(pos=isometric,
+                             mode='lines',
+                             antialias=True,
+                             color=[0.4, 0.2, 0.3, 0.9],
+                             width=1)
+w.addItem(plt_isom)
 
-axis_z = gl.GLLinePlotItem(
-    pos=asarray([(0, 0, 0), (0, 0, axis_long)]),
-    mode='lines',
-    antialias=True,
-    color=[0.0, 0.0, 1.0, 0.7])
-w.addItem(axis_z)
+plt_front = gl.GLLinePlotItem(pos=front,
+                              mode='lines',
+                              antialias=True,
+                              color=[0.4, 0.2, 0.3, 0.9],
+                              width=1)
+w.addItem(plt_front)
 
-axis_nx = gl.GLLinePlotItem(
-    pos=asarray([(0, 0, 0), (-axis_long, 0, 0)]),
-    mode='lines',
-    antialias=True,
-    color=[1.0, 0.2, 0.6, 0.7])
-w.addItem(axis_nx)
+plt_top = gl.GLLinePlotItem(pos=top,
+                            mode='lines',
+                            antialias=True,
+                            color=[0.4, 0.2, 0.3, 0.9],
+                            width=1)
+w.addItem(plt_top)
 
-axis_ny = gl.GLLinePlotItem(
-    pos=asarray([(0, 0, 0), (0, -axis_long, 0)]),
-    mode='lines',
-    antialias=True,
-    color=[1.0, 1.0, 0.0, 0.7])
-w.addItem(axis_ny)
+plt_right = gl.GLLinePlotItem(pos=right,
+                              mode='lines',
+                              antialias=True,
+                              color=[0.4, 0.2, 0.3, 0.9],
+                              width=1)
+w.addItem(plt_right)
 
-axis_nz = gl.GLLinePlotItem(
-    pos=asarray([(0, 0, 0), (0, 0, -axis_long)]),
-    mode='lines',
-    antialias=True,
-    color=[0.2, 1.0, 1.0, 0.7])
-w.addItem(axis_nz)
+w.updateGeometry()
 
-centre = gl.GLVolumeItem(data=[(0,0,0),(0,0,1)])
+# plt = gl.GLLinePlotItem(pos=asarray(normal),
+#                         mode='lines',
+#                         antialias=True,
+#                         color=[0.4, 0.2, 0.3, 0.9],
+#                         width=1)
+# print(plt.dumpObjectInfo())
+# w.addItem(plt)
+
+
+axis = gl.GLAxisItem()
+axis.setSize(x=-axis_long, y=axis_long, z=-axis_long)
+# axis.antialias
+w.addItem(axis)
 
 # select = gl.GLLinePlotItem(pos=geometry.array[:1001],
 #                            mode='lines',
@@ -97,4 +123,5 @@ centre = gl.GLVolumeItem(data=[(0,0,0),(0,0,1)])
 #                            color=[0, 255, 0, 0.7])
 # w.addItem(select)
 
+print(time.time() - start)
 app.exec_()
