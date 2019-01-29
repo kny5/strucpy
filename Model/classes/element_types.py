@@ -43,6 +43,8 @@ class Vector:
             self.start = start
             self.end = end
 
+        self.id = list(start) + list(end)
+
         self.long = abs((((self.end[0] - self.start[0]) ** 2) +
                          ((self.end[1] - self.start[1]) ** 2) +
                          ((self.end[2] - self.start[2]) ** 2)) ** 0.5)

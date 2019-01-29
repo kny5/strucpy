@@ -1,10 +1,10 @@
 # from pyqtgraph.Qt import QtGui
-from PyQt5 import QtGui
-import pyqtgraph.opengl as gl
+# from PyQt5 import QtGui
+# import pyqtgraph.opengl as gl
 from read_dxf import read_dxf
-import pyqtgraph as pg
+# import pyqtgraph as pg
 # from PyQt5.QtWidgets import QFileDialog as qfd
-from numpy import asarray
+# from numpy import asarray
 import numpy as np
 import time
 import math
@@ -15,7 +15,40 @@ vectors = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
 normal = vectors[0]
 
 
-def projection(point, alpha=35, beta=45):
+def isometric_projection_var_angle(point, _alpha, _beta):
+    calpha = math.cos(_alpha)
+    salpha = math.sin(_alpha)
+    cbeta = math.cos(_beta)
+    sbeta = math.sin(_beta)
+
+    _tranform_a = np.array([[1, 0, 0],
+                            [0, calpha, salpha],
+                            [0, -salpha, calpha]])
+
+    _tranform_b = np.array([[cbeta, 0, -sbeta],
+                            [0, 1, 0],
+                            [sbeta, 0, cbeta]])
+
+    _tranform_c = _tranform_a.dot(_tranform_b)
+
+    _x_y = np.array([[1, 0, 0],
+                     [0, 1, 0],
+                     [0, 0, 0]])
+
+    _isoproject_a = _tranform_c.dot(point)
+    _isoproject_b = _isoproject_a.dot(_x_y)
+
+    return _isoproject_b
+
+
+def view_rotator(points, angles):
+    alpha = angles[0]
+    beta = angles[1]
+    projected_pointsbyab = np.array([isometric_projection_var_angle(point, alpha, beta) for point in points])
+    return projected_pointsbyab
+
+
+def views_projection(point, alpha=35, beta=45):
     calpha = math.cos(alpha)
     salpha = math.sin(alpha)
     cbeta = math.cos(beta)
@@ -86,55 +119,65 @@ def projection_rotator(angle, points, beta=45):
     return list(map(rotator, points))
 
 
-points = asarray(list(map(projection, normal)))
-isometric = asarray([point.isometric for point in points])
-isoproject = asarray([point.isoproject for point in points])
-top = asarray([point.top for point in points])
-right = asarray([point.right for point in points])
-front = asarray([point.front for point in points])
-max_point = vectors[2]
-min_point = vectors[3]
-max_distance = max(max_point)
-axis_long = max_distance / 2
+# points = asarray(list(map(views_projection, normal)))
+# isometric = asarray([point.isometric for point in points])
+# isoproject = asarray([point.isoproject for point in points])
+# # isop = view_rotator(vectors[0], (35, 45))
+# top = asarray([point.top for point in points])
+# right = asarray([point.right for point in points])
+# front = asarray([point.front for point in points])
+# max_point = vectors[2]
+# min_point = vectors[3]
+# max_distance = max(max_point)
+# axis_long = max_distance / 2
 
-app = QtGui.QApplication([])
-pg.setConfigOption('leftButtonPan', True)
-pg.setConfigOption('useOpenGL', True)
-
-w = gl.GLViewWidget()
-w.setBackgroundColor(0.15)
-w.show()
-w.setWindowTitle('Strucpy v0.1 [BETA]')
+# # app = QtGui.QApplication([])
+# # pg.setConfigOption('leftButtonPan', True)
+# # pg.setConfigOption('useOpenGL', True)
+# #
+# # w = gl.GLViewWidget()
+# # w.setBackgroundColor(0.15)
+# # w.show()
+# # w.setWindowTitle('Strucpy v0.1 [BETA]')
 
 # read = qfd.getOpenFileName(w, "Open DXF", "c:\\", "dfx files (*.dxf)")
 # vectors = read_dxf(read[0])
 # w.showFullScreen()
 
 
-w.opts['center'] = QtGui.QVector3D((max_point[0] - min_point[0]) / 2 + min_point[0],
-                                   (max_point[1] - min_point[1]) / 2 + min_point[1],
-                                   max_point[2])
+# w.opts['center'] = QtGui.QVector3D((max_point[0] - min_point[0]) / 2 + min_point[0],
+#                                    (max_point[1] - min_point[1]) / 2 + min_point[1],
+#                                    max_point[2])
+#
+# w.setCameraPosition(distance=max_distance * 10, azimuth=180, elevation=90)
 
-w.setCameraPosition(distance=max_distance * 10, azimuth=180, elevation=90)
-
-plt_isom = gl.GLLinePlotItem(pos=isometric,
-                             mode='lines',
-                             antialias=True,
-                             color=[0.4, 0.2, 0.3, 0.9],
-                             width=1)
+# plt_isom = gl.GLLinePlotItem(pos=isometric,
+#                              mode='lines',
+#                              antialias=True,
+#                              color=[0.4, 0.2, 0.3, 0.9],
+#                              width=1)
 # w.addItem(plt_isom)
 
-plt_isopro = gl.GLLinePlotItem(pos=isoproject,
-                             mode='lines',
-                             antialias=True,
-                             color=[0.4, 0.2, 0.3, 0.9],
-                             width=1)
-w.addItem(plt_isopro)
+# plt_isopro = gl.GLLinePlotItem(pos=isoproject,
+#                              mode='lines',
+#                              antialias=True,
+#                              color=[0.4, 0.2, 0.3, 0.9],
+#                              width=1)
+# w.addItem(plt_isopro)
+
+# # plt_isop = gl.GLLinePlotItem(pos=isop,
+# #                              mode='lines',
+# #                              antialias=True,
+# #                              color=[0.4, 0.2, 0.3, 0.9],
+# #                              width=1)
+# # w.addItem(plt_isop)
+
+
 # print(isometric[1])
 # plt_isom.rotate(45, 100, 100, 100)
 
-plt_isom.viewTransform()
-plt_isom.scale(10,10,10)
+# plt_isom.viewTransform()
+# plt_isom.scale(10,10,10)
 
 # plt_front = gl.GLLinePlotItem(pos=front,
 #                               mode='lines',
@@ -166,9 +209,9 @@ plt_isom.scale(10,10,10)
 # w.addItem(plt)
 
 
-axis = gl.GLAxisItem()
-axis.setSize(x=-axis_long, y=axis_long, z=-axis_long)
-w.addItem(axis)
+# axis = gl.GLAxisItem()
+# axis.setSize(x=-axis_long, y=axis_long, z=-axis_long)
+# w.addItem(axis)
 
 # select = gl.GLLinePlotItem(pos=geometry.array[:1001],
 #                            mode='lines',
@@ -177,5 +220,5 @@ w.addItem(axis)
 #                            color=[0, 255, 0, 0.7])
 # w.addItem(select)
 
-print(time.time() - start)
-app.exec_()
+# print(time.time() - start)
+# app.exec_()
