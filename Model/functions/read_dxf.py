@@ -1,5 +1,6 @@
 import dxfgrabber as dxfg
 from Model.classes.element_types import Vector
+from numpy import subtract
 # import time
 # from Model.functions.set_nodes import set_nodes
 # from Model.functions.asm_vector import asm_v
@@ -10,26 +11,27 @@ from Model.classes.element_types import Vector
 def read_dxf(file):
     convention_switch_array = []
     vector_objects = []
-    start_arr = []
-    end_arr = []
+    # start_arr = []
+    # end_arr = []
     array_dxf = [[line.start, line.end] for line in dxfg.readfile(file).entities._entities if isinstance(line, dxfg.dxfentities.Line)]
+    min_point = min(min(array_dxf))
+    # max_point = max(max(array_dxf))
+
     for line in array_dxf:
-        start = (line[0][0], line[0][2], -line[0][1])
-        end = (line[1][0], line[1][2], -line[1][1])
+        # print("#" * 10)
+        # print(line.__len__())
+        exp = subtract(line, min_point)
+        st = exp[0]
+        nd = exp[1]
+        start = [st[0], st[2], -st[1]]
+        end = [nd[0], nd[2], -nd[1]]
         convention_switch_array += [start, end]
         vector_objects.append(Vector(start, end))
-        start_arr.append(start)
-        end_arr.append(end)
 
     # max_point_convention = max(convention_switch_array)
     # min_point_convention = min(convention_switch_array)
 
-    return convention_switch_array, \
-           vector_objects, \
-           start_arr, \
-           end_arr
-           # max_point_convention, \
-           # min_point_convention
+    return convention_switch_array, vector_objects
 
 
 # start = time.time()

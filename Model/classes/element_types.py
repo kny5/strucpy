@@ -1,7 +1,10 @@
 import math
 from itertools import count as it_counts
-# import numpy as np
+import numpy as np
+# from functools import reduce
+# from operator import add
 
+# from Model.functions.mouse_interaction import isometric_projection_var_angle
 # class Geometry:
 #     def __init__(self, array_np):
 #
@@ -35,15 +38,18 @@ from itertools import count as it_counts
 
 
 class Vector:
-    def __init__(self, start, end):
-        if start[1] > end[1]:
-            self.start = end
-            self.end = start
-        else:
-            self.start = start
-            self.end = end
+    alpha = 35
+    beta = 45
 
-        self.id = list(start) + list(end)
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+        self.selected = False
+        self.plot_2d = None
+        self.start_2d = None
+        self.end_2d = None
+        self.reformat_byz()
+        # self.iso_projection
 
         self.long = abs((((self.end[0] - self.start[0]) ** 2) +
                          ((self.end[1] - self.start[1]) ** 2) +
@@ -63,11 +69,56 @@ class Vector:
 
         self.lm = math.degrees(math.asin((self.end[1] - self.start[1]) / self.long))
 
-    def reformat(self):
+    def reformat_byz(self):
         if self.start[1] > self.end[1]:
             start = self.start
             self.start = self.end
             self.end = start
+            return True
+        else:
+            return False
+
+    @property
+    def iso_projection(self):
+        _alpha = self.alpha
+        _beta = self.beta
+        calpha = math.cos(_alpha)
+        salpha = math.sin(_alpha)
+        cbeta = math.cos(_beta)
+        sbeta = math.sin(_beta)
+
+        _tranform_a = np.array([[1, 0, 0],
+                                [0, calpha, salpha],
+                                [0, -salpha, calpha]])
+
+        _tranform_b = np.array([[cbeta, 0, -sbeta],
+                                [0, 1, 0],
+                                [sbeta, 0, cbeta]])
+
+        _tranform_c = _tranform_a.dot(_tranform_b)
+
+        _x_y = np.array([[1, 0, 0],
+                         [0, -1, 0],
+                         [0, 0, 0]])
+
+        def to_2d(point):
+            _isoproject_a = _tranform_c.dot(point)
+            result = _isoproject_a.dot(_x_y)
+            return result[0], result[1]
+
+        plot_2d = list(map(to_2d, [self.start, self.end]))
+
+        self.start_2d = to_2d(self.start)
+        self.end_2d = to_2d(self.end)
+
+        return plot_2d
+
+    def clicked(self):
+        if self.selected is False:
+            self.selected = True
+        else:
+            self.selected = False
+        return self.selected
 
 
 class Node:
@@ -111,11 +162,12 @@ class Element:
 class Concrete:
     """Propiedades específicas del concreto"""
 
-    b: float = 0.0
-    h: float = 0.0
-    b_prima: float = 0.0
-    e: float = 221.359
-    p_mat: float = 2.4
+    def __init__(self):
+        self.b: float = 0.0
+        self.h: float = 0.0
+        self.b_prima: float = 0.0
+        self.e: float = 221.359
+        self.p_mat: float = 2.4
 
     def _a1(self):
         return self.b
@@ -141,14 +193,15 @@ class Concrete:
 class Custom:
     """Tipo de elemento con propiedades personalizadas"""
 
-    b: float = 0.0
-    h: float = 0.0
-    izz: float = 0.0
-    iyy: float = 0.0
-    j_: float = 0.0
-    e: float = 0.0
-    p_mat: float = 0.0
-    area_: float = 0.0
+    def __init__(self):
+        self.b: float = 0.0
+        self.h: float = 0.0
+        self.izz: float = 0.0
+        self.iyy: float = 0.0
+        self.j_: float = 0.0
+        self.e: float = 0.0
+        self.p_mat: float = 0.0
+        self.area_: float = 0.0
 
     def _a1(self):
         return self.b
@@ -172,14 +225,14 @@ class Custom:
 class Or:
     """Propiedades específicas del tipo OR"""
 
-    d: float = 0.0
-    bf: float = 0.0
-    tf: float = 0.0
-    tw: float = 0.0
-    e: float = 0.0
-    p_mat: float = 7.849
-
-    armour: bool = False
+    def __init__(self):
+        self.d: float = 0.0
+        self.bf: float = 0.0
+        self.tf: float = 0.0
+        self.tw: float = 0.0
+        self.e: float = 0.0
+        self.p_mat: float = 7.849
+        self.armour: bool = False
 
     def _a1(self):
         return self.bf
@@ -210,14 +263,14 @@ class Or:
 class Ir:
     """Propiedades específicas del tipo IR"""
 
-    d: float = 0.0
-    tf: float = 0.0
-    bf: float = 0.0
-    tw: float = 0.0
-    e: float = 0.0
-    p_mat: float = 7.849
-
-    armour: bool = False
+    def __init__(self):
+        self.d: float = 0.0
+        self.tf: float = 0.0
+        self.bf: float = 0.0
+        self.tw: float = 0.0
+        self.e: float = 0.0
+        self.p_mat: float = 7.849
+        self.armour: bool = False
 
     def _a1(self):
         return self.bf
@@ -243,12 +296,13 @@ class Ir:
 
 class Oc:
     """Propiedades específicas del tipo OC"""
-    d: float = 0.0
-    t: float = 0.0
-    e: float = 0.0
-    p_mat: float = 7.849
 
-    armour: bool = False
+    def __init__(self):
+        self.d: float = 0.0
+        self.t: float = 0.0
+        self.e: float = 0.0
+        self.p_mat: float = 7.849
+        self.armour: bool = False
 
     def _a1(self):
         return self.d
