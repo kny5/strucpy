@@ -6,7 +6,7 @@ Example demonstrating a variety of scatter plot features.
 
 
 ## Add path to library (just for examples; you do not need this)
-import initExample
+# import initExample
 
 from pyqtgraph.Qt import QtGui, QtCore
 import pyqtgraph as pg
@@ -95,8 +95,10 @@ s4.sigClicked.connect(clicked)
 
 
 ## Start Qt event loop unless running in interactive mode.
-if __name__ == '__main__':
+if not __name__ == '__main__':
     import sys
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
         QtGui.QApplication.instance().exec_()
+
+
 
