@@ -9,8 +9,9 @@ from numpy import subtract
 
 
 def read_dxf(file):
-    convention_switch_array = []
+    # convention_switch_array = []
     vector_objects = []
+    # points = set([])
     # start_arr = []
     # end_arr = []
     array_dxf = [[line.start, line.end] for line in dxfg.readfile(file).entities._entities if isinstance(line, dxfg.dxfentities.Line)]
@@ -20,18 +21,20 @@ def read_dxf(file):
     for line in array_dxf:
         # print("#" * 10)
         # print(line.__len__())
-        exp = subtract(line, min_point)
-        st = exp[0]
-        nd = exp[1]
-        start = [st[0], st[2], -st[1]]
-        end = [nd[0], nd[2], -nd[1]]
-        convention_switch_array += [start, end]
+        translated_origin = subtract(line, min_point)
+        st = translated_origin[0]
+        nd = translated_origin[1]
+        start = (st[0], st[2], -st[1])
+        end = (nd[0], nd[2], -nd[1])
+        # points.add(start)
+        # points.add(end)
+        # convention_switch_array += [start, end]
         vector_objects.append(Vector(start, end))
 
     # max_point_convention = max(convention_switch_array)
     # min_point_convention = min(convention_switch_array)
 
-    return convention_switch_array, vector_objects
+    return vector_objects # , list(points)
 
 
 # start = time.time()

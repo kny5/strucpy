@@ -40,16 +40,15 @@ import numpy as np
 class Vector:
     alpha = 35
     beta = 45
+    _x_y = np.array([[1, 0, 0],
+                     [0, -1, 0],
+                     [0, 0, 0]])
 
     def __init__(self, start, end):
         self.start = start
         self.end = end
-        self.selected = False
-        self.plot_2d = None
-        self.start_2d = None
-        self.end_2d = None
         self.reformat_byz()
-        # self.iso_projection
+        self.selected = False
 
         self.long = abs((((self.end[0] - self.start[0]) ** 2) +
                          ((self.end[1] - self.start[1]) ** 2) +
@@ -78,10 +77,10 @@ class Vector:
         else:
             return False
 
-    @property
-    def iso_projection(self):
-        _alpha = self.alpha
-        _beta = self.beta
+    @classmethod
+    def iso_projection(cls):
+        _alpha = Vector.alpha
+        _beta = Vector.beta
         calpha = math.cos(_alpha)
         salpha = math.sin(_alpha)
         cbeta = math.cos(_beta)
@@ -95,23 +94,21 @@ class Vector:
                                 [0, 1, 0],
                                 [sbeta, 0, cbeta]])
 
-        _tranform_c = _tranform_a.dot(_tranform_b)
+        cls.last_iso_projection = _tranform_a.dot(_tranform_b)
 
-        _x_y = np.array([[1, 0, 0],
-                         [0, -1, 0],
-                         [0, 0, 0]])
+    @classmethod
+    def to_2d(cls, point):
+        _isoproject_a = cls.last_iso_projection.dot(point)
+        result = _isoproject_a.dot(cls._x_y)
+        return result[0], result[1]
 
-        def to_2d(point):
-            _isoproject_a = _tranform_c.dot(point)
-            result = _isoproject_a.dot(_x_y)
-            return result[0], result[1]
+    @property
+    def start_2d(self):
+        return Vector.to_2d(self.start)
 
-        plot_2d = list(map(to_2d, [self.start, self.end]))
-
-        self.start_2d = to_2d(self.start)
-        self.end_2d = to_2d(self.end)
-
-        return plot_2d
+    @property
+    def end_2d(self):
+        return Vector.to_2d(self.end)
 
     def clicked(self):
         if self.selected is False:
