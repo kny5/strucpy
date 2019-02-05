@@ -13,4 +13,11 @@ Hacer primer prueba de pynsist, desde linux.
 Separar función kzz de k_p para fines de desactivación de nodos.
 
 Terminar método de aproximación de bisection para b en cimentaciones.
-	
+
+usar esto para controlar herencia de objetos:	
+class b(a):
+...     def __init__(self):
+...             self.addres = "home"
+...             self.human = True
+...     def set(self):
+...             a.__init__(self)
