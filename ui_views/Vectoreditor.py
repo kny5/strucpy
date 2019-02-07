@@ -2,13 +2,22 @@
 
 # Form implementation generated from reading ui file 'Vectoreditor.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+# import sys
+
 
 class Ui_Form(object):
+    # def __init__(self):
+        # app = QtWidgets.QApplication()
+        # form = QtWidgets.QWidget()
+        # self.setupUi(form)
+        # form.show()
+        # sys.exit(app.exec_())
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.setWindowModality(QtCore.Qt.ApplicationModal)
@@ -94,3 +103,12 @@ class Ui_Form(object):
         self.pushButton_5.setText(_translate("Form", "Delete"))
         self.pushButton_8.setText(_translate("Form", "Next"))
 
+
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())

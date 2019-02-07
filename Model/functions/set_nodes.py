@@ -1,8 +1,12 @@
-from Model.classes.element_types import Node, Element
+from Model.classes.element_types import Element
+from Model.classes.geometry import Node
+from functools import reduce
+from operator import add
 
 
-def set_nodes(vectors, arr_points):
-    list_points = sorted(set(arr_points))
+def set_nodes(vectors):
+    # list_points = sorted(set(arr_points))
+    list_points = reduce(add, [[vector.start, vector.end] for vector in vectors])
     nodes = list(map(Node, list_points))
     dict_points = dict(zip(list_points, nodes))
     elements = list(map(Element, vectors))

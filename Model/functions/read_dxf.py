@@ -1,5 +1,5 @@
 import dxfgrabber as dxfg
-from Model.classes.element_types import Vector
+from Model.classes.geometry import Vector
 from numpy import subtract
 # import time
 # from Model.functions.set_nodes import set_nodes
@@ -34,7 +34,7 @@ def read_dxf(file):
     # max_point_convention = max(convention_switch_array)
     # min_point_convention = min(convention_switch_array)
 
-    return vector_objects # , list(points)
+    return vector_objects  # , list(points)
 
 
 # start = time.time()

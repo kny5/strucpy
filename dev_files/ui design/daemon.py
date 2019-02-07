@@ -39,5 +39,5 @@ while True:
         # print(__str(diff) + ' file(s) changed')
         toaster.show_toast('File(s) changed', str(diff), duration=10)
         for file in diff:
-            os.system('pyuic5 ' + file + ' -o python/' + str(file)[0:-3] + '.py')
+            os.system('pyuic5 -x' + file + ' -o python/' + str(file)[0:-3] + '.py')
 

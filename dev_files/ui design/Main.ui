@@ -76,6 +76,11 @@
            <attribute name="title">
             <string>Tab 1</string>
            </attribute>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QOpenGLWidget" name="openGLWidget"/>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_4">
            <attribute name="title">
