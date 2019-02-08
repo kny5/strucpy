@@ -72,6 +72,9 @@
         </item>
         <item>
          <widget class="QTabWidget" name="tabWidget_2">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
             <string>Tab 1</string>
@@ -109,8 +112,20 @@
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionOpenDXF"/>
+   </widget>
+   <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpenDXF">
+   <property name="text">
+    <string>OpenDXF</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

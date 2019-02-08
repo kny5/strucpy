@@ -1,11 +1,14 @@
 import numpy as np
 import math
 from itertools import count as it_counts
+from functools import reduce
+from operator import add
 
 
 class Vector:
+    # last_iso_projection = None
     alpha = 35
-    beta = 45
+    beta = 50.3
     project_plane_matrix = np.array([[1, 0, 0],
                                      [0, -1, 0],
                                      [0, 0, 0]])
@@ -66,9 +69,10 @@ class Vector:
 
     @classmethod
     def to_2d(cls, point):
-        _isoproject_a = cls.last_iso_projection.dot(point)
-        result = _isoproject_a.dot(cls.project_plane_matrix)
-        return result[0], result[1]
+        _isoproject_a = np.array(point).dot(cls.last_iso_projection)
+        # _isoproject_a = cls.last_iso_projection.dot(point)
+        return _isoproject_a.dot(cls.project_plane_matrix)
+        # return result[0], result[1]
 
     @property
     def start_2d(self):
