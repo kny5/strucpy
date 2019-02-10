@@ -14,7 +14,7 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(400, 300)
         self.gridLayout = QtGui.QGridLayout(Form)
-        self.gridLayout.setObjectName("gridLayout")
+        self.gridLayout.setObjectName("vectors_layout")
         self.sizeSpin = QtGui.QSpinBox(Form)
         self.sizeSpin.setProperty("value", 10)
         self.sizeSpin.setObjectName("sizeSpin")

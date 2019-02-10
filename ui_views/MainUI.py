@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.groupbox.setMinimumSize(QtCore.QSize(300, 0))
         self.groupbox.setMaximumSize(QtCore.QSize(300, 16777215))
         self.groupbox.setTitle("")
-        self.groupbox.setObjectName("groupbox")
+        self.groupbox.setObjectName("tools_groupbox")
 
         self.verticalLayout = QtWidgets.QVBoxLayout(self.groupbox)
         self.groupBox_3 = QtWidgets.QGroupBox(self.groupbox)

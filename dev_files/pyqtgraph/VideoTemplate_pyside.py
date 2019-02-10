@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.scaleCheck.setObjectName("scaleCheck")
         self.gridLayout_2.addWidget(self.scaleCheck, 4, 0, 1, 1)
         self.gridLayout = QtGui.QGridLayout()
-        self.gridLayout.setObjectName("gridLayout")
+        self.gridLayout.setObjectName("vectors_layout")
         self.rawRadio = QtGui.QRadioButton(self.centralwidget)
         self.rawRadio.setObjectName("rawRadio")
         self.gridLayout.addWidget(self.rawRadio, 3, 0, 1, 1)

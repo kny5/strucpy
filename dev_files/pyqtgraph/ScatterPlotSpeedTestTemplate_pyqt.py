@@ -19,7 +19,7 @@ class Ui_Form(object):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(400, 300)
         self.gridLayout = QtGui.QGridLayout(Form)
-        self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+        self.gridLayout.setObjectName(_fromUtf8("vectors_layout"))
         self.sizeSpin = QtGui.QSpinBox(Form)
         self.sizeSpin.setProperty("value", 10)
         self.sizeSpin.setObjectName(_fromUtf8("sizeSpin"))
