@@ -48,6 +48,7 @@ class mainwin(QtWidgets.QMainWindow):
         # self.filename = filename
         self.all_vectors = []
         self.vector_set = set([])
+        # self.quit_on_last_window_closed(False)
 
 
         self.centralwidget = QtWidgets.QWidget(self)
@@ -187,23 +188,25 @@ class mainwin(QtWidgets.QMainWindow):
         self.retranslate_ui()
 
     def open_dxf(self):
-        file = qfd.getOpenFileName(self, "Open DXF", "c:\\", "dfx files (*.dxf)")
-        if file:
-            self.all_vectors = read_dxf([0])
+        try:
+            file = qfd.getOpenFileName(self, "Open DXF", "c:\\", "dfx files (*.dxf)")
+            self.all_vectors = read_dxf(file[0])
             self.matrix_plot = np.array(reduce(add, [[vector.start, vector.end] for vector in self.all_vectors]))
             Vector.iso_projection()
             self.plot()
-            return True
-        else:
-            return False
+
+        except:
+            self.all_vectors = []
+            self.matrix_plot = []
+            self.plot()
 
     def save_dxf(self):
-        file = qfd.getSaveFileName(self, "Save DXF", "c:\\", "dxf files (*.dxf)")
-        if file:
+        try:
+            file = qfd.getSaveFileName(self, "Save DXF", "c:\\", "dxf files (*.dxf)")
             save_dxf(self.all_vectors, file[0])
-            return True
-        else:
+        except:
             return False
+
 
     def clear_all(self):
         self.all_vectors = []
@@ -211,6 +214,7 @@ class mainwin(QtWidgets.QMainWindow):
         Vector.beta = 50.3
         Vector.iso_projection()
         self.plot()
+        self.plot_select()
         return True
 
     def set_up(self):
@@ -390,6 +394,7 @@ class app(QtGui.QApplication):
     def __init__(self):
         super().__init__([])
         self.setOverrideCursor(QtCore.Qt.CrossCursor)
+        self.setQuitOnLastWindowClosed(False)
         self.mainwindow = mainwin()
         # self.exec_()
 
@@ -398,5 +403,6 @@ if not __name__ == '__main__':
     import sys
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
         app = app()
+
         app.exec_()
         # sys.exit(app.exec_())
