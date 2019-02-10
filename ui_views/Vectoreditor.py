@@ -63,7 +63,7 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.groupBox_2, 0, 2, 1, 1)
         self.groupBox = QtWidgets.QGroupBox(Form)
         self.groupBox.setMinimumSize(QtCore.QSize(0, 0))
-        self.groupBox.setObjectName("groupBox")
+        self.groupBox.setObjectName("groupbox")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.groupBox)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.pushButton_4 = QtWidgets.QPushButton(self.groupBox)

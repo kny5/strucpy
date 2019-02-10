@@ -33,7 +33,7 @@ edges = (
     (5, 7)
     )
 
-vectors = read_dxf('test.dxf')
+vectors = read_dxf('test.all_vectors')
 
 
 def cube():

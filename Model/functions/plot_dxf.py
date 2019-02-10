@@ -11,7 +11,7 @@ import math
 
 
 start = time.time()
-vectors = read_dxf('c:/repos/strucpy/dev_files/dxf/lienzo.dxf')
+vectors = read_dxf('c:/repos/strucpy/dev_files/all_vectors/lienzo.all_vectors')
 normal = vectors[0]
 
 
@@ -140,7 +140,7 @@ def projection_rotator(angle, points, beta=45):
 # # w.show()
 # # w.setWindowTitle('Strucpy v0.1 [BETA]')
 
-# read = qfd.getOpenFileName(w, "Open DXF", "c:\\", "dfx files (*.dxf)")
+# read = qfd.getOpenFileName(w, "Open DXF", "c:\\", "dfx files (*.all_vectors)")
 # vectors = read_dxf(read[0])
 # w.showFullScreen()
 

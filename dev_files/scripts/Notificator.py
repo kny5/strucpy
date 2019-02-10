@@ -24,7 +24,7 @@ class Ui_Dialog(object):
         Dialog.setModal(True)
         self.groupBox = QtWidgets.QGroupBox(Dialog)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 280, 180))
-        self.groupBox.setObjectName("groupBox")
+        self.groupBox.setObjectName("groupbox")
         self.label = QtWidgets.QLabel(self.groupBox)
         self.label.setGeometry(QtCore.QRect(40, 70, 281, 20))
         font = QtGui.QFont()

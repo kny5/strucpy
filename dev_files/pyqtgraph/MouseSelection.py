@@ -25,7 +25,7 @@ def read_dxf(file):
     return convention_switch_array, max_point_convention, min_point_convention
 
 
-vectors = read_dxf('c:/repos/strucpy/dev_files/dxf/irregular.dxf')
+vectors = read_dxf('c:/repos/strucpy/dev_files/all_vectors/irregular.all_vectors')
 normal = vectors[0]
 
 

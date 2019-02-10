@@ -24,7 +24,7 @@ y = np.sin(u)*np.sin(v)
 z = np.cos(v)
 #ax.plot_wireframe(data, y, z, color="r")
 
-vectors = read_dxf('test.dxf')
+vectors = read_dxf('test.all_vectors')
 
 for vector in vectors:
     ax.scatter(vector.start[0], vector.start[1], vector.start[2], color='b')

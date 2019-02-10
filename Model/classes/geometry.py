@@ -1,8 +1,8 @@
 import numpy as np
 import math
 from itertools import count as it_counts
-from functools import reduce
-from operator import add
+# from functools import reduce
+# from operator import add
 
 
 class Vector:

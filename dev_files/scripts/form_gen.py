@@ -39,7 +39,7 @@ class Ui_Dialog(object):
         self.buttonBox.setObjectName("buttonBox")
 
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 270, 260))
-        self.groupBox.setObjectName("groupBox")
+        self.groupBox.setObjectName("groupbox")
 
         self.formLayoutWidget.setGeometry(QtCore.QRect(10, 20, 251, 370))
         self.formLayoutWidget.setObjectName("formLayoutWidget")
