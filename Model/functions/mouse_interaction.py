@@ -81,10 +81,11 @@ class mainwin(QtWidgets.QMainWindow):
         #                                       brush=None,
         #                                       size=10,
         #                                       antialias=True)
+
         # self.view_layout = self.view.addLayout(row=2, col=2, rowspan=1)
         self.graphics = self.view.addViewBox(lockAspect=1, enableMenu=False)
         # self.graphics = self.view_layout.addViewBox(lockAspect=1, enableMenu=False)
-        # self.props_text = self.view_layout.addPlot()
+        # self.props_text = self.view.addPlot()
         # text = "Lorem Ipsum is sim "
         # self.viewbox_info = self.view_layout.addLabel(text, row=1, col=0)
 

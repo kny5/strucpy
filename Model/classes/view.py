@@ -1,5 +1,4 @@
-from PyQt5 import QtWidgets, QtCore, QtGui
-# import pyqtgraph as pg
+from PyQt5 import QtWidgets, QtCore
 
 
 translate = QtCore.QCoreApplication.translate
@@ -73,41 +72,37 @@ class analysis_tools(QtWidgets.QGroupBox):
     def __init__(self, parent):
         super().__init__(parent)
         self.gridLayout_3 = QtWidgets.QGridLayout(self)
-        self.groupBox_5 = QtWidgets.QGroupBox(self)
-        self.groupBox_5.setTitle("")
-        self.gridLayout_4 = QtWidgets.QGridLayout(self.groupBox_5)
-        self.analytic_bool_analysis = QtWidgets.QRadioButton(self.groupBox_5)
+
+        self.analytic_bool_analysis = QtWidgets.QRadioButton(self)
         self.analytic_bool_analysis.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.gridLayout_4.addWidget(self.analytic_bool_analysis, 0, 0, 1, 1)
-        self.gridLayout_3.addWidget(self.groupBox_5, 0, 0, 1, 1)
-        self.groupBox_6 = QtWidgets.QGroupBox(self)
-        self.groupBox_6.setTitle("")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.groupBox_6)
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.groupBox_6)
+        self.gridLayout_3.addWidget(self.analytic_bool_analysis, 0, 0, 1, 1)
+
+        self.lineEdit_2 = QtWidgets.QLineEdit(self)
         self.lineEdit_2.setMaximumSize(QtCore.QSize(60, 16777215))
-        self.gridLayout_6.addWidget(self.lineEdit_2, 0, 2, 1, 1)
-        self.baprox_bool_analysis = QtWidgets.QRadioButton(self.groupBox_6)
+        self.gridLayout_3.addWidget(self.lineEdit_2, 1, 2, 1, 1)
+
+        self.baprox_bool_analysis = QtWidgets.QRadioButton(self)
         self.baprox_bool_analysis.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.gridLayout_6.addWidget(self.baprox_bool_analysis, 0, 0, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.groupBox_6)
-        self.gridLayout_6.addWidget(self.label_2, 0, 3, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(23, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_6.addItem(spacerItem2, 0, 1, 1, 1)
-        self.gridLayout_3.addWidget(self.groupBox_6, 2, 0, 1, 1)
-        self.groupBox_7 = QtWidgets.QGroupBox(self)
-        self.groupBox_7.setTitle("Montecarlo")
-        self.gridLayout_5 = QtWidgets.QGridLayout(self.groupBox_7)
-        self.lineEdit = QtWidgets.QLineEdit(self.groupBox_7)
+        self.gridLayout_3.addWidget(self.baprox_bool_analysis, 1, 0, 1, 1)
+
+        self.label_2 = QtWidgets.QLabel(self)
+        self.gridLayout_3.addWidget(self.label_2, 1, 3, 1, 1)
+
+        self.lineEdit = QtWidgets.QLineEdit(self)
         self.lineEdit.setMaximumSize(QtCore.QSize(60, 16777215))
-        self.gridLayout_5.addWidget(self.lineEdit, 0, 2, 1, 1)
-        self.montecarlo_bool_analysis = QtWidgets.QRadioButton(self.groupBox_7)
+        self.gridLayout_3.addWidget(self.lineEdit, 2, 2, 1, 1)
+
+        self.montecarlo_bool_analysis = QtWidgets.QRadioButton(self)
         self.montecarlo_bool_analysis.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.gridLayout_5.addWidget(self.montecarlo_bool_analysis, 0, 0, 1, 1)
-        self.label = QtWidgets.QLabel(self.groupBox_7)
-        self.gridLayout_5.addWidget(self.label, 0, 3, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_5.addItem(spacerItem3, 0, 1, 1, 1)
-        self.gridLayout_3.addWidget(self.groupBox_7, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.montecarlo_bool_analysis, 2, 0, 1, 1)
+
+        self.label = QtWidgets.QLabel(self)
+        self.gridLayout_3.addWidget(self.label, 2, 3, 1, 1)
+
+        self.standard_bool_analysis = QtWidgets.QRadioButton(self)
+        self.standard_bool_analysis.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.gridLayout_3.addWidget(self.standard_bool_analysis, 3, 0, 1, 1)
+
         self.retranslate()
 
     def retranslate(self):
@@ -118,6 +113,7 @@ class analysis_tools(QtWidgets.QGroupBox):
         self.label_2.setText(translate("MainWindow", "MAX B"))
         self.montecarlo_bool_analysis.setText(translate("MainWindow", "MonteCarlo"))
         self.label.setText(translate("MainWindow", "Iterations"))
+        self.standard_bool_analysis.setText(translate("MainWindow", "Standard"))
 
 
 class toolbox(QtWidgets.QGroupBox):
