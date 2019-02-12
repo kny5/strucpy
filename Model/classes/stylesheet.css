@@ -1,0 +1,70 @@
+QWidget {
+	background-color: white;
+
+}
+QGroupBox {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}
+
+QLineEdit {
+    border-color: None;
+	background-color: transparent;
+	margin: 0;
+}
+
+QPushButton {
+	background-color:rgb(25, 197, 113);
+	color: white;
+	border: 1px solid lightgray;
+    border-radius: 4px;
+
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,   stop:0 rgba(60, 186, 162, 255), stop:1 rgba(98, 211, 162, 255))
+}
+
+##v2
+
+QWidget {
+	background-color: white;
+
+}
+QGroupBox {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}
+
+QLineEdit {
+	background-color: transparent;
+	margin: 0;
+	border: 1px solid lightgray;
+	border-radius: 4px;
+}
+
+QPushButton {
+	background-color:rgb(25, 197, 113);
+	color: white;
+	border: 1px solid lightgray;
+    border-radius: 4px;
+
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,   stop:0 rgba(60, 186, 162, 255), stop:1 rgba(98, 211, 162, 255))
+}

@@ -36,9 +36,9 @@ class nodes_tools(QtWidgets.QGroupBox):
         self.edit_btn_nodes = QtWidgets.QPushButton(self)
         self.gridLayout_7.addWidget(self.edit_btn_nodes, 0, 0, 1, 1)
         self.set_btn_nodes = QtWidgets.QPushButton(self)
-        self.gridLayout_7.addWidget(self.set_btn_nodes, 1, 2, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(30, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_7.addItem(spacerItem1, 1, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.set_btn_nodes, 0, 1, 1, 1)
+        #spacerItem1 = QtWidgets.QSpacerItem(30, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        #self.gridLayout_7.addItem(spacerItem1, 1, 0, 1, 1)
         self.retranslate_ui()
 
     def retranslate_ui(self):
