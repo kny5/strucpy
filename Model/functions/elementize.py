@@ -1,5 +1,5 @@
-from Model.classes.element_types import Element
+from Model.classes.element_types import Section
 
 
 def elementize(vector):
-    return Element(vector)
+    return Section(vector)

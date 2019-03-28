@@ -3,26 +3,26 @@ import numpy as np
 from numpy import matlib
 
 
-def local_matrix(element):
+def local_matrix(section):
     """Descripción: Esta función calcula y asigna los valores individuales por elemento, que después serán usados para
     crear la matrix y vector generales de la estructura."""
-    long = element.vector.long
-    sections = element.SCC
-    elasticity = element.e
-    area = element.area()
-    izz = element.izz()
-    iyy = element.iyy()
+    long = section.vector.long
+    sections = section.SCC
+    elasticity = section.e
+    area = section.area()
+    izz = section.izz()
+    iyy = section.iyy()
     delta_x = long / sections
     mzz = (elasticity * izz) / delta_x ** 25
     myy = (elasticity * iyy) / delta_x ** 2
     vzz = (elasticity * izz) / (2 * delta_x ** 3)
     vyy = (elasticity * iyy) / (2 * delta_x ** 3)
     axial = (elasticity * area) / long
-    torsion = ((elasticity / (2 * (1 + element.poisson))) * element.j()) / long
-    element.mzz = mzz
-    element.myy = myy
-    element.vzz = vzz
-    element.vyy = vyy
+    torsion = ((elasticity / (2 * (1 + section.poisson))) * section.j()) / long
+    section.mzz = mzz
+    section.myy = myy
+    section.vzz = vzz
+    section.vyy = vyy
 
     def imext__(v, *args):
         """Descripción: *Pendiente*"""
@@ -38,24 +38,24 @@ def local_matrix(element):
                 v1[tupl_[0]] += tupl_[1]
         return v1
 
-    d1zz = imext__(np.dot(element.kzz.I,
+    d1zz = imext__(np.dot(section.kzz.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
-    d2zz = imext__(np.dot(element.kzz.I,
+    d2zz = imext__(np.dot(section.kzz.I,
                           -(np.append(np.zeros(sections), 3))).A1, (-1, -6, -3))
-    te1zz = imext__(np.dot(element.kzz.I,
+    te1zz = imext__(np.dot(section.kzz.I,
                            -(np.insert(np.zeros(sections), 1, 2 * delta_x))).A1,
                     (0, 8 * delta_x), (1, 2 * delta_x))
-    te2zz = imext__(np.dot(element.kzz.I,
+    te2zz = imext__(np.dot(section.kzz.I,
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
-    d1yy = imext__(np.dot(element.kyy.I,
+    d1yy = imext__(np.dot(section.kyy.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
-    d2yy = imext__(np.dot(element.kyy.I,
+    d2yy = imext__(np.dot(section.kyy.I,
                           -(np.append(np.zeros(sections), 3))).A1, (-1, -6, -3))
-    te1yy = imext__(np.dot(element.kyy.I,
+    te1yy = imext__(np.dot(section.kyy.I,
                            -(np.insert(np.zeros(sections), 1, 2 * delta_x))).A1,
                     (0, 8 * delta_x), (1, 2 * delta_x))
-    te2yy = imext__(np.dot(element.kyy.I,
+    te2yy = imext__(np.dot(section.kyy.I,
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
 
@@ -140,10 +140,10 @@ def local_matrix(element):
     keb[11, 11] = tm2zz[sections]
 
     # rotational matrix
-    cos_nu = math.cos(math.radians(element.nu))
-    sin_nu = math.sin(math.radians(element.nu))
-    cos_lm = math.cos(math.radians(element.lm))
-    sin_lm = math.sin(math.radians(element.lm))
+    cos_nu = math.cos(math.radians(section.nu))
+    sin_nu = math.sin(math.radians(section.nu))
+    cos_lm = math.cos(math.radians(section.lm))
+    sin_lm = math.sin(math.radians(section.lm))
 
     def __tr_filler(_tr):
         """Descripción: *Pendiente*"""
@@ -162,54 +162,54 @@ def local_matrix(element):
     kebg = np.dot(np.dot(tr, keb), tr.T)
 
     # try:
-    #     for i, k in enumerate(element.springs, 0):
+    #     for i, k in enumerate(section.springs, 0):
     #         kebg[i, i] += k
     # except TypeError:
     #     pass
 
-    element.tr = tr
-    element.keb = keb
-    element.kebg = kebg
+    section.tr = tr
+    section.keb = keb
+    section.kebg = kebg
 
-    pp = area * (element.p_mat / 10000)
-    element.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
+    pp = area * (section.p_mat / 10000)
+    section.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
 
     p_axial = ((- sin_lm *
                 pp * (long / 100)) / 2) + \
-              ((- math.sin(math.radians(element.aw)) * element.wy *
+              ((- math.sin(math.radians(section.aw)) * section.wy *
                 (long / 100)) / 2)
 
     p_scc_y = ((pp * (long / 100) * cos_lm) / sections) * \
               ((delta_x ** 3) / (elasticity * izz))
 
     p_scc_z = 0
-    w_scc_y = ((((element.wy * long) / 100) *
-                math.cos(math.radians(element.aw))) / sections) * \
+    w_scc_y = ((((section.wy * long) / 100) *
+                math.cos(math.radians(section.aw))) / sections) * \
               ((delta_x ** 3) / (elasticity * izz))
 
-    w_scc_z = ((element.wz * (long / 100)) /
+    w_scc_z = ((section.wz * (long / 100)) /
                sections) * ((delta_x ** 3) / (elasticity * iyy))
 
     try:
-        if element.armour is True:
+        if section.armour is True:
             p_elem = pp * (long / 100)
             vplocal_y = np.zeros(sections + 1)
             vplocal_z = np.zeros(sections + 1)
             p_vertical = -(cos_lm * p_elem) / 2
 
     except AttributeError:
-        setattr(element, 'armour', False)
+        setattr(section, 'armour', False)
 
     finally:
-        if element.armour is False:
+        if section.armour is False:
             vplocal_y = np.insert(np.append(np.full((sections - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
             vplocal_z = np.insert(np.append(np.full((sections - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
 
-    dlzz = np.dot(element.kzz.I, -vplocal_z).A1
-    dlyy = np.dot(element.kyy.I, -vplocal_y).A1
+    dlzz = np.dot(section.kzz.I, -vplocal_z).A1
+    dlyy = np.dot(section.kyy.I, -vplocal_y).A1
 
-    element.dlzz = dlzz
-    element.dlyy = dlyy
+    section.dlzz = dlzz
+    section.dlyy = dlyy
 
     def v_maker2(dl, m__):
         """Descripción: *Pendiente*"""
@@ -222,8 +222,8 @@ def local_matrix(element):
 
     mdlyy = v_maker2(dlyy, mzz)
     mdlzz = v_maker2(dlzz, myy)
-    element.mdlyy = mdlyy
-    element.mdlzz = mdlzz
+    section.mdlyy = mdlyy
+    section.mdlzz = mdlzz
 
     def v_maker3(dl, v__, vplocal, i__):
         """Descripción: *Pendiente*"""
@@ -243,7 +243,7 @@ def local_matrix(element):
 
     pcu_local = np.zeros(12)
 
-    if element.armour is True:
+    if section.armour is True:
         pcu_local[0] = p_axial
         pcu_local[1] = p_vertical
         pcu_local[6] = p_axial
@@ -261,7 +261,7 @@ def local_matrix(element):
         pcu_local[10] = mdlzz[sections]
         pcu_local[11] = - mdlyy[sections]
 
-    element.pculocal = pcu_local
-    element.pc_ = np.dot(tr, pcu_local).A1
+    section.pculocal = pcu_local
+    section.pc_ = np.dot(tr, pcu_local).A1
     
-    return element
+    return section

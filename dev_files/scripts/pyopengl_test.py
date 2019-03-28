@@ -72,12 +72,12 @@ class SimpleTriangle:
 
     def __init__(self):
 
-        # triangle position buffer
+        # triangle position db
         position = np.array(((0, .5, 0), (.5, -.5, 0), (-.5, -.5, 0)), 'f')
 
         self.glid = GL.glGenVertexArrays(1)  # create OpenGL vertex array id
         GL.glBindVertexArray(self.glid)      # activate to receive state below
-        self.buffers = [GL.glGenBuffers(1)]  # create buffer for position attrib
+        self.buffers = [GL.glGenBuffers(1)]  # create db for position attrib
 
         # bind the vbo, upload position data to GPU, declare its size and type
         GL.glEnableVertexAttribArray(0)      # assign to layout = 0 attribute
@@ -139,7 +139,7 @@ class Viewer:
     def run(self):
         """ Main render loop for this OpenGL window """
         while not glfw.window_should_close(self.win):
-            # clear draw buffer
+            # clear draw db
             GL.glClear(GL.GL_COLOR_BUFFER_BIT)
 
             # draw our scene objects

@@ -10,14 +10,13 @@ from Model.classes.geometry import Vector
 from ui_views.addvector import edit_vector
 from PyQt5.QtWidgets import QFileDialog as qfd
 from Model.classes.view import toolbox, menubar
+from Model.classes.buffer import Buffer
 
 
 def dist(x1, y1, x2, y2, x3, y3):  # x3,y3 is the point
     px = x2 - x1
     py = y2 - y1
-
     sqr_point = px * px + py * py
-
     u = ((x3 - x1) * px + (y3 - y1) * py) / float(sqr_point)
 
     if u > 1:
@@ -27,25 +26,21 @@ def dist(x1, y1, x2, y2, x3, y3):  # x3,y3 is the point
 
     x = x1 + u * px
     y = y1 + u * py
-
     dx = x - x3
     dy = y - y3
-
-    distance = math.sqrt(dx * dx + dy * dy)
-
-    return distance
+    return math.sqrt(dx * dx + dy * dy)
 
 
 def points_to_plot(vectors):
     return list(set([vector.start_2d for vector in vectors] + [vector.end_2d for vector in vectors]))
 
 
-class mainwin(QtWidgets.QMainWindow):
+class MainWin(QtWidgets.QMainWindow):
     keyPressed = QtCore.pyqtSignal(QtCore.QEvent)
 
     def __init__(self):
         super().__init__()
-
+        self.buffer = Buffer()
         self.all_vectors = []
         self.vector_set = set([])
 
@@ -117,7 +112,7 @@ class mainwin(QtWidgets.QMainWindow):
         Vector.iso_projection()
         self.plot()
         self.plot_select()
-        return
+        # return
 
     def set_up(self):
         self.setGeometry(300, 300, 800, 600)
@@ -157,7 +152,7 @@ class mainwin(QtWidgets.QMainWindow):
                 connect="pairs")
         else:
             self.plot_dxf.setData([], [])
-        return
+        # return
 
     def plot_it(self):
         return
@@ -172,7 +167,7 @@ class mainwin(QtWidgets.QMainWindow):
                 connect="pairs")
         else:
             self.plot_selected.setData([], [])
-        return
+        # return
 
     def check_point(self, cursor):
         if cursor.button() == 1:
@@ -228,7 +223,7 @@ class mainwin(QtWidgets.QMainWindow):
         return
 
     def keyPressEvent(self, event):
-        super(mainwin, self).keyPressEvent(event)
+        super(MainWin, self).keyPressEvent(event)
         self.keyPressed.emit(event)
 
     def vector_widget(self, vector):
@@ -245,7 +240,7 @@ class mainwin(QtWidgets.QMainWindow):
                 self.vector_widget(list(self.vector_set)[0])
 
             elif self.vector_set.__len__() == 0:
-                self.vector_widget(Vector((0,0,0), (1,1,1)))
+                self.vector_widget(Vector((0, 0, 0), (1, 1, 1)))
                 print("Sin seleccion")
             else:
                 print("Seleccione sólo un vector")
@@ -253,7 +248,7 @@ class mainwin(QtWidgets.QMainWindow):
         elif event.key() == QtCore.Qt.Key_Q:
             print("Killing")
             self.deleteLater()
-        return
+        # return
 
     def retranslate_ui(self):
         _translate = QtCore.QCoreApplication.translate
@@ -267,9 +262,10 @@ class mainwin(QtWidgets.QMainWindow):
 
 if not __name__ == '__main__':
     import sys
+
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
         app = QtGui.QApplication([])
         app.setOverrideCursor(QtCore.Qt.CrossCursor)
-        app.mainwindow = mainwin()
+        app.mainwindow = MainWin()
         # app.exec_()
         sys.exit(app.exec_())

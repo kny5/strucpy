@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Model.classes.element_types import Concrete, Element, Vector, Ir, Or
+from Model.classes.element_types import Concrete, Section, Vector, Ir, Or
 
 
 class Ui_Dialog(object):

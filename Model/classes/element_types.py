@@ -2,7 +2,7 @@ import math
 from itertools import count as it_counts
 
 
-class Element:
+class Section:
     """Propiedades aplicadas para todos los elementos"""
     _SCC: int = 20
     _poisson: float = 0.25

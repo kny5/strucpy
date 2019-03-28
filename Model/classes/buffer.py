@@ -7,9 +7,9 @@ import numpy as np
 
 class Buffer:
 
-    def __init__(self, id):
+    def __init__(self):
         super().__init__()
-        self.id = id
+        # self.id = id
         self.Elements = []
         self.Nodes = []
         self.vcn = []
