@@ -3,12 +3,14 @@ import numpy as np
 from numpy import matlib
 
 
-def local_matrix(section):
+def local_matrix(element):
     """Descripción: Esta función calcula y asigna los valores individuales por elemento, que después serán usados para
     crear la matrix y vector generales de la estructura."""
-    long = section.vector.long
-    sections = section.SCC
-    elasticity = section.e
+    vector = element.vector
+    section = element.section
+    long = vector.long
+    sections = element.sections
+    elasticity = element.poisson
     area = section.area()
     izz = section.izz()
     iyy = section.iyy()
@@ -19,10 +21,10 @@ def local_matrix(section):
     vyy = (elasticity * iyy) / (2 * delta_x ** 3)
     axial = (elasticity * area) / long
     torsion = ((elasticity / (2 * (1 + section.poisson))) * section.j()) / long
-    section.mzz = mzz
-    section.myy = myy
-    section.vzz = vzz
-    section.vyy = vyy
+    element.mzz = mzz
+    element.myy = myy
+    element.vzz = vzz
+    element.vyy = vyy
 
     def imext__(v, *args):
         """Descripción: *Pendiente*"""
@@ -59,7 +61,7 @@ def local_matrix(section):
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
 
-    def tmv__(vector, m__, v=False):
+    def tmv__(vector_, m__, v=False):
         """Descripción: *Pendiente*"""
         x = np.zeros(sections + 1)
         y = 2
@@ -69,7 +71,7 @@ def local_matrix(section):
             sums = ((1, 2), (-2, 1), (2, -1), (-1, -2))
         for i in range(sections + 1):
             for tupl_ in sums:
-                x[i] += tupl_[0] * vector[i + y + tupl_[1]]
+                x[i] += tupl_[0] * vector_[i + y + tupl_[1]]
         z = np.dot(x, m__)
         return z
 
