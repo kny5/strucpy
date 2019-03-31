@@ -10,20 +10,20 @@ class Parameters:
 class Element(Parameters):
     _e_id_gen = it_counts(1)
 
-    def __init__(self, vector, section, loads, material):
+    def __init__(self, vector):
         super().__init__()
         self.e_id = next(self._e_id_gen)
         self.vector = vector
-        self.section = section
-        self.loads = loads
-        self.material = material
+        self.section = Section()
+        self.loads = Loads()
+        self.material = None
         self.marco: int = 0
-        self.nodeStart = None
-        self.nodeEnd = None
-        self.ve = None
 
-    def asm(self):
-        self.ve = self.nodeStart.n_ve + self.nodeEnd.n_ve
+    def set_material(self, index):
+        materials = [Concrete, Custom, Or, Ir, Oc]
+        selected = materials[index]
+        self.material = selected()
+        return
 
 
 class Loads:
@@ -48,23 +48,27 @@ class Concrete:
         self.e: float = 221.359
         self.p_mat: float = 2.4
 
+    @property
     def a1(self):
         return self.b
 
+    @property
     def a2(self):
         return self.h
 
-    # @property
+    @property
     def area(self) -> float:
         return self.b_prima * self.h
 
-    # @property
+    @property
     def izz(self) -> float:
         return (self.b_prima * self.h ** 3) / 12
 
+    @property
     def iyy(self) -> float:
         return (self.h * self.b_prima ** 3) / 12
 
+    @property
     def j(self) -> float:
         return ((self.h / 2) * (self.b_prima / 2) ** 3) * \
                ((16 / 3) - (3.36 * ((self.b_prima / 2) / (self.h / 2)) *
@@ -84,21 +88,27 @@ class Custom:
         self.p_mat: float = 0.0
         self.area_: float = 0.0
 
+    @property
     def a1(self):
         return self.b
 
+    @property
     def a2(self):
         return self.h
 
+    @property
     def area(self):
         return self.area_
 
+    @property
     def izz(self):
         return self.izz_
 
+    @property
     def iyy(self):
         return self.iyy_
 
+    @property
     def j(self):
         return self.j_
 
@@ -115,27 +125,33 @@ class Or:
         self.p_mat: float = 7.849
         self.armour: bool = False
 
+    @property
     def a1(self):
         return self.bf
 
+    @property
     def a2(self):
         return self.d
 
+    @property
     def area(self) -> float:
         return (self.d * self.bf) - \
                ((self.d - 2 * self.tf) *
                 (self.bf - 2 * self.tw))
 
+    @property
     def izz(self) -> float:
         return 2 * ((self.bf * self.tf ** 3) / 12) + \
                2 * ((self.tw * (self.d - 2 * self.tf) ** 3) / 12) + \
                2 * ((self.bf * self.tf) * ((self.d - self.tf) / 2) ** 2)
 
+    @property
     def iyy(self) -> float:
         return 2 * ((self.d * self.tw ** 3) / 12) + \
                2 * ((self.tf * (self.bf - 2 * self.tw) ** 3) / 12) + \
                2 * ((self.d * self.tw) * ((self.bf - self.tw) / 2) ** 2)
 
+    @property
     def j(self) -> float:
         return (2 * ((self.bf - self.tw) * (self.d - self.tf)) ** 2) / \
                (((self.bf - self.tw) / self.tf) + ((self.d - self.tf) / self.tw))
@@ -153,24 +169,30 @@ class Ir:
         self.p_mat: float = 7.849
         self.armour: bool = False
 
+    @property
     def a1(self):
         return self.bf
 
+    @property
     def a2(self):
         return self.d
 
+    @property
     def area(self) -> float:
         return (2 * self.bf * self.tf) + ((self.d - 2 * self.tf) * self.tw)
 
+    @property
     def izz(self) -> float:
         return 2 * ((self.bf * (self.tf ** 3)) / 12) + \
                (self.tw * (self.d - (2 * self.tf)) ** 3 / 12) + \
                2 * ((self.bf * self.tf) * ((self.d - self.tf) / 2) ** 2)
 
+    @property
     def iyy(self) -> float:
         return 2 * ((self.tf * self.bf ** 3) / 12) + \
                (((self.d - 2 * self.tf) * self.tw ** 3) / 12)
 
+    @property
     def j(self) -> float:
         return ((2 * self.bf * self.tf ** 3) + ((self.d - self.tf) * self.tw ** 3)) / 3
 
@@ -185,21 +207,27 @@ class Oc:
         self.p_mat: float = 7.849
         self.armour: bool = False
 
+    @property
     def a1(self):
         return self.d
 
+    @property
     def a2(self):
         return self.d
 
+    @property
     def area(self) -> float:
         return math.pi * ((self.d / 2) ** 2) - (math.pi * ((self.d - (2 * self.t)) / 2) ** 2)
 
+    @property
     def izz(self) -> float:
         return (0.25 * math.pi * (self.d / 2) ** 4) - \
                ((0.25 * math.pi) * ((self.d - 2 * self.t) / 2) ** 4)
 
+    @property
     def iyy(self):
-        return self.izz()
+        return self.izz
 
+    @property
     def j(self) -> float:
         return ((math.pi * self.d ** 4) / 32) - ((math.pi * (self.d - 2 * self.t) ** 4) / 32)
