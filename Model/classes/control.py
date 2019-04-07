@@ -1,24 +1,23 @@
-from Model.classes.element_types import Section, Element
+from Model.classes.element_types import Element
+# from Model.classes.geometry import Vector
 from Model.functions.read_dxf import read_dxf, save_dxf
 import json
 
 
-class BufferHandler:
+class Controller:
     def __init__(self):
-        # lists
         self.vectors = []
-        self.sections = []
-        self.materials = []
         self.elements = []
-        self.db = {}
         self.filename = "c:/repos/strucpy/dev_files/dxf/test.dxf"
 
+    def get_filename(self):
+        pass
+
     def assemble_elements(self):
-        for vector in self.vectors:
-            pass
+        self.elements = list(map(Element, self.vectors))
 
-
-    # import section class
+    def add_element(self):
+        pass
 
     def open_dxf(self):
         try:
@@ -34,12 +33,10 @@ class BufferHandler:
 
     def clear_all(self):
         self.vectors = []
-        self.sections = []
+        self.elements = []
 
     def export_as_json(self):
         export = json.dumps(str(self.db))
         with open('c:/repos/strucpy/dev_files/db.json', 'w') as outfile:
             json.dump(export, outfile)
         print(export)
-
-

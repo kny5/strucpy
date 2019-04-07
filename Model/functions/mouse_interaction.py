@@ -9,8 +9,8 @@ from Model.classes.geometry import Vector
 # from ui_views.Vectoreditor import Ui_Form as vectoredit
 from ui_views.addvector import edit_vector
 from PyQt5.QtWidgets import QFileDialog as qfd
-from Model.classes.view import toolbox, menubar
-from Model.classes.buffer import Buffer
+from Model.classes.view import toolbox, Menubar
+# from Model.classes.new_buffer_handler import Controlador
 
 
 def dist(x1, y1, x2, y2, x3, y3):  # x3,y3 is the point
@@ -40,7 +40,6 @@ class MainWin(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.buffer = Buffer()
         self.all_vectors = []
         self.vector_set = set([])
 
@@ -52,7 +51,7 @@ class MainWin(QtWidgets.QMainWindow):
         self.horizontalLayout.addWidget(self.view)
         self.setCentralWidget(self.centralwidget)
         # menu bar
-        self.menubar = menubar(self)
+        self.menubar = Menubar(self)
         self.menubar.actionAbrir_DXF.triggered.connect(self.open_dxf)
         self.menubar.actionGuardar_DXF.triggered.connect(self.save_dxf)
         self.menubar.actionBorrar_Todo.triggered.connect(self.clear_all)
@@ -153,9 +152,6 @@ class MainWin(QtWidgets.QMainWindow):
         else:
             self.plot_dxf.setData([], [])
         # return
-
-    def plot_it(self):
-        return
 
     def plot_select(self):
         if self.vector_set.__len__() > 0:

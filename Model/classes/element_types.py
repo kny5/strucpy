@@ -38,6 +38,8 @@ class Section:
     kh: float = 0.0
 
 
+# Materiales disponibles
+
 class Concrete:
     """Propiedades específicas del concreto"""
 
