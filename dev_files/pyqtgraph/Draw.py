@@ -30,7 +30,7 @@ view.setAspectLocked(True)
 img = pg.ImageItem(np.zeros((200,200)))
 view.addItem(img)
 
-## Set initial view bounds
+## Set initial view_layout bounds
 view.setRange(QtCore.QRectF(0, 0, 200, 200))
 
 ## start drawing with 3x3 brush

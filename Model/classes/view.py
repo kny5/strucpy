@@ -149,7 +149,7 @@ class toolbox(QtWidgets.QGroupBox):
 
 
 class Menubar(QtWidgets.QMenuBar):
-    def __init__(self, parent, abrir, guardar, borrar):
+    def __init__(self, parent):
         super().__init__(parent)
         self.setGeometry(QtCore.QRect(0, 0, 640, 26))
         self.menuArchivo = QtWidgets.QMenu(self)
@@ -165,9 +165,9 @@ class Menubar(QtWidgets.QMenuBar):
         self.menuArchivo.addAction(self.actionBorrar_Todo)
         self.addAction(self.menuArchivo.menuAction())
 
-        self.actionAbrir_DXF.triggered.connect(abrir)
-        self.actionGuardar_DXF.triggered.connect(guardar)
-        self.actionBorrar_Todo.triggered.connect(borrar)
+        # self.actionAbrir_DXF.triggered.connect(abrir)
+        # self.actionGuardar_DXF.triggered.connect(guardar)
+        # self.actionBorrar_Todo.triggered.connect(borrar)
 
         self.retranslate()
 

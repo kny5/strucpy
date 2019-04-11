@@ -39,9 +39,9 @@ ax3.setZValue(-10000)
 ax3.setLabel('axis 3', color='#ff0000')
 
 
-## Handle view resizing 
+## Handle view_layout resizing
 def updateViews():
-    ## view has resized; update auxiliary views to match
+    ## view_layout has resized; update auxiliary views to match
     global p1, p2, p3
     p2.setGeometry(p1.vb.sceneBoundingRect())
     p3.setGeometry(p1.vb.sceneBoundingRect())

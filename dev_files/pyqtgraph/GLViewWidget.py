@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Very basic 3D graphics example; create a view widget and add a few items.
+Very basic 3D graphics example; create a view_layout widget and add a few items.
 
 """
 ## Add path to library (just for examples; you do not need this)

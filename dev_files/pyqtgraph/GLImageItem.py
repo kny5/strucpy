@@ -33,7 +33,7 @@ tex3 = pg.makeRGBA(data[:,:,shape[2]/2], levels=levels)[0]   # xy plane
 #tex2[:,:,3] = 128
 #tex3[:,:,3] = 128
 
-## Create three image items from textures, add to view
+## Create three image items from textures, add to view_layout
 v1 = gl.GLImageItem(tex1)
 v1.translate(-shape[1]/2, -shape[2]/2, 0)
 v1.rotate(90, 0,0,1)

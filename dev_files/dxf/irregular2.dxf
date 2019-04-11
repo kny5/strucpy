@@ -9,7 +9,7 @@ AC1032
   9
 $ACADMAINTVER
  90
-        6
+9
   9
 $DWGCODEPAGE
   3
@@ -17,11 +17,11 @@ ANSI_1252
   9
 $LASTSAVEDBY
   1
-ANAYA
+unknown
   9
 $REQUIREDVERSIONS
 160
-                 0
+0
   9
 $INSBASE
  10
@@ -33,19 +33,19 @@ $INSBASE
   9
 $EXTMIN
  10
--700.0
+1e+20
  20
--1300.0
+1e+20
  30
-0.0
+1e+20
   9
 $EXTMAX
  10
-100.0
+-1e+20
  20
--700.0
+-1e+20
  30
-900.0
+-1e+20
   9
 $LIMMIN
  10
@@ -61,23 +61,23 @@ $LIMMAX
   9
 $ORTHOMODE
  70
-     0
+0
   9
 $REGENMODE
  70
-     1
+1
   9
 $FILLMODE
  70
-     1
+1
   9
 $QTEXTMODE
  70
-     0
+0
   9
 $MIRRTEXT
  70
-     1
+0
   9
 $LTSCALE
  40
@@ -85,7 +85,7 @@ $LTSCALE
   9
 $ATTMODE
  70
-     1
+1
   9
 $TEXTSIZE
  40
@@ -97,7 +97,7 @@ $TRACEWID
   9
 $TEXTSTYLE
   7
-STANDARD
+Notes
   9
 $CLAYER
   8
@@ -105,11 +105,11 @@ $CLAYER
   9
 $CELTYPE
   6
-BYLAYER
+ByLayer
   9
 $CECOLOR
  62
-   256
+256
   9
 $CELTSCALE
  40
@@ -117,7 +117,7 @@ $CELTSCALE
   9
 $DISPSILH
  70
-     0
+0
   9
 $DIMSCALE
  40
@@ -125,15 +125,15 @@ $DIMSCALE
   9
 $DIMASZ
  40
-0.18
+3.0
   9
 $DIMEXO
  40
-0.0625
+1.5
   9
 $DIMDLI
  40
-0.38
+6.0
   9
 $DIMRND
  40
@@ -145,7 +145,7 @@ $DIMDLE
   9
 $DIMEXE
  40
-0.18
+3.0
   9
 $DIMTP
  40
@@ -157,11 +157,11 @@ $DIMTM
   9
 $DIMTXT
  40
-0.18
+3.0
   9
 $DIMCEN
  40
-0.09
+3.0
   9
 $DIMTSZ
  40
@@ -169,35 +169,35 @@ $DIMTSZ
   9
 $DIMTOL
  70
-     0
+0
   9
 $DIMLIM
  70
-     0
+0
   9
 $DIMTIH
  70
-     1
+0
   9
 $DIMTOH
  70
-     1
+0
   9
 $DIMSE1
  70
-     0
+0
   9
 $DIMSE2
  70
-     0
+0
   9
 $DIMTAD
  70
-     0
+1
   9
 $DIMZIN
  70
-     0
+3
   9
 $DIMBLK
   1
@@ -205,11 +205,11 @@ $DIMBLK
   9
 $DIMASO
  70
-     1
+1
   9
 $DIMSHO
  70
-     1
+1
   9
 $DIMPOST
   1
@@ -221,11 +221,11 @@ $DIMAPOST
   9
 $DIMALT
  70
-     0
+0
   9
 $DIMALTD
  70
-     2
+2
   9
 $DIMALTF
  40
@@ -237,7 +237,7 @@ $DIMLFAC
   9
 $DIMTOFL
  70
-     0
+0
   9
 $DIMTVP
  40
@@ -245,15 +245,15 @@ $DIMTVP
   9
 $DIMTIX
  70
-     0
+0
   9
 $DIMSOXD
  70
-     0
+0
   9
 $DIMSAH
  70
-     0
+0
   9
 $DIMBLK1
   1
@@ -265,19 +265,19 @@ $DIMBLK2
   9
 $DIMSTYLE
   2
-STANDARD
+Civil-Metric
   9
 $DIMCLRD
  70
-     0
+0
   9
 $DIMCLRE
  70
-     0
+0
   9
 $DIMCLRT
  70
-     0
+0
   9
 $DIMTFAC
  40
@@ -285,67 +285,67 @@ $DIMTFAC
   9
 $DIMGAP
  40
-0.09
+2.0
   9
 $DIMJUST
  70
-     0
+0
   9
 $DIMSD1
  70
-     0
+0
   9
 $DIMSD2
  70
-     0
+0
   9
 $DIMTOLJ
  70
-     1
+1
   9
 $DIMTZIN
  70
-     0
+0
   9
 $DIMALTZ
  70
-     0
+0
   9
 $DIMALTTZ
  70
-     0
+0
   9
 $DIMUPT
  70
-     0
+0
   9
 $DIMDEC
  70
-     4
+2
   9
 $DIMTDEC
  70
-     4
+2
   9
 $DIMALTU
  70
-     2
+2
   9
 $DIMALTTD
  70
-     2
+2
   9
 $DIMTXSTY
   7
-STANDARD
+Standard
   9
 $DIMAUNIT
  70
-     0
+0
   9
 $DIMADEC
  70
-     0
+2
   9
 $DIMALTRND
  40
@@ -353,19 +353,19 @@ $DIMALTRND
   9
 $DIMAZIN
  70
-     0
+2
   9
 $DIMDSEP
  70
-    46
+46
   9
 $DIMATFIT
  70
-     3
+3
   9
 $DIMFRAC
  70
-     0
+1
   9
 $DIMLDRBLK
   1
@@ -373,19 +373,19 @@ $DIMLDRBLK
   9
 $DIMLUNIT
  70
-     2
+2
   9
 $DIMLWD
  70
-    -2
+-2
   9
 $DIMLWE
  70
-    -2
+-2
   9
 $DIMTMOVE
  70
-     0
+0
   9
 $DIMFXL
  40
@@ -393,7 +393,7 @@ $DIMFXL
   9
 $DIMFXLON
  70
-     0
+0
   9
 $DIMJOGANG
  40
@@ -401,15 +401,15 @@ $DIMJOGANG
   9
 $DIMTFILL
  70
-     0
+0
   9
 $DIMTFILLCLR
  70
-     0
+0
   9
 $DIMARCSYM
  70
-     0
+0
   9
 $DIMLTYPE
   6
@@ -425,15 +425,15 @@ $DIMLTEX2
   9
 $DIMTXTDIRECTION
  70
-     0
+0
   9
 $LUNITS
  70
-     2
+2
   9
 $LUPREC
  70
-     4
+4
   9
 $SKETCHINC
  40
@@ -441,15 +441,15 @@ $SKETCHINC
   9
 $FILLETRAD
  40
-0.5
+0.0
   9
 $AUNITS
  70
-     0
+4
   9
 $AUPREC
  70
-     0
+5
   9
 $MENU
   1
@@ -469,19 +469,19 @@ $THICKNESS
   9
 $LIMCHECK
  70
-     0
+0
   9
 $CHAMFERA
  40
-0.5
+0.0
   9
 $CHAMFERB
  40
-0.5
+0.0
   9
 $CHAMFERC
  40
-1.0
+0.0
   9
 $CHAMFERD
  40
@@ -489,35 +489,35 @@ $CHAMFERD
   9
 $SKPOLY
  70
-     1
+0
   9
 $TDCREATE
  40
-2451008.519965278
+2458585.060914352
   9
 $TDUCREATE
  40
-2451008.728298611
+2455631.263201297
   9
 $TDUPDATE
  40
-2458466.768923611
+2458585.060914352
   9
 $TDUUPDATE
  40
-2458467.018923611
+2456436.431787477
   9
 $TDINDWG
  40
-0.0050097222
+0.0003490741
   9
 $TDUSRTIMER
  40
-0.0050097222
+0.0003487153
   9
 $USRTIMER
  70
-     1
+1
   9
 $ANGBASE
  50
@@ -525,11 +525,11 @@ $ANGBASE
   9
 $ANGDIR
  70
-     0
+0
   9
 $PDMODE
  70
-     0
+0
   9
 $PDSIZE
  40
@@ -541,39 +541,39 @@ $PLINEWID
   9
 $SPLFRAME
  70
-     0
+0
   9
 $SPLINETYPE
  70
-     6
+6
   9
 $SPLINESEGS
  70
-     8
+8
   9
 $HANDSEED
   5
-BE9
+60B
   9
 $SURFTAB1
  70
-     6
+6
   9
 $SURFTAB2
  70
-     6
+6
   9
 $SURFTYPE
  70
-     6
+6
   9
 $SURFU
  70
-     6
+6
   9
 $SURFV
  70
-     6
+6
   9
 $UCSBASE
   2
@@ -613,7 +613,7 @@ $UCSORTHOREF
   9
 $UCSORTHOVIEW
  70
-     0
+0
   9
 $UCSORGTOP
  10
@@ -701,7 +701,7 @@ $PUCSORTHOREF
   9
 $PUCSORTHOVIEW
  70
-     0
+0
   9
 $PUCSORGTOP
  10
@@ -753,23 +753,23 @@ $PUCSORGBACK
   9
 $USERI1
  70
-     0
+0
   9
 $USERI2
  70
-     0
+0
   9
 $USERI3
  70
-     0
+0
   9
 $USERI4
  70
-     0
+0
   9
 $USERI5
  70
-     0
+0
   9
 $USERR1
  40
@@ -793,23 +793,23 @@ $USERR5
   9
 $WORLDVIEW
  70
-     1
+1
   9
 $SHADEDGE
  70
-     3
+3
   9
 $SHADEDIF
  70
-    70
+70
   9
 $TILEMODE
  70
-     1
+1
   9
 $MAXACTVP
  70
-    48
+64
   9
 $PINSBASE
  10
@@ -821,63 +821,63 @@ $PINSBASE
   9
 $PLIMCHECK
  70
-     0
+0
   9
 $PEXTMIN
  10
-1.000000000000000E+20
+0.6288667663970601
  20
-1.000000000000000E+20
+0.7999999523162842
  30
-1.000000000000000E+20
+0.0
   9
 $PEXTMAX
  10
--1.000000000000000E+20
+9.028866384927335
  20
--1.000000000000000E+20
+7.199999570846557
  30
--1.000000000000000E+20
+0.0
   9
 $PLIMMIN
  10
-0.0
+-0.7005418191744587
  20
-0.0
+-0.2281003861915408
   9
 $PLIMMAX
  10
-12.0
+10.29945794052965
  20
-9.0
+8.271899373512568
   9
 $UNITMODE
  70
-     0
+0
   9
 $VISRETAIN
  70
-     1
+1
   9
 $PLINEGEN
  70
-     0
+0
   9
 $PSLTSCALE
  70
-     1
+1
   9
 $TREEDEPTH
  70
-  3020
+3020
   9
 $CMLSTYLE
   2
-STANDARD
+Standard
   9
 $CMLJUST
  70
-     0
+0
   9
 $CMLSCALE
  40
@@ -885,31 +885,31 @@ $CMLSCALE
   9
 $PROXYGRAPHICS
  70
-     1
+1
   9
 $MEASUREMENT
  70
-     0
+1
   9
 $CELWEIGHT
 370
-    -1
+-1
   9
 $ENDCAPS
 280
-     0
+0
   9
 $JOINSTYLE
 280
-     0
+0
   9
 $LWDISPLAY
 290
-     0
+0
   9
 $INSUNITS
  70
-     0
+4
   9
 $HYPERLINKBASE
   1
@@ -921,27 +921,27 @@ $STYLESHEET
   9
 $XEDIT
 290
-     1
+1
   9
 $CEPSNTYPE
 380
-     0
+0
   9
 $PSTYLEMODE
 290
-     1
+1
   9
 $FINGERPRINTGUID
   2
-{C07EB1EC-C502-C24B-9C96-8C7409BA8B44}
+E9F0F340-5C22-11E9-9ADA-507B9D9054C5
   9
 $VERSIONGUID
   2
-{D0D39DBA-63A9-0E4C-A861-CF7F781EC33B}
+E9F1C9B6-5C22-11E9-B57F-507B9D9054C5
   9
 $EXTNAMES
 290
-     1
+1
   9
 $PSVPSCALE
  40
@@ -949,47 +949,47 @@ $PSVPSCALE
   9
 $OLESTARTUP
 290
-     0
+0
   9
 $SORTENTS
 280
-   127
+127
   9
 $INDEXCTL
 280
-     0
+0
   9
 $HIDETEXT
 280
-     0
+1
   9
 $XCLIPFRAME
 280
-     2
+0
   9
 $HALOGAP
 280
-     0
+0
   9
 $OBSCOLOR
  70
-   257
+257
   9
 $OBSLTYPE
 280
-     0
+0
   9
 $INTERSECTIONDISPLAY
 280
-     0
+0
   9
 $INTERSECTIONCOLOR
  70
-   257
+257
   9
 $DIMASSOC
 280
-     1
+2
   9
 $PROJECTNAME
   1
@@ -997,7 +997,7 @@ $PROJECTNAME
   9
 $CAMERADISPLAY
 290
-     0
+0
   9
 $LENSLENGTH
  40
@@ -1045,11 +1045,11 @@ $LOFTMAG2
   9
 $LOFTPARAM
  70
-     7
+7
   9
 $LOFTNORMALS
 280
-     1
+1
   9
 $LATITUDE
  40
@@ -1065,55 +1065,55 @@ $NORTHDIRECTION
   9
 $TIMEZONE
  70
- -8000
+-8000
   9
 $LIGHTGLYPHDISPLAY
 280
-     1
+1
   9
 $TILEMODELIGHTSYNCH
 280
-     1
+1
   9
 $CMATERIAL
 347
-B25
+96
   9
 $SOLIDHIST
 280
-     0
+1
   9
 $SHOWHIST
 280
-     1
+1
   9
 $DWFFRAME
 280
-     2
+2
   9
 $DGNFRAME
 280
-     0
+0
   9
 $REALWORLDSCALE
 290
-     1
+1
   9
 $INTERFERECOLOR
  62
-     1
+1
   9
 $INTERFEREOBJVS
 345
-B47
+A3
   9
 $INTERFEREVPVS
 346
-B44
+A0
   9
 $CSHADOW
 280
-     0
+0
   9
 $SHADOWPLANELOCATION
  40
@@ -1133,157 +1133,13 @@ AcDbDictionaryWithDefault
   3
 ObjectDBX Classes
  90
-        0
+0
  91
-        1
+0
 280
-     0
+0
 281
-     0
-  0
-CLASS
-  1
-MATERIAL
-  2
-AcDbMaterial
-  3
-ObjectDBX Classes
- 90
-     1153
- 91
-        3
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-VISUALSTYLE
-  2
-AcDbVisualStyle
-  3
-ObjectDBX Classes
- 90
-     4095
- 91
-       24
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-TABLESTYLE
-  2
-AcDbTableStyle
-  3
-ObjectDBX Classes
- 90
-     4095
- 91
-        1
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-SCALE
-  2
-AcDbScale
-  3
-ObjectDBX Classes
- 90
-     1153
- 91
-       17
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-MLEADERSTYLE
-  2
-AcDbMLeaderStyle
-  3
-ACDB_MLEADERSTYLE_CLASS
- 90
-     4095
- 91
-        1
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-ACDBSECTIONVIEWSTYLE
-  2
-AcDbSectionViewStyle
-  3
-ObjectDBX Classes
- 90
-     1025
- 91
-        1
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-ACDBDETAILVIEWSTYLE
-  2
-AcDbDetailViewStyle
-  3
-ObjectDBX Classes
- 90
-     1025
- 91
-        1
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-SOLID_BACKGROUND
-  2
-AcDbSolidBackground
-  3
-SCENEOE
- 90
-     4095
- 91
-        1
-280
-     0
-281
-     0
-  0
-CLASS
-  1
-NPOCOLLECTION
-  2
-AcDbImpNonPersistentObjectsCollection
-  3
-ObjectDBX Classes
- 90
-     1153
- 91
-        1
-280
-     0
-281
-     0
+0
   0
 CLASS
   1
@@ -1293,13 +1149,93 @@ AcDbDictionaryVar
   3
 ObjectDBX Classes
  90
-        0
+0
  91
-        9
+0
 280
-     0
+0
 281
-     0
+0
+  0
+CLASS
+  1
+TABLESTYLE
+  2
+AcDbTableStyle
+  3
+ObjectDBX Classes
+ 90
+4095
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+MATERIAL
+  2
+AcDbMaterial
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+VISUALSTYLE
+  2
+AcDbVisualStyle
+  3
+ObjectDBX Classes
+ 90
+4095
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+SCALE
+  2
+AcDbScale
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+MLEADERSTYLE
+  2
+AcDbMLeaderStyle
+  3
+ACDB_MLEADERSTYLE_CLASS
+ 90
+4095
+ 91
+0
+280
+0
+281
+0
   0
 CLASS
   1
@@ -1309,13 +1245,301 @@ AcDbCellStyleMap
   3
 ObjectDBX Classes
  90
-     1152
+1152
  91
-        1
+0
 280
-     0
+0
 281
-     0
+0
+  0
+CLASS
+  1
+EXACXREFPANELOBJECT
+  2
+ExAcXREFPanelObject
+  3
+EXAC_ESW
+ 90
+1025
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+NPOCOLLECTION
+  2
+AcDbImpNonPersistentObjectsCollection
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+LAYER_INDEX
+  2
+AcDbLayerIndex
+  3
+ObjectDBX Classes
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+SPATIAL_INDEX
+  2
+AcDbSpatialIndex
+  3
+ObjectDBX Classes
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+IDBUFFER
+  2
+AcDbIdBuffer
+  3
+ObjectDBX Classes
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+DIMASSOC
+  2
+AcDbDimAssoc
+  3
+"AcDbDimAssoc|Product Desc:     AcDim ARX App For Dimension|Company:          Autodesk, Inc.|WEB Address:      www.autodesk.com"
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+ACDBSECTIONVIEWSTYLE
+  2
+AcDbSectionViewStyle
+  3
+ObjectDBX Classes
+ 90
+1025
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+ACDBDETAILVIEWSTYLE
+  2
+AcDbDetailViewStyle
+  3
+ObjectDBX Classes
+ 90
+1025
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+IMAGEDEF
+  2
+AcDbRasterImageDef
+  3
+ISM
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+RASTERVARIABLES
+  2
+AcDbRasterVariables
+  3
+ISM
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+IMAGEDEF_REACTOR
+  2
+AcDbRasterImageDefReactor
+  3
+ISM
+ 90
+1
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+IMAGE
+  2
+AcDbRasterImage
+  3
+ISM
+ 90
+2175
+ 91
+0
+280
+0
+281
+1
+  0
+CLASS
+  1
+PDFDEFINITION
+  2
+AcDbPdfDefinition
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+PDFUNDERLAY
+  2
+AcDbPdfReference
+  3
+ObjectDBX Classes
+ 90
+4095
+ 91
+0
+280
+0
+281
+1
+  0
+CLASS
+  1
+DWFDEFINITION
+  2
+AcDbDwfDefinition
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+DWFUNDERLAY
+  2
+AcDbDwfReference
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+1
+  0
+CLASS
+  1
+DGNDEFINITION
+  2
+AcDbDgnDefinition
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+DGNUNDERLAY
+  2
+AcDbDgnReference
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+1
   0
 ENDSEC
   0
@@ -1333,135 +1557,7 @@ VPORT
 100
 AcDbSymbolTable
  70
-     1
-  0
-VPORT
-  5
-5A
-330
-8
-100
-AcDbSymbolTableRecord
-100
-AcDbViewportTableRecord
-  2
-*ACTIVE
- 70
-     0
- 10
-0.0
- 20
-0.0
- 11
-1.0
- 21
-1.0
- 12
-63.91342317114538
- 22
--38.8729123054161
- 13
-0.0
- 23
-0.0
- 14
-0.5
- 24
-0.5
- 15
-0.5
- 25
-0.5
- 16
--2175.831563041186
- 26
--2175.831563041187
- 36
-2175.831563041187
- 17
--300.0
- 27
--1000.0
- 37
-450.0
- 40
-825.0576964909255
- 41
-2.146341463414634
- 42
-50.0
- 43
-0.0
- 44
-0.0
- 50
-0.0
- 51
-0.0000000000000304
- 71
-     0
- 72
-   100
- 73
-     1
- 74
-     1
- 75
-     0
- 76
-     0
- 77
-     0
- 78
-     0
-281
-     0
- 65
-     1
-110
-0.0
-120
-0.0
-130
-0.0
-111
-1.0
-121
-0.0
-131
-0.0
-112
-0.0
-122
-1.0
-132
-0.0
- 79
-     0
-146
-0.0
-348
-B43
- 60
-     3
- 61
-     5
-292
-     1
-282
-     1
-141
-0.0
-142
-0.0
- 63
-   250
-421
-  3355443
-1001
-ACAD_NAV_VCDISPLAY
-1070
-     3
+0
   0
 ENDTAB
   0
@@ -1469,55 +1565,33 @@ TABLE
   2
 LTYPE
   5
-5
+5F
 330
 0
 100
 AcDbSymbolTable
  70
-     1
-  0
-LTYPE
-  5
-13
-330
-5
-100
-AcDbSymbolTableRecord
-100
-AcDbLinetypeTableRecord
-  2
-BYBLOCK
- 70
-     0
-  3
-
- 72
-    65
- 73
-     0
- 40
-0.0
+7
   0
 LTYPE
   5
 14
 330
-5
+5F
 100
 AcDbSymbolTableRecord
 100
 AcDbLinetypeTableRecord
   2
-BYLAYER
+ByBlock
  70
-     0
+0
   3
 
  72
-    65
+65
  73
-     0
+0
  40
 0.0
   0
@@ -1525,24 +1599,190 @@ LTYPE
   5
 15
 330
-5
+5F
 100
 AcDbSymbolTableRecord
 100
 AcDbLinetypeTableRecord
   2
-CONTINUOUS
+ByLayer
  70
-     0
+0
+  3
+
+ 72
+65
+ 73
+0
+ 40
+0.0
+  0
+LTYPE
+  5
+16
+330
+5F
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+Continuous
+ 70
+0
   3
 Solid line
  72
-    65
+65
  73
-     0
+0
  40
 0.0
   0
+LTYPE
+  5
+1B1
+330
+5F
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+CENTER
+ 70
+0
+  3
+Center ____ _ ____ _ ____ _ ____ _ ____ _ ____
+ 72
+65
+ 73
+4
+ 40
+2.0
+ 49
+1.25
+ 74
+0
+ 49
+-0.25
+ 74
+0
+ 49
+0.25
+ 74
+0
+ 49
+-0.25
+ 74
+0
+  0
+LTYPE
+  5
+1B2
+330
+5F
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DASHED
+ 70
+0
+  3
+Dashed __ __ __ __ __ __ __ __ __ __ __ __ __ _
+ 72
+65
+ 73
+2
+ 40
+0.75
+ 49
+0.5
+ 74
+0
+ 49
+-0.25
+ 74
+0
+  0
+LTYPE
+  5
+1B3
+330
+5F
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+PHANTOM
+ 70
+0
+  3
+Phantom ______  __  __  ______  __  __  ______
+ 72
+65
+ 73
+6
+ 40
+2.5
+ 49
+1.25
+ 74
+0
+ 49
+-0.25
+ 74
+0
+ 49
+0.25
+ 74
+0
+ 49
+-0.25
+ 74
+0
+ 49
+0.25
+ 74
+0
+ 49
+-0.25
+ 74
+0
+  0
+LTYPE
+  5
+39E
+330
+5F
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+HIDDEN
+ 70
+0
+  3
+Hidden __ __ __ __ __ __ __ __ __ __ __ __ __ __
+ 72
+65
+ 73
+2
+ 40
+9.525
+ 49
+6.35
+ 74
+0
+ 49
+-3.175
+ 74
+0
+  0
 ENDTAB
   0
 TABLE
@@ -1555,313 +1795,95 @@ LAYER
 100
 AcDbSymbolTable
  70
-    10
-  0
-LAYER
-  5
-F
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-0
- 70
-     0
- 62
-     7
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-4C
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-FRAMES
- 70
-     0
- 62
-     2
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-4D
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-JOINTS
- 70
-     0
- 62
-     2
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-4E
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-SHELLS
- 70
-     0
- 62
-     1
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-4F
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-GRIDS
- 70
-     0
- 62
-     8
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-50
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-PLANES
- 70
-     0
- 62
-     5
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-51
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-ASOLIDS
- 70
-     0
- 62
-     6
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-52
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-SOLIDS
- 70
-     0
- 62
-     7
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-53
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-TEXT
- 70
-     0
- 62
-    94
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-LAYER
-  5
-58
-330
-2
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-NLLINKS
- 70
-     0
- 62
-     3
-  6
-CONTINUOUS
-370
-    -3
-390
-B23
-347
-B35
-348
-0
-  0
-ENDTAB
-  0
-TABLE
-  2
-STYLE
-  5
 3
-330
-0
-100
-AcDbSymbolTable
- 70
-     4
   0
-STYLE
+LAYER
   5
 10
 330
-3
+2
 100
 AcDbSymbolTableRecord
 100
-AcDbTextStyleTableRecord
+AcDbLayerTableRecord
   2
-STANDARD
+0
  70
-     0
- 40
-0.0
- 41
-1.0
- 50
-0.0
- 71
-     0
- 42
-0.2
-  3
-txt
-  4
-
+0
+ 62
+7
+  6
+Continuous
+370
+-3
+390
+52B
+  0
+LAYER
+  5
+1B4
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+View Port
+ 70
+0
+ 62
+7
+  6
+Continuous
+290
+0
+370
+-3
+390
+52B
+  0
+LAYER
+  5
+21D
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+Defpoints
+ 70
+0
+ 62
+7
+  6
+Continuous
+290
+0
+370
+-3
+390
+52B
+  0
+ENDTAB
+  0
+TABLE
+  2
+STYLE
+  5
+3
+330
+0
+100
+AcDbSymbolTable
+ 70
+3
   0
 STYLE
   5
-B98
+11
 330
 3
 100
@@ -1869,9 +1891,9 @@ AcDbSymbolTableRecord
 100
 AcDbTextStyleTableRecord
   2
-GOST-2.304_Type-B
+Standard
  70
-     0
+0
  40
 0.0
  41
@@ -1879,23 +1901,17 @@ GOST-2.304_Type-B
  50
 0.0
  71
-     0
+0
  42
 0.2
   3
-GOST Common.ttf
+arial.ttf
   4
 
-1001
-ACAD
-1000
-GOST Common
-1071
-       34
   0
 STYLE
   5
-B99
+DC
 330
 3
 100
@@ -1903,9 +1919,9 @@ AcDbSymbolTableRecord
 100
 AcDbTextStyleTableRecord
   2
-GOST-2.304_Type-B_italic
+Annotative
  70
-     0
+0
  40
 0.0
  41
@@ -1913,23 +1929,17 @@ GOST-2.304_Type-B_italic
  50
 0.0
  71
-     0
+0
  42
 0.2
   3
-GOST Common Italic.ttf
+arial.ttf
   4
 
-1001
-ACAD
-1000
-GOST Common
-1071
- 16777250
   0
 STYLE
   5
-B9A
+178
 330
 3
 100
@@ -1937,29 +1947,23 @@ AcDbSymbolTableRecord
 100
 AcDbTextStyleTableRecord
   2
-GOST-2.304_Type-B_shrink
+Notes
  70
-     0
+0
  40
-0.0
+3.0
  41
-0.8
+1.0
  50
 0.0
  71
-     0
+0
  42
 0.2
   3
-GOST Common.ttf
+arial.ttf
   4
 
-1001
-ACAD
-1000
-GOST Common
-1071
-       34
   0
 ENDTAB
   0
@@ -1973,7 +1977,7 @@ VIEW
 100
 AcDbSymbolTable
  70
-     0
+0
   0
 ENDTAB
   0
@@ -1987,7 +1991,7 @@ UCS
 100
 AcDbSymbolTable
  70
-     0
+0
   0
 ENDTAB
   0
@@ -2001,11 +2005,11 @@ APPID
 100
 AcDbSymbolTable
  70
-     2
+12
   0
 APPID
   5
-11
+12
 330
 9
 100
@@ -2015,11 +2019,137 @@ AcDbRegAppTableRecord
   2
 ACAD
  70
-     0
+0
   0
 APPID
   5
-B78
+DD
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+AcadAnnoPO
+ 70
+0
+  0
+APPID
+  5
+DE
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+AcadAnnotative
+ 70
+0
+  0
+APPID
+  5
+DF
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD_DSTYLE_DIMJAG
+ 70
+0
+  0
+APPID
+  5
+E0
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD_DSTYLE_DIMTALN
+ 70
+0
+  0
+APPID
+  5
+107
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD_MLEADERVER
+ 70
+0
+  0
+APPID
+  5
+1B5
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+AcAecLayerStandard
+ 70
+0
+  0
+APPID
+  5
+1BA
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD_EXEMPT_FROM_CAD_STANDARDS
+ 70
+0
+  0
+APPID
+  5
+237
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD_DSTYLE_DIMBREAK
+ 70
+0
+  0
+APPID
+  5
+28E
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD_PSEXT
+ 70
+0
+  0
+APPID
+  5
+4B0
 330
 9
 100
@@ -2029,7 +2159,21 @@ AcDbRegAppTableRecord
   2
 ACAD_NAV_VCDISPLAY
  70
-     0
+0
+  0
+APPID
+  5
+4E3
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+HATCHBACKGROUNDCOLOR
+ 70
+0
   0
 ENDTAB
   0
@@ -2043,15 +2187,21 @@ A
 100
 AcDbSymbolTable
  70
-     1
+3
 100
 AcDbDimStyleTable
  71
-     0
+3
+340
+242
+340
+27
+340
+E1
   0
 DIMSTYLE
 105
-1D
+27
 330
 A
 100
@@ -2059,11 +2209,171 @@ AcDbSymbolTableRecord
 100
 AcDbDimStyleTableRecord
   2
-STANDARD
+Standard
  70
-     0
+0
+ 41
+3.0
+ 42
+2.0
+ 43
+9.0
+ 44
+5.0
+140
+3.0
+141
+2.0
+147
+2.0
 340
-10
+11
+1001
+ACAD_DSTYLE_DIMJAG
+1070
+388
+1040
+38.0
+1001
+ACAD_DSTYLE_DIMBREAK
+1070
+391
+1040
+90.0
+1001
+ACAD_DSTYLE_DIMTALN
+1070
+392
+1070
+0
+  0
+DIMSTYLE
+105
+E1
+330
+A
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+Annotative
+ 70
+0
+ 40
+0.0
+ 41
+3.0
+ 42
+2.5
+ 43
+10.0
+ 44
+5.0
+140
+3.0
+141
+2.0
+147
+2.0
+340
+11
+1001
+AcadAnnotative
+1000
+AnnotativeData
+1002
+{
+1070
+1
+1070
+1
+1002
+}
+1001
+ACAD_DSTYLE_DIMJAG
+1070
+388
+1040
+38.0
+1001
+ACAD_DSTYLE_DIMBREAK
+1070
+391
+1040
+90.0
+1001
+ACAD_DSTYLE_DIMTALN
+1070
+392
+1070
+0
+  0
+DIMSTYLE
+105
+242
+330
+A
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+Civil-Metric
+ 70
+0
+ 41
+3.0
+ 42
+1.5
+ 43
+6.0
+ 44
+3.0
+ 73
+0
+ 74
+0
+ 77
+1
+ 78
+3
+ 79
+2
+140
+3.0
+141
+3.0
+147
+2.0
+179
+2
+271
+2
+272
+2
+276
+1
+340
+11
+1001
+ACAD_DSTYLE_DIMBREAK
+1070
+391
+1040
+3.0
+1001
+ACAD_DSTYLE_DIMJAG
+1070
+388
+1040
+38.0
+1001
+ACAD_DSTYLE_DIMTALN
+1070
+392
+1070
+0
   0
 ENDTAB
   0
@@ -2077,11 +2387,11 @@ BLOCK_RECORD
 100
 AcDbSymbolTable
  70
-     0
+4
   0
 BLOCK_RECORD
   5
-19
+1F
 330
 1
 100
@@ -2089,19 +2399,19 @@ AcDbSymbolTableRecord
 100
 AcDbBlockTableRecord
   2
-*MODEL_SPACE
+*Model_Space
 340
-B73
+530
  70
-     0
+0
 280
-     1
+1
 281
-     0
+0
   0
 BLOCK_RECORD
   5
-16
+58
 330
 1
 100
@@ -2109,15 +2419,55 @@ AcDbSymbolTableRecord
 100
 AcDbBlockTableRecord
   2
-*PAPER_SPACE
+*Paper_Space
 340
-B74
+531
  70
-     0
+0
 280
-     1
+1
 281
-     0
+0
+  0
+BLOCK_RECORD
+  5
+238
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+_ArchTick
+340
+0
+ 70
+0
+280
+1
+281
+0
+  0
+BLOCK_RECORD
+  5
+23C
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+_Open30
+340
+0
+ 70
+0
+280
+1
+281
+0
   0
 ENDTAB
   0
@@ -2129,19 +2479,21 @@ BLOCKS
   0
 BLOCK
   5
-1A
+5A
 330
-19
+58
 100
 AcDbEntity
+ 67
+1
   8
 0
 100
 AcDbBlockBegin
   2
-*MODEL_SPACE
+*Paper_Space
  70
-     0
+0
  10
 0.0
  20
@@ -2149,15 +2501,55 @@ AcDbBlockBegin
  30
 0.0
   3
-*MODEL_SPACE
+*Paper_Space
   1
 
   0
 ENDBLK
   5
-1B
+5B
 330
-19
+58
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbBlockEnd
+  0
+BLOCK
+  5
+20
+330
+1F
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+*Model_Space
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+*Model_Space
+  1
+
+  0
+ENDBLK
+  5
+21
+330
+1F
 100
 AcDbEntity
   8
@@ -2167,21 +2559,19 @@ AcDbBlockEnd
   0
 BLOCK
   5
-17
+23A
 330
-16
+238
 100
 AcDbEntity
- 67
-     1
   8
 0
 100
 AcDbBlockBegin
   2
-*PAPER_SPACE
+_ArchTick
  70
-     0
+0
  10
 0.0
  20
@@ -2189,19 +2579,175 @@ AcDbBlockBegin
  30
 0.0
   3
-*PAPER_SPACE
+_ArchTick
   1
 
   0
-ENDBLK
+LWPOLYLINE
   5
-18
+239
 330
-16
+238
 100
 AcDbEntity
- 67
-     1
+  8
+0
+  6
+ByBlock
+ 62
+0
+100
+AcDbPolyline
+ 70
+0
+ 43
+0.15
+ 90
+2
+ 10
+-0.5
+ 20
+-0.5
+ 10
+0.5
+ 20
+0.5
+  0
+ENDBLK
+  5
+23B
+330
+238
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+BLOCK
+  5
+240
+330
+23C
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+_Open30
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+_Open30
+  1
+
+  0
+LINE
+  5
+23D
+330
+23C
+100
+AcDbEntity
+  8
+0
+  6
+ByBlock
+ 62
+0
+370
+-2
+100
+AcDbLine
+ 10
+-1.0
+ 20
+0.26794919
+ 30
+0.0
+ 11
+0.0
+ 21
+0.0
+ 31
+0.0
+  0
+LINE
+  5
+23E
+330
+23C
+100
+AcDbEntity
+  8
+0
+  6
+ByBlock
+ 62
+0
+370
+-2
+100
+AcDbLine
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+ 11
+-1.0
+ 21
+-0.26794919
+ 31
+0.0
+  0
+LINE
+  5
+23F
+330
+23C
+100
+AcDbEntity
+  8
+0
+  6
+ByBlock
+ 62
+0
+370
+-2
+100
+AcDbLine
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+ 11
+-1.0
+ 21
+0.0
+ 31
+0.0
+  0
+ENDBLK
+  5
+241
+330
+23C
+100
+AcDbEntity
   8
 0
 100
@@ -2215,453 +2761,315 @@ ENTITIES
   0
 LINE
   5
-B1
+5FF
 330
-19
+1F
 100
 AcDbEntity
   8
-FRAMES
+0
+ 67
+0
 100
 AcDbLine
  10
--700.0
- 20
--700.0
- 30
 0.0
- 11
--700.0
- 21
--700.0
- 31
-400.0
-  0
-LINE
-  5
-B2
-330
-19
-100
-AcDbEntity
-  8
-FRAMES
-100
-AcDbLine
- 10
--700.0
  20
--700.0
- 30
-400.0
- 11
-100.0
- 21
--900.0
- 31
-400.0
-  0
-LINE
-  5
-B3
-330
-19
-100
-AcDbEntity
-  8
-FRAMES
-100
-AcDbLine
- 10
-100.0
- 20
--900.0
- 30
-400.0
- 11
-100.0
- 21
--1300.0
- 31
-400.0
-  0
-LINE
-  5
-B4
-330
-19
-100
-AcDbEntity
-  8
-FRAMES
-100
-AcDbLine
- 10
-100.0
- 20
--1300.0
- 30
-400.0
- 11
--700.0
- 21
--700.0
- 31
-400.0
-  0
-LINE
-  5
-B5
-330
-19
-100
-AcDbEntity
-  8
-FRAMES
-100
-AcDbLine
- 10
-100.0
- 20
--900.0
- 30
 0.0
- 11
-100.0
- 21
--900.0
- 31
-400.0
-  0
-LINE
-  5
-B6
-330
-19
-100
-AcDbEntity
-  8
-FRAMES
-100
-AcDbLine
- 10
-100.0
- 20
--1300.0
  30
+-0.0
+ 11
 0.0
- 11
-100.0
  21
--1300.0
- 31
 400.0
+ 31
+-0.0
   0
 LINE
   5
-B7
+600
 330
-19
+1F
 100
 AcDbEntity
   8
-FRAMES
+0
+ 67
+0
 100
 AcDbLine
  10
--700.0
+0.0
  20
--700.0
- 30
 400.0
+ 30
+-0.0
  11
--700.0
+800.0
  21
--700.0
+400.0
  31
-900.0
+200.0
   0
 LINE
   5
-B8
+601
 330
-19
+1F
 100
 AcDbEntity
   8
-FRAMES
+0
+ 67
+0
 100
 AcDbLine
  10
-100.0
+800.0
  20
--900.0
- 30
 400.0
- 11
-100.0
- 21
--900.0
- 31
-700.0
-  0
-LINE
-  5
-B9
-330
-19
-100
-AcDbEntity
-  8
-FRAMES
-100
-AcDbLine
- 10
-100.0
- 20
--1300.0
  30
-400.0
+200.0
  11
-100.0
+800.0
  21
--1300.0
+400.0
  31
 600.0
   0
 LINE
   5
-B10
+602
 330
-19
+1F
 100
 AcDbEntity
   8
-FRAMES
+0
+ 67
+0
 100
 AcDbLine
  10
-100.0
+800.0
  20
--1300.0
+400.0
  30
 600.0
  11
-100.0
+0.0
  21
--900.0
+400.0
  31
-700.0
+-0.0
   0
 LINE
   5
-B11
+603
 330
-19
+1F
 100
 AcDbEntity
   8
-FRAMES
+0
+ 67
+0
 100
 AcDbLine
  10
-100.0
+800.0
  20
--900.0
+0.0
  30
-700.0
+200.0
  11
--700.0
+800.0
  21
--700.0
+400.0
  31
-900.0
+200.0
   0
 LINE
   5
-B12
+604
 330
-19
+1F
 100
 AcDbEntity
   8
-FRAMES
+0
+ 67
+0
 100
 AcDbLine
  10
-100.0
+800.0
  20
--1300.0
+0.0
  30
 600.0
  11
--700.0
+800.0
  21
--700.0
+400.0
  31
+600.0
+  0
+LINE
+  5
+605
+330
+1F
+100
+AcDbEntity
+  8
+0
+ 67
+0
+100
+AcDbLine
+ 10
+0.0
+ 20
+400.0
+ 30
+-0.0
+ 11
+0.0
+ 21
 900.0
+ 31
+-0.0
   0
-POINT
+LINE
   5
-B13
+606
 330
-19
+1F
 100
 AcDbEntity
   8
-JOINTS
+0
+ 67
+0
 100
-AcDbPoint
+AcDbLine
  10
--700.0
+800.0
  20
--700.0
- 30
-0.0
-  0
-POINT
-  5
-B14
-330
-19
-100
-AcDbEntity
-  8
-JOINTS
-100
-AcDbPoint
- 10
-100.0
- 20
--900.0
- 30
-0.0
-  0
-POINT
-  5
-B15
-330
-19
-100
-AcDbEntity
-  8
-JOINTS
-100
-AcDbPoint
- 10
-100.0
- 20
--1300.0
- 30
-0.0
-  0
-POINT
-  5
-B16
-330
-19
-100
-AcDbEntity
-  8
-JOINTS
-100
-AcDbPoint
- 10
--700.0
- 20
--700.0
- 30
 400.0
-  0
-POINT
-  5
-B17
-330
-19
-100
-AcDbEntity
-  8
-JOINTS
-100
-AcDbPoint
- 10
-100.0
- 20
--900.0
  30
-400.0
-  0
-POINT
-  5
-B18
-330
-19
-100
-AcDbEntity
-  8
-JOINTS
-100
-AcDbPoint
- 10
-100.0
- 20
--1300.0
- 30
-400.0
-  0
-POINT
-  5
-B19
-330
-19
-100
-AcDbEntity
-  8
-JOINTS
-100
-AcDbPoint
- 10
--700.0
- 20
--700.0
- 30
-900.0
-  0
-POINT
-  5
-B20
-330
-19
-100
-AcDbEntity
-  8
-JOINTS
-100
-AcDbPoint
- 10
-100.0
- 20
--900.0
- 30
+200.0
+ 11
+800.0
+ 21
 700.0
+ 31
+200.0
   0
-POINT
+LINE
   5
-B21
+607
 330
-19
+1F
 100
 AcDbEntity
   8
-JOINTS
+0
+ 67
+0
 100
-AcDbPoint
+AcDbLine
  10
-100.0
+800.0
  20
--1300.0
+400.0
  30
 600.0
+ 11
+800.0
+ 21
+600.0
+ 31
+600.0
+  0
+LINE
+  5
+608
+330
+1F
+100
+AcDbEntity
+  8
+0
+ 67
+0
+100
+AcDbLine
+ 10
+800.0
+ 20
+600.0
+ 30
+600.0
+ 11
+800.0
+ 21
+700.0
+ 31
+200.0
+  0
+LINE
+  5
+609
+330
+1F
+100
+AcDbEntity
+  8
+0
+ 67
+0
+100
+AcDbLine
+ 10
+800.0
+ 20
+700.0
+ 30
+200.0
+ 11
+0.0
+ 21
+900.0
+ 31
+-0.0
+  0
+LINE
+  5
+60A
+330
+1F
+100
+AcDbEntity
+  8
+0
+ 67
+0
+100
+AcDbLine
+ 10
+800.0
+ 20
+600.0
+ 30
+600.0
+ 11
+0.0
+ 21
+900.0
+ 31
+-0.0
   0
 ENDSEC
   0
@@ -2677,1413 +3085,351 @@ C
 100
 AcDbDictionary
 281
-     1
-  3
-ACAD_BACKGROUND
-350
-BBA
-  3
-ACAD_CIP_PREVIOUS_PRODUCT_INFO
-350
-B77
+1
   3
 ACAD_COLOR
 350
-B56
-  3
-ACAD_DETAILVIEWSTYLE
-350
-B70
+524
   3
 ACAD_GROUP
 350
-D
+525
   3
 ACAD_LAYOUT
 350
-B57
+526
   3
 ACAD_MATERIAL
 350
-B24
+527
   3
 ACAD_MLEADERSTYLE
 350
-B6C
+528
   3
 ACAD_MLINESTYLE
 350
-E
+529
   3
 ACAD_PLOTSETTINGS
 350
-B72
+52A
   3
 ACAD_PLOTSTYLENAME
 350
-B22
+52C
   3
 ACAD_SCALELIST
 350
-B5A
-  3
-ACAD_SECTIONVIEWSTYLE
-350
-B6E
+52D
   3
 ACAD_TABLESTYLE
 350
-B58
+52E
   3
 ACAD_VISUALSTYLE
 350
-B3D
-  3
-ACDB_RECOMPOSE_DATA
-350
-BE8
-  3
-AcDbVariableDictionary
-350
-BDC
-  3
-spds.net.allocationrange
-350
-BD9
-  3
-spds.net.areamarker
-350
-BD7
-  3
-spds.net.axisstyle
-350
-BBD
-  3
-spds.net.basicinscription
-350
-BCF
-  3
-spds.net.boundingform
-350
-BCD
-  3
-spds.net.break
-350
-BD5
-  3
-spds.net.chainleader
-350
-BC3
-  3
-spds.net.constructionmark
-350
-BC0
-  3
-spds.net.crestedleader
-350
-BC2
-  3
-spds.net.deadjoint
-350
-BD4
-  3
-spds.net.dipkey
-350
-BC8
-  3
-spds.net.endmarker
-350
-BDB
-  3
-spds.net.format
-350
-BCE
-  3
-spds.net.fragment
-350
-BD6
-  3
-spds.net.holefilling
-350
-BC9
-  3
-spds.net.levelmark
-350
-BC6
-  3
-spds.net.levelplanmark
-350
-BC5
-  3
-spds.net.mtextstyle
-350
-BBF
-  3
-spds.net.nodalleader
-350
-BC1
-  3
-spds.net.nodalsecantleader
-350
-BC4
-  3
-spds.net.nodemark
-350
-BC7
-  3
-spds.net.posleadstyle
-350
-BBE
-  3
-spds.net.posmark
-350
-BD8
-  3
-spds.net.revisionmark
-350
-BDA
-  3
-spds.net.section
-350
-BCA
-  3
-spds.net.technotes
-350
-BD0
-  3
-spds.net.view
-350
-BCB
-  3
-spds.net.viewlable
-350
-BCC
-  3
-spds.net.weldassembly
-350
-BD3
-  3
-spds.net.weldjoint
-350
-BD1
-  3
-spds.net.weldleg
-350
-BD2
+52F
   0
 DICTIONARY
   5
-BBA
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+524
 330
 C
 100
 AcDbDictionary
 281
-     1
-  0
-XRECORD
-  5
-B77
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-300
-ACD
-300
-2018
-300
-ACD_F_S
+1
   0
 DICTIONARY
   5
-B56
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+525
 330
 C
 100
 AcDbDictionary
 281
-     1
+1
   0
 DICTIONARY
   5
-B70
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+526
 330
 C
 100
 AcDbDictionary
 281
-     1
-  3
-Imperial24
-350
-B71
-  0
-DICTIONARY
-  5
-D
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbDictionary
-281
-     1
-  0
-DICTIONARY
-  5
-B57
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbDictionary
-281
-     1
-  3
-Layout1
-350
-B74
+1
   3
 Model
 350
-B73
+530
+  3
+Layout1
+350
+531
   0
 DICTIONARY
   5
-B24
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+527
 330
 C
 100
 AcDbDictionary
 281
-     1
+1
   3
 ByBlock
 350
-B2D
+5FA
   3
 ByLayer
 350
-B25
+5FB
   3
 Global
 350
-B35
+5FC
   0
 DICTIONARY
   5
-B6C
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+528
 330
 C
 100
 AcDbDictionary
 281
-     1
+1
   3
 Standard
 350
-B6D
+5FD
   0
 DICTIONARY
   5
-E
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+529
 330
 C
 100
 AcDbDictionary
 281
-     1
+1
   3
 STANDARD
 350
-1C
+5FE
   0
 DICTIONARY
   5
-B72
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+52A
 330
 C
 100
 AcDbDictionary
 281
-     1
+1
+  0
+ACDBPLACEHOLDER
+  5
+52B
+330
+52C
   0
 ACDBDICTIONARYWDFLT
   5
-B22
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+52C
 330
 C
 100
 AcDbDictionary
 281
-     1
+1
   3
 Normal
 350
-B23
+52B
 100
 AcDbDictionaryWithDefault
 340
-B23
+52B
   0
 DICTIONARY
   5
-B5A
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+52D
 330
 C
 100
 AcDbDictionary
 281
-     1
-  3
-A0
-350
-B5B
-  3
-A1
-350
-B5C
-  3
-A2
-350
-B5D
-  3
-A3
-350
-B5E
-  3
-A4
-350
-B5F
-  3
-A5
-350
-B60
-  3
-A6
-350
-B61
-  3
-A7
-350
-B62
-  3
-A8
-350
-B63
-  3
-A9
-350
-B64
-  3
-B0
-350
-B65
-  3
-B1
-350
-B66
-  3
-B2
-350
-B67
-  3
-B3
-350
-B68
-  3
-B4
-350
-B69
-  3
-B5
-350
-B6A
-  3
-B6
-350
-B6B
+1
   0
 DICTIONARY
   5
-B6E
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+52E
 330
 C
 100
 AcDbDictionary
 281
-     1
-  3
-Imperial24
-350
-B6F
+1
   0
 DICTIONARY
   5
-B58
-102
-{ACAD_REACTORS
-330
-C
-102
-}
+52F
 330
 C
 100
 AcDbDictionary
 281
-     1
-  3
-Standard
-350
-B59
-  0
-DICTIONARY
-  5
-B3D
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbDictionary
-281
-     1
-  3
-2dWireframe
-350
-B43
-  3
-Basic
-350
-B42
-  3
-Brighten
-350
-B49
-  3
-ColorChange
-350
-B4D
-  3
-Conceptual
-350
-B46
-  3
-Dim
-350
-B48
-  3
-EdgeColorOff
-350
-B55
-  3
-Facepattern
-350
-B4C
-  3
-Flat
-350
-B3E
-  3
-FlatWithEdges
-350
-B3F
-  3
-Gouraud
-350
-B40
-  3
-GouraudWithEdges
-350
-B41
-  3
-Hidden
-350
-B45
-  3
-JitterOff
-350
-B53
-  3
-Linepattern
-350
-B4B
-  3
-OverhangOff
-350
-B54
-  3
-Realistic
-350
-B47
-  3
-Shaded
-350
-B52
-  3
-Shaded with edges
-350
-B51
-  3
-Shades of Gray
-350
-B4E
-  3
-Sketchy
-350
-B4F
-  3
-Thicken
-350
-B4A
-  3
-Wireframe
-350
-B44
-  3
-X-Ray
-350
-B50
-  0
-XRECORD
-  5
-BE8
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
- 90
-        1
-330
-B59
-  0
-DICTIONARY
-  5
-BDC
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbDictionary
-281
-     1
-  3
-CANNOSCALE
-350
-BE2
-  3
-CMLEADERSTYLE
-350
-BDE
-  3
-CTABLESTYLE
-350
-BDD
-  3
-CVIEWDETAILSTYLE
-350
-BDF
-  3
-CVIEWSECTIONSTYLE
-350
-BE0
-  3
-LAYEREVAL
-350
-BE4
-  3
-LAYERNOTIFY
-350
-BE5
-  3
-LIGHTINGUNITS
-350
-BE3
-  3
-MSLTSCALE
-350
-BE1
-  0
-XRECORD
-  5
-BD9
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp35|id0|nmAllocation Range|ln*Current*|cm192|ci256|el4.5|pr0.75|as3|lc1|
-  0
-XRECORD
-  5
-BD7
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp29|id0|nmArea Mark|tsGOST-2.304_Type-B|ln*Current*|cm192|ci256|vo0.9|ho0.9|ds,|mr6|th3.5|sh2.5|as2|lc1|
-  0
-XRECORD
-  5
-BBD
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp1|id0|nmSeparate Axis|o010|rd5|as3|th3.5|tsGOST-2.304_Type-B|ln*Current*|cm192|ci256|lc1|
-  0
-XRECORD
-  5
-BCF
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp20|id0|nmBasic Inscription|ln*Current*|cm192|ci256|lc1|
-  0
-XRECORD
-  5
-BCD
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp18|id0|nmBounding Form|ln*Current*|cm192|ci256|lc1|wg6|wl8|wt2|gh4|ga0|gs4.5|bh4|ba0|bs4.5|th10|tr0.2|ts1.5|dh10|ds5|
-  0
-XRECORD
-  5
-BD5
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp27|id0|nmBreaking|ln*Current*|cm192|ci256|lc1|wa10|oh3|zl5|zh10|
-  0
-XRECORD
-  5
-BC3
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp8|id0|nmChain Leader|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|ta2|as3|at5
-  0
-XRECORD
-  5
-BC0
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp5|id0|nmLine Construction Mark|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5
-  0
-XRECORD
-  5
-BC2
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp7|id0|nmCrested Leader|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|ta2|as3|at5
-  0
-XRECORD
-  5
-BD4
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp26|id0|nmDead Join|ln*Current*|cm192|ci256|lc1|tsGOST-2.304_Type-B|th3.5|ov0.9|oh1.5|sh2.5|bf0|bb0|gtГОСТ 5264-80|cw0|sz0|cc|mj0|jn1|smС|jc|cs|az3|at1|js|jz|wt|tr|rf|rb|
-  0
-XRECORD
-  5
-BC8
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp13|id0|nmDip Mark|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|as3|
-  0
-XRECORD
-  5
-BDB
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp28|id0|nmEnd Marker|ln*Current*|cm192|ci256|a13|a23|b13.5|b23.5|lc1|
-  0
-XRECORD
-  5
-BCE
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp19|id0|nmFormat|ln*Current*|cm192|ci256|lc1|ol15|il60|cb|mt1|ss0|fv4|or1|
-  0
-XRECORD
-  5
-BD6
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp30|id0|nmFragment Mark|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|ml4|rd5|
-  0
-XRECORD
-  5
-BC9
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp14|id0|nmHole Filling|ln0|cm192|ci256|lc1|oa2|tr10
-  0
-XRECORD
-  5
-BC6
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp10|id0|nmLevel Mark|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh0.9|be1.5|le1.5|at3|sh2.5|sp0|pr3
-  0
-XRECORD
-  5
-BC5
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp11|id0|nmLevel Mark On Plan|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ob0.9|mr0.75|sp0
-  0
-XRECORD
-  5
-BBF
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp4|id0|nmMulti Text Leader|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|ta2|as3|at5
-  0
-XRECORD
-  5
-BC1
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp6|id0|nmNodal Leader|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|on1|ta2|st2
-  0
-XRECORD
-  5
-BC4
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp9|id0|nmNodal Secant Leader|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|ho3|hl10|on1|ot5|ht1|ta2|st2
-  0
-XRECORD
-  5
-BC7
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp12|id0|nmNode Mark|th3.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|sh2.5|
-  0
-XRECORD
-  5
-BBE
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp3|id0|nmPositional Leader|th3.5|t23.5|tsGOST-2.304_Type-B|ln0|cm192|ci256|lc1|ov0.9|oh1.5|ta2|as3|at5
-  0
-XRECORD
-  5
-BD8
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp32|id0|nmPositional Mark|ln*Current*|cm192|ci256|ms12|th3.5|tsGOST-2.304_Type-B|lc1|
-  0
-XRECORD
-  5
-BDA
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp31|id0|nmRevision Mark|tsGOST-2.304_Type-B|ln*Current*|cm192|ci256|vo0.9|ho1.5|th3.5|sh2.5|lc1|
-  0
-XRECORD
-  5
-BCA
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp15|id0|nmSection|th3.5|tsGOST-2.304_Type-B|ln*Current*|ci256|cm192|lc1|oh0.9|ov1.5|m110|m28|al10|ao2|tn0.5|ta1|sh2.5|as5|at5|
-  0
-XRECORD
-  5
-BD0
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp22|id0|nmTechnical Notes|ln*Current*|cm192|ci256|lc1|th3.5|tsGOST-2.304_Type-B|
-  0
-XRECORD
-  5
-BCB
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp16|id0|nmView|th3.5|sh2.5|tsGOST-2.304_Type-B|ln*Current*|cm192|ci256|lc1|ov0.9|oh1.5|al10|as5|at5
-  0
-XRECORD
-  5
-BCC
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp17|id0|nmView Label|th3.5|tsGOST-2.304_Type-B|ln*Current*|cm192|ci256|lc1|ov0.9|oh1.5|ta1|sh2.5|
-  0
-XRECORD
-  5
-BD3
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp25|id0|nmWeld Assembly|ln*Current*|cm192|ci256|lc1|
-  0
-XRECORD
-  5
-BD1
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp23|id0|nmWeld Joint|ln*Current*|cm192|ci256|lc1|hc2|hr2|gl3|sl4|bs9|as5|sd3|hb2|hg2|wt0|sc4.5|sr2|ss2.5|
-  0
-XRECORD
-  5
-BD2
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbXrecord
-280
-     1
-  1
-tp24|id0|nmWeld Leg|ln*Current*|cm192|ci256|lc1|cl5|
-  0
-ACDBDETAILVIEWSTYLE
-  5
-B71
-102
-{ACAD_REACTORS
-330
-B70
-102
-}
-330
-B70
-100
-AcDbModelDocViewStyle
- 70
-     0
-  3
-Imperial24
-290
-     0
-300
-Imperial24
- 90
-        0
-100
-AcDbDetailViewStyle
- 70
-     0
- 71
-     0
- 90
-        3
- 71
-     1
-340
-10
- 62
-   256
- 40
-0.24
-340
-0
- 62
-   256
- 40
-0.24
-300
-
- 40
-0.36
-280
-     3
- 71
-     2
-340
-15
- 90
-       25
- 62
-   256
- 71
-     3
-340
-10
- 62
-   256
- 40
-0.24
- 90
-        1
- 40
-0.75
- 90
-        1
-300
-%<\AcVar ViewType \f "%tc1">% %<\AcVar ViewDetailId>%\PSCALE %<\AcVar ViewScale \f "%sn">%
- 71
-     4
-340
-15
- 90
-       25
- 62
-   256
-340
-15
- 90
-       25
- 62
-   256
-280
-     0
+1
   0
 LAYOUT
   5
-B74
-102
-{ACAD_REACTORS
+530
 330
-B57
-102
-}
-330
-B57
+526
 100
 AcDbPlotSettings
   1
 
   2
-Microsoft Print to PDF
+DWFx ePlot (XPS Compatible).pc3
   4
-
+ANSI_A_(8.50_x_11.00_Inches)
   6
 
  40
-0.0
+5.8
  41
-0.0
+17.8
  42
-0.0
+5.8
  43
-0.0
+17.8
  44
-0.0
+215.9
  45
+279.4
+ 46
 0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+0.0
+140
+0.0
+141
+0.0
+142
+1.0
+143
+14.53
+ 70
+11952
+ 72
+0
+ 73
+1
+ 74
+0
+  7
+
+ 75
+0
+147
+0.069
+148
+114.98
+149
+300.29
+100
+AcDbLayout
+  1
+Model
+ 70
+1
+ 71
+0
+ 10
+0.0
+ 20
+0.0
+ 11
+12.0
+ 21
+9.0
+ 12
+0.0
+ 22
+0.0
+ 32
+0.0
+ 14
+0.0
+ 24
+0.0
+ 34
+0.0
+ 15
+0.0
+ 25
+0.0
+ 35
+0.0
+146
+0.0
+ 13
+0.0
+ 23
+0.0
+ 33
+0.0
+ 16
+1.0
+ 26
+0.0
+ 36
+0.0
+ 17
+0.0
+ 27
+1.0
+ 37
+0.0
+ 76
+0
+330
+1F
+  0
+LAYOUT
+  5
+531
+330
+526
+100
+AcDbPlotSettings
+  1
+
+  2
+DWFx ePlot (XPS Compatible).pc3
+  4
+ANSI_A_(8.50_x_11.00_Inches)
+  6
+
+ 40
+5.8
+ 41
+17.8
+ 42
+5.8
+ 43
+17.8
+ 44
+215.9
+ 45
+279.4
  46
 0.0
  47
@@ -4101,25 +3447,19 @@ Microsoft Print to PDF
 143
 1.0
  70
-   688
+688
  72
-     0
+0
  73
-     0
+1
  74
-     5
+5
   7
-
+acad.ctb
  75
-    16
+16
 147
 1.0
- 76
-     0
- 77
-     2
- 78
-   300
 148
 0.0
 149
@@ -4129,17 +3469,17 @@ AcDbLayout
   1
 Layout1
  70
-     1
+1
  71
-     1
+1
  10
-0.0
+-0.7
  20
-0.0
+-0.23
  11
-12.0
+10.3
  21
-9.0
+8.27
  12
 0.0
  22
@@ -4147,147 +3487,15 @@ Layout1
  32
 0.0
  14
-1.000000000000000E+20
+0.63
  24
-1.000000000000000E+20
+0.8
  34
-1.000000000000000E+20
+0.0
  15
--1.000000000000000E+20
- 25
--1.000000000000000E+20
- 35
--1.000000000000000E+20
-146
-0.0
- 13
-0.0
- 23
-0.0
- 33
-0.0
- 16
-1.0
- 26
-0.0
- 36
-0.0
- 17
-0.0
- 27
-1.0
- 37
-0.0
- 76
-     0
-330
-16
-  0
-LAYOUT
-  5
-B73
-102
-{ACAD_REACTORS
-330
-B57
-102
-}
-330
-B57
-100
-AcDbPlotSettings
-  1
-
-  2
-Microsoft Print to PDF
-  4
-
-  6
-
- 40
-0.0
- 41
-0.0
- 42
-0.0
- 43
-0.0
- 44
-0.0
- 45
-0.0
- 46
-0.0
- 47
-0.0
- 48
-0.0
- 49
-0.0
-140
-0.0
-141
-0.0
-142
-1.0
-143
-1.0
- 70
-  1712
- 72
-     0
- 73
-     0
- 74
-     0
-  7
-
- 75
-     0
-147
-1.0
- 76
-     0
- 77
-     2
- 78
-   300
-148
-0.0
-149
-0.0
-100
-AcDbLayout
-  1
-Model
- 70
-     1
- 71
-     0
- 10
-0.0
- 20
-0.0
- 11
-12.0
- 21
 9.0
- 12
-0.0
- 22
-0.0
- 32
-0.0
- 14
-0.0
- 24
-0.0
- 34
-0.0
- 15
-0.0
  25
-0.0
+7.2
  35
 0.0
 146
@@ -4311,753 +3519,137 @@ Model
  37
 0.0
  76
-     0
+0
 330
-19
-331
-5A
+58
   0
 MATERIAL
   5
-B2D
-102
-{ACAD_XDICTIONARY
-360
-B2E
-102
-}
+5FA
 102
 {ACAD_REACTORS
 330
-B24
+527
 102
 }
 330
-B24
+527
 100
 AcDbMaterial
   1
 ByBlock
- 72
-     0
- 43
-0.0208333333333333
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0208333333333333
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-1.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-1.0
- 77
-     0
- 47
-0.0208333333333333
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0208333333333333
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-1.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-1.0
-171
-     0
- 49
-0.0208333333333333
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0208333333333333
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-1.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-1.0
-175
-     0
-142
-0.0208333333333333
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0208333333333333
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-1.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-1.0
-179
-     0
-144
-0.0208333333333333
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0208333333333333
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-1.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-1.0
-147
-0.0208333333333333
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0208333333333333
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-1.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-1.0
+ 94
+63
   0
 MATERIAL
   5
-B25
-102
-{ACAD_XDICTIONARY
-360
-B26
-102
-}
+5FB
 102
 {ACAD_REACTORS
 330
-B24
+527
 102
 }
 330
-B24
+527
 100
 AcDbMaterial
   1
 ByLayer
- 72
-     0
- 43
-0.0208333333333333
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0208333333333333
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-1.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-1.0
- 77
-     0
- 47
-0.0208333333333333
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0208333333333333
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-1.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-1.0
-171
-     0
- 49
-0.0208333333333333
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0208333333333333
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-1.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-1.0
-175
-     0
-142
-0.0208333333333333
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0208333333333333
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-1.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-1.0
-179
-     0
-144
-0.0208333333333333
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0208333333333333
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-1.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-1.0
-147
-0.0208333333333333
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0208333333333333
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-1.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-1.0
+ 94
+63
   0
 MATERIAL
   5
-B35
-102
-{ACAD_XDICTIONARY
-360
-B36
-102
-}
+5FC
 102
 {ACAD_REACTORS
 330
-B24
+527
 102
 }
 330
-B24
+527
 100
 AcDbMaterial
   1
 Global
- 72
-     0
- 43
-0.0208333333333333
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0208333333333333
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-1.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-0.0
- 43
-1.0
- 77
-     0
- 47
-0.0208333333333333
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0208333333333333
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-1.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-0.0
- 47
-1.0
-171
-     0
- 49
-0.0208333333333333
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0208333333333333
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-1.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-0.0
- 49
-1.0
-175
-     0
-142
-0.0208333333333333
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0208333333333333
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-1.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-0.0
-142
-1.0
-179
-     0
-144
-0.0208333333333333
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0208333333333333
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-1.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-0.0
-144
-1.0
-147
-0.0208333333333333
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0208333333333333
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-1.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-0.0
-147
-1.0
+ 94
+63
   0
 MLEADERSTYLE
   5
-B6D
+5FD
 102
 {ACAD_REACTORS
 330
-B6C
+528
 102
 }
 330
-B6C
+528
 100
 AcDbMLeaderStyle
 179
-     2
+2
 170
-     2
+2
 171
-     1
+1
 172
-     0
+0
  90
-        2
+2
  40
 0.0
  41
 0.0
 173
-     1
+1
  91
 -1056964608
 340
-13
+14
  92
-       -2
+-2
 290
-     1
+1
  42
-0.09
+2.0
 291
-     1
+1
  43
-0.36
+8.0
   3
 Standard
+341
+0
  44
-0.18
+4.0
 300
 
 342
-10
+11
 174
-     1
+1
 178
-     6
+1
 175
-     1
+1
 176
-     0
+0
  93
 -1056964608
  45
-0.18
+4.0
 292
-     0
+0
 297
-     0
+0
  46
-0.18
+4.0
+343
+0
  94
 -1056964608
  47
@@ -5067,7945 +3659,67 @@ Standard
 140
 1.0
 293
-     1
+1
 141
 0.0
 294
-     1
+1
 177
-     0
+0
 142
 1.0
 295
-     0
+0
 296
-     0
+0
 143
-0.125
+3.75
 271
-     0
+0
 272
-     9
+9
 273
-     9
-298
-     0
+9
   0
 MLINESTYLE
   5
-1C
+5FE
 102
 {ACAD_REACTORS
 330
-E
+529
 102
 }
 330
-E
+529
 100
 AcDbMlineStyle
   2
 STANDARD
  70
-     0
+0
   3
 
  62
-     0
+256
  51
 90.0
  52
 90.0
  71
-     2
+2
  49
 0.5
  62
-   256
+256
   6
 BYLAYER
  49
 -0.5
  62
-   256
+256
   6
 BYLAYER
-  0
-ACDBPLACEHOLDER
-  5
-B23
-102
-{ACAD_REACTORS
-330
-B22
-102
-}
-330
-B22
-  0
-SCALE
-  5
-B5B
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1:1
-140
-1.0
-141
-1.0
-290
-     1
-  0
-SCALE
-  5
-B5C
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1/128" = 1'-0"
-140
-0.0078125
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B5D
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1/64" = 1'-0"
-140
-0.015625
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B5E
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1/32" = 1'-0"
-140
-0.03125
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B5F
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1/16" = 1'-0"
-140
-0.0625
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B60
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-3/32" = 1'-0"
-140
-0.09375
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B61
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1/8" = 1'-0"
-140
-0.125
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B62
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-3/16" = 1'-0"
-140
-0.1875
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B63
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1/4" = 1'-0"
-140
-0.25
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B64
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-3/8" = 1'-0"
-140
-0.375
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B65
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1/2" = 1'-0"
-140
-0.5
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B66
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-3/4" = 1'-0"
-140
-0.75
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B67
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1" = 1'-0"
-140
-1.0
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B68
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1-1/2" = 1'-0"
-140
-1.5
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B69
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-3" = 1'-0"
-140
-3.0
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B6A
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-6" = 1'-0"
-140
-6.0
-141
-12.0
-290
-     0
-  0
-SCALE
-  5
-B6B
-102
-{ACAD_REACTORS
-330
-B5A
-102
-}
-330
-B5A
-100
-AcDbScale
- 70
-     0
-300
-1'-0" = 1'-0"
-140
-12.0
-141
-12.0
-290
-     0
-  0
-ACDBSECTIONVIEWSTYLE
-  5
-B6F
-102
-{ACAD_REACTORS
-330
-B6E
-102
-}
-330
-B6E
-100
-AcDbModelDocViewStyle
- 70
-     0
-  3
-Imperial24
-290
-     0
-300
-Imperial24
- 90
-        0
-100
-AcDbSectionViewStyle
- 70
-     0
- 71
-     0
- 90
-       78
- 71
-     1
-340
-10
- 62
-   256
- 40
-0.24
-340
-0
-340
-0
- 62
-   256
- 40
-0.24
-300
-I, O, Q, S, X, Z
- 40
-0.48
- 90
-        3
- 40
-0.18
- 90
-        1
- 71
-     2
-340
-15
- 90
-       25
- 62
-   256
-340
-15
- 90
-       50
- 62
-   256
- 40
-0.24
- 40
-0.0
- 40
-0.24
- 71
-     3
-340
-10
- 62
-   256
- 40
-0.24
- 90
-        1
- 40
-0.75
- 90
-        1
-300
-%<\AcVar ViewType \f "%tc1">% %<\AcVar ViewSectionStartId>%-%<\AcVar ViewSectionEndId>%\PSCALE %<\AcVar ViewScale \f "%sn">%
- 71
-     4
- 62
-   256
- 62
-   257
-300
-ANSI31
- 40
-1.0
- 90
-        0
-290
-     0
-290
-     0
- 90
-        6
- 40
-0.0
- 40
-1.570796326794896
- 40
-0.2617993877991494
- 40
-1.308996938995747
- 40
--0.2617993877991494
- 40
-1.832595714594046
-  0
-TABLESTYLE
-  5
-B59
-102
-{ACAD_XDICTIONARY
-360
-BE6
-102
-}
-102
-{ACAD_REACTORS
-330
-B58
-102
-}
-330
-B58
-100
-AcDbTableStyle
-280
-     0
-  3
-Standard
- 70
-     0
- 71
-     0
- 40
-0.06
- 41
-0.06
-280
-     0
-281
-     0
-  7
-STANDARD
-140
-0.18
-170
-     2
- 62
-     0
- 63
-     7
-283
-     0
- 90
-      512
- 91
-        0
-  1
-
-274
-    -2
-284
-     1
- 64
-     0
-275
-    -2
-285
-     1
- 65
-     0
-276
-    -2
-286
-     1
- 66
-     0
-277
-    -2
-287
-     1
- 67
-     0
-278
-    -2
-288
-     1
- 68
-     0
-279
-    -2
-289
-     1
- 69
-     0
-  7
-STANDARD
-140
-0.25
-170
-     5
- 62
-     0
- 63
-     7
-283
-     0
- 90
-      512
- 91
-        0
-  1
-
-274
-    -2
-284
-     1
- 64
-     0
-275
-    -2
-285
-     1
- 65
-     0
-276
-    -2
-286
-     1
- 66
-     0
-277
-    -2
-287
-     1
- 67
-     0
-278
-    -2
-288
-     1
- 68
-     0
-279
-    -2
-289
-     1
- 69
-     0
-  7
-STANDARD
-140
-0.18
-170
-     5
- 62
-     0
- 63
-     7
-283
-     0
- 90
-      512
- 91
-        0
-  1
-
-274
-    -2
-284
-     1
- 64
-     0
-275
-    -2
-285
-     1
- 65
-     0
-276
-    -2
-286
-     1
- 66
-     0
-277
-    -2
-287
-     1
- 67
-     0
-278
-    -2
-288
-     1
- 68
-     0
-279
-    -2
-289
-     1
- 69
-     0
-  0
-VISUALSTYLE
-  5
-B43
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-2dWireframe
- 70
-     4
-177
-     3
-291
-     0
- 70
-    58
- 90
-        0
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B42
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Basic
- 70
-     7
-177
-     3
-291
-     1
- 70
-    58
- 90
-        1
-176
-     1
- 90
-        0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        0
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B49
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Brighten
- 70
-    12
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-50.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B4D
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-ColorChange
- 70
-    16
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     8
-420
-  8421504
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     8
-420
-  8421504
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B46
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Conceptual
- 70
-     9
-177
-     3
-291
-     0
- 70
-    58
- 90
-        3
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-179.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B48
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Dim
- 70
-    11
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
--50.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B55
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-EdgeColorOff
- 70
-    22
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     0
- 90
-        2
-176
-     0
- 90
-        0
-176
-     0
- 90
-        0
-176
-     0
- 40
-0.6
-176
-     0
- 40
-30.0
-176
-     0
- 62
-     7
-420
- 16777215
-176
-     0
- 90
-        1
-176
-     0
- 90
-        4
-176
-     0
- 62
-     7
-176
-     0
- 62
-   257
-176
-     0
- 90
-        1
-176
-     0
- 90
-        1
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        8
-176
-     2
- 62
-     7
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        1
-176
-     0
- 90
-        6
-176
-     0
- 90
-        2
-176
-     0
- 62
-     7
-176
-     0
- 90
-        5
-176
-     0
- 90
-        0
-176
-     0
- 90
-        0
-176
-     0
-290
-     0
-176
-     0
- 90
-        1
-176
-     0
- 40
-0.0
-176
-     0
- 90
-        0
-176
-     0
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 40
-0.0
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        0
-176
-     0
- 62
-    18
-420
-        0
-176
-     0
- 90
-       50
-176
-     0
- 90
-        3
-176
-     0
- 62
-     5
-420
-      255
-176
-     0
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 90
-       50
-176
-     0
- 90
-       50
-176
-     0
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     0
-  1
-strokes_ogs.tif
-176
-     0
-290
-     0
-176
-     1
- 40
-1.0
-176
-     0
- 40
-1.0
-176
-     0
-  0
-VISUALSTYLE
-  5
-B4C
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Facepattern
- 70
-    15
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B3E
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Flat
- 70
-     0
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-       13
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B3F
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-FlatWithEdges
- 70
-     1
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        0
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-       13
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B40
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Gouraud
- 70
-     2
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-       13
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B41
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-GouraudWithEdges
- 70
-     3
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        0
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-       13
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B45
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Hidden
- 70
-     6
-177
-     3
-291
-     0
- 70
-    58
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 40
-40.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B53
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-JitterOff
- 70
-    20
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     0
- 90
-        2
-176
-     0
- 90
-        0
-176
-     0
- 90
-        0
-176
-     0
- 40
-0.6
-176
-     0
- 40
-30.0
-176
-     0
- 62
-     7
-420
- 16777215
-176
-     0
- 90
-        1
-176
-     0
- 90
-        4
-176
-     0
- 62
-     7
-176
-     0
- 62
-   257
-176
-     0
- 90
-        1
-176
-     0
- 90
-        1
-176
-     0
- 40
-1.0
-176
-     0
- 90
-       10
-176
-     2
- 62
-     7
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        1
-176
-     0
- 90
-        6
-176
-     0
- 90
-        2
-176
-     0
- 62
-     7
-176
-     0
- 90
-        5
-176
-     0
- 90
-        0
-176
-     0
- 90
-        0
-176
-     0
-290
-     0
-176
-     0
- 90
-        1
-176
-     0
- 40
-0.0
-176
-     0
- 90
-        0
-176
-     0
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 40
-0.0
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        0
-176
-     0
- 62
-    18
-420
-        0
-176
-     0
- 90
-       50
-176
-     0
- 90
-        3
-176
-     0
- 62
-     5
-420
-      255
-176
-     0
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 90
-       50
-176
-     0
- 90
-       50
-176
-     0
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     0
-  1
-strokes_ogs.tif
-176
-     0
-290
-     0
-176
-     1
- 40
-1.0
-176
-     0
- 40
-1.0
-176
-     0
-  0
-VISUALSTYLE
-  5
-B4B
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Linepattern
- 70
-    14
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        7
-176
-     1
- 90
-        7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B54
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-OverhangOff
- 70
-    21
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     0
- 90
-        2
-176
-     0
- 90
-        0
-176
-     0
- 90
-        0
-176
-     0
- 40
-0.6
-176
-     0
- 40
-30.0
-176
-     0
- 62
-     7
-420
- 16777215
-176
-     0
- 90
-        1
-176
-     0
- 90
-        4
-176
-     0
- 62
-     7
-176
-     0
- 62
-   257
-176
-     0
- 90
-        1
-176
-     0
- 90
-        1
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        9
-176
-     2
- 62
-     7
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        1
-176
-     0
- 90
-        6
-176
-     0
- 90
-        2
-176
-     0
- 62
-     7
-176
-     0
- 90
-        5
-176
-     0
- 90
-        0
-176
-     0
- 90
-        0
-176
-     0
-290
-     0
-176
-     0
- 90
-        1
-176
-     0
- 40
-0.0
-176
-     0
- 90
-        0
-176
-     0
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 40
-0.0
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        0
-176
-     0
- 62
-    18
-420
-        0
-176
-     0
- 90
-       50
-176
-     0
- 90
-        3
-176
-     0
- 62
-     5
-420
-      255
-176
-     0
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 90
-       50
-176
-     0
- 90
-       50
-176
-     0
-290
-     0
-176
-     1
- 90
-       50
-176
-     0
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     0
-  1
-strokes_ogs.tif
-176
-     0
-290
-     0
-176
-     1
- 40
-1.0
-176
-     0
- 40
-1.0
-176
-     0
-  0
-VISUALSTYLE
-  5
-B47
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Realistic
- 70
-     8
-177
-     3
-291
-     0
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        2
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-       13
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B52
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Shaded
- 70
-    27
-177
-     3
-291
-     0
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        0
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     8
-420
-  7895160
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        5
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B51
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Shaded with edges
- 70
-    26
-177
-     3
-291
-     0
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        5
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B4E
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Shades of Gray
- 70
-    23
-177
-     3
-291
-     0
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 62
-     7
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-40.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B4F
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Sketchy
- 70
-    24
-177
-     3
-291
-     0
- 70
-    58
- 90
-        1
-176
-     1
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 62
-     7
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-40.0
-176
-     1
- 90
-       11
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        6
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B4A
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Thicken
- 70
-    13
-177
-     3
-291
-     1
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-       12
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        5
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B44
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-Wireframe
- 70
-     5
-177
-     3
-291
-     0
- 70
-    58
- 90
-        0
-176
-     1
- 90
-        2
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
- 40
-0.6
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        4
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-   257
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-VISUALSTYLE
-  5
-B50
-102
-{ACAD_REACTORS
-330
-B3D
-102
-}
-330
-B3D
-100
-AcDbVisualStyle
-  2
-X-Ray
- 70
-    25
-177
-     3
-291
-     0
- 70
-    58
- 90
-        2
-176
-     1
- 90
-        2
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-0.5
-176
-     1
- 40
-30.0
-176
-     1
- 62
-     7
-420
- 16777215
-176
-     1
- 90
-        1
-176
-     1
- 90
-        0
-176
-     1
- 62
-     7
-176
-     1
- 62
-   257
-176
-     1
- 90
-        1
-176
-     1
- 90
-        1
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        8
-176
-     1
- 62
-     7
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        1
-176
-     1
- 90
-        6
-176
-     1
- 90
-        2
-176
-     1
- 62
-     7
-176
-     1
- 90
-        3
-176
-     1
- 90
-        0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
- 90
-       13
-176
-     1
- 40
-0.0
-176
-     1
- 90
-        0
-176
-     1
-290
-     0
-176
-     1
-290
-     1
-176
-     1
-290
-     1
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 40
-0.0
-176
-     1
- 40
-1.0
-176
-     1
- 90
-        0
-176
-     1
- 62
-    18
-420
-        0
-176
-     1
- 90
-       50
-176
-     1
- 90
-        3
-176
-     1
- 62
-     5
-420
-      255
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
- 90
-       50
-176
-     1
-290
-     0
-176
-     1
- 90
-       50
-176
-     1
- 62
-   256
-176
-     0
- 40
-1.0
-176
-     0
- 90
-        2
-176
-     1
-  1
-strokes_ogs.tif
-176
-     1
-290
-     0
-176
-     1
- 40
-1.0
-176
-     1
- 40
-1.0
-176
-     1
-  0
-DICTIONARYVAR
-  5
-BE2
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-1:1
-  0
-DICTIONARYVAR
-  5
-BDE
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-STANDARD
-  0
-DICTIONARYVAR
-  5
-BDD
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-STANDARD
-  0
-DICTIONARYVAR
-  5
-BDF
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-Imperial24
-  0
-DICTIONARYVAR
-  5
-BE0
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-Imperial24
-  0
-DICTIONARYVAR
-  5
-BE4
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-1
-  0
-DICTIONARYVAR
-  5
-BE5
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-15
-  0
-DICTIONARYVAR
-  5
-BE3
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-0
-  0
-DICTIONARYVAR
-  5
-BE1
-102
-{ACAD_REACTORS
-330
-BDC
-102
-}
-330
-BDC
-100
-DictionaryVariables
-280
-     0
-  1
-0
-  0
-DICTIONARY
-  5
-B2E
-330
-B2D
-100
-AcDbDictionary
-280
-     1
-281
-     1
-  3
-BUMPTILE
-360
-B30
-  3
-DIFFUSETILE
-360
-B2F
-  3
-OPACITYTILE
-360
-B33
-  3
-REFLECTIONTILE
-360
-B32
-  3
-REFRACTIONTILE
-360
-B34
-  3
-SPECULARTILE
-360
-B31
-  0
-DICTIONARY
-  5
-B26
-330
-B25
-100
-AcDbDictionary
-280
-     1
-281
-     1
-  3
-BUMPTILE
-360
-B28
-  3
-DIFFUSETILE
-360
-B27
-  3
-OPACITYTILE
-360
-B2B
-  3
-REFLECTIONTILE
-360
-B2A
-  3
-REFRACTIONTILE
-360
-B2C
-  3
-SPECULARTILE
-360
-B29
-  0
-DICTIONARY
-  5
-B36
-330
-B35
-100
-AcDbDictionary
-280
-     1
-281
-     1
-  3
-BUMPTILE
-360
-B38
-  3
-DIFFUSETILE
-360
-B37
-  3
-OPACITYTILE
-360
-B3B
-  3
-REFLECTIONTILE
-360
-B3A
-  3
-REFRACTIONTILE
-360
-B3C
-  3
-SPECULARTILE
-360
-B39
-  0
-DICTIONARY
-  5
-BE6
-330
-B59
-100
-AcDbDictionary
-280
-     1
-281
-     1
-  3
-ACAD_ROUNDTRIP_2008_TABLESTYLE_CELLSTYLEMAP
-360
-BE7
-  0
-XRECORD
-  5
-B30
-102
-{ACAD_REACTORS
-330
-B2E
-102
-}
-330
-B2E
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B2F
-102
-{ACAD_REACTORS
-330
-B2E
-102
-}
-330
-B2E
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B33
-102
-{ACAD_REACTORS
-330
-B2E
-102
-}
-330
-B2E
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B32
-102
-{ACAD_REACTORS
-330
-B2E
-102
-}
-330
-B2E
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B34
-102
-{ACAD_REACTORS
-330
-B2E
-102
-}
-330
-B2E
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B31
-102
-{ACAD_REACTORS
-330
-B2E
-102
-}
-330
-B2E
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B28
-102
-{ACAD_REACTORS
-330
-B26
-102
-}
-330
-B26
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B27
-102
-{ACAD_REACTORS
-330
-B26
-102
-}
-330
-B26
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B2B
-102
-{ACAD_REACTORS
-330
-B26
-102
-}
-330
-B26
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B2A
-102
-{ACAD_REACTORS
-330
-B26
-102
-}
-330
-B26
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B2C
-102
-{ACAD_REACTORS
-330
-B26
-102
-}
-330
-B26
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B29
-102
-{ACAD_REACTORS
-330
-B26
-102
-}
-330
-B26
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B38
-102
-{ACAD_REACTORS
-330
-B36
-102
-}
-330
-B36
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B37
-102
-{ACAD_REACTORS
-330
-B36
-102
-}
-330
-B36
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B3B
-102
-{ACAD_REACTORS
-330
-B36
-102
-}
-330
-B36
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B3A
-102
-{ACAD_REACTORS
-330
-B36
-102
-}
-330
-B36
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B3C
-102
-{ACAD_REACTORS
-330
-B36
-102
-}
-330
-B36
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-XRECORD
-  5
-B39
-102
-{ACAD_REACTORS
-330
-B36
-102
-}
-330
-B36
-100
-AcDbXrecord
-280
-     1
-270
-     1
-271
-     1
-  0
-CELLSTYLEMAP
-  5
-BE7
-102
-{ACAD_REACTORS
-330
-BE6
-102
-}
-330
-BE6
-100
-AcDbCellStyleMap
- 90
-        3
-300
-CELLSTYLE
-  1
-TABLEFORMAT_BEGIN
- 90
-        5
-170
-     1
- 91
-        0
- 92
-    32768
- 62
-   257
- 93
-        1
-300
-CONTENTFORMAT
-  1
-CONTENTFORMAT_BEGIN
- 90
-        0
- 91
-        0
- 92
-      512
- 93
-        0
-300
-
- 40
-0.0
-140
-1.0
- 94
-        5
- 62
-     0
-340
-10
-144
-0.25
-309
-CONTENTFORMAT_END
-171
-     0
- 94
-        0
-309
-TABLEFORMAT_END
-  1
-CELLSTYLE_BEGIN
- 90
-        1
- 91
-        1
-300
-_TITLE
-309
-CELLSTYLE_END
-300
-CELLSTYLE
-  1
-TABLEFORMAT_BEGIN
- 90
-        5
-170
-     1
- 91
-        0
- 92
-        0
- 62
-   257
- 93
-        1
-300
-CONTENTFORMAT
-  1
-CONTENTFORMAT_BEGIN
- 90
-        0
- 91
-        0
- 92
-      512
- 93
-        0
-300
-
- 40
-0.0
-140
-1.0
- 94
-        5
- 62
-     0
-340
-10
-144
-0.18
-309
-CONTENTFORMAT_END
-171
-     0
- 94
-        0
-309
-TABLEFORMAT_END
-  1
-CELLSTYLE_BEGIN
- 90
-        2
- 91
-        1
-300
-_HEADER
-309
-CELLSTYLE_END
-300
-CELLSTYLE
-  1
-TABLEFORMAT_BEGIN
- 90
-        5
-170
-     1
- 91
-        0
- 92
-        0
- 62
-   257
- 93
-        1
-300
-CONTENTFORMAT
-  1
-CONTENTFORMAT_BEGIN
- 90
-        0
- 91
-        0
- 92
-      512
- 93
-        0
-300
-
- 40
-0.0
-140
-1.0
- 94
-        2
- 62
-     0
-340
-10
-144
-0.18
-309
-CONTENTFORMAT_END
-171
-     0
- 94
-        0
-309
-TABLEFORMAT_END
-  1
-CELLSTYLE_BEGIN
- 90
-        3
- 91
-        2
-300
-_DATA
-309
-CELLSTYLE_END
   0
 ENDSEC
   0

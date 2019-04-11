@@ -26,7 +26,7 @@ view.setAspectLocked(True)
 img = pg.ImageItem(border='w')
 view.addItem(img)
 
-## Set initial view bounds
+## Set initial view_layout bounds
 view.setRange(QtCore.QRectF(0, 0, 600, 600))
 
 ## Create random image

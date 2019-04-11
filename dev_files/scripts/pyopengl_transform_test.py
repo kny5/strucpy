@@ -46,7 +46,7 @@ def ortho(left, right, bot, top, near, far):
 
 
 def perspective(fovy, aspect, near, far):
-    """ perspective projection matrix, from field of view and aspect ratio """
+    """ perspective projection matrix, from field of view_layout and aspect ratio """
     _scale = 1.0/math.tan(math.radians(fovy)/2.0)
     sx, sy = _scale / aspect, _scale
     zz = (far + near) / (near - far)
@@ -103,7 +103,7 @@ def rotate(axis=(1., 0., 0.), angle=0.0, radians=None):
 
 
 def lookat(eye, target, up):
-    """ Computes 4x4 view matrix from 3d point 'eye' to 'target',
+    """ Computes 4x4 view_layout matrix from 3d point 'eye' to 'target',
         'up' 3d vector fixes orientation """
     view = normalized(vec(target)[:3] - vec(eye)[:3])
     up = normalized(vec(up)[:3])
@@ -178,7 +178,7 @@ class Trackball:
     """Virtual trackball for 3D scene viewing. Independent of window system."""
 
     def __init__(self, yaw=0., roll=0., pitch=0., distance=3., radians=None):
-        """ Build a new trackball with specified view, angles in degrees """
+        """ Build a new trackball with specified view_layout, angles in degrees """
         self.rotation = quaternion_from_euler(yaw, roll, pitch, radians)
         self.distance = max(distance, 0.001)
         self.pos2d = vec(0.0, 0.0)

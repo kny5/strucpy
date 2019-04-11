@@ -20,7 +20,7 @@ plot = figure.add_axes( [0.01, 0.01, 0.98, 0.98],
 # Create a new collection of points
 collection = PathCollection("agg+")
 
-# Add a view of the collection on the subplot
+# Add a view_layout of the collection on the subplot
 plot.add_drawable(collection)
 
 # Add some points

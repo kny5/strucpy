@@ -19,7 +19,7 @@ w.show()
 w.setWindowTitle('pyqtgraph example: GLSurfacePlot')
 w.setCameraPosition(distance=50)
 
-## Add a grid to the view
+## Add a grid to the view_layout
 g = gl.GLGridItem()
 g.scale(2,2,1)
 g.setDepthValue(10)  # draw grid after surfaces since they may be translucent

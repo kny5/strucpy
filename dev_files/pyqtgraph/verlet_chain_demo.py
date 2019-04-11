@@ -101,7 +101,7 @@ win.show()
 view = win.addViewBox()
 view.setAspectLocked(True)
 view.setXRange(-100, 100)
-#view.autoRange()
+#view_layout.autoRange()
 
 view.scene().sigMouseMoved.connect(mouse)
 

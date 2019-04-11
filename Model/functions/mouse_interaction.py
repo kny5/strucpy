@@ -2,7 +2,6 @@ import pyqtgraph as pg
 import numpy as np
 from PyQt5 import QtGui, QtCore, QtWidgets
 from Model.functions.read_dxf import read_dxf, save_dxf
-import math
 from operator import add
 from functools import reduce
 from Model.classes.geometry import Vector
@@ -11,24 +10,6 @@ from ui_views.addvector import edit_vector
 from PyQt5.QtWidgets import QFileDialog as qfd
 from Model.classes.view import toolbox, Menubar
 # from Model.classes.new_buffer_handler import Controlador
-
-
-def dist(x1, y1, x2, y2, x3, y3):  # x3,y3 is the point
-    px = x2 - x1
-    py = y2 - y1
-    sqr_point = px * px + py * py
-    u = ((x3 - x1) * px + (y3 - y1) * py) / float(sqr_point)
-
-    if u > 1:
-        u = 1
-    elif u < 0:
-        u = 0
-
-    x = x1 + u * px
-    y = y1 + u * py
-    dx = x - x3
-    dy = y - y3
-    return math.sqrt(dx * dx + dy * dy)
 
 
 def points_to_plot(vectors):
@@ -66,6 +47,7 @@ class MainWin(QtWidgets.QMainWindow):
         self.hLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 33, 83, 100), width=1),
                                      angle=0,
                                      movable=False)
+
         self.plot_dxf = pg.PlotCurveItem(pen=pg.mkPen(color=(7, 185, 252, 200), width=1),
                                          antialias=True)
         self.plot_selected = pg.PlotCurveItem(shadowPen=pg.mkPen(color=QtGui.QColor(180, 185, 252, 20), width=15),
@@ -76,10 +58,10 @@ class MainWin(QtWidgets.QMainWindow):
         #                                       size=10,
         #                                       antialias=True)
 
-        # self.view_layout = self.view.addLayout(row=2, col=2, rowspan=1)
+        # self.view_layout = self.view_layout.addLayout(row=2, col=2, rowspan=1)
         self.graphics = self.view.addViewBox(lockAspect=1, enableMenu=False)
         # self.graphics = self.view_layout.addViewBox(lockAspect=1, enableMenu=False)
-        # self.props_text = self.view.addPlot()
+        # self.props_text = self.view_layout.addPlot()
         # text = "Lorem Ipsum is sim "
         # self.viewbox_info = self.view_layout.addLabel(text, row=1, col=0)
 

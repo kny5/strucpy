@@ -78,7 +78,7 @@ class ImageViewNode(Node):
         if display and self.view is not None:
             ## the 'data' argument is the value given to the 'data' terminal
             if data is None:
-                self.view.setImage(np.zeros((1,1))) # give a blank array to clear the view
+                self.view.setImage(np.zeros((1,1))) # give a blank array to clear the view_layout
             else:
                 self.view.setImage(data)
 

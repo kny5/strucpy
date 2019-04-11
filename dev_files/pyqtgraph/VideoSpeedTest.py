@@ -3,7 +3,7 @@
 Tests the speed of image updates for an ImageItem and RawImageWidget.
 The speed will generally depend on the type of data being shown, whether
 it is being scaled and/or converted by lookup table, and whether OpenGL
-is used by the view widget
+is used by the view_layout widget
 """
 
 

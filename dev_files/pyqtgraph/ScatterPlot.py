@@ -74,7 +74,7 @@ s2.sigClicked.connect(clicked)
 ## This is the slowest case, since all spots must be completely re-drawn 
 ## every time because their apparent transformation may have changed.
 
-s3 = pg.ScatterPlotItem(pxMode=False)   ## Set pxMode=False to allow spots to transform with the view
+s3 = pg.ScatterPlotItem(pxMode=False)   ## Set pxMode=False to allow spots to transform with the view_layout
 spots3 = []
 for i in range(10):
     for j in range(10):

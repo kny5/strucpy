@@ -28,7 +28,7 @@ w.show()
 view = w.addViewBox()
 view.setAspectLocked()
 #grid = pg.GridItem()
-#view.addItem(grid)
+#view_layout.addItem(grid)
 view.setRange(pg.QtCore.QRectF(-50, -30, 100, 100))
 
 optics = []
@@ -59,7 +59,7 @@ view = w.addViewBox()
 
 view.setAspectLocked()
 #grid = pg.GridItem()
-#view.addItem(grid)
+#view_layout.addItem(grid)
 view.setRange(pg.QtCore.QRectF(-10, -50, 90, 60))
 
 optics = []
@@ -89,7 +89,7 @@ view = w.addViewBox(colspan=2)
 optics = []
 
 
-#view.setAspectLocked()
+#view_layout.setAspectLocked()
 view.setRange(QtCore.QRectF(200, -50, 500, 200))
 
 
