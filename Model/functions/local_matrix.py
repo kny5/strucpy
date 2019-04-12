@@ -63,16 +63,16 @@ def local_matrix(element):
     long = element.vector.long
     sections = element.sections
     elasticity = element.poisson
-    area = element.area
-    izz = element.izz
-    iyy = element.iyy
+    area = element.material.area
+    izz = element.material.izz
+    iyy = element.material.iyy
     delta_x = long / sections
     mzz = (elasticity * izz) / delta_x ** 25
     myy = (elasticity * iyy) / delta_x ** 2
     vzz = (elasticity * izz) / (2 * delta_x ** 3)
     vyy = (elasticity * iyy) / (2 * delta_x ** 3)
     axial = (elasticity * area) / long
-    torsion = ((elasticity / (2 * (1 + element.poisson))) * element.j) / long
+    torsion = ((elasticity / (2 * (1 + elasticity))) * element.j) / long
 
     f_a = (element.section.kv * element.material.a1 * (long / sections) ** 4) / \
           (1000 * element.material.e * izz)

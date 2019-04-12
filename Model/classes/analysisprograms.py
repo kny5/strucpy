@@ -1,14 +1,15 @@
 from Model.functions.local_matrix import local_matrix
 from Model.functions.get_data import get_data
 from Model.functions.set_nodes import set_nodes
-from Model.functions.k_mtx import k_mtx
+from Model.functions.asm_vector import asm_v
 import numpy as np
 
 
 class AnalysisPrograms:
     def __init__(self, parent):
-        self.Elements = parent.elements
-        self.vectors = parent.vectors
+        # self.Elements = parent.elements
+        self.parent = parent
+        self.Elements = []
         self.Nodes = []
         self.vcn = []
         self.v_springs = []
@@ -16,6 +17,10 @@ class AnalysisPrograms:
 
     def b_aproximation(self):
         pass
+
+    @property
+    def vectors(self):
+        return self.parent.vectors
 
     def full_structure_matrix(self):
         setattr(self, 'kest', np.matlib.zeros(shape=(self.freedom, self.freedom)))
@@ -41,7 +46,11 @@ class AnalysisPrograms:
     def run(self):
         print("Starting...")
         # ciclo primario
-        set_nodes(self.vectors)
+        objects = set_nodes(self.vectors)
+        print("Zero")
+        self.Elements = objects[0]
+        self.freedom = asm_v(objects[1])
+        print("one")
         for element in self.Elements:
             # vector de ensamble y datos primarios geométricos.
             # set_nodes(self, element)
@@ -55,6 +64,7 @@ class AnalysisPrograms:
             # for element in self.Elements:
             # operaciones locales
             local_matrix(element)
+        print("two")
 
         # operaciones generales, creación matriz general de la estructura y multiplicación de matriz, vector general.
         self.full_structure_matrix()
