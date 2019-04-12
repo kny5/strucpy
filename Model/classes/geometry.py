@@ -1,8 +1,8 @@
 import numpy as np
 import math
 from itertools import count as it_counts
-# from functools import reduce
-# from operator import add
+from functools import reduce
+from operator import add
 
 
 class Vector:
@@ -14,8 +14,10 @@ class Vector:
                                      [0, 0, 0]])
 
     points = {}
+    matrix = []
 
     def __init__(self, start, end):
+        self.parent = None
         self.start = start
         self.end = end
         self.reformat_byz()
@@ -39,14 +41,19 @@ class Vector:
 
         self.lm = math.degrees(math.asin((self.end[1] - self.start[1]) / self.long))
 
+    def set_parent(self, parent):
+        self.parent = parent
+
     def reformat_byz(self):
         if self.start[1] > self.end[1]:
             start = self.start
             self.start = self.end
             self.end = start
-            # return True
-        # else:
-            # return False
+
+    @classmethod
+    def default_position(cls):
+        cls.alpha = 35
+        cls.beta = 50.3
 
     @classmethod
     def iso_projection(cls):
@@ -70,9 +77,21 @@ class Vector:
     @classmethod
     def to_2d(cls, point):
         _isoproject_a = np.array(point).dot(cls.last_iso_projection)
-        # _isoproject_a = cls.last_iso_projection.dot(point)
         return _isoproject_a.dot(cls.project_plane_matrix)
-        # return result[0], result[1]
+
+    @classmethod
+    def process_to_matrix(cls, vectors, selection=False):
+        # Vector.iso_projection()
+        if not selection:
+            if cls.matrix.__len__() == 0:
+                cls.matrix = np.array(reduce(add, [[vector.start, vector.end] for vector in vectors]))
+                projection = cls.matrix.dot(Vector.last_iso_projection)
+            else:
+                projection = cls.matrix.dot(Vector.last_iso_projection)
+        else:
+            matrix = np.array(reduce(add, [[vector.start, vector.end] for vector in vectors]))
+            projection = matrix.dot(Vector.last_iso_projection)
+        return projection.dot(Vector.project_plane_matrix)
 
     @property
     def start_2d(self):

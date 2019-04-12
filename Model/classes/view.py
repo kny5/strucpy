@@ -4,7 +4,7 @@ from PyQt5 import QtWidgets, QtCore
 translate = QtCore.QCoreApplication.translate
 
 
-class vectors_tools(QtWidgets.QGroupBox):
+class VectorsTools(QtWidgets.QGroupBox):
     def __init__(self, parent):
         super().__init__(parent)
         self.vectors_layout = QtWidgets.QGridLayout(self)
@@ -29,7 +29,7 @@ class vectors_tools(QtWidgets.QGroupBox):
         self.del_btn_vectors.setText(translate("MainWindow", "Del"))
 
 
-class nodes_tools(QtWidgets.QGroupBox):
+class NodesTools(QtWidgets.QGroupBox):
     def __init__(self, parent):
         super().__init__(parent)
         self.gridLayout_7 = QtWidgets.QGridLayout(self)
@@ -48,7 +48,7 @@ class nodes_tools(QtWidgets.QGroupBox):
         self.set_btn_nodes.setText(translate("MainWindow", "SET"))
 
 
-class elements_tools(QtWidgets.QGroupBox):
+class ElementsTools(QtWidgets.QGroupBox):
     def __init__(self, parent):
         super().__init__(parent)
         self.gridLayout_2 = QtWidgets.QGridLayout(self)
@@ -127,13 +127,13 @@ class toolbox(QtWidgets.QGroupBox):
         self.setMinimumSize(QtCore.QSize(self.min_width, self.min_height))
         self.tools_layout = QtWidgets.QVBoxLayout(self)
 
-        self.vectors_groupbox = vectors_tools(self)
+        self.vectors_groupbox = VectorsTools(self)
         self.tools_layout.addWidget(self.vectors_groupbox)
 
-        self.nodes_groupbox = nodes_tools(self)
+        self.nodes_groupbox = NodesTools(self)
         self.tools_layout.addWidget(self.nodes_groupbox)
 
-        self.elements_groupbox = elements_tools(self)
+        self.elements_groupbox = ElementsTools(self)
         self.tools_layout.addWidget(self.elements_groupbox)
 
         self.analysis_groupbox = analysis_tools(self)

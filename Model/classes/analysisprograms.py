@@ -5,12 +5,10 @@ from Model.functions.k_mtx import k_mtx
 import numpy as np
 
 
-class Buffer:
-
-    def __init__(self):
-        super().__init__()
-        # self.id = id
-        self.Elements = []
+class AnalysisPrograms:
+    def __init__(self, parent):
+        self.Elements = parent.elements
+        self.vectors = parent.vectors
         self.Nodes = []
         self.vcn = []
         self.v_springs = []
@@ -19,7 +17,7 @@ class Buffer:
     def b_aproximation(self):
         pass
 
-    def __structure_matrix(self):
+    def full_structure_matrix(self):
         setattr(self, 'kest', np.matlib.zeros(shape=(self.freedom, self.freedom)))
         setattr(self, 'pcur_', np.zeros(self.freedom))
 
@@ -31,7 +29,7 @@ class Buffer:
                     if _j != 0:
                         self.kest[_i - 1, _j - 1] += element.kebg.item(_c, _k)
 
-    def __set_loads(self, load=0):
+    def set_nodes_loads(self, load=0):
         self.vcn = []
         self.v_springs = []
         for node in self.Nodes:
@@ -41,49 +39,33 @@ class Buffer:
         setattr(self, 'dn_est', np.dot(self.kest.I, pcur_sum))
 
     def run(self):
+        print("Starting...")
         # ciclo primario
+        set_nodes(self.vectors)
         for element in self.Elements:
             # vector de ensamble y datos primarios geométricos.
-            set_nodes(self, element)
+            # set_nodes(self, element)
 
             # ciclo while donde k_mtx recibe datos para restar f_a en las posiciones indicadas,
             # mientras estado = Falso repetir.
 
             # matriz k
-            k_mtx(element)
+            # k_mtx(element)
 
             # for element in self.Elements:
             # operaciones locales
             local_matrix(element)
 
         # operaciones generales, creación matriz general de la estructura y multiplicación de matriz, vector general.
-        self.__structure_matrix()
+        self.full_structure_matrix()
 
         # estableciendo las cargas.
-        self.__set_loads()
+        self.set_nodes_loads()
 
         # ciclo secundario
         for element in self.Elements:
             # obteniendo resultados de general hacia individual.
             get_data(self, element)
+        print("End...")
+        print(self.Elements[0].__dict__)
 
-    def add_element(self, element_type, id=None):
-        x = element_type
-        x.e_id = id
-        self.Elements.append(x)
-        return True
-
-    def delete_element_by_id(self, element_id):
-        for element in self.Elements:
-            if element.e_id == element_id:
-                self.Elements.remove(element)
-        return True
-
-    def delete_element_by_point(self, point):
-        for element in self.Elements:
-            if element.start == point or element.end == point:
-                self.Elements.remove(element)
-        return True
-
-    def select_element_by_id(self, id):
-        pass

@@ -11,6 +11,7 @@ class Element(Parameters):
     _e_id_gen = it_counts(1)
 
     def __init__(self, vector):
+        vector.set_parent(self)
         super().__init__()
         self.e_id = next(self._e_id_gen)
         self.vector = vector

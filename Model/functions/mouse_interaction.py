@@ -10,6 +10,7 @@ from ui_views.addvector import edit_vector
 from PyQt5.QtWidgets import QFileDialog as qfd
 from Model.classes.view import toolbox, Menubar
 # from Model.classes.new_buffer_handler import Controlador
+from Model.functions.points_distance import dist
 
 
 def points_to_plot(vectors):
@@ -73,8 +74,7 @@ class MainWin(QtWidgets.QMainWindow):
             file = qfd.getOpenFileName(self, "Open DXF", "c:\\", "dfx files (*.dxf)")
             self.all_vectors = read_dxf(file[0])
             self.matrix_plot = np.array(reduce(add, [[vector.start, vector.end] for vector in self.all_vectors]))
-            Vector.alpha = 35
-            Vector.beta = 50.3
+            Vector.default_position()
             Vector.iso_projection()
             self.plot()
         except:
