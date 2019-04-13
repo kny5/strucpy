@@ -1,16 +1,18 @@
-from Model.functions.local_matrix import local_matrix
+# from Model.functions.local_matrix import local_matrix
 from Model.functions.get_data import get_data
 from Model.functions.set_nodes import set_nodes
 from Model.functions.asm_vector import asm_v
 import numpy as np
+from Model.classes.element_types import Element
 
 
-class AnalysisPrograms:
+class Program:
     def __init__(self, parent):
         # self.Elements = parent.elements
         self.parent = parent
-        self.Elements = []
-        self.Nodes = []
+        self.vectors = []
+        self.nodes = []
+        self.elements = []
         self.vcn = []
         self.v_springs = []
         self.freedom = 0
@@ -18,9 +20,9 @@ class AnalysisPrograms:
     def b_aproximation(self):
         pass
 
-    @property
-    def vectors(self):
-        return self.parent.vectors
+    def assemble_elements(self):
+        self.elements = list(map(Element, self.vectors))
+        print(self.elements)
 
     def full_structure_matrix(self):
         setattr(self, 'kest', np.matlib.zeros(shape=(self.freedom, self.freedom)))
@@ -48,10 +50,11 @@ class AnalysisPrograms:
         # ciclo primario
         objects = set_nodes(self.vectors)
         print("Zero")
-        self.Elements = objects[0]
+        print(objects)
+        self.elements = objects[0]
         self.freedom = asm_v(objects[1])
-        print("one")
-        for element in self.Elements:
+        print("one " + str(self.freedom))
+        # for element in self.elements:
             # vector de ensamble y datos primarios geométricos.
             # set_nodes(self, element)
 
@@ -63,19 +66,19 @@ class AnalysisPrograms:
 
             # for element in self.Elements:
             # operaciones locales
-            local_matrix(element)
+            # local_matrix(element)
         print("two")
 
         # operaciones generales, creación matriz general de la estructura y multiplicación de matriz, vector general.
-        self.full_structure_matrix()
-
+        # self.full_structure_matrix()
+        print("3")
         # estableciendo las cargas.
-        self.set_nodes_loads()
+        # self.set_nodes_loads()
 
         # ciclo secundario
-        for element in self.Elements:
-            # obteniendo resultados de general hacia individual.
-            get_data(self, element)
+        # for element in self.Elements:
+        #     # obteniendo resultados de general hacia individual.
+        #     get_data(self, element)
         print("End...")
-        print(self.Elements[0].__dict__)
+        print(self.elements[0].results.__dict__)
 

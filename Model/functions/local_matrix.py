@@ -60,10 +60,18 @@ def local_matrix(element):
     """Descripción: Esta función calcula y asigna los valores individuales por elemento, que después serán usados para
     crear la matrix y vector generales de la estructura."""
     # vector = element.vector
+
+    if element.material is not None:
+        print("here is...")
+        area = element.material.area
+        print("yep...")
+    else:
+        print("No material assigned")
+        return
+
     long = element.vector.long
     sections = element.sections
     elasticity = element.poisson
-    area = element.material.area
     izz = element.material.izz
     iyy = element.material.iyy
     delta_x = long / sections
@@ -79,31 +87,31 @@ def local_matrix(element):
     f_b = (element.section.kh * element.material.a2 * (long / sections) ** 4) / \
           (1000 * element.material.e * iyy)
 
-    element.kzz = k__(f_a, sections)
-    element.kyy = k__(f_b, sections)
-    element.mzz = mzz
-    element.myy = myy
-    element.vzz = vzz
-    element.vyy = vyy
+    element.results.kzz = k__(f_a, sections)
+    element.results.kyy = k__(f_b, sections)
+    element.results.mzz = mzz
+    element.results.myy = myy
+    element.results.vzz = vzz
+    element.results.vyy = vyy
 
-    d1zz = imext__(np.dot(element.kzz.I,
+    d1zz = imext__(np.dot(element.results.kzz.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
-    d2zz = imext__(np.dot(element.kzz.I,
+    d2zz = imext__(np.dot(element.results.kzz.I,
                           -(np.append(np.zeros(sections), 3))).A1, (-1, -6, -3))
-    te1zz = imext__(np.dot(element.kzz.I,
+    te1zz = imext__(np.dot(element.results.kzz.I,
                            -(np.insert(np.zeros(sections), 1, 2 * delta_x))).A1,
                     (0, 8 * delta_x), (1, 2 * delta_x))
-    te2zz = imext__(np.dot(element.kzz.I,
+    te2zz = imext__(np.dot(element.results.kzz.I,
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
     d1yy = imext__(np.dot(element.kyy.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
-    d2yy = imext__(np.dot(element.kyy.I,
+    d2yy = imext__(np.dot(element.results.kyy.I,
                           -(np.append(np.zeros(sections), 3))).A1, (-1, -6, -3))
-    te1yy = imext__(np.dot(element.kyy.I,
+    te1yy = imext__(np.dot(element.results.kyy.I,
                            -(np.insert(np.zeros(sections), 1, 2 * delta_x))).A1,
                     (0, 8 * delta_x), (1, 2 * delta_x))
-    te2yy = imext__(np.dot(element.kyy.I,
+    te2yy = imext__(np.dot(element.results.kyy.I,
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
 
@@ -174,10 +182,10 @@ def local_matrix(element):
     keb[11, 11] = tm2zz[sections]
 
     # rotational matrix
-    cos_nu = math.cos(math.radians(element.nu))
-    sin_nu = math.sin(math.radians(element.nu))
-    cos_lm = math.cos(math.radians(element.lm))
-    sin_lm = math.sin(math.radians(element.lm))
+    cos_nu = math.cos(math.radians(element.vector.nu))
+    sin_nu = math.sin(math.radians(element.vector.nu))
+    cos_lm = math.cos(math.radians(element.vector.lm))
+    sin_lm = math.sin(math.radians(element.vector.lm))
 
     def __tr_filler(_tr):
         """Descripción: *Pendiente*"""
@@ -195,54 +203,54 @@ def local_matrix(element):
     tr = __tr_filler(np.matlib.zeros(shape=(12, 12)))
     kebg = np.dot(np.dot(tr, keb), tr.T)
 
-    element.tr = tr
-    element.keb = keb
-    element.kebg = kebg
+    element.results.tr = tr
+    element.results.keb = keb
+    element.results.kebg = kebg
 
-    pp = area * (element.p_mat / 10000)
-    element.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
+    pp = area * (element.material.p_mat / 10000)
+    element.results.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
 
     p_axial = ((- sin_lm *
                 pp * (long / 100)) / 2) + \
-              ((- math.sin(math.radians(element.aw)) * element.wy *
+              ((- math.sin(math.radians(element.loads.aw)) * element.loads.wy *
                 (long / 100)) / 2)
 
     p_scc_y = ((pp * (long / 100) * cos_lm) / sections) * \
               ((delta_x ** 3) / (elasticity * izz))
 
     p_scc_z = 0
-    w_scc_y = ((((element.wy * long) / 100) *
-                math.cos(math.radians(element.aw))) / sections) * \
+    w_scc_y = ((((element.loads.wy * long) / 100) *
+                math.cos(math.radians(element.loads.aw))) / sections) * \
               ((delta_x ** 3) / (elasticity * izz))
 
-    w_scc_z = ((element.wz * (long / 100)) /
+    w_scc_z = ((element.loads.wz * (long / 100)) /
                sections) * ((delta_x ** 3) / (elasticity * iyy))
 
     try:
-        if element.armour is True:
+        if element.material.armour is True:
             p_elem = pp * (long / 100)
             vplocal_y = np.zeros(sections + 1)
             vplocal_z = np.zeros(sections + 1)
             p_vertical = -(cos_lm * p_elem) / 2
 
     except AttributeError:
-        setattr(element, 'armour', False)
+        setattr(element.material, 'armour', False)
 
     finally:
-        if element.armour is False:
+        if element.material.armour is False:
             vplocal_y = np.insert(np.append(np.full((sections - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
             vplocal_z = np.insert(np.append(np.full((sections - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
 
-    dlzz = np.dot(element.kzz.I, -vplocal_z).A1
-    dlyy = np.dot(element.kyy.I, -vplocal_y).A1
+    dlzz = np.dot(element.results.kzz.I, -vplocal_z).A1
+    dlyy = np.dot(element.results.kyy.I, -vplocal_y).A1
 
-    element.dlzz = dlzz
-    element.dlyy = dlyy
+    element.results.dlzz = dlzz
+    element.results.dlyy = dlyy
 
     mdlyy = v_maker2(dlyy, mzz, sections)
     mdlzz = v_maker2(dlzz, myy, sections)
-    element.mdlyy = mdlyy
-    element.mdlzz = mdlzz
+    element.results.mdlyy = mdlyy
+    element.results.mdlzz = mdlzz
 
     def v_maker3(dl, v__, vplocal, i__):
         """Descripción: *Pendiente*"""
@@ -262,7 +270,7 @@ def local_matrix(element):
 
     pcu_local = np.zeros(12)
 
-    if element.armour is True:
+    if element.material.armour is True:
         pcu_local[0] = p_axial
         pcu_local[1] = p_vertical
         pcu_local[6] = p_axial
@@ -280,7 +288,7 @@ def local_matrix(element):
         pcu_local[10] = mdlzz[sections]
         pcu_local[11] = - mdlyy[sections]
 
-    element.pculocal = pcu_local
-    element.pc_ = np.dot(tr, pcu_local).A1
+    element.results.pculocal = pcu_local
+    element.results.pc_ = np.dot(tr, pcu_local).A1
     
     return element

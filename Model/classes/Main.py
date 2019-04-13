@@ -1,11 +1,9 @@
 import pyqtgraph as pg
 from PyQt5 import QtWidgets, QtGui, QtCore
+from PyQt5.QtWidgets import QFileDialog as Qfd
 from Model.classes.view import toolbox, Menubar
 from Model.classes.control import Controller
 from Model.functions.points_distance import dist
-# import numpy as np
-# from operator import add
-# from functools import reduce
 from Model.classes.geometry import Vector
 
 
@@ -24,11 +22,11 @@ class MainUI(QtWidgets.QMainWindow):
         self.setCentralWidget(self.centralwidget)
         # menu bar
         self.menubar = Menubar(self)
-        self.menubar.actionAbrir_DXF.triggered.connect(self.control.opening_dxf)
-        self.menubar.actionGuardar_DXF.triggered.connect(self.control.saving_dxf)
-        self.menubar.actionBorrar_Todo.triggered.connect(self.control.deleting_all)
-        self.tools_groupbox.elements_groupbox.set_btn_elements.clicked.connect(self.control.assemble_elements)
-        self.tools_groupbox.run_btn_tools.clicked.connect(self.control.a_programs.run)
+        self.menubar.actionAbrir_DXF.triggered.connect(self.control.open_file)
+        self.menubar.actionGuardar_DXF.triggered.connect(self.control.save_file)
+        self.menubar.actionBorrar_Todo.triggered.connect(self.control.close_file)
+        self.tools_groupbox.elements_groupbox.set_btn_elements.clicked.connect(self.control.program.assemble_elements)
+        self.tools_groupbox.run_btn_tools.clicked.connect(self.control.program.run)
         self.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(self)
         self.setStatusBar(self.statusbar)
@@ -42,6 +40,13 @@ class MainUI(QtWidgets.QMainWindow):
     def on_key(self, event):
         self.graphicsys.rotation(event.key())
 
+    def set_filename(self):
+        try:
+            file = Qfd.getOpenFileName(self, "Open DXF", "c:\\", "dfx files (*.dxf)")
+            self.control.filename = file[0]
+        except:
+            return
+
 
 class GraphicSystem:
     def __init__(self, parent):
@@ -49,21 +54,18 @@ class GraphicSystem:
         self.parent = parent
         self.view_layout = pg.GraphicsLayoutWidget()
 
-        self.vLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 33, 83, 100), width=1),
+        self.vLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1),
                                      angle=90,
                                      movable=False)
-        self.hLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 33, 83, 100), width=1),
+        self.hLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1),
                                      angle=0,
                                      movable=False)
 
         self.plot = pg.PlotCurveItem(
-            # pen=pg.mkPen(color=(7, 185, 252, 200), width=2),
             pen=pg.mkPen(color=(0, 0, 0, 255), width=2),
             antialias=True)
 
         self.plot_selection = pg.PlotCurveItem(
-            # shadowPen=pg.mkPen(color=QtGui.QColor(180, 185, 252, 20), width=15),
-            # pen=pg.mkPen(color=QtGui.QColor(100, 185, 252, 50), width=2),
             antialias=True)
 
         self.graphics = self.view_layout.addViewBox(lockAspect=1, enableMenu=False)
@@ -97,7 +99,7 @@ class GraphicSystem:
             except AttributeError:
                 return
 
-            group = self.parent.control.vectors
+            group = self.parent.control.program.vectors
             selection = self.vectors_selected_by_click
 
             for vector in group:
@@ -128,9 +130,8 @@ class GraphicSystem:
             print("right click")
 
     def show_vectors(self):
-        # Vector.default_position()
         Vector.iso_projection()
-        matrix = Vector.process_to_matrix(self.parent.control.vectors)
+        matrix = Vector.process_to_matrix(self.parent.control.program.vectors)
         self.plot.updateData(matrix[:, 0], matrix[:, 1], connect="pairs",
                              shadowPen=pg.mkPen(color=QtGui.QColor(7, 185, 252, 255), width=4))
 
@@ -139,7 +140,7 @@ class GraphicSystem:
             matrix = Vector.process_to_matrix(self.vectors_selected_by_click, selection=True)
             self.plot_selection.updateData(matrix[:, 0], matrix[:, 1], connect="pairs",
                                            pen=pg.mkPen(color=QtGui.QColor(255, 255, 0, 200), width=5),
-                                           shadowPen=pg.mkPen(color=QtGui.QColor(180, 185, 252, 20), width=15))
+                                           shadowPen=pg.mkPen(color=QtGui.QColor(180, 185, 252, 50), width=15))
         else:
             self.plot_selection.setData([], [])
 

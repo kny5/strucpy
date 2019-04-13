@@ -15,16 +15,21 @@ class Element(Parameters):
         super().__init__()
         self.e_id = next(self._e_id_gen)
         self.vector = vector
-        self.section = Section()
+        self.foundations = Foundations()
         self.loads = Loads()
         self.material = None
         self.marco: int = 0
+        self.results = Results()
 
     def set_material(self, index):
         materials = [Concrete, Custom, Or, Ir, Oc]
         selected = materials[index]
         self.material = selected()
         return
+
+
+class Results:
+    def __init__(self): pass
 
 
 class Loads:
@@ -34,7 +39,7 @@ class Loads:
         self.aw: float = aw
 
 
-class Section:
+class Foundations:
     kv: float = 0.0
     kh: float = 0.0
 

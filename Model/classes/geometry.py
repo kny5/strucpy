@@ -5,50 +5,19 @@ from functools import reduce
 from operator import add
 
 
-class Vector:
-    # last_iso_projection = None
+class Projector:
     alpha = 35
     beta = 50.3
     project_plane_matrix = np.array([[1, 0, 0],
                                      [0, -1, 0],
                                      [0, 0, 0]])
-
-    points = {}
     matrix = []
 
-    def __init__(self, start, end):
+    def __init__(self):
         self.parent = None
-        self.start = start
-        self.end = end
-        self.reformat_byz()
-        self.selected = False
-        # def process(self):
-        self.long = abs((((self.end[0] - self.start[0]) ** 2) +
-                         ((self.end[1] - self.start[1]) ** 2) +
-                         ((self.end[2] - self.start[2]) ** 2)) ** 0.5)
-
-        plane_xz = (((self.end[0] - self.start[0]) ** 2) +
-                    ((self.end[2] - self.start[2]) ** 2)) ** 0.5
-
-        if plane_xz != 0:
-            _nu_ = math.degrees(math.asin((self.end[2] - self.start[2]) / plane_xz))
-            if self.end[0] - self.start[0] < 0:
-                self.nu = 180 - _nu_
-            else:
-                self.nu = _nu_
-        else:
-            self.nu = 0
-
-        self.lm = math.degrees(math.asin((self.end[1] - self.start[1]) / self.long))
 
     def set_parent(self, parent):
         self.parent = parent
-
-    def reformat_byz(self):
-        if self.start[1] > self.end[1]:
-            start = self.start
-            self.start = self.end
-            self.end = start
 
     @classmethod
     def default_position(cls):
@@ -57,8 +26,8 @@ class Vector:
 
     @classmethod
     def iso_projection(cls):
-        _alpha = Vector.alpha
-        _beta = Vector.beta
+        _alpha = cls.alpha
+        _beta = cls.beta
         calpha = math.cos(_alpha)
         salpha = math.sin(_alpha)
         cbeta = math.cos(_beta)
@@ -81,32 +50,57 @@ class Vector:
 
     @classmethod
     def process_to_matrix(cls, vectors, selection=False):
-        # Vector.iso_projection()
         if not selection:
             if cls.matrix.__len__() == 0:
                 cls.matrix = np.array(reduce(add, [[vector.start, vector.end] for vector in vectors]))
-                projection = cls.matrix.dot(Vector.last_iso_projection)
+                projection = cls.matrix.dot(cls.last_iso_projection)
             else:
-                projection = cls.matrix.dot(Vector.last_iso_projection)
+                projection = cls.matrix.dot(cls.last_iso_projection)
         else:
             matrix = np.array(reduce(add, [[vector.start, vector.end] for vector in vectors]))
-            projection = matrix.dot(Vector.last_iso_projection)
-        return projection.dot(Vector.project_plane_matrix)
+            projection = matrix.dot(cls.last_iso_projection)
+        return projection.dot(cls.project_plane_matrix)
 
     @property
     def start_2d(self):
-        return Vector.to_2d(self.start)
+        return self.to_2d(self.start)
 
     @property
     def end_2d(self):
-        return Vector.to_2d(self.end)
+        return self.to_2d(self.end)
 
-    def clicked(self):
-        if self.selected is False:
-            self.selected = True
+
+class Vector(Projector):
+
+    def __init__(self, start, end):
+        super().__init__()
+        self.start = start
+        self.end = end
+        self.reformat_byz()
+
+        self.long = abs((((self.end[0] - self.start[0]) ** 2) +
+                         ((self.end[1] - self.start[1]) ** 2) +
+                         ((self.end[2] - self.start[2]) ** 2)) ** 0.5)
+
+        plane_xz = (((self.end[0] - self.start[0]) ** 2) +
+                    ((self.end[2] - self.start[2]) ** 2)) ** 0.5
+
+        if plane_xz != 0:
+            _nu_ = math.degrees(math.asin((self.end[2] - self.start[2]) / plane_xz))
+            if self.end[0] - self.start[0] < 0:
+                self.nu = 180 - _nu_
+            else:
+                self.nu = _nu_
         else:
-            self.selected = False
-        return self.selected
+            self.nu = 0
+
+        self.lm = math.degrees(math.asin((self.end[1] - self.start[1]) / self.long))
+
+    def reformat_byz(self):
+        if self.start[1] > self.end[1]:
+            start = self.start
+            self.start = self.end
+            self.end = start
 
 
 class Node:
