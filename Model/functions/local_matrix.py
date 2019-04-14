@@ -61,19 +61,17 @@ def local_matrix(element):
     crear la matrix y vector generales de la estructura."""
     # vector = element.vector
 
-    if element.material is not None:
-        print("here is...")
-        area = element.material.area
-        print("yep...")
+    if element.type is not None:
+        area = element.type.area
     else:
-        print("No material assigned")
+        print("No type assigned")
         return
 
     long = element.vector.long
     sections = element.sections
     elasticity = element.poisson
-    izz = element.material.izz
-    iyy = element.material.iyy
+    izz = element.type.izz
+    iyy = element.type.iyy
     delta_x = long / sections
     mzz = (elasticity * izz) / delta_x ** 25
     myy = (elasticity * iyy) / delta_x ** 2
@@ -82,36 +80,36 @@ def local_matrix(element):
     axial = (elasticity * area) / long
     torsion = ((elasticity / (2 * (1 + elasticity))) * element.j) / long
 
-    f_a = (element.section.kv * element.material.a1 * (long / sections) ** 4) / \
-          (1000 * element.material.e * izz)
-    f_b = (element.section.kh * element.material.a2 * (long / sections) ** 4) / \
-          (1000 * element.material.e * iyy)
+    f_a = (element.reactions.kv * element.type.a1 * (long / sections) ** 4) / \
+          (1000 * element.type.e * izz)
+    f_b = (element.reactions.kh * element.type.a2 * (long / sections) ** 4) / \
+          (1000 * element.type.e * iyy)
 
-    element.results.kzz = k__(f_a, sections)
-    element.results.kyy = k__(f_b, sections)
-    element.results.mzz = mzz
-    element.results.myy = myy
-    element.results.vzz = vzz
-    element.results.vyy = vyy
+    element.data.kzz = k__(f_a, sections)
+    element.data.kyy = k__(f_b, sections)
+    element.data.mzz = mzz
+    element.data.myy = myy
+    element.data.vzz = vzz
+    element.data.vyy = vyy
 
-    d1zz = imext__(np.dot(element.results.kzz.I,
+    d1zz = imext__(np.dot(element.data.kzz.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
-    d2zz = imext__(np.dot(element.results.kzz.I,
+    d2zz = imext__(np.dot(element.data.kzz.I,
                           -(np.append(np.zeros(sections), 3))).A1, (-1, -6, -3))
-    te1zz = imext__(np.dot(element.results.kzz.I,
+    te1zz = imext__(np.dot(element.data.kzz.I,
                            -(np.insert(np.zeros(sections), 1, 2 * delta_x))).A1,
                     (0, 8 * delta_x), (1, 2 * delta_x))
-    te2zz = imext__(np.dot(element.results.kzz.I,
+    te2zz = imext__(np.dot(element.data.kzz.I,
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
     d1yy = imext__(np.dot(element.kyy.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
-    d2yy = imext__(np.dot(element.results.kyy.I,
+    d2yy = imext__(np.dot(element.data.kyy.I,
                           -(np.append(np.zeros(sections), 3))).A1, (-1, -6, -3))
-    te1yy = imext__(np.dot(element.results.kyy.I,
+    te1yy = imext__(np.dot(element.data.kyy.I,
                            -(np.insert(np.zeros(sections), 1, 2 * delta_x))).A1,
                     (0, 8 * delta_x), (1, 2 * delta_x))
-    te2yy = imext__(np.dot(element.results.kyy.I,
+    te2yy = imext__(np.dot(element.data.kyy.I,
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
 
@@ -203,12 +201,12 @@ def local_matrix(element):
     tr = __tr_filler(np.matlib.zeros(shape=(12, 12)))
     kebg = np.dot(np.dot(tr, keb), tr.T)
 
-    element.results.tr = tr
-    element.results.keb = keb
-    element.results.kebg = kebg
+    element.data.tr = tr
+    element.data.keb = keb
+    element.data.kebg = kebg
 
-    pp = area * (element.material.p_mat / 10000)
-    element.results.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
+    pp = area * (element.type.p_mat / 10000)
+    element.data.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
 
     p_axial = ((- sin_lm *
                 pp * (long / 100)) / 2) + \
@@ -227,30 +225,30 @@ def local_matrix(element):
                sections) * ((delta_x ** 3) / (elasticity * iyy))
 
     try:
-        if element.material.armour is True:
+        if element.type.armour is True:
             p_elem = pp * (long / 100)
             vplocal_y = np.zeros(sections + 1)
             vplocal_z = np.zeros(sections + 1)
             p_vertical = -(cos_lm * p_elem) / 2
 
     except AttributeError:
-        setattr(element.material, 'armour', False)
+        setattr(element.type, 'armour', False)
 
     finally:
-        if element.material.armour is False:
+        if element.type.armour is False:
             vplocal_y = np.insert(np.append(np.full((sections - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
             vplocal_z = np.insert(np.append(np.full((sections - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
 
-    dlzz = np.dot(element.results.kzz.I, -vplocal_z).A1
-    dlyy = np.dot(element.results.kyy.I, -vplocal_y).A1
+    dlzz = np.dot(element.data.kzz.I, -vplocal_z).A1
+    dlyy = np.dot(element.data.kyy.I, -vplocal_y).A1
 
-    element.results.dlzz = dlzz
-    element.results.dlyy = dlyy
+    element.data.dlzz = dlzz
+    element.data.dlyy = dlyy
 
     mdlyy = v_maker2(dlyy, mzz, sections)
     mdlzz = v_maker2(dlzz, myy, sections)
-    element.results.mdlyy = mdlyy
-    element.results.mdlzz = mdlzz
+    element.data.mdlyy = mdlyy
+    element.data.mdlzz = mdlzz
 
     def v_maker3(dl, v__, vplocal, i__):
         """Descripción: *Pendiente*"""
@@ -270,7 +268,7 @@ def local_matrix(element):
 
     pcu_local = np.zeros(12)
 
-    if element.material.armour is True:
+    if element.type.armour is True:
         pcu_local[0] = p_axial
         pcu_local[1] = p_vertical
         pcu_local[6] = p_axial
@@ -288,7 +286,7 @@ def local_matrix(element):
         pcu_local[10] = mdlzz[sections]
         pcu_local[11] = - mdlyy[sections]
 
-    element.results.pculocal = pcu_local
-    element.results.pc_ = np.dot(tr, pcu_local).A1
+    element.data.pculocal = pcu_local
+    element.data.pc_ = np.dot(tr, pcu_local).A1
     
     return element

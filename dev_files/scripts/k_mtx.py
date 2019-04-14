@@ -18,10 +18,10 @@ def k__(c, sections):
 
 def k_mtx(element):
 
-    # f_a = (element.section.kv * element.material.a1() * (element.vector.long / element.sections) ** 4) / \
-    #       (1000 * element.material.e * element.material.izz())
-    # f_b = (element.section.kh * element.material.a2() * (element.vector.long / element.sections) ** 4) / \
-    #       (1000 * element.material.e * element.material.iyy())
+    # f_a = (element.section.kv * element.type.a1() * (element.vector.long / element.sections) ** 4) / \
+    #       (1000 * element.type.e * element.type.izz())
+    # f_b = (element.section.kh * element.type.a2() * (element.vector.long / element.sections) ** 4) / \
+    #       (1000 * element.type.e * element.type.iyy())
 
     element.kzz = k__(element.f_a, element.sections)
     element.kyy = k__(element.f_b, element.sections)

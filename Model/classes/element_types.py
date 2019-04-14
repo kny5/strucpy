@@ -1,3 +1,5 @@
+"""Este archivo debe pasar a revisión, debido a que type contiene atributos de una sección,
+por lo que debería de crearse una clase especial llamada, section type y material."""
 import math
 from itertools import count as it_counts
 
@@ -15,21 +17,43 @@ class Element(Parameters):
         super().__init__()
         self.e_id = next(self._e_id_gen)
         self.vector = vector
-        self.foundations = Foundations()
+        self.reactions = Reactions()
         self.loads = Loads()
-        self.material = None
+        self.type = None
         self.marco: int = 0
+        self.data = Data()
         self.results = Results()
 
-    def set_material(self, index):
+    def set_type(self, index):
         materials = [Concrete, Custom, Or, Ir, Oc]
         selected = materials[index]
-        self.material = selected()
+        self.type = selected()
         return
 
 
 class Results:
-    def __init__(self): pass
+    def __init__(self):
+        pass
+
+
+class Data:
+    def __init__(self):
+        self.kzz = None
+        self.kyy = None
+        self.mzz = None
+        self.myy = None
+        self.vzz = None
+        self.vyy = None
+        self.tr = None
+        self.keb = None
+        self.kebg = None
+        self.pp_scc = None
+        self.dlzz = None
+        self.dlyy = None
+        self.mdlzz = None
+        self.mdlyy = None
+        self.pculocal = None
+        self.pc_ = None
 
 
 class Loads:
@@ -39,7 +63,7 @@ class Loads:
         self.aw: float = aw
 
 
-class Foundations:
+class Reactions:
     kv: float = 0.0
     kh: float = 0.0
 

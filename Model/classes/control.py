@@ -2,7 +2,7 @@
 # from Model.classes.geometry import Vector
 from Model.functions.read_dxf import read_dxf, save_dxf
 # import json
-from Model.classes.analysisprograms import Program
+from Model.classes.algorithm import Program
 
 
 class Controller:
@@ -27,10 +27,10 @@ class Controller:
         except:
             pass
 
-    def close_file(self):
-        self.program.vectors = []
-        self.program.elements = []
-        self.parent.graphicsys.plot.setData([], [])
+    # def close_file(self):
+    #     self.program.vectors = []
+    #     self.program.elements = []
+    #     self.parent.graphicsys.plot.setData([], [])
 
     # def export_as_json(self):
     #     export = json.dumps(str(self.db))

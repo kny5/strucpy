@@ -4,6 +4,9 @@ from Model.functions.set_nodes import set_nodes
 from Model.functions.asm_vector import asm_v
 import numpy as np
 from Model.classes.element_types import Element
+from Model.classes.geometry import Node
+from functools import reduce
+from operator import add
 
 
 class Program:
@@ -16,6 +19,10 @@ class Program:
         self.vcn = []
         self.v_springs = []
         self.freedom = 0
+        self.kest = []
+        self.pcur_ = []
+        self.dn_est = []
+        self.nodes_dict = {}
 
     def b_aproximation(self):
         pass
@@ -25,25 +32,31 @@ class Program:
         print(self.elements)
 
     def full_structure_matrix(self):
-        setattr(self, 'kest', np.matlib.zeros(shape=(self.freedom, self.freedom)))
-        setattr(self, 'pcur_', np.zeros(self.freedom))
+        self.kest = np.matlib.zeros(shape=(self.freedom, self.freedom))
+        self.pcur_ = np.zeros(self.freedom)
 
-        for element in self.Elements:
+        for element in self.elements:
             for _c, _i in enumerate(element.ve):
                 if _i != 0:
-                    self.pcur_[_i - 1] += element.pc_[_c]
+                    self.pcur_[_i - 1] += element.results.pc_[_c]
                 for _k, _j in enumerate(element.ve):
                     if _j != 0:
                         self.kest[_i - 1, _j - 1] += element.kebg.item(_c, _k)
 
-    def set_nodes_loads(self, load=0):
-        self.vcn = []
-        self.v_springs = []
-        for node in self.Nodes:
+    def set_nodes_loads(self, load=[]):
+        for node in self.nodes:
             self.vcn += node.n_vcn
             self.v_springs += node.n_springs
         pcur_sum = self.pcur_ + load + self.vcn
-        setattr(self, 'dn_est', np.dot(self.kest.I, pcur_sum))
+        self.dn_est = np.dot(self.kest.I, pcur_sum)
+
+    def set_elements(self):
+        self.elements = list(map(Element, self.vectors))
+
+    def set_nodes(self):
+        list_points = reduce(add, [[vector.start, vector.end] for vector in self.vectors])
+        self.nodes = list(map(Node, list_points))
+        self.nodes_dict = dict(zip(list_points, self.nodes))
 
     def run(self):
         print("Starting...")
