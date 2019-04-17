@@ -1,5 +1,5 @@
 # from Model.functions.local_matrix import local_matrix
-from Model.functions.get_data import get_data
+# from Model.functions.get_data import get_data
 from Model.functions.set_nodes import set_nodes
 from Model.functions.asm_vector import asm_v
 import numpy as np
@@ -43,6 +43,7 @@ class Program:
                     if _j != 0:
                         self.kest[_i - 1, _j - 1] += element.kebg.item(_c, _k)
 
+    # revision
     def set_nodes_loads(self, load=[]):
         for node in self.nodes:
             self.vcn += node.n_vcn
@@ -50,14 +51,17 @@ class Program:
         pcur_sum = self.pcur_ + load + self.vcn
         self.dn_est = np.dot(self.kest.I, pcur_sum)
 
+    # check if this goes to control class
     def set_elements(self):
         self.elements = list(map(Element, self.vectors))
 
+    # moe this to control class
     def set_nodes(self):
         list_points = reduce(add, [[vector.start, vector.end] for vector in self.vectors])
         self.nodes = list(map(Node, list_points))
         self.nodes_dict = dict(zip(list_points, self.nodes))
 
+    # move this to control class
     def run(self):
         print("Starting...")
         # ciclo primario

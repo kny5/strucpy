@@ -80,9 +80,9 @@ def local_matrix(element):
     axial = (elasticity * area) / long
     torsion = ((elasticity / (2 * (1 + elasticity))) * element.j) / long
 
-    f_a = (element.reactions.kv * element.type.a1 * (long / sections) ** 4) / \
+    f_a = (element.kv * element.type.a1 * (long / sections) ** 4) / \
           (1000 * element.type.e * izz)
-    f_b = (element.reactions.kh * element.type.a2 * (long / sections) ** 4) / \
+    f_b = (element.kh * element.type.a2 * (long / sections) ** 4) / \
           (1000 * element.type.e * iyy)
 
     element.data.kzz = k__(f_a, sections)

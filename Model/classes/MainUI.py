@@ -1,11 +1,12 @@
 import pyqtgraph as pg
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QFileDialog as Qfd
-from Model.classes.view import toolbox, Menubar
+from Model.classes.Views import toolbox, Menubar
 from Model.classes.control import Controller
 from Model.functions.points_distance import dist
 from Model.classes.geometry import Vector
 from numpy import unique
+from ui_views.vector_edit import Ui_vector_widget
 
 
 class MainUI(QtWidgets.QMainWindow):
@@ -27,7 +28,10 @@ class MainUI(QtWidgets.QMainWindow):
         self.menubar.actionGuardar_DXF.triggered.connect(self.control.save_file)
         # self.menubar.actionBorrar_Todo.triggered.connect(self.control.close_file)
         self.tools_groupbox.elements_groupbox.set_btn_elements.clicked.connect(self.control.program.assemble_elements)
+        # self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(lambda event: self.control.multiple_views(Ui_vector_widget, self.control.select_vectors))
+        self.tools_groupbox.vectors_groupbox.set_btn_vectors.clicked.connect(lambda x: print("Hola"))
         self.tools_groupbox.run_btn_tools.clicked.connect(self.control.program.run)
+
         self.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(self)
         self.setStatusBar(self.statusbar)
@@ -39,7 +43,10 @@ class MainUI(QtWidgets.QMainWindow):
         self.keyPressed.emit(event)
 
     def on_key(self, event):
-        self.graphicsys.rotation(event.key())
+        try:
+            self.graphicsys.rotation(event.key())
+        except:
+            pass
 
     def set_filename(self):
         try:
@@ -70,8 +77,8 @@ class GraphicSystem:
             antialias=True)
 
         self.plot_dots = pg.ScatterPlotItem(
-            pen=pg.mkPen(color=QtGui.QColor(253, 95, 0, 100)),
-            brush=pg.mkBrush(color=QtGui.QColor(253, 95, 0, 100)),
+            pen=pg.mkPen(color=QtGui.QColor(253, 95, 0, 200)),
+            brush=pg.mkBrush(color=QtGui.QColor(253, 95, 0, 200)),
             antialias=True,
             size=10, symbol='o')
 

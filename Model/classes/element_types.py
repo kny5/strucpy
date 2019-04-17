@@ -17,13 +17,15 @@ class Element(Parameters):
         super().__init__()
         self.e_id = next(self._e_id_gen)
         self.vector = vector
-        self.reactions = Reactions()
         self.loads = Loads()
         self.type = None
         self.marco: int = 0
         self.data = Data()
         self.results = Results()
+        self.kv: float = 0.0
+        self.kh: float = 0.0
 
+    # move this to control class
     def set_type(self, index):
         materials = [Concrete, Custom, Or, Ir, Oc]
         selected = materials[index]
@@ -61,11 +63,6 @@ class Loads:
         self.wy: float = wy
         self.wz: float = wz
         self.aw: float = aw
-
-
-class Reactions:
-    kv: float = 0.0
-    kh: float = 0.0
 
 
 # Materiales disponibles

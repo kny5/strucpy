@@ -12,6 +12,7 @@ class Controller:
         self.select_vectors = True
         self.selected_elements = set([])
         self.program = Program(self)
+        self.views = None
 
     def open_file(self):
         try:
@@ -26,6 +27,12 @@ class Controller:
             save_dxf(self.program.vectors, self.filename)
         except:
             pass
+
+    def multiple_views(self, view, selection):
+        self.views = {}
+        for obj in list(selection):
+            self.views.add(view(obj))
+        # return self.views
 
     # def close_file(self):
     #     self.program.vectors = []
