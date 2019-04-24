@@ -113,7 +113,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Zapata Ancho</string>
+         <string>Ancho</string>
         </property>
        </widget>
       </item>
@@ -185,7 +185,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Zapata Alto</string>
+         <string>Alto</string>
         </property>
        </widget>
       </item>

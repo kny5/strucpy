@@ -77,8 +77,8 @@ class GraphicSystem:
             antialias=True)
 
         self.plot_dots = pg.ScatterPlotItem(
-            pen=pg.mkPen(color=QtGui.QColor(253, 95, 0, 200)),
-            brush=pg.mkBrush(color=QtGui.QColor(253, 95, 0, 200)),
+            pen=pg.mkPen(color=QtGui.QColor(7, 185, 252, 255)),
+            brush=pg.mkBrush(color=QtGui.QColor(253, 95, 0, 0)),
             antialias=True,
             size=10, symbol='o')
 
