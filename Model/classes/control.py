@@ -1,11 +1,14 @@
-# from Model.classes.element_types import Element
-# from Model.classes.geometry import Vector
+from Model.classes.element_types import Element
+from Model.classes.geometry import Vector, Node
 from Model.functions.read_dxf import read_dxf, save_dxf
 # import json
 from Model.classes.algorithm import Program
 
 
 class Controller:
+    states = [Vector, Node, Element]
+    current_state = states[0]
+
     def __init__(self, parent):
         self.parent = parent
         self.filename = None
