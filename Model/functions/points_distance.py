@@ -1,7 +1,7 @@
 from math import sqrt
 
 
-def dist(x1, y1, x2, y2, x3, y3):  # x3,y3 is the point
+def dist_point_line(x1, y1, x2, y2, x3, y3):  # x3,y3 is the point
     px = x2 - x1
     py = y2 - y1
     sqr_point = px * px + py * py
@@ -16,4 +16,7 @@ def dist(x1, y1, x2, y2, x3, y3):  # x3,y3 is the point
     y = y1 + u * py
     dx = x - x3
     dy = y - y3
-    return sqrt(dx * dx + dy * dy)
+    return sqrt(dx**2 + dy**2)
+
+def dist_point_point(x, y, mouse_pos):  # x3,y3 is the point
+    return abs(sqrt(((x - mouse_pos[0])**2) + ((y - mouse_pos[1])**2)))

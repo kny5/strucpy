@@ -3,10 +3,10 @@ from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QFileDialog as Qfd
 from Model.classes.Views import toolbox, Menubar
 from Model.classes.control import Controller
-from Model.functions.points_distance import dist
+from Model.functions.points_distance import dist_point_line
 from Model.classes.geometry import Vector
 from numpy import unique
-from ui_views.vector_edit import Ui_vector_widget
+# from ui_views.vector_edit import Ui_vector_widget
 
 
 class MainUI(QtWidgets.QMainWindow):
@@ -27,7 +27,7 @@ class MainUI(QtWidgets.QMainWindow):
         self.menubar.actionAbrir_DXF.triggered.connect(self.control.open_file)
         self.menubar.actionGuardar_DXF.triggered.connect(self.control.save_file)
         # self.menubar.actionBorrar_Todo.triggered.connect(self.control.close_file)
-        self.tools_groupbox.elements_groupbox.set_btn_elements.clicked.connect(self.control.program.assemble_elements)
+        # self.tools_groupbox.elements_groupbox.set_btn_elements.clicked.connect(self.control.program.assemble_elements)
         # self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(lambda event: self.control.multiple_views(Ui_vector_widget, self.control.select_vectors))
         self.tools_groupbox.vectors_groupbox.set_btn_vectors.clicked.connect(lambda x: print("Hola"))
         self.tools_groupbox.run_btn_tools.clicked.connect(self.control.program.run)
@@ -125,16 +125,16 @@ class GraphicSystem:
             for vector in group:
                 start = vector.start_2d
                 end = vector.end_2d
-                perpendicular_distance_from_point = dist(start[0], start[1], end[0], end[1], _x_, _y_)
+                perpendicular_distance_from_point = dist_point_line(start[0], start[1], end[0], end[1], _x_, _y_)
                 if perpendicular_distance_from_point < pixelsize[0] * 15:
                     if vector not in selection:
-                        if self.parent.control.select_vectors:
+                        if self.parent.control.select_only_vectors:
                             selection.add(vector)
                         else:
                             selection.add(vector)
                             self.parent.control.selected_elements.add(vector.parent)
                     else:
-                        if self.parent.control.select_vectors:
+                        if self.parent.control.select_only_vectors:
                             selection.remove(vector)
                         else:
                             selection.remove(vector)
@@ -147,20 +147,20 @@ class GraphicSystem:
         else:
             print("right click")
 
-    def show_results(self):
-        self.results_layout = self.view_layout.addLayout()
-        self.results_layout.addPlot(row=0, col=0, rowspan=1, colspan=1)
-        self.results_layout.addPlot(row=1, col=0, rowspan=1, colspan=1)
-        self.results_layout.addPlot(row=2, col=0, rowspan=1, colspan=1)
-        self.results_layout.addPlot(row=3, col=0, rowspan=1, colspan=1)
+    # def show_results(self):
+    #     self.results_layout = self.view_layout.addLayout()
+    #     self.results_layout.addPlot(row=0, col=0, rowspan=1, colspan=1)
+    #     self.results_layout.addPlot(row=1, col=0, rowspan=1, colspan=1)
+    #     self.results_layout.addPlot(row=2, col=0, rowspan=1, colspan=1)
+    #     self.results_layout.addPlot(row=3, col=0, rowspan=1, colspan=1)
 
     def show_vectors(self):
         Vector.iso_projection()
         matrix = Vector.process_to_matrix(self.parent.control.program.vectors)
         self.plot.updateData(matrix[:, 0], matrix[:, 1], connect="pairs")
         # plotting dots for node representation, but we need to do this separately
-        dots = unique(matrix, axis=0)
-        self.plot_dots.setData(dots[:, 0], dots[:, 1])
+        # dots = unique(matrix, axis=0)
+        # self.plot_dots.setData(dots[:, 0], dots[:, 1])
 
     def show_vector_selection(self):
         if self.vectors_selected_by_click.__len__() > 0:
@@ -191,11 +191,12 @@ class GraphicSystem:
         # print((Vector.alpha, Vector.beta))
 
 
-if not __name__ == '__main__':
+if __name__ == '__main__':
     import sys
 
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
-        app = QtGui.QApplication([])
+        # app = QtGui.QApplication(sys.argv)
+        app = QtWidgets.QApplication([])
         app.setOverrideCursor(QtCore.Qt.CrossCursor)
         app.mainwindow = MainUI()
         sys.exit(app.exec_())

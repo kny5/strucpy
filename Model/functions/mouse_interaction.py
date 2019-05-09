@@ -10,7 +10,7 @@ from ui_views.addvector import edit_vector
 from PyQt5.QtWidgets import QFileDialog as qfd
 from Model.classes.Views import toolbox, Menubar
 # from Model.classes.new_buffer_handler import Controlador
-from Model.functions.points_distance import dist
+from Model.functions.points_distance import dist_point_line
 
 
 def points_to_plot(vectors):
@@ -160,7 +160,7 @@ class MainWin(QtWidgets.QMainWindow):
             for vector in self.all_vectors:
                 start = vector.start_2d
                 end = vector.end_2d
-                point_toline_mindist = dist(start[0], start[1], end[0], end[1], _x_, _y_)
+                point_toline_mindist = dist_point_line(start[0], start[1], end[0], end[1], _x_, _y_)
 
                 if point_toline_mindist < pixelsize[0] * 15:
                     vector.clicked()

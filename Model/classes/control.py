@@ -2,7 +2,7 @@ from Model.classes.element_types import Element
 from Model.classes.geometry import Vector, Node
 from Model.functions.read_dxf import read_dxf, save_dxf
 # import json
-from Model.classes.algorithm import Program
+from Model.classes.MainProgram import Program
 
 
 class Controller:
@@ -12,7 +12,7 @@ class Controller:
     def __init__(self, parent):
         self.parent = parent
         self.filename = None
-        self.select_vectors = True
+        self.select_only_vectors = True
         self.selected_elements = set([])
         self.program = Program(self)
         self.views = None
