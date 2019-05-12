@@ -153,16 +153,16 @@ class Menubar(QtWidgets.QMenuBar):
         super().__init__(parent)
         self.setGeometry(QtCore.QRect(0, 0, 640, 26))
         self.menuArchivo = QtWidgets.QMenu(self)
-
         self.actionAbrir_DXF = QtWidgets.QAction(self)
         self.actionAbrir_DXF.setShortcut("Ctrl+O")
         self.actionGuardar_DXF = QtWidgets.QAction(self)
         self.actionGuardar_DXF.setShortcut("Ctrl+S")
-        # self.actionBorrar_Todo = QtWidgets.QAction(self)
-
+        self.actionClear_select = QtWidgets.QAction(self)
+        self.actionClose_file = QtWidgets.QAction(self)
         self.menuArchivo.addAction(self.actionAbrir_DXF)
         self.menuArchivo.addAction(self.actionGuardar_DXF)
-        # self.menuArchivo.addAction(self.actionBorrar_Todo)
+        self.menuArchivo.addAction(self.actionClear_select)
+        self.menuArchivo.addAction(self.actionClose_file)
         self.addAction(self.menuArchivo.menuAction())
 
         # self.actionAbrir_DXF.triggered.connect(abrir)
@@ -176,4 +176,5 @@ class Menubar(QtWidgets.QMenuBar):
         self.menuArchivo.setTitle(translate("MainWindow", "File"))
         self.actionAbrir_DXF.setText(translate("MainWindow", "Open DXF"))
         self.actionGuardar_DXF.setText(translate("MainWindow", "Save as DXF"))
-#         self.actionBorrar_Todo.setText(translate("MainWindow", "Clear All"))
+        self.actionClear_select.setText(translate("MainWindow", "Clear Select"))
+        self.actionClose_file.setText(translate("MainWindow", "Close File"))

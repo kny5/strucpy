@@ -8,7 +8,6 @@ from Model.classes.element_types import Element
 from Model.classes.geometry import Node
 from functools import reduce
 from operator import add
-from math import sqrt
 
 
 class Program:
@@ -56,42 +55,6 @@ class Program:
         pcur_sum = np.add(self.pcur_, self.vcn)
         pcur_sum_random_loads = np.add(pcur_sum, np.asarray(random_loads))
         self.dn_est = np.dot(self.kest.I, pcur_sum_random_loads)
-
-    # move this to control class
-    def check_all(self):
-        print("Checking input data integrity...")
-        if self.vectors.__len__() > 0 \
-                and self.nodes.__len__() > 0 \
-                and self.elements.__len__() > 0 \
-                and self.freedom > 0 \
-                and self.vcn.__len__() > 0 \
-                and self.v_springs.__len__() > 0 \
-                and self.nodes_dict.__len__() > 0:
-
-            if self.vectors.__len__() == self.elements.__len__() \
-                        and self.freedom == self.vcn.__len__() \
-                        and self.freedom == sqrt(self.kest.__len__()):
-
-                if self.kest.__len__() > 0 and self.pcur_.__len__() > 0 \
-                        and self.dn_est.__len__() > 0:
-                    return True
-        else:
-            return False
-
-    def check_step_1(self):
-        if self.vectors.__len__() > 0:
-            for vector in self.vectors:
-                vector.reformat_byz()
-
-            return True
-        else:
-            return False
-
-    def check_step_2(self):
-        if self.nodes.__len__() > 0:
-            return True
-        else:
-            return False
 
     def run(self):
         pass

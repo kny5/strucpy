@@ -1,21 +1,18 @@
-from Model.classes.element_types import Element
-from Model.classes.geometry import Vector, Node
+# from Model.classes.element_types import Element
+# from Model.classes.geometry import Vector, Node
 from Model.functions.read_dxf import read_dxf, save_dxf
 # import json
 from Model.classes.MainProgram import Program
-
+# from Model.classes.MainUI import GraphicSystem
+from Model.classes.geometry import Vector
 
 class Controller:
-    states = [Vector, Node, Element]
-    current_state = states[0]
-
     def __init__(self, parent):
         self.parent = parent
         self.filename = None
-        self.select_only_vectors = True
-        self.selected_elements = set([])
         self.program = Program(self)
-        self.views = None
+        self.selection = set([])
+        # self.views = None
 
     def open_file(self):
         try:
@@ -31,16 +28,28 @@ class Controller:
         except:
             pass
 
-    def multiple_views(self, view, selection):
-        self.views = {}
-        for obj in list(selection):
-            self.views.add(view(obj))
-        # return self.views
+    def clear_selection(self):
+        self.selection.clear()
+        self.parent.graphicsys.show_vector_selection()
 
     # def close_file(self):
-    #     self.program.vectors = []
-    #     self.program.elements = []
-    #     self.parent.graphicsys.plot.setData([], [])
+    #     self.filename = None
+    #     self.selection.clear()
+    #     self.program = Program(self)
+        # self.parent.graphicsys = GraphicSystem(self)
+
+#     def multiple_views(self, view, selection):
+#         self.views = {}
+#         for obj in list(selection):
+#             self.views.add(view(obj))
+#         # return self.views
+
+    def close_file(self):
+        self.filename = None
+        self.program.vectors = []
+        self.program.elements = []
+        self.parent.graphicsys.plot.setData([], [])
+        Vector.matrix = []
 
     # def export_as_json(self):
     #     export = json.dumps(str(self.db))
