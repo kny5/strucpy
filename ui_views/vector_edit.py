@@ -8,18 +8,38 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_vector_widget(object):
-    def setupUi(self, vector_widget):
-        vector_widget.resize(550, 304)
+class Ui_vector_widget(QtWidgets.QWidget):
+    def __init__(self, vectors):
+        super().__init__()
+        self.vectors = vectors
+        self.setupUi()
+        self.show()
+
+    def filter_common_fields(self):
+        if self.vectors.__len__() > 1:
+            for vector in self.vectors:
+                pass
+        else:
+            return False
+
+    def save_values(self):
+        if self.vectors.__len__() == 1:
+            pass
+        else:
+            for vector in self.vectors:
+                pass
+
+    def setupUi(self):
+        self.resize(550, 304)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(vector_widget.sizePolicy().hasHeightForWidth())
-        vector_widget.setSizePolicy(sizePolicy)
-        vector_widget.setMaximumSize(QtCore.QSize(550, 304))
-        self.gridLayout_4 = QtWidgets.QGridLayout(vector_widget)
+        sizePolicy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
+        self.setSizePolicy(sizePolicy)
+        self.setMaximumSize(QtCore.QSize(550, 304))
+        self.gridLayout_4 = QtWidgets.QGridLayout(self)
 
-        self.properties_group = QtWidgets.QGroupBox(vector_widget)
+        self.properties_group = QtWidgets.QGroupBox(self)
         self.gridLayout_3 = QtWidgets.QGridLayout(self.properties_group)
         self.nu_value_prop = QtWidgets.QLabel(self.properties_group)
         self.gridLayout_3.addWidget(self.nu_value_prop, 2, 1, 1, 1)
@@ -37,7 +57,7 @@ class Ui_vector_widget(object):
         self.gridLayout_3.addItem(spacerItem, 0, 0, 1, 1)
         self.gridLayout_4.addWidget(self.properties_group, 1, 0, 1, 1)
 
-        self.start_group = QtWidgets.QGroupBox(vector_widget)
+        self.start_group = QtWidgets.QGroupBox(self)
         self.gridLayout = QtWidgets.QGridLayout(self.start_group)
         self.x_input_start = QtWidgets.QLineEdit(self.start_group)
         self.x_input_start.setMinimumSize(QtCore.QSize(0, 40))
@@ -86,7 +106,7 @@ class Ui_vector_widget(object):
         self.gridLayout.addWidget(self.z_value_start, 4, 1, 1, 1)
         self.gridLayout_4.addWidget(self.start_group, 1, 2, 1, 1)
 
-        self.set_btn_vector = QtWidgets.QPushButton(vector_widget)
+        self.set_btn_vector = QtWidgets.QPushButton(self)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -100,7 +120,7 @@ class Ui_vector_widget(object):
         self.gridLayout_4.addWidget(self.set_btn_vector, 2, 4, 1, 1)
 
 
-        self.end_group = QtWidgets.QGroupBox(vector_widget)
+        self.end_group = QtWidgets.QGroupBox(self)
         self.end_group.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.gridLayout_2 = QtWidgets.QGridLayout(self.end_group)
         self.z_input_end = QtWidgets.QLineEdit(self.end_group)
@@ -160,8 +180,8 @@ class Ui_vector_widget(object):
         # self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         # self.gridLayout_4.addWidget(self.line_2, 1, 1, 1, 1)
 
-        self.retranslateUi(vector_widget)
-        QtCore.QMetaObject.connectSlotsByName(vector_widget)
+        self.retranslateUi(self)
+        QtCore.QMetaObject.connectSlotsByName(self)
 
     def retranslateUi(self, vector_widget):
         _translate = QtCore.QCoreApplication.translate
@@ -192,10 +212,11 @@ class Ui_vector_widget(object):
 
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QApplication(sys.argv)
-    vector_widget = QtWidgets.QWidget()
-    ui = Ui_vector_widget()
-    ui.setupUi(vector_widget)
-    vector_widget.show()
+    from Model.classes.geometry import Vector
+    app = QtWidgets.QApplication([])
+    # vector_widget = QtWidgets.QWidget()
+    ui = Ui_vector_widget(Vector((0,0,0), (11,1,1)))
+    # ui.setupUi(vector_widget)
+    # vector_widget.show()
     sys.exit(app.exec_())
 
