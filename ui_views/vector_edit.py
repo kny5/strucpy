@@ -9,25 +9,27 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_vector_widget(QtWidgets.QWidget):
-    def __init__(self, vectors):
+    def __init__(self, vector):
         super().__init__()
-        self.vectors = vectors
+        self.vector = vector
         self.setupUi()
+        self.set_btn_vector.clicked.connect(self.save_values)
         self.show()
 
-    def filter_common_fields(self):
-        if self.vectors.__len__() > 1:
-            for vector in self.vectors:
-                pass
-        else:
-            return False
+    # def filter_common_fields(self):
+    #     if self.vectors.__len__() > 1:
+    #         for vector in self.vectors:
+    #             pass
+    #     else:
+    #         return False
 
     def save_values(self):
-        if self.vectors.__len__() == 1:
-            pass
-        else:
-            for vector in self.vectors:
-                pass
+        # print("test")
+        self.vector.start = (float(self.x_input_start.text()), float(self.y_input_start.text()), float(self.z_input_start.text()))
+        self.vector.end = (float(self.x_input_end.text()), float(self.y_input_end.text()), float(self.z_input_end.text()))
+        self.vector.reformat_byz()
+        self.retranslateUi(self)
+        print(self.vector.pos)
 
     def setupUi(self):
         self.resize(550, 304)
@@ -148,11 +150,11 @@ class Ui_vector_widget(QtWidgets.QWidget):
         # font.setWeight(50)
         # self.z_label_end.setFont(font)
         self.gridLayout_2.addWidget(self.z_label_end, 6, 0, 1, 1)
-        self.x_input_2 = QtWidgets.QLineEdit(self.end_group)
-        self.x_input_2.setMinimumSize(QtCore.QSize(0, 40))
-        self.x_input_2.setMaximumSize(QtCore.QSize(16777215, 40))
-        self.x_input_2.setInputMethodHints(QtCore.Qt.ImhDigitsOnly|QtCore.Qt.ImhFormattedNumbersOnly)
-        self.gridLayout_2.addWidget(self.x_input_2, 2, 1, 1, 1)
+        self.x_input_end = QtWidgets.QLineEdit(self.end_group)
+        self.x_input_end.setMinimumSize(QtCore.QSize(0, 40))
+        self.x_input_end.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.x_input_end.setInputMethodHints(QtCore.Qt.ImhDigitsOnly | QtCore.Qt.ImhFormattedNumbersOnly)
+        self.gridLayout_2.addWidget(self.x_input_end, 2, 1, 1, 1)
         self.y_label_end = QtWidgets.QLabel(self.end_group)
         # font = QtGui.QFont()
         # font.setPointSize(8)
@@ -185,38 +187,44 @@ class Ui_vector_widget(QtWidgets.QWidget):
 
     def retranslateUi(self, vector_widget):
         _translate = QtCore.QCoreApplication.translate
-        vector_widget.setWindowTitle(_translate("vector_widget", "Vector Edit"))
+        vector_widget.setWindowTitle(_translate("vector_widget", "Vector in " + str(self.vector.start) + " " + str(self.vector.end)))
         self.properties_group.setTitle(_translate("vector_widget", "Current Properties"))
-        self.nu_value_prop.setText(_translate("vector_widget", "value_nu"))
-        self.lm_value_prop.setText(_translate("vector_widget", "value_lambda"))
-        self.long_value_prop.setText(_translate("vector_widget", "value_long"))
+        # self.nu_value_prop.setText(_translate("vector_widget", "value_nu"))
+        # self.lm_value_prop.setText(_translate("vector_widget", "value_lambda"))
+        # self.long_value_prop.setText(_translate("vector_widget", "value_long"))
+        self.nu_value_prop.setText(_translate("vector_widget", str('%.4f' % self.vector.nu)))
+        self.lm_value_prop.setText(_translate("vector_widget", str('%.4f' % self.vector.lm)))
+        self.long_value_prop.setText(_translate("vector_widget", str('%.4f' % self.vector.long)))
         self.long_label_prop.setText(_translate("vector_widget", "Long:"))
         self.lm_label_prop.setText(_translate("vector_widget", "Lambda:"))
         self.nu_label_prop.setText(_translate("vector_widget", "Nu:"))
         self.start_group.setTitle(_translate("vector_widget", "Start Point"))
-        self.x_value_start.setText(_translate("vector_widget", "current_x_value"))
         self.y_label_start.setText(_translate("vector_widget", "y"))
         self.z_label_start.setText(_translate("vector_widget", "z"))
         self.x_label_start.setText(_translate("vector_widget", "x"))
-        self.y_value_start.setText(_translate("vector_widget", "current_y_value"))
-        self.z_value_start.setText(_translate("vector_widget", "current_z_value"))
-        self.set_btn_vector.setText(_translate("vector_widget", "Set"))
+        # self.x_value_start.setText(_translate("vector_widget", "current_x_value"))
+        # self.y_value_start.setText(_translate("vector_widget", "current_y_value"))
+        # self.z_value_start.setText(_translate("vector_widget", "current_z_value"))
+        self.x_value_start.setText(_translate("vector_widget", str('%.4f' % self.vector.start[0])))
+        self.y_value_start.setText(_translate("vector_widget", str('%.4f' % self.vector.start[1])))
+        self.z_value_start.setText(_translate("vector_widget", str('%.4f' % self.vector.start[2])))
         self.end_group.setTitle(_translate("vector_widget", "End Point"))
         self.x_label_end.setText(_translate("vector_widget", "x"))
         self.z_label_end.setText(_translate("vector_widget", "z"))
         self.y_label_end.setText(_translate("vector_widget", "y"))
-        self.y_value_end.setText(_translate("vector_widget", "current_y_value"))
-        self.x_value_end.setText(_translate("vector_widget", "current_x_value"))
-        self.z_value_end.setText(_translate("vector_widget", "current_z_value"))
+        self.y_value_end.setText(_translate("vector_widget", str('%.4f' % self.vector.end[0])))
+        self.x_value_end.setText(_translate("vector_widget", str('%.4f' % self.vector.end[1])))
+        self.z_value_end.setText(_translate("vector_widget", str('%.4f' % self.vector.end[2])))
+        self.set_btn_vector.setText(_translate("vector_widget", "Set"))
 
 
-if __name__ == "__main__":
-    import sys
-    from Model.classes.geometry import Vector
-    app = QtWidgets.QApplication([])
-    # vector_widget = QtWidgets.QWidget()
-    ui = Ui_vector_widget(Vector((0,0,0), (11,1,1)))
-    # ui.setupUi(vector_widget)
-    # vector_widget.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     from Model.classes.geometry import Vector
+#     app = QtWidgets.QApplication([])
+#     # vector_widget = QtWidgets.QWidget()
+#     ui = Ui_vector_widget(Vector((0,0,0), (11,1,1)))
+#     # ui.setupUi(vector_widget)
+#     # vector_widget.show()
+#     sys.exit(app.exec_())
 

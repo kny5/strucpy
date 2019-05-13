@@ -76,24 +76,33 @@ class Vector(Projector):
         super().__init__()
         self.start = start
         self.end = end
+        self.pos = (start, end)
         self.reformat_byz()
-        self.long = abs((((self.end[0] - self.start[0]) ** 2) +
-                         ((self.end[1] - self.start[1]) ** 2) +
-                         ((self.end[2] - self.start[2]) ** 2)) ** 0.5)
 
-        plane_xz = (((self.end[0] - self.start[0]) ** 2) +
+    @property
+    def long(self):
+        return abs((((self.end[0] - self.start[0]) ** 2) + ((self.end[1] - self.start[1]) ** 2) +
+             ((self.end[2] - self.start[2]) ** 2)) ** 0.5)
+
+    @property
+    def plane_xz(self):
+        return (((self.end[0] - self.start[0]) ** 2) +
                     ((self.end[2] - self.start[2]) ** 2)) ** 0.5
 
-        if plane_xz != 0:
-            _nu_ = math.degrees(math.asin((self.end[2] - self.start[2]) / plane_xz))
+    @property
+    def nu(self):
+        if self.plane_xz != 0:
+            _nu_ = math.degrees(math.asin((self.end[2] - self.start[2]) / self.plane_xz))
             if self.end[0] - self.start[0] < 0:
-                self.nu = 180 - _nu_
+                return 180 - _nu_
             else:
-                self.nu = _nu_
+                return _nu_
         else:
-            self.nu = 0
+            return 0
 
-        self.lm = math.degrees(math.asin((self.end[1] - self.start[1]) / self.long))
+    @property
+    def lm(self):
+        return math.degrees(math.asin((self.end[1] - self.start[1]) / self.long))
 
     def reformat_byz(self):
         if self.start[1] > self.end[1]:

@@ -30,7 +30,7 @@ class MainUI(QtWidgets.QMainWindow):
         self.menubar.actionClose_file.triggered.connect(self.control.close_file)
         # self.tools_groupbox.elements_groupbox.set_btn_elements.clicked.connect(self.control.program.assemble_elements)
         # self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(lambda event: self.control.multiple_views(Ui_vector_widget, self.control.select_vectors))
-        self.tools_groupbox.vectors_groupbox.set_btn_vectors.clicked.connect(lambda x: print("Hola"))
+        self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(self.control.edit_vector)
         self.tools_groupbox.run_btn_tools.clicked.connect(self.control.program.run)
 
         self.setMenuBar(self.menubar)

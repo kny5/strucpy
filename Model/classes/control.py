@@ -2,6 +2,7 @@ from Model.functions.read_dxf import read_dxf, save_dxf
 # import json
 from Model.classes.MainProgram import Program
 from Model.classes.geometry import Vector
+from ui_views.vector_edit import Ui_vector_widget
 
 class Controller:
     def __init__(self, parent):
@@ -9,6 +10,7 @@ class Controller:
         self.filename = None
         self.program = Program(self)
         self.selection = set([])
+        self.uis = set([])
         # self.views = None
 
     def open_file(self):
@@ -38,13 +40,15 @@ class Controller:
         Vector.matrix = []
 
     def add_vector(self):
-        pass
-
-    def del_selection(self):
-        pass
+        self.uis.add(Ui_vector_widget(Vector((0,0,0,), (1,1,1))))
 
     def edit_vector(self):
-        pass
+        for vector in self.selection:
+            self.uis.add(Ui_vector_widget(vector))
+
+    def del_selection(self):
+        for vector in self.selection:
+            self.selection.remove(vector)
 
     def set_vectors(self):
         pass
