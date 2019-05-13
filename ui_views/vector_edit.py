@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Model.classes.geometry import Vector
 
 class Ui_vector_widget(QtWidgets.QWidget):
     def __init__(self, vector):
@@ -29,6 +30,7 @@ class Ui_vector_widget(QtWidgets.QWidget):
         self.vector.end = (float(self.x_input_end.text()), float(self.y_input_end.text()), float(self.z_input_end.text()))
         self.vector.reformat_byz()
         self.retranslateUi(self)
+        Vector.matrix = []
         print(self.vector.pos)
 
     def setupUi(self):
