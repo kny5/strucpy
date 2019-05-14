@@ -32,6 +32,7 @@ class MainUI(QtWidgets.QMainWindow):
         # self.tools_groupbox.elements_groupbox.set_btn_elements.clicked.connect(self.control.program.assemble_elements)
         # self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(lambda event: self.control.multiple_views(Ui_vector_widget, self.control.select_vectors))
         self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(self.control.edit_vector)
+        self.tools_groupbox.vectors_groupbox.del_btn_vectors.clicked.connect(self.control.del_selection)
         self.tools_groupbox.run_btn_tools.clicked.connect(self.control.program.run)
 
         self.setMenuBar(self.menubar)
@@ -57,7 +58,9 @@ class MainUI(QtWidgets.QMainWindow):
             return True
         except:
             return False
-
+    # @staticmethod
+    def notificator(self, title, message):
+        QtWidgets.QMessageBox.about(self, title, message)
 
 class GraphicSystem:
     def __init__(self, parent):

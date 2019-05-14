@@ -10,9 +10,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from Model.classes.geometry import Vector
 
 class Ui_vector_widget(QtWidgets.QWidget):
-    def __init__(self, paren, vector):
+    def __init__(self, control, vector):
         super().__init__()
-        self.paren = paren
+        self.control = control
         self.vector = vector
         self.setupUi()
         self.set_btn_vector.clicked.connect(self.save_values)
@@ -25,9 +25,13 @@ class Ui_vector_widget(QtWidgets.QWidget):
         #         print(str(self.vector))
         # if event.type() == QtCore.QEvent.ActionChanged:
         if self.isActiveWindow():
-            self.paren.selection.clear()
-            self.paren.selection.add(self.vector)
-            self.paren.parent.graphicsys.show_vector_selection()
+            self.control.selection.clear()
+            self.control.selection.add(self.vector)
+            self.control.parent.graphicsys.show_vector_selection()
+            self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
+
+    def closeEvent(self, event):
+        self.control.clear_selection()
 
     # def filter_common_fields(self):
     #     if self.vectors.__len__() > 1:

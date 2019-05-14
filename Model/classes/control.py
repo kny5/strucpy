@@ -14,24 +14,18 @@ class Controller:
         self.uis = self.parent.uis
         # self.views = None
 
-    def show_ui_select(self):
-        if self.uis.__len__() > 0:
-            for ui in self.uis:
-                if ui.isActiveWindow():
-                    self.selection.add(ui.vector)
-
     def open_file(self):
         try:
             self.parent.set_filename()
-            self.program.vectors = read_dxf(self.filename)
+            self.program.vectors = set(read_dxf(self.filename))
             self.parent.graphicsys.show_vectors()
-        except:
+        except Exception:
             pass
 
     def save_file(self):
         try:
             save_dxf(self.program.vectors, self.filename)
-        except:
+        except Exception:
             pass
 
     def clear_selection(self):
@@ -52,16 +46,25 @@ class Controller:
         self.uis.add(ui)
 
     def edit_vector(self):
-        self.uis.clear()
-        for vector in self.selection:
-            ui = Ui_vector_widget(self, vector)
-            self.uis.add(ui)
-            ui.show()
-        self.selection.clear()
+        if self.selection.__len__() > 0:
+            self.uis.clear()
+            for vector in self.selection:
+                ui = Ui_vector_widget(self, vector)
+                self.uis.add(ui)
+                ui.show()
+            self.selection.clear()
+        else:
+            self.parent.notificator('Error', 'No hay vectores seleccionados' )
 
     def del_selection(self):
         for vector in self.selection:
-            self.selection.remove(vector)
+            self.program.vectors.remove(vector)
+        self.selection = set([])
+        self.parent.graphicsys.plot.setData([], [])
+        self.clear_selection()
+        Vector.matrix = []
+        self.parent.graphicsys.show_vectors()
+
 
     def set_vectors(self):
         pass

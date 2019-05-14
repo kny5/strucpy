@@ -13,7 +13,7 @@ from operator import add
 class Program:
     def __init__(self, parent):
         self.parent = parent
-        self.vectors = []
+        self.vectors = set()
         self.nodes = []
         self.elements = []
         self.vcn = []
