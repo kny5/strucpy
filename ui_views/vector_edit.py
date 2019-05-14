@@ -25,13 +25,14 @@ class Ui_vector_widget(QtWidgets.QWidget):
     #         return False
 
     def save_values(self):
-        # print("test")
-        self.vector.start = (float(self.x_input_start.text()), float(self.y_input_start.text()), float(self.z_input_start.text()))
-        self.vector.end = (float(self.x_input_end.text()), float(self.y_input_end.text()), float(self.z_input_end.text()))
-        self.vector.reformat_byz()
-        self.retranslateUi(self)
-        Vector.matrix = []
-        print(self.vector.pos)
+        try:
+            self.vector.start = (float(self.x_input_start.text()), float(self.y_input_start.text()), float(self.z_input_start.text()))
+            self.vector.end = (float(self.x_input_end.text()), float(self.y_input_end.text()), float(self.z_input_end.text()))
+            self.vector.reformat_byz()
+            self.retranslateUi(self)
+            Vector.matrix = []
+        except Exception:
+            QtWidgets.QMessageBox.about(self, 'Error', 'Verifique la entrada de datos')
 
     def setupUi(self):
         self.resize(550, 304)
