@@ -25,11 +25,13 @@ class Ui_vector_widget(QtWidgets.QWidget):
         #         print(str(self.vector))
         # if event.type() == QtCore.QEvent.ActionChanged:
         if self.isActiveWindow():
-            self.control.selection.clear()
-            self.control.selection.add(self.vector)
-            self.control.parent.graphicsys.show_vector_selection()
-            self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
-
+            try:
+                self.control.selection.clear()
+                self.control.selection.add(self.vector)
+                self.control.parent.graphicsys.show_vector_selection()
+                self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
+            except Exception:
+                pass
     def closeEvent(self, event):
         self.control.clear_selection()
 
