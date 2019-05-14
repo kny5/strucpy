@@ -47,6 +47,8 @@ class Ui_vector_widget(QtWidgets.QWidget):
             self.vector.reformat_byz()
             self.retranslateUi(self)
             Vector.matrix = []
+            self.control.parent.graphicsys.show_vectors()
+            self.control.program.vectors.add(self.vector)
         except Exception:
             QtWidgets.QMessageBox.about(self, 'Error', 'Verifique la entrada de datos')
 

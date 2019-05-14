@@ -33,7 +33,7 @@ class MainUI(QtWidgets.QMainWindow):
         # self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(lambda event: self.control.multiple_views(Ui_vector_widget, self.control.select_vectors))
         self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(self.control.edit_vector)
         self.tools_groupbox.vectors_groupbox.del_btn_vectors.clicked.connect(self.control.del_selection)
-        self.tools_groupbox.run_btn_tools.clicked.connect(self.control.program.run)
+        self.tools_groupbox.vectors_groupbox.add_btn_vectors.clicked.connect(self.control.add_vector)
 
         self.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(self)

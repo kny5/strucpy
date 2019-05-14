@@ -42,8 +42,8 @@ class Controller:
 
     def add_vector(self):
         vector = Vector((0,0,0,), (1,1,1))
-        ui = Ui_vector_widget(self, vector)
-        self.uis.add(ui)
+        self.selection.add(vector)
+        self.edit_vector()
 
     def edit_vector(self):
         if self.selection.__len__() > 0:
