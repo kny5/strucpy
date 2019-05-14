@@ -5,13 +5,20 @@ from Model.classes.geometry import Vector
 from ui_views.vector_edit import Ui_vector_widget
 
 class Controller:
+
     def __init__(self, parent):
         self.parent = parent
         self.filename = None
         self.program = Program(self)
         self.selection = set([])
-        self.uis = set([])
+        self.uis = self.parent.uis
         # self.views = None
+
+    def show_ui_select(self):
+        if self.uis.__len__() > 0:
+            for ui in self.uis:
+                if ui.isActiveWindow():
+                    self.selection.add(ui.vector)
 
     def open_file(self):
         try:
@@ -40,11 +47,17 @@ class Controller:
         Vector.matrix = []
 
     def add_vector(self):
-        self.uis.add(Ui_vector_widget(Vector((0,0,0,), (1,1,1))))
+        vector = Vector((0,0,0,), (1,1,1))
+        ui = Ui_vector_widget(self, vector)
+        self.uis.add(ui)
 
     def edit_vector(self):
+        self.uis.clear()
         for vector in self.selection:
-            self.uis.add(Ui_vector_widget(vector))
+            ui = Ui_vector_widget(self, vector)
+            self.uis.add(ui)
+            ui.show()
+        self.selection.clear()
 
     def del_selection(self):
         for vector in self.selection:

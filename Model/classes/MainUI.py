@@ -14,6 +14,7 @@ class MainUI(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
+        self.uis = set()
         self.control = Controller(self)
         self.graphicsys = GraphicSystem(self)
         self.centralwidget = QtWidgets.QWidget(self)
