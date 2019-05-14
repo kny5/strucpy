@@ -12,9 +12,7 @@ class Projector:
                                      [0, -1, 0],
                                      [0, 0, 0]])
     matrix = []
-
-    def __init__(self):
-        self.parent = None
+    last_iso_projection = []
 
     def set_parent(self, parent):
         self.parent = parent
@@ -71,13 +69,15 @@ class Projector:
 
 
 class Vector(Projector):
-
     def __init__(self, start, end):
         super().__init__()
         self.start = start
         self.end = end
-        self.pos = (start, end)
+
         self.reformat_byz()
+    @property
+    def pos(self):
+        return self.start, self.end
 
     @property
     def long(self):

@@ -6,7 +6,7 @@ from operator import add
 from functools import reduce
 from Model.classes.geometry import Vector
 # from ui_views.Vectoreditor import Ui_Form as vectoredit
-from ui_views.addvector import edit_vector
+from dev_files.scripts.addvector import edit_vector
 from PyQt5.QtWidgets import QFileDialog as qfd
 from Model.classes.Views import toolbox, Menubar
 # from Model.classes.new_buffer_handler import Controlador

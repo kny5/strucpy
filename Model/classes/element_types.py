@@ -13,9 +13,9 @@ class Element(Parameters):
     _e_id_gen = it_counts(1)
 
     def __init__(self, vector):
-        vector.set_parent(self)
         super().__init__()
         self.e_id = next(self._e_id_gen)
+        vector.set_parent(self)
         self.vector = vector
         self.loads = Loads()
         self.type = None
@@ -25,9 +25,10 @@ class Element(Parameters):
         self.kv: float = 0.0
         self.kh: float = 0.0
 
+
     # move this to control class
     def set_type(self, index):
-        materials = [Concrete, Custom, Or, Ir, Oc]
+        materials = [Concrete, Or, Ir, Oc, Custom]
         selected = materials[index]
         self.type = selected()
         return
