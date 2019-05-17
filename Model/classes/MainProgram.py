@@ -22,7 +22,6 @@ class Program:
         self.kest = []
         self.pcur_ = []
         self.dn_est = []
-        self.nodes_dict = {}
 
     def b_aproximation(self):
         pass

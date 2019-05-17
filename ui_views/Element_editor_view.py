@@ -143,6 +143,7 @@ class ElementEditor(QtWidgets.QWidget):
             print(self.element.loads.__dict__)
         except Exception:
             print('Exception!')
+            print(self.element.__dict__)
             pass
 
     def changeEvent(self, event):

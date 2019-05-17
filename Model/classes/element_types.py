@@ -25,13 +25,11 @@ class Element(Parameters):
         self.kv: float = 0.0
         self.kh: float = 0.0
 
-
     # move this to control class
     def set_type(self, index):
         materials = [Concrete, Or, Ir, Oc, Custom]
         selected = materials[index]
         self.type = selected()
-        return
 
 
 class Results:

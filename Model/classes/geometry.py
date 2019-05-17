@@ -6,6 +6,7 @@ from operator import add
 
 
 class Projector:
+    parent = None
     alpha = 35
     beta = 50.3
     project_plane_matrix = np.array([[1, 0, 0],
@@ -73,8 +74,8 @@ class Vector(Projector):
         super().__init__()
         self.start = start
         self.end = end
-
         self.reformat_byz()
+
     @property
     def pos(self):
         return self.start, self.end
@@ -115,11 +116,19 @@ class Node:
     n_id_gen = it_counts(1)
 
     def __init__(self, position):
+        # self.assigned = False
         self.n_id = next(self.n_id_gen)
         self.position = position
         self.n_ve = []
-        self.conf_springs = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
-        self.conf_vcn = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
-        self.conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
-        self.n_springs = list(self.conf_springs.values())
-        self.n_vcn = list(self.conf_vcn.values())
+        self.conf = {'dx': {'spring': 0.0, 'load': 0.0, 'activated': False},
+                     'dy': {'spring': 0.0, 'load': 0.0, 'activated': False},
+                     'dz': {'spring': 0.0, 'load': 0.0, 'activated': False},
+                     'mx': {'spring': 0.0, 'load': 0.0, 'activated': False},
+                     'my': {'spring': 0.0, 'load': 0.0, 'activated': False},
+                     'mz': {'spring': 0.0, 'load': 0.0, 'activated': False}}
+
+        # self.conf_springs = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
+        # self.conf_vcn = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
+        # self.conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
+        # self.n_springs = list(self.conf_springs.values())
+        # self.n_vcn = list(self.conf_vcn.values())
