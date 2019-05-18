@@ -118,7 +118,7 @@ class Node:
     def __init__(self, position):
         # self.assigned = False
         self.n_id = next(self.n_id_gen)
-        self.position = position
+        self.pos = position
         self.n_ve = []
         self.conf = {'dx': {'spring': 0.0, 'load': 0.0, 'activated': False},
                      'dy': {'spring': 0.0, 'load': 0.0, 'activated': False},

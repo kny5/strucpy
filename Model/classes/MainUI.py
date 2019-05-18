@@ -14,9 +14,9 @@ class MainUI(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.uis_vector = set()
-        self.uis_element = set()
-        self.uis_node = set()
+        self.uis_vector = dict()
+        self.uis_element = dict()
+        self.uis_node = dict()
         self.control = Controller(self)
         self.graphicsys = GraphicSystem(self)
         self.centralwidget = QtWidgets.QWidget(self)
@@ -41,7 +41,6 @@ class MainUI(QtWidgets.QMainWindow):
         # self.tools_groupbox.vectors_groupbox.set_btn_vectors.setDisabled(True)
         self.tools_groupbox.vectors_groupbox.set_btn_vectors.clicked.connect(self.control.set_vectors)
         self.tools_groupbox.elements_groupbox.edit_btn_elements.clicked.connect(self.control.edit_element)
-
 
         self.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(self)
@@ -69,6 +68,7 @@ class MainUI(QtWidgets.QMainWindow):
 
     def notificator(self, title, message):
         QtWidgets.QMessageBox.about(self, title, message)
+
 
 class GraphicSystem:
     def __init__(self, parent):

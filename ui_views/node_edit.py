@@ -318,7 +318,7 @@ class NodeEditor(QtWidgets.QWidget):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Node " + str(self.node.position)))
+        Dialog.setWindowTitle(_translate("Dialog", "Node " + str(self.node.pos)))
         self.groupBox_3.setTitle(_translate("Dialog", "Degrees of Freedom"))
         self.dx_bool.setText(_translate("Dialog", "DX"))
         self.dy_bool.setText(_translate("Dialog", "DY"))

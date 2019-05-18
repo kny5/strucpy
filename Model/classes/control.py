@@ -58,11 +58,16 @@ class Controller:
 
     def edit_vector(self):
         if self.selection.__len__() > 0:
-            self.parent.uis_vector.clear()
+            # self.parent.uis_vector.clear()
             for vector in self.selection:
-                ui = Ui_vector_widget(self, vector)
-                self.parent.uis_vector.add(ui)
-                ui.show()
+                if self.parent.uis_vector.get(str(vector.pos)) is None:
+                    ui = Ui_vector_widget(self, vector)
+                    self.parent.uis_vector[str(vector.pos)] = ui
+                    ui.show()
+                else:
+                    ui = self.parent.uis_vector.get(str(vector.pos))
+                    if not ui.isVisible():
+                        ui.show()
             self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados' )
@@ -91,7 +96,6 @@ class Controller:
             list_points = reduce(add, [[vector.start, vector.end] for vector in self.program.vectors if vector.parent is None])
             nodes = list(map(Node, list_points))
             dict_points = dict(zip(list_points, nodes))
-
             for key in dict_points.keys():
                 if not key in self.dict_nodes:
                     self.dict_nodes[key] = dict_points[key]
@@ -99,14 +103,13 @@ class Controller:
         except:
             pass
 
-
     def edit_element(self):
         if self.selection.__len__() > 0:
-            self.parent.uis_element.clear()
             for vector in self.selection:
-                ui = ElementEditor(self, vector.parent)
-                self.parent.uis_element.add(ui)
-                ui.show()
+                if self.parent.uis_element.get(str(vector.pos)) is None:
+                    ui = ElementEditor(self, vector.parent)
+                    self.parent.uis_element[str(vector.pos)] = ui
+                    ui.show()
             self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
@@ -117,11 +120,10 @@ class Controller:
             for vector in self.selection:
                 start = self.dict_nodes[vector.start]
                 end = self.dict_nodes[vector.end]
-                print(start, end)
                 u1 = NodeEditor(start)
                 u2 = NodeEditor(end)
-                self.parent.uis_node.add(u1)
-                self.parent.uis_node.add(u2)
+                self.parent.uis_node[str(u1.node.pos)] = u1
+                self.parent.uis_node[str(u2.node.pos)] = u2
                 u1.show()
                 u2.show()
 
