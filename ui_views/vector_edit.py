@@ -23,12 +23,16 @@ class VectorEditor(QtWidgets.QWidget):
                 self.control.selection.clear()
                 self.control.selection.add(self.vector)
                 self.control.parent.graphicsys.show_vector_selection()
-                self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
+                # self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
             except Exception:
                 pass
 
     def closeEvent(self, event):
-        self.control.clear_selection()
+        try:
+            self.control.parent.uis_vector.pop(str(self.vector.pos))
+            self.control.selection.discard(self.vector)
+        except:
+            pass
 
     def save_values(self):
         try:
@@ -39,6 +43,8 @@ class VectorEditor(QtWidgets.QWidget):
             Vector.matrix = []
             self.control.program.vectors.add(self.vector)
             self.control.parent.graphicsys.show_vectors()
+            self.control.set_nodes()
+            self.control.set_vectors()
         except Exception:
             QtWidgets.QMessageBox.about(self, 'Error', 'Verifique la entrada de datos')
 

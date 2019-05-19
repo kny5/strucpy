@@ -27,6 +27,8 @@ class Controller:
             # self.program.vectors = dxf[0]
             # self.program.nodes = dxf[1]
             self.parent.graphicsys.show_vectors()
+            self.set_nodes()
+            self.set_vectors()
         except Exception:
             pass
 
@@ -63,9 +65,7 @@ class Controller:
                     ui = VectorEditor(self, vector)
                     self.parent.uis_vector[str(vector.pos)] = ui
                 else:
-                    # if vector in self.program.vectors:
                     ui = self.parent.uis_vector.get(str(vector.pos))
-
                 ui.show()
             self.selection.clear()
         else:

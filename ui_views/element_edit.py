@@ -153,9 +153,16 @@ class ElementEditor(QtWidgets.QWidget):
                 self.control.selection.clear()
                 self.control.selection.add(self.element.vector)
                 self.control.parent.graphicsys.show_vector_selection()
-                self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
+                # self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
             except Exception:
                 pass
+
+    def closeEvent(self, event):
+        try:
+            self.control.parent.uis_vector.pop(str(self.vector.element.pos))
+            self.control.selection.discard(self.vector)
+        except:
+            pass
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate

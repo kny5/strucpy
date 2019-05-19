@@ -318,6 +318,12 @@ class NodeEditor(QtWidgets.QWidget):
 
         # print(self.node.conf, sep='')
 
+    def closeEvent(self, event):
+        try:
+            self.control.parent.uis_node.pop(str(self.node.pos))
+        except:
+            pass
+
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Node " + str(self.node.pos)))

@@ -115,7 +115,7 @@ class GraphicSystem:
         self.hLine.setPos(y_)
 
     def check_if_point(self, cursor):
-        if self.parent.control.selection.__len__() > 0 and self.parent.control.program.vectors.__len__() > 0:
+        if self.parent.control.program.vectors.__len__() > 0:
             if cursor.button() == 1:
                 try:
                     _maped_pos = self.plot.mapFromScene(cursor.pos())
