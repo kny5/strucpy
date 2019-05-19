@@ -126,6 +126,7 @@ class ElementEditor(QtWidgets.QWidget):
         self.ok_btn.setLayoutDirection(QtCore.Qt.RightToLeft)
         # self.ok_btn.setObjectName("ok_btn")
         self.verticalLayout.addWidget(self.ok_btn)
+        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
         self.retranslateUi()
         QtCore.QMetaObject.connectSlotsByName(self)
 
@@ -142,8 +143,8 @@ class ElementEditor(QtWidgets.QWidget):
             print(self.element.__dict__)
             print(self.element.loads.__dict__)
         except Exception:
-            print('Exception!')
-            print(self.element.__dict__)
+            # print('Exception!')
+            # print(self.element.__dict__)
             pass
 
     def changeEvent(self, event):

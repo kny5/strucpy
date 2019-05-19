@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Model.classes.geometry import Vector
 
-class Ui_vector_widget(QtWidgets.QWidget):
+class VectorEditor(QtWidgets.QWidget):
     def __init__(self, control, vector):
         super().__init__()
         self.control = control
@@ -204,6 +204,8 @@ class Ui_vector_widget(QtWidgets.QWidget):
         # self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         # self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         # self.gridLayout_4.addWidget(self.line_2, 1, 1, 1, 1)
+
+        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
 
         self.retranslateUi(self)
         QtCore.QMetaObject.connectSlotsByName(self)

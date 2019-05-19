@@ -171,7 +171,6 @@ class GraphicSystem:
 
 if __name__ == '__main__':
     import sys
-
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
         app = QtWidgets.QApplication([])
         app.setOverrideCursor(QtCore.Qt.CrossCursor)

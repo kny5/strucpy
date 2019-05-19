@@ -314,7 +314,9 @@ class NodeEditor(QtWidgets.QWidget):
         self.node.conf['mz']['spring'] = float(self.mz_spring.text())
         self.node.conf['mz']['activated'] = self.mz_bool.isChecked()
 
-        print(self.node.conf, sep='')
+        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+
+        # print(self.node.conf, sep='')
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

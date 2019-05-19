@@ -3,8 +3,8 @@ from Model.functions.read_dxf import read_dxf, save_dxf
 from Model.classes.MainProgram import Program
 from Model.classes.geometry import Vector, Node
 from Model.classes.element_types import Element
-from ui_views.vector_edit import Ui_vector_widget
-from ui_views.Element_editor_view import ElementEditor
+from ui_views.vector_edit import VectorEditor
+from ui_views.element_edit import ElementEditor
 from ui_views.node_edit import NodeEditor
 from functools import reduce
 from operator import add
@@ -52,22 +52,21 @@ class Controller:
         Vector.matrix = []
 
     def add_vector(self):
-        vector = Vector((0,0,0,), (1,1,1))
+        vector = Vector((0,0,0), (1,1,1))
         self.selection.add(vector)
         self.edit_vector()
+
 
     def edit_vector(self):
         if self.selection.__len__() > 0:
             # self.parent.uis_vector.clear()
             for vector in self.selection:
                 if self.parent.uis_vector.get(str(vector.pos)) is None:
-                    ui = Ui_vector_widget(self, vector)
+                    ui = VectorEditor(self, vector)
                     self.parent.uis_vector[str(vector.pos)] = ui
-                    ui.show()
                 else:
                     ui = self.parent.uis_vector.get(str(vector.pos))
-                    if not ui.isVisible():
-                        ui.show()
+                ui.show()
             self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados' )
@@ -75,9 +74,13 @@ class Controller:
     def del_selection(self):
         if self.selection.__len__() > 0:
             for vector in self.selection:
-                self.program.vectors.remove(vector)
+                print(vector)
+                if vector in self.program.vectors:
+                    self.program.vectors.discard(vector)
+                else:
+                    pass
             self.selection.clear()
-            # self.parent.graphicsys.plot.setData([], [])
+            self.parent.graphicsys.plot.setData([], [])
             Vector.matrix = []
             # self.parent.graphicsys.show_vectors()
         else:
@@ -109,7 +112,9 @@ class Controller:
                 if self.parent.uis_element.get(str(vector.pos)) is None:
                     ui = ElementEditor(self, vector.parent)
                     self.parent.uis_element[str(vector.pos)] = ui
-                    ui.show()
+                else:
+                    ui = self.parent.uis_element[str(vector.pos)]
+                ui.show()
             self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
@@ -118,14 +123,21 @@ class Controller:
         if self.selection.__len__() > 0:
             self.parent.uis_node.clear()
             for vector in self.selection:
-                start = self.dict_nodes[vector.start]
-                end = self.dict_nodes[vector.end]
-                u1 = NodeEditor(start)
-                u2 = NodeEditor(end)
-                self.parent.uis_node[str(u1.node.pos)] = u1
-                self.parent.uis_node[str(u2.node.pos)] = u2
+                if self.parent.uis_node.get(str(vector.start)) is None:
+                    start = self.dict_nodes[vector.start]
+                    u1 = NodeEditor(start)
+                    self.parent.uis_node[str(vector.start)] = u1
+                else:
+                    u1 = self.parent.uis_node.get(str(vector.start))
+                if self.parent.uis_node.get(str(vector.end)) is None:
+                    end = self.dict_nodes[vector.end]
+                    u2 = NodeEditor(end)
+                    self.parent.uis_node[str(vector.end)] = u2
+                else:
+                    u2 = self.parent.uis_node.get(str(vector.end))
                 u1.show()
                 u2.show()
+            self.selection.clear()
 
     def edit_type(self):
         pass
