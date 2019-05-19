@@ -56,16 +56,16 @@ class Controller:
         self.selection.add(vector)
         self.edit_vector()
 
-
     def edit_vector(self):
         if self.selection.__len__() > 0:
-            # self.parent.uis_vector.clear()
             for vector in self.selection:
                 if self.parent.uis_vector.get(str(vector.pos)) is None:
                     ui = VectorEditor(self, vector)
                     self.parent.uis_vector[str(vector.pos)] = ui
                 else:
+                    # if vector in self.program.vectors:
                     ui = self.parent.uis_vector.get(str(vector.pos))
+
                 ui.show()
             self.selection.clear()
         else:
@@ -74,15 +74,13 @@ class Controller:
     def del_selection(self):
         if self.selection.__len__() > 0:
             for vector in self.selection:
-                print(vector)
                 if vector in self.program.vectors:
                     self.program.vectors.discard(vector)
-                else:
-                    pass
             self.selection.clear()
             self.parent.graphicsys.plot.setData([], [])
             Vector.matrix = []
-            # self.parent.graphicsys.show_vectors()
+            self.parent.graphicsys.show_vectors()
+            self.parent.graphicsys.show_vector_selection()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
 

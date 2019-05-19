@@ -115,33 +115,37 @@ class GraphicSystem:
         self.hLine.setPos(y_)
 
     def check_if_point(self, cursor):
-        if cursor.button() == 1:
-            try:
-                _maped_pos = self.plot.mapFromScene(cursor.pos())
-                cursor_pos = (_maped_pos.x(), _maped_pos.y())
-                pixelsize = self.graphics.viewPixelSize()
-            except AttributeError:
-                return False
-            group = self.parent.control.program.vectors
-            selection = self.parent.control.selection
-            for vector in group:
-                perpendicular_distance_from_point = dist_point_line(vector.start_2d, vector.end_2d, cursor_pos)
-                if perpendicular_distance_from_point < pixelsize[0] * self.selection_ratio:
-                    if vector not in selection:
-                        selection.add(vector)
-                    else:
-                        selection.remove(vector)
-            self.show_vector_selection()
-        else:
-            print("right click")
+        if self.parent.control.selection.__len__() > 0 and self.parent.control.program.vectors.__len__() > 0:
+            if cursor.button() == 1:
+                try:
+                    _maped_pos = self.plot.mapFromScene(cursor.pos())
+                    cursor_pos = (_maped_pos.x(), _maped_pos.y())
+                    pixelsize = self.graphics.viewPixelSize()
+                except AttributeError:
+                    return False
+                group = self.parent.control.program.vectors
+                selection = self.parent.control.selection
+                for vector in group:
+                    perpendicular_distance_from_point = dist_point_line(vector.start_2d, vector.end_2d, cursor_pos)
+                    if perpendicular_distance_from_point < pixelsize[0] * self.selection_ratio:
+                        if vector not in selection:
+                            selection.add(vector)
+                        else:
+                            selection.remove(vector)
+                self.show_vector_selection()
+            else:
+                print("right click")
 
     def show_vectors(self):
-        Vector.iso_projection()
-        matrix = Vector.process_to_matrix(self.parent.control.program.vectors)
-        self.plot.updateData(matrix[:, 0], matrix[:, 1], connect="pairs")
-        # plotting dots for node representation, but we need to do this separately
-        # dots = unique(matrix, axis=0)
-        # self.plot_dots.setData(dots[:, 0], dots[:, 1])
+        if self.parent.control.program.vectors.__len__() > 0:
+            Vector.iso_projection()
+            matrix = Vector.process_to_matrix(self.parent.control.program.vectors)
+            self.plot.updateData(matrix[:, 0], matrix[:, 1], connect="pairs")
+            # plotting dots for node representation, but we need to do this separately
+            # dots = unique(matrix, axis=0)
+            # self.plot_dots.setData(dots[:, 0], dots[:, 1])
+        else:
+            self.plot.setData([], [])
 
     def show_vector_selection(self):
         if self.parent.control.selection.__len__() > 0:
