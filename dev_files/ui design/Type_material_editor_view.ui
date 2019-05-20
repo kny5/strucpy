@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
-    <height>538</height>
+    <width>340</width>
+    <height>250</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -81,29 +81,20 @@
     </widget>
    </item>
    <item>
-    <widget class="QOpenGLWidget" name="openGLWidget">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>200</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="QScrollArea" name="scrollArea">
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
+     <widget class="QWidget" name="fill_this">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>308</width>
-        <height>173</height>
+        <width>316</width>
+        <height>92</height>
        </rect>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3"/>
      </widget>
     </widget>
    </item>
