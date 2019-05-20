@@ -14,6 +14,8 @@ class MainUI(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
+        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap("strucpy_icon.png")))
+        self.setWindowTitle("Strucpy Alpha v0.1")
         self.uis_vector = dict()
         self.uis_element = dict()
         self.uis_node = dict()
@@ -36,11 +38,10 @@ class MainUI(QtWidgets.QMainWindow):
         self.tools_groupbox.vectors_groupbox.edit_btn_vectors.clicked.connect(self.control.edit_vector)
         self.tools_groupbox.vectors_groupbox.del_btn_vectors.clicked.connect(self.control.del_selection)
         self.tools_groupbox.vectors_groupbox.add_btn_vectors.clicked.connect(self.control.add_vector)
-        self.tools_groupbox.nodes_groupbox.set_btn_nodes.clicked.connect(self.control.set_nodes)
+        # self.tools_groupbox.vectors_groupbox.set_btn_vectors.clicked.connect(self.control.set_vectors)
+        # self.tools_groupbox.nodes_groupbox.set_btn_nodes.clicked.connect(self.control.set_nodes)
         self.tools_groupbox.nodes_groupbox.edit_btn_nodes.clicked.connect(self.control.edit_node)
-        # self.tools_groupbox.vectors_groupbox.set_btn_vectors.setDisabled(True)
-        self.tools_groupbox.vectors_groupbox.set_btn_vectors.clicked.connect(self.control.set_vectors)
-        self.tools_groupbox.elements_groupbox.edit_btn_elements.clicked.connect(self.control.edit_element)
+        self.tools_groupbox.elements_groupbox.loads_btn_elements.clicked.connect(self.control.edit_loads)
 
         self.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(self)
@@ -84,7 +85,7 @@ class GraphicSystem:
                                      movable=False)
 
         self.plot = pg.PlotCurveItem(
-            pen=pg.mkPen(color=(7, 185, 252, 255), width=2),
+            pen=pg.mkPen(color=(7, 185, 252, 255), width=1),
             antialias=True)
 
         self.plot_selection = pg.PlotCurveItem(

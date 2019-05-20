@@ -19,62 +19,54 @@ class Element(Parameters):
         self.vector = vector
         self.loads = Loads()
         self.type = None
-        self.marco: int = 0
+        self.marco: str = "Default"
         self.data = Data()
         self.results = Results()
-        self.kv: float = 0.0
-        self.kh: float = 0.0
 
-    # move this to control class
     def set_type(self, index):
         materials = [Concrete, Or, Ir, Oc, Custom]
         selected = materials[index]
         self.type = selected()
 
 
-class Results:
-    def __init__(self):
-        pass
+class Results: pass
 
 
 class Data:
-    def __init__(self):
-        self.kzz = None
-        self.kyy = None
-        self.mzz = None
-        self.myy = None
-        self.vzz = None
-        self.vyy = None
-        self.tr = None
-        self.keb = None
-        self.kebg = None
-        self.pp_scc = None
-        self.dlzz = None
-        self.dlyy = None
-        self.mdlzz = None
-        self.mdlyy = None
-        self.pculocal = None
-        self.pc_ = None
+    kzz = None
+    kyy = None
+    mzz = None
+    myy = None
+    vzz = None
+    vyy = None
+    tr = None
+    keb = None
+    kebg = None
+    pp_scc = None
+    dlzz = None
+    dlyy = None
+    mdlzz = None
+    mdlyy = None
+    pculocal = None
+    pc_ = None
 
 
 class Loads:
-    def __init__(self, wy=0.0, wz=0.0, aw=0.0):
-        self.wy: float = wy
-        self.wz: float = wz
-        self.aw: float = aw
+    wy: float = 0.0
+    wz: float = 0.0
+    aw: float = 0.0
+    kv: float = 0.0
+    kh: float = 0.0
 
 
 # Materiales disponibles
-
 class Concrete:
     """Propiedades específicas del concreto"""
-
-    def __init__(self):
-        self.b: float = 0.0
-        self.h: float = 0.0
-        self.b_prima: float = 0.0
-        self.e: float = 221.359
-        self.p_mat: float = 2.4
+    b: float = 0.0
+    h: float = 0.0
+    b_prima: float = 0.0
+    e: float = 221.359
+    p_mat: float = 2.4
 
     @property
     def a1(self):
@@ -105,16 +97,14 @@ class Concrete:
 
 class Custom:
     """Tipo de elemento con propiedades personalizadas"""
-
-    def __init__(self):
-        self.b: float = 0.0
-        self.h: float = 0.0
-        self.izz_: float = 0.0
-        self.iyy_: float = 0.0
-        self.j_: float = 0.0
-        self.e: float = 0.0
-        self.p_mat: float = 0.0
-        self.area_: float = 0.0
+    b: float = 0.0
+    h: float = 0.0
+    izz_: float = 0.0
+    iyy_: float = 0.0
+    j_: float = 0.0
+    e: float = 0.0
+    p_mat: float = 0.0
+    area_: float = 0.0
 
     @property
     def a1(self):
@@ -143,15 +133,13 @@ class Custom:
 
 class Or:
     """Propiedades específicas del tipo OR"""
-
-    def __init__(self):
-        self.d: float = 0.0
-        self.bf: float = 0.0
-        self.tf: float = 0.0
-        self.tw: float = 0.0
-        self.e: float = 0.0
-        self.p_mat: float = 7.849
-        self.armour: bool = False
+    d: float = 0.0
+    bf: float = 0.0
+    tf: float = 0.0
+    tw: float = 0.0
+    e: float = 0.0
+    p_mat: float = 7.849
+    armour: bool = False
 
     @property
     def a1(self):
@@ -187,15 +175,13 @@ class Or:
 
 class Ir:
     """Propiedades específicas del tipo IR"""
-
-    def __init__(self):
-        self.d: float = 0.0
-        self.tf: float = 0.0
-        self.bf: float = 0.0
-        self.tw: float = 0.0
-        self.e: float = 0.0
-        self.p_mat: float = 7.849
-        self.armour: bool = False
+    d: float = 0.0
+    tf: float = 0.0
+    bf: float = 0.0
+    tw: float = 0.0
+    e: float = 0.0
+    p_mat: float = 7.849
+    armour: bool = False
 
     @property
     def a1(self):
@@ -227,13 +213,11 @@ class Ir:
 
 class Oc:
     """Propiedades específicas del tipo OC"""
-
-    def __init__(self):
-        self.d: float = 0.0
-        self.t: float = 0.0
-        self.e: float = 0.0
-        self.p_mat: float = 7.849
-        self.armour: bool = False
+    d: float = 0.0
+    t: float = 0.0
+    e: float = 0.0
+    p_mat: float = 7.849
+    armour: bool = False
 
     @property
     def a1(self):

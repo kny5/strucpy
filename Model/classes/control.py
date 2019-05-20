@@ -4,7 +4,7 @@ from Model.classes.MainProgram import Program
 from Model.classes.geometry import Vector, Node
 from Model.classes.element_types import Element
 from ui_views.vector_edit import VectorEditor
-from ui_views.element_edit import ElementEditor
+from ui_views.loads_edit import LoadsEditor
 from ui_views.node_edit import NodeEditor
 from functools import reduce
 from operator import add
@@ -104,11 +104,11 @@ class Controller:
         except:
             pass
 
-    def edit_element(self):
+    def edit_loads(self):
         if self.selection.__len__() > 0:
             for vector in self.selection:
                 if self.parent.uis_element.get(str(vector.pos)) is None:
-                    ui = ElementEditor(self, vector.parent)
+                    ui = LoadsEditor(self, vector.parent)
                     self.parent.uis_element[str(vector.pos)] = ui
                 else:
                     ui = self.parent.uis_element[str(vector.pos)]

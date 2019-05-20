@@ -9,11 +9,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class ElementEditor(QtWidgets.QWidget):
+class LoadsEditor(QtWidgets.QWidget):
     def __init__(self, control, element):
         super().__init__()
         self.control = control
         self.element = element
+        self.loads = element.loads
         self.setupUi()
         self.ok_btn.clicked.connect(self.save_values)
 
@@ -31,29 +32,31 @@ class ElementEditor(QtWidgets.QWidget):
         self.label_2 = QtWidgets.QLabel(self.element_group)
         # self.label_2.setObjectName("label_2")
         self.gridLayout_2.addWidget(self.label_2, 5, 0, 1, 1)
-        self.label_3 = QtWidgets.QLabel(self.element_group)
+        # self.label_3 = QtWidgets.QLabel(self.element_group)
         # self.label_3.setObjectName("label_3")
-        self.gridLayout_2.addWidget(self.label_3, 6, 0, 1, 1)
-        self.label_4 = QtWidgets.QLabel(self.element_group)
-        # self.label_4.setObjectName("label_4")
-        self.gridLayout_2.addWidget(self.label_4, 7, 0, 1, 1)
-        self.type = QtWidgets.QComboBox(self.element_group)
-        self.type.setMinimumSize(QtCore.QSize(0, 40))
-        self.type.setMaximumSize(QtCore.QSize(100, 16777215))
-        self.type.setLayoutDirection(QtCore.Qt.LeftToRight)
-        # self.type.setObjectName("type")
-        self.type.addItem("")
-        self.type.addItem("")
-        self.type.addItem("")
-        self.type.addItem("")
-        self.type.addItem("")
-        self.gridLayout_2.addWidget(self.type, 7, 1, 1, 1)
-        self.marco = QtWidgets.QLineEdit(self.element_group)
-        self.marco.setMinimumSize(QtCore.QSize(0, 40))
-        self.marco.setMaximumSize(QtCore.QSize(100, 16777215))
-        self.marco.setLayoutDirection(QtCore.Qt.RightToLeft)
+        # self.gridLayout_2.addWidget(self.label_3, 6, 0, 1, 1)
+        # self.label_4 = QtWidgets.QLabel(self.element_group)
+        # # self.label_4.setObjectName("label_4")
+        # self.gridLayout_2.addWidget(self.label_4, 7, 0, 1, 1)
+
+        # self.type = QtWidgets.QComboBox(self.element_group)
+        # self.type.setMinimumSize(QtCore.QSize(0, 40))
+        # self.type.setMaximumSize(QtCore.QSize(100, 16777215))
+        # self.type.setLayoutDirection(QtCore.Qt.LeftToRight)
+        # # self.type.setObjectName("type")
+        # self.type.addItem("")
+        # self.type.addItem("")
+        # self.type.addItem("")
+        # self.type.addItem("")
+        # self.type.addItem("")
+        # self.gridLayout_2.addWidget(self.type, 7, 1, 1, 1)
+
+        # self.marco = QtWidgets.QLineEdit(self.element_group)
+        # self.marco.setMinimumSize(QtCore.QSize(0, 40))
+        # self.marco.setMaximumSize(QtCore.QSize(100, 16777215))
+        # self.marco.setLayoutDirection(QtCore.Qt.RightToLeft)
         # self.marco.setObjectName("marco")
-        self.gridLayout_2.addWidget(self.marco, 6, 1, 1, 1)
+        # self.gridLayout_2.addWidget(self.marco, 6, 1, 1, 1)
         self.label = QtWidgets.QLabel(self.element_group)
         # self.label.setObjectName("label")
         self.gridLayout_2.addWidget(self.label, 4, 0, 1, 1)
@@ -133,49 +136,38 @@ class ElementEditor(QtWidgets.QWidget):
 
     def save_values(self):
         try:
-            self.element.kv = float(self.kv.text())
-            self.element.kh = float(self.kh.text())
-            self.element.loads.wy = float(self.wy.text())
-            self.element.loads.wz = float(self.wz.text())
-            self.element.loads.aw = float(self.aw.text())
-            self.element.marco = self.marco.text()
-            self.element.set_type(self.type.currentIndex())
-            print(self.element.__dict__)
-            print(self.element.loads.__dict__)
+            self.loads.kv = float(self.kv.text())
+            self.loads.kh = float(self.kh.text())
+            self.loads.wy = float(self.wy.text())
+            self.loads.wz = float(self.wz.text())
+            self.loads.aw = float(self.aw.text())
+            # self.element.marco = self.marco.text()
+            # self.element.set_type(self.type.currentIndex())
         except Exception:
-            # print('Exception!')
-            # print(self.element.__dict__)
             pass
 
     def changeEvent(self, event):
-        if self.isActiveWindow():
-            try:
-                self.control.selection.clear()
-                self.control.selection.add(self.element.vector)
-                self.control.parent.graphicsys.show_vector_selection()
-                # self.control.parent.graphicsys.graphics.autoRange(items=[self.control.parent.graphicsys.plot_selection])
-            except Exception:
-                pass
+        pass
 
     def closeEvent(self, event):
         try:
-            self.control.parent.uis_vector.pop(str(self.vector.element.pos))
-            self.control.selection.discard(self.vector)
+            self.control.parent.uis_vector.pop(str(self.element.vector.pos))
+            self.control.selection.discard(self.element.vector)
         except:
             pass
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("Dialog", "Element " + str(self.element.e_id)))
-        self.element_group.setTitle(_translate("Dialog", "Element in " + str(self.element.vector.pos)))
+        self.setWindowTitle(_translate("Dialog", "Loads"))
+        self.element_group.setTitle(_translate("Dialog", "In " + str(self.element.vector.pos)))
         self.label_2.setText(_translate("Dialog", "Eje Y Angulo de Carga"))
-        self.label_3.setText(_translate("Dialog", "Marco"))
-        self.label_4.setText(_translate("Dialog", "Tipo"))
-        self.type.setItemText(0, _translate("Dialog", "Concreto"))
-        self.type.setItemText(1, _translate("Dialog", "Or: Acero"))
-        self.type.setItemText(2, _translate("Dialog", "Ir: Acero"))
-        self.type.setItemText(3, _translate("Dialog", "Oc: Acero"))
-        self.type.setItemText(4, _translate("Dialog", "Custom"))
+        # self.label_3.setText(_translate("Dialog", "Marco"))
+        # self.label_4.setText(_translate("Dialog", "Tipo"))
+        # self.type.setItemText(0, _translate("Dialog", "Concreto"))
+        # self.type.setItemText(1, _translate("Dialog", "Or: Acero"))
+        # self.type.setItemText(2, _translate("Dialog", "Ir: Acero"))
+        # self.type.setItemText(3, _translate("Dialog", "Oc: Acero"))
+        # self.type.setItemText(4, _translate("Dialog", "Custom"))
         self.label.setText(_translate("Dialog", "Eje Z Carga Uniforme"))
         self.x_label_end.setText(_translate("Dialog", "Reacción Vertical"))
         self.z_label_end.setText(_translate("Dialog", "Eje Y Carga Uniforme"))

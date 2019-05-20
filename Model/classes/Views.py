@@ -1,7 +1,9 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 
 translate = QtCore.QCoreApplication.translate
+icon_size = QtCore.QSize(50, 50)
+btn_size = QtCore.QSize(60, 60)
 
 
 class VectorsTools(QtWidgets.QGroupBox):
@@ -9,24 +11,39 @@ class VectorsTools(QtWidgets.QGroupBox):
         super().__init__(parent)
         self.vectors_layout = QtWidgets.QGridLayout(self)
         self.edit_btn_vectors = QtWidgets.QPushButton(self)
+
         self.vectors_layout.addWidget(self.edit_btn_vectors, 0, 1, 1, 1)
-        self.set_btn_vectors = QtWidgets.QPushButton(self)
-        self.vectors_layout.addWidget(self.set_btn_vectors, 2, 3, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.vectors_layout.addItem(spacerItem, 1, 3, 1, 1)
+        # self.set_btn_vectors = QtWidgets.QPushButton(self)
+        # self.vectors_layout.addWidget(self.set_btn_vectors, 2, 3, 1, 1)
+        # spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        # self.vectors_layout.addItem(spacerItem, 1, 3, 1, 1)
         self.add_btn_vectors = QtWidgets.QPushButton(self)
         self.vectors_layout.addWidget(self.add_btn_vectors, 0, 3, 1, 1)
         self.del_btn_vectors = QtWidgets.QPushButton(self)
         self.vectors_layout.addWidget(self.del_btn_vectors, 1, 1, 1, 1)
         self.retranslate_ui()
 
+        #style for buttons
+
+        self.add_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("add_vector_icon.png")))
+        self.add_btn_vectors.setIconSize(icon_size)
+        self.add_btn_vectors.setMaximumSize(btn_size)
+
+        self.del_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("del_vector_icon.png")))
+        self.del_btn_vectors.setIconSize(icon_size)
+        self.del_btn_vectors.setMaximumSize(btn_size)
+
+        self.edit_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("edit_vector_icon.png")))
+        self.edit_btn_vectors.setIconSize(icon_size)
+        self.edit_btn_vectors.setMaximumSize(btn_size)
+
     def retranslate_ui(self):
         global translate
         self.setTitle(translate("MainWindow", "Vectors, draw"))
-        self.edit_btn_vectors.setText(translate("MainWindow", "Edit"))
-        self.set_btn_vectors.setText(translate("MainWindow", "SET"))
-        self.add_btn_vectors.setText(translate("MainWindow", "Add"))
-        self.del_btn_vectors.setText(translate("MainWindow", "Del"))
+        # self.edit_btn_vectors.setText(translate("MainWindow", "Edit"))
+        # self.set_btn_vectors.setText(translate("MainWindow", "SET"))
+        # self.add_btn_vectors.setText(translate("MainWindow", "Add"))
+        # self.del_btn_vectors.setText(translate("MainWindow", "Del"))
 
 
 class NodesTools(QtWidgets.QGroupBox):
@@ -35,17 +52,21 @@ class NodesTools(QtWidgets.QGroupBox):
         self.gridLayout_7 = QtWidgets.QGridLayout(self)
         self.edit_btn_nodes = QtWidgets.QPushButton(self)
         self.gridLayout_7.addWidget(self.edit_btn_nodes, 0, 0, 1, 1)
-        self.set_btn_nodes = QtWidgets.QPushButton(self)
-        self.gridLayout_7.addWidget(self.set_btn_nodes, 0, 1, 1, 1)
-        #spacerItem1 = QtWidgets.QSpacerItem(30, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        #self.gridLayout_7.addItem(spacerItem1, 1, 0, 1, 1)
+        # self.set_btn_nodes = QtWidgets.QPushButton(self)
+        # self.gridLayout_7.addWidget(self.set_btn_nodes, 0, 1, 1, 1)
+        # spacerItem1 = QtWidgets.QSpacerItem(30, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        # self.gridLayout_7.addItem(spacerItem1, 1, 0, 1, 1)
         self.retranslate_ui()
+
+        self.edit_btn_nodes.setIcon(QtGui.QIcon(QtGui.QPixmap("edit_node_icon.png")))
+        self.edit_btn_nodes.setIconSize(icon_size)
+        self.edit_btn_nodes.setMaximumSize(btn_size)
 
     def retranslate_ui(self):
         global translate
         self.setTitle(translate("MainWindow", "Nodes, forces and DoF"))
-        self.edit_btn_nodes.setText(translate("MainWindow", "Edit"))
-        self.set_btn_nodes.setText(translate("MainWindow", "SET"))
+        # self.edit_btn_nodes.setText(translate("MainWindow", "Edit"))
+        # self.set_btn_nodes.setText(translate("MainWindow", "SET"))
 
 
 class ElementsTools(QtWidgets.QGroupBox):
@@ -54,18 +75,29 @@ class ElementsTools(QtWidgets.QGroupBox):
         self.gridLayout_2 = QtWidgets.QGridLayout(self)
         self.edit_btn_elements = QtWidgets.QPushButton(self)
         self.gridLayout_2.addWidget(self.edit_btn_elements, 0, 0, 1, 1)
-        self.set_btn_elements = QtWidgets.QPushButton(self)
-        self.gridLayout_2.addWidget(self.set_btn_elements, 1, 1, 1, 1)
-        self.conf_btn_elements = QtWidgets.QPushButton(self)
-        self.gridLayout_2.addWidget(self.conf_btn_elements, 0, 1, 1, 1)
+
+        self.loads_btn_elements = QtWidgets.QPushButton(self)
+        self.gridLayout_2.addWidget(self.loads_btn_elements, 0, 1, 1, 1)
+
+        # self.conf_btn_elements = QtWidgets.QPushButton(self)
+        # self.gridLayout_2.addWidget(self.conf_btn_elements, 0, 1, 1, 1)
+
         self.retranslate_ui()
+
+        self.edit_btn_elements.setIcon(QtGui.QIcon(QtGui.QPixmap("edit_element_icon.png")))
+        self.edit_btn_elements.setIconSize(icon_size)
+        self.edit_btn_elements.setMaximumSize(btn_size)
+
+        self.loads_btn_elements.setIcon(QtGui.QIcon(QtGui.QPixmap("add_loads_icon.png")))
+        self.loads_btn_elements.setIconSize(icon_size)
+        self.loads_btn_elements.setMaximumSize(btn_size)
 
     def retranslate_ui(self):
         global translate
         self.setTitle(translate("MainWindow", "Elements, section and types"))
-        self.edit_btn_elements.setText(translate("MainWindow", "EDIT"))
-        self.set_btn_elements.setText(translate("MainWindow", "SET"))
-        self.conf_btn_elements.setText(translate("MainWindow", "CONF"))
+        # self.edit_btn_elements.setText(translate("MainWindow", "EDIT"))
+        # self.loads_btn_elements.setText(translate("MainWindow", "LOADS"))
+        # self.conf_btn_elements.setText(translate("MainWindow", "CONF"))
 
 
 class analysis_tools(QtWidgets.QGroupBox):
@@ -119,9 +151,9 @@ class analysis_tools(QtWidgets.QGroupBox):
 class toolbox(QtWidgets.QGroupBox):
     def __init__(self, parent):
         super().__init__(parent)
-        self.max_width = 250
+        self.max_width = 200
         self.max_height = 16777215
-        self.min_width = 250
+        self.min_width = 180
         self.min_height = 600
         self.setMaximumSize(QtCore.QSize(self.max_width, self.max_height))
         self.setMinimumSize(QtCore.QSize(self.min_width, self.min_height))
@@ -136,10 +168,14 @@ class toolbox(QtWidgets.QGroupBox):
         self.elements_groupbox = ElementsTools(self)
         self.tools_layout.addWidget(self.elements_groupbox)
 
-        self.analysis_groupbox = analysis_tools(self)
-        self.tools_layout.addWidget(self.analysis_groupbox)
+        # self.analysis_groupbox = analysis_tools(self)
+        # self.tools_layout.addWidget(self.analysis_groupbox)
+
         self.run_btn_tools = QtWidgets.QPushButton(self)
         self.tools_layout.addWidget(self.run_btn_tools)
+        self.run_btn_tools.setMinimumSize(80, 60)
+        # self.run_btn_tools.setStyleSheet("background-color: #777777")
+
         self.retranslate_ui()
 
     def retranslate_ui(self):

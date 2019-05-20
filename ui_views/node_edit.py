@@ -289,6 +289,13 @@ class NodeEditor(QtWidgets.QWidget):
         self.my_spring.setText(str(self.node.conf['my']['spring']))
         self.mz_spring.setText(str(self.node.conf['mz']['spring']))
 
+        self.dx_bool.setChecked(self.node.conf['dx']['activated'])
+        self.dy_bool.setChecked(self.node.conf['dy']['activated'])
+        self.dz_bool.setChecked(self.node.conf['dz']['activated'])
+        self.mx_bool.setChecked(self.node.conf['mx']['activated'])
+        self.my_bool.setChecked(self.node.conf['my']['activated'])
+        self.mz_bool.setChecked(self.node.conf['mz']['activated'])
+
     def save_values(self):
         self.node.conf['dx']['load'] = float(self.dx_load.text())
         self.node.conf['dx']['spring'] = float(self.dx_spring.text())
