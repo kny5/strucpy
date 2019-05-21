@@ -138,16 +138,14 @@ class Controller:
             self.selection.clear()
 
     def edit_type(self):
-        pass
-
-    # def multiple_views(self, view, selection):
-    #     self.views = {}
-    #     for obj in list(selection):
-    #         self.views.add(view(obj))
-    #     return self.views
-
-    # def export_as_json(self):
-    #     export = json.dumps(str(self.db))
-    #     with open('c:/repos/strucpy/dev_files/db.json', 'w') as outfile:
-    #         json.dump(export, outfile)
-    #     print(export)
+        if self.selection.__len__() > 0:
+            for vector in self.selection:
+                if self.parent.uis_element.get(str(vector.pos)) is None:
+                    ui = LoadsEditor(self, vector.parent)
+                    self.parent.uis_element[str(vector.pos)] = ui
+                else:
+                    ui = self.parent.uis_element[str(vector.pos)]
+                ui.show()
+            self.selection.clear()
+        else:
+            self.parent.notificator('Error', 'No hay vectores seleccionados')

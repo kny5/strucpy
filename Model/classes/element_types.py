@@ -24,9 +24,12 @@ class Element(Parameters):
         self.results = Results()
 
     def set_type(self, index):
-        materials = [Concrete, Or, Ir, Oc, Custom]
-        selected = materials[index]
-        self.type = selected()
+        if index == 0:
+            pass
+        else:
+            materials = [Concrete, Or, Ir, Oc, Custom]
+            selected = materials[index - 1]
+            self.type = selected()
 
 
 class Results: pass

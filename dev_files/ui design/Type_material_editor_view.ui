@@ -45,6 +45,11 @@
         </property>
         <item>
          <property name="text">
+          <string>Empty</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>Concreto</string>
          </property>
         </item>
@@ -85,7 +90,7 @@
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
-     <widget class="QWidget" name="fill_this">
+     <widget class="QWidget" name="scroll_content">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -94,7 +99,19 @@
         <height>92</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3"/>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="fill_this">
+         <item>
+          <widget class="QLabel" name="message">
+           <property name="text">
+            <string>Hola</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>
