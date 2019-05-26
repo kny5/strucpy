@@ -13,7 +13,7 @@ from operator import add
 class Program:
     def __init__(self, parent):
         self.parent = parent
-        self.vectors = set()
+        self.vectors = set([])
         self.nodes = []
         self.elements = []
         self.vcn = []
@@ -23,11 +23,11 @@ class Program:
         self.pcur_ = []
         self.dn_est = []
 
-    def b_aproximation(self):
-        pass
+    # def b_aproximation(self):
+    #     pass
 
-    def set_elements(self):
-        self.elements = list(map(Element, self.vectors))
+    # def set_elements(self):
+    #     self.elements = list(map(Element, self.vectors))
 
     def full_structure_matrix(self):
         self.kest = matlib.zeros(shape=(self.freedom, self.freedom))

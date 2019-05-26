@@ -21,7 +21,7 @@ class Projector:
     @classmethod
     def default_position(cls):
         cls.alpha = 35
-        cls.beta = 50.3
+        cls.beta = 45
 
     @classmethod
     def iso_projection(cls):
@@ -110,6 +110,8 @@ class Vector(Projector):
             start = self.start
             self.start = self.end
             self.end = start
+        # elif self.start == (0,0,0):
+        #     pass
 
 
 class Node:

@@ -17,6 +17,9 @@ class Controller:
         self.program = Program(self)
         self.selection = set([])
         self.dict_nodes = {}
+        self.uis_vector = dict()
+        self.uis_element = dict()
+        self.uis_node = dict()
         # self.views = None
 
     def open_file(self):
@@ -55,15 +58,20 @@ class Controller:
         vector = Vector((0,0,0), (1,1,1))
         self.selection.add(vector)
         self.edit_vector()
+        # vector = None
 
     def edit_vector(self):
         if self.selection.__len__() > 0:
             for vector in self.selection:
-                if self.parent.uis_vector.get(str(vector.pos)) is None:
-                    ui = VectorEditor(self, vector)
-                    self.parent.uis_vector[str(vector.pos)] = ui
-                else:
-                    ui = self.parent.uis_vector.get(str(vector.pos))
+                print("--" + str(self.uis_vector.get(str(vector.pos))))
+                ui = VectorEditor(self, vector)
+                self.uis_vector[str(vector.pos)] = ui
+                #this ui set is buggy
+                # if self.uis_vector.get(str(vector.pos)) is None:
+                #     ui = VectorEditor(self, vector)
+                #     self.uis_vector[str(vector.pos)] = ui
+                # else:
+                #     ui = self.uis_vector.get(str(vector.pos))
                 ui.show()
             self.selection.clear()
         else:
