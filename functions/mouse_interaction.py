@@ -1,16 +1,16 @@
 import pyqtgraph as pg
 import numpy as np
 from PyQt5 import QtGui, QtCore, QtWidgets
-from Model.functions.read_dxf import read_dxf, save_dxf
+from functions import read_dxf, save_dxf
 from operator import add
 from functools import reduce
-from Model.classes.geometry import Vector
+from classes.geometry import Vector
 # from ui_views.Vectoreditor import Ui_Form as vectoredit
 from dev_files.scripts.addvector import edit_vector
 from PyQt5.QtWidgets import QFileDialog as qfd
-from Model.classes.Views import toolbox, Menubar
+from ui_views.Views import toolbox, Menubar
 # from Model.classes.new_buffer_handler import Controlador
-from Model.functions.points_distance import dist_point_line
+from functions import dist_point_line
 
 
 def points_to_plot(vectors):

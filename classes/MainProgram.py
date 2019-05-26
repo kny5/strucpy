@@ -4,8 +4,8 @@
 # from Model.functions.asm_vector import asm_v
 import numpy as np
 from numpy import matlib
-from Model.classes.element_types import Element
-from Model.classes.geometry import Node
+from classes.element_types import Element
+from classes.geometry import Node
 from functools import reduce
 from operator import add
 

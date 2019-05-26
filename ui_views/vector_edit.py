@@ -6,8 +6,8 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from Model.classes.geometry import Vector
+from PyQt5 import QtCore, QtWidgets
+from classes.geometry import Vector
 
 class VectorEditor(QtWidgets.QWidget):
     def __init__(self, control, vector):

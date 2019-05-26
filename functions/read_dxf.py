@@ -1,4 +1,4 @@
-from Model.classes.geometry import Vector, Node
+from classes.geometry import Vector
 from numpy import subtract
 import ezdxf
 

@@ -25,15 +25,15 @@ class VectorsTools(QtWidgets.QGroupBox):
 
         #style for buttons
 
-        self.add_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("add_vector_icon.png")))
+        self.add_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("ui_views/icons/add_vector_icon.png")))
         self.add_btn_vectors.setIconSize(icon_size)
         self.add_btn_vectors.setMaximumSize(btn_size)
 
-        self.del_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("del_vector_icon.png")))
+        self.del_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("ui_views/icons/del_vector_icon.png")))
         self.del_btn_vectors.setIconSize(icon_size)
         self.del_btn_vectors.setMaximumSize(btn_size)
 
-        self.edit_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("edit_vector_icon.png")))
+        self.edit_btn_vectors.setIcon(QtGui.QIcon(QtGui.QPixmap("ui_views/icons/edit_vector_icon.png")))
         self.edit_btn_vectors.setIconSize(icon_size)
         self.edit_btn_vectors.setMaximumSize(btn_size)
 
@@ -58,13 +58,13 @@ class NodesTools(QtWidgets.QGroupBox):
         # self.gridLayout_7.addItem(spacerItem1, 1, 0, 1, 1)
         self.retranslate_ui()
 
-        self.edit_btn_nodes.setIcon(QtGui.QIcon(QtGui.QPixmap("edit_node_icon.png")))
+        self.edit_btn_nodes.setIcon(QtGui.QIcon(QtGui.QPixmap("ui_views/icons/edit_node_icon.png")))
         self.edit_btn_nodes.setIconSize(icon_size)
         self.edit_btn_nodes.setMaximumSize(btn_size)
 
     def retranslate_ui(self):
         global translate
-        self.setTitle(translate("MainWindow", "Nodes, forces and DoF"))
+        self.setTitle(translate("icons/MainWindow", "Nodes, forces and DoF"))
         # self.edit_btn_nodes.setText(translate("MainWindow", "Edit"))
         # self.set_btn_nodes.setText(translate("MainWindow", "SET"))
 
@@ -84,11 +84,11 @@ class ElementsTools(QtWidgets.QGroupBox):
 
         self.retranslate_ui()
 
-        self.edit_btn_elements.setIcon(QtGui.QIcon(QtGui.QPixmap("edit_element_icon.png")))
+        self.edit_btn_elements.setIcon(QtGui.QIcon(QtGui.QPixmap("ui_views/icons/edit_element_icon.png")))
         self.edit_btn_elements.setIconSize(icon_size)
         self.edit_btn_elements.setMaximumSize(btn_size)
 
-        self.loads_btn_elements.setIcon(QtGui.QIcon(QtGui.QPixmap("add_loads_icon.png")))
+        self.loads_btn_elements.setIcon(QtGui.QIcon(QtGui.QPixmap("ui_views/icons/add_loads_icon.png")))
         self.loads_btn_elements.setIconSize(icon_size)
         self.loads_btn_elements.setMaximumSize(btn_size)
 

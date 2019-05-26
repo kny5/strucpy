@@ -1,9 +1,8 @@
 from pyqtgraph.Qt import QtGui
 import pyqtgraph.opengl as gl
-from Model.functions.read_dxf import read_dxf
+from functions import read_dxf
 import pyqtgraph as pg
-from PyQt5.QtWidgets import QFileDialog as qfd
-from Model.classes.element_types import Geometry
+from classes.element_types import Geometry
 
 app = QtGui.QApplication([])
 pg.setConfigOption('leftButtonPan', True)

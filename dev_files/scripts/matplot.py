@@ -1,10 +1,8 @@
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-from itertools import product, combinations
 
-from Model.functions.read_dxf import read_dxf
+from functions import read_dxf
 
 mpl.rcParams['toolbar'] = 'None'
 fig = plt.figure()

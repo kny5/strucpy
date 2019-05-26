@@ -4,7 +4,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-from Model.functions.read_dxf import read_dxf
+from functions import read_dxf
 
 
 verticies = (

@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from ui_views.concrete_widget import ConcEditor
 class TypeEditor(QtWidgets.QWidget):
     def __init__(self, element):
@@ -109,8 +109,8 @@ class TypeEditor(QtWidgets.QWidget):
 
 if __name__ == "__main__":
     import sys
-    from Model.classes.element_types import Element
-    from Model.classes.geometry import Vector
+    from classes.element_types import Element
+    from classes.geometry import Vector
     app = QtWidgets.QApplication(sys.argv)
     # Dialog = QtWidgets.QDialog()
     element = Element(Vector((0,0,0), (1,1,1)))

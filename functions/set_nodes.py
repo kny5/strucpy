@@ -1,6 +1,6 @@
 """ not in use, already written in control class"""
 # from Model.classes.element_types import Element
-from Model.classes.geometry import Node
+from classes import Node
 from functools import reduce
 from operator import add
 

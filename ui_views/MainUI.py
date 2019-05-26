@@ -1,10 +1,10 @@
 import pyqtgraph as pg
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QFileDialog as Qfd
-from Model.classes.Views import toolbox, Menubar
-from Model.classes.control import Controller
-from Model.functions.points_distance import dist_point_line
-from Model.classes.geometry import Vector
+from ui_views.Views import toolbox, Menubar
+from classes.control import Controller
+from functions.points_distance import dist_point_line
+from classes.geometry import Vector
 # from numpy import unique
 # from ui_views.vector_edit import Ui_vector_widget
 
@@ -173,11 +173,3 @@ class GraphicSystem:
         self.show_vector_selection()
         self.graphics.autoRange(items=[self.plot])
 
-
-if __name__ == '__main__':
-    import sys
-    if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
-        app = QtWidgets.QApplication([])
-        app.setOverrideCursor(QtCore.Qt.CrossCursor)
-        app.mainwindow = MainUI()
-        sys.exit(app.exec_())

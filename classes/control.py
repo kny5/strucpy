@@ -1,8 +1,8 @@
-from Model.functions.read_dxf import read_dxf, save_dxf
+from functions.read_dxf import read_dxf, save_dxf
 # import json
-from Model.classes.MainProgram import Program
-from Model.classes.geometry import Vector, Node
-from Model.classes.element_types import Element
+from classes.MainProgram import Program
+from classes.geometry import Vector, Node
+from classes.element_types import Element
 from ui_views.vector_edit import VectorEditor
 from ui_views.loads_edit import LoadsEditor
 from ui_views.node_edit import NodeEditor
@@ -24,8 +24,6 @@ class Controller:
             self.parent.set_filename()
             dxf = read_dxf(self.filename)
             self.program.vectors = dxf
-            # self.program.vectors = dxf[0]
-            # self.program.nodes = dxf[1]
             self.parent.graphicsys.show_vectors()
             self.set_nodes()
             self.set_vectors()
