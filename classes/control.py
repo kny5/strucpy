@@ -118,11 +118,11 @@ class Controller:
     def edit_loads(self):
         if self.selection.__len__() > 0:
             for vector in self.selection:
-                if self.parent.uis_element.get(str(vector.pos)) is None:
+                if self.uis_element.get(str(vector.pos)) is None:
                     ui = LoadsEditor(self, vector.parent)
-                    self.parent.uis_element[str(vector.pos)] = ui
+                    self.uis_element[str(vector.pos)] = ui
                 else:
-                    ui = self.parent.uis_element[str(vector.pos)]
+                    ui = self.uis_element[str(vector.pos)]
                 ui.show()
             self.selection.clear()
         else:
@@ -130,21 +130,21 @@ class Controller:
 
     def edit_node(self):
         if self.selection.__len__() > 0:
-            self.parent.uis_node.clear()
+            self.uis_node.clear()
             for vector in self.selection:
-                print(self.parent.uis_node.get(str(vector.start)))
-                if self.parent.uis_node.get(str(vector.start)) is None:
+                print(self.uis_node.get(str(vector.start)))
+                if self.uis_node.get(str(vector.start)) is None:
                     start = self.dict_nodes[vector.start]
                     u1 = NodeEditor(start)
-                    self.parent.uis_node[str(vector.start)] = u1
+                    self.uis_node[str(vector.start)] = u1
                 else:
-                    u1 = self.parent.uis_node.get(str(vector.start))
-                if self.parent.uis_node.get(str(vector.end)) is None:
+                    u1 = self.uis_node.get(str(vector.start))
+                if self.uis_node.get(str(vector.end)) is None:
                     end = self.dict_nodes[vector.end]
                     u2 = NodeEditor(end)
-                    self.parent.uis_node[str(vector.end)] = u2
+                    self.uis_node[str(vector.end)] = u2
                 else:
-                    u2 = self.parent.uis_node.get(str(vector.end))
+                    u2 = self.uis_node.get(str(vector.end))
                 u1.show()
                 u2.show()
             self.selection.clear()
