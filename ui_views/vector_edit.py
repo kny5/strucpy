@@ -30,7 +30,8 @@ class VectorEditor(QtWidgets.QWidget):
     def closeEvent(self, event):
         try:
             self.control.parent.uis_vector.pop(str(self.vector.pos))
-            self.control.selection.discard(self.vector)
+            # self.control.selection.discard(self.vector)
+            self.control.selection.clear()
         except:
             pass
 
@@ -173,8 +174,8 @@ class VectorEditor(QtWidgets.QWidget):
         self.x_label_end.setText(_translate("vector_widget", "x"))
         self.z_label_end.setText(_translate("vector_widget", "z"))
         self.y_label_end.setText(_translate("vector_widget", "y"))
-        self.y_input_end.setText(_translate("vector_widget", str('%.2f' % self.vector.end[0])))
-        self.x_input_end.setText(_translate("vector_widget", str('%.2f' % self.vector.end[1])))
+        self.x_input_end.setText(_translate("vector_widget", str('%.2f' % self.vector.end[0])))
+        self.y_input_end.setText(_translate("vector_widget", str('%.2f' % self.vector.end[1])))
         self.z_input_end.setText(_translate("vector_widget", str('%.2f' % self.vector.end[2])))
         self.set_btn_vector.setText(_translate("vector_widget", "Set"))
 

@@ -12,7 +12,8 @@ class MainUI(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap("strucpy_icon.png")))
+        self.icon = "ui_views/icons/strucpy_icon.png"
+        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(self.icon)))
         self.setWindowTitle("Strucpy Alpha v0.1")
         self.control = Controller(self)
         self.graphicsys = GraphicSystem(self)
@@ -37,6 +38,7 @@ class MainUI(QtWidgets.QMainWindow):
         # self.tools_groupbox.nodes_groupbox.set_btn_nodes.clicked.connect(self.control.set_nodes)
         self.tools_groupbox.nodes_groupbox.edit_btn_nodes.clicked.connect(self.control.edit_node)
         self.tools_groupbox.elements_groupbox.loads_btn_elements.clicked.connect(self.control.edit_loads)
+        self.tools_groupbox.run_btn_tools.clicked.connect(self.control.run)
 
         self.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(self)
@@ -49,9 +51,13 @@ class MainUI(QtWidgets.QMainWindow):
         self.keyPressed.emit(event)
 
     def on_key(self, event):
-        try:
+        if event.key() in [QtCore.Qt.Key_Up, QtCore.Qt.Key_Down, QtCore.Qt.Key_Left, QtCore.Qt.Key_Right]:
             self.graphicsys.rotation(event.key())
-        except:
+        elif event.key() == QtCore.Qt.Key_Escape:
+            self.control.clear_selection()
+        elif event.key() == QtCore.Qt.Key_Delete:
+            self.control.del_selection()
+        else:
             pass
 
     def set_filename(self):

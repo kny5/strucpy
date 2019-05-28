@@ -4,7 +4,7 @@ from numpy import matlib
 
 
 def k__(c, sections):
-    matrix = matlib.zeros(shape=((sections + 1), (sections + 1)))
+    matrix = np.matlib.zeros(shape=((sections + 1), (sections + 1)))
     matrix[0, 0] = matrix[-1, -1] = 3
     matrix[1, 1] = matrix[-2, -2] = 7 + c
     matrix[1, 0] = matrix[1, 2] = matrix[-2, -1] = matrix[-2, -3] = -4
@@ -65,7 +65,7 @@ def local_matrix(element):
         area = element.type.area
     else:
         print("No type assigned")
-        return
+        return False
 
     long = element.vector.long
     sections = element.sections
@@ -80,9 +80,9 @@ def local_matrix(element):
     axial = (elasticity * area) / long
     torsion = ((elasticity / (2 * (1 + elasticity))) * element.j) / long
 
-    f_a = (element.kv * element.type.a1 * (long / sections) ** 4) / \
+    f_a = (element.loads.kv * element.type.a1 * (long / sections) ** 4) / \
           (1000 * element.type.e * izz)
-    f_b = (element.kh * element.type.a2 * (long / sections) ** 4) / \
+    f_b = (element.loads.kh * element.type.a2 * (long / sections) ** 4) / \
           (1000 * element.type.e * iyy)
 
     element.data.kzz = k__(f_a, sections)
