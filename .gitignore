@@ -2,5 +2,8 @@
 __pycache__
 build/
 dist/
+Main.build/
+Main.dist/
 Main.spec
-
+Main.exe
+python36.dll

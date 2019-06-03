@@ -1,5 +1,4 @@
 from functions.read_dxf import read_dxf, save_dxf
-# import json
 from classes.MainProgram import Program
 from classes.geometry import Vector, Node
 from classes.element_types import Element
@@ -76,7 +75,7 @@ class Controller:
                 # else:
                 #     ui = self.uis_vector.get(str(vector.pos))
                 ui.show()
-            self.selection.clear()
+            # self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados' )
 
@@ -110,7 +109,7 @@ class Controller:
             for key in dict_points.keys():
                 if not key in self.dict_nodes:
                     self.dict_nodes[key] = dict_points[key]
-            print(self.dict_nodes)
+            # print(self.dict_nodes)
         except:
             print('hi bug')
             pass
@@ -124,7 +123,7 @@ class Controller:
                 else:
                     ui = self.uis_element[str(vector.pos)]
                 ui.show()
-            self.selection.clear()
+            # self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
 
@@ -147,7 +146,9 @@ class Controller:
                     u2 = self.uis_node.get(str(vector.end))
                 u1.show()
                 u2.show()
-            self.selection.clear()
+            # self.selection.clear()
+        else:
+            self.parent.notificator('Error', 'No hay vectores seleccionados')
 
     def edit_type(self):
         if self.selection.__len__() > 0:

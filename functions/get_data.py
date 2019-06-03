@@ -3,7 +3,6 @@ import math
 
 
 def get_data(self, element):
-
     vdgen_p = np.zeros(12)
     for k, i_ in enumerate(element.ve):
         if i_ != 0:
