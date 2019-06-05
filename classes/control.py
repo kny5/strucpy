@@ -5,6 +5,7 @@ from classes.element_types import Element
 from ui_views.vector_edit import VectorEditor
 from ui_views.loads_edit import LoadsEditor
 from ui_views.node_edit import NodeEditor
+from ui_views.type_edit import TypeEditor
 from functools import reduce
 from operator import add
 
@@ -19,6 +20,8 @@ class Controller:
         self.uis_vector = dict()
         self.uis_element = dict()
         self.uis_node = dict()
+        self.uis_type = dict()
+
         # self.views = None
         self.program = Program(self)
 
@@ -81,6 +84,7 @@ class Controller:
 
     def del_selection(self):
         if self.selection.__len__() > 0:
+            # add confirmation dialog
             for vector in self.selection:
                 if vector in self.program.vectors:
                     self.program.vectors.discard(vector)
@@ -104,7 +108,7 @@ class Controller:
         try:
             list_points = reduce(add, [[vector.start, vector.end] for vector in self.program.vectors if vector.parent is None])
             nodes = list(map(Node, list_points))
-            print(nodes)
+            # print(nodes)
             dict_points = dict(zip(list_points, nodes))
             for key in dict_points.keys():
                 if not key in self.dict_nodes:
@@ -162,6 +166,20 @@ class Controller:
             self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
+
+    def edit_section_type(self):
+        if self.selection.__len__() > 0:
+            for vector in self.selection:
+                if self.uis_type.get(str(vector.pos)) is None:
+                    ui = TypeEditor(vector.parent)
+                    self.uis_type[str(vector.pos)] = ui
+                else:
+                    ui = self.uis_type[str(vector.pos)]
+                ui.show()
+            self.selection.clear()
+        else:
+            self.parent.notificator('Error', 'No hay vectores seleccionados')
+
 
     def run(self):
         self.program.run()

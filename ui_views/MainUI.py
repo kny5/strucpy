@@ -39,6 +39,7 @@ class MainUI(QtWidgets.QMainWindow):
         self.tools_groupbox.nodes_groupbox.edit_btn_nodes.clicked.connect(self.control.edit_node)
         self.tools_groupbox.elements_groupbox.loads_btn_elements.clicked.connect(self.control.edit_loads)
         self.tools_groupbox.run_btn_tools.clicked.connect(self.control.run)
+        self.tools_groupbox.elements_groupbox.edit_btn_elements.clicked.connect(self.control.edit_section_type)
 
         self.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(self)

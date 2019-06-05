@@ -8,6 +8,12 @@
 
 from PyQt5 import QtCore, QtWidgets
 from ui_views.concrete_widget import ConcEditor
+from ui_views.Or_widget import Ui_Form as OrEditor
+from ui_views.Ir_widget import Ui_Form as IrEditor
+from ui_views.Oc_widget import Ui_Form as OcEditor
+from ui_views.Custom_widget import Ui_Form as CustomEditor
+
+
 class TypeEditor(QtWidgets.QWidget):
     def __init__(self, element):
         super().__init__()
@@ -82,12 +88,26 @@ class TypeEditor(QtWidgets.QWidget):
         elif index == 1:
             self.element.set_type(index)
             ui = ConcEditor(self.element)
-            # self.Dialog = QtWidgets.QDialog()
-            # ui.setupUi(self.Dialog)
             self.scrollArea.setWidget(ui)
-        else:
+        elif index == 2:
             self.element.set_type(index)
-            print(self.element.type)
+            ui = OrEditor(self.element)
+            self.scrollArea.setWidget(ui)
+        elif index == 3:
+            self.element.set_type(index)
+            ui = IrEditor(self.element)
+            self.scrollArea.setWidget(ui)
+        elif index == 3:
+            self.element.set_type(index)
+            ui = OcEditor(self.element)
+            self.scrollArea.setWidget(ui)
+        elif index == 4:
+            self.element.set_type(index)
+            ui = CustomEditor(self.element)
+            self.scrollArea.setWidget(ui)
+        # else:
+        #     self.element.set_type(index)
+        #     print(self.element.type)
 
 
     def retranslateUi(self):
@@ -107,14 +127,14 @@ class TypeEditor(QtWidgets.QWidget):
 
 
 
-if __name__ == "__main__":
-    import sys
-    from classes.element_types import Element
-    from classes.geometry import Vector
-    app = QtWidgets.QApplication(sys.argv)
-    # Dialog = QtWidgets.QDialog()
-    element = Element(Vector((0,0,0), (1,1,1)))
-    ui = TypeEditor(element)
-    # ui.setupUi(Dialog)
-    ui.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     from classes.element_types import Element
+#     from classes.geometry import Vector
+#     app = QtWidgets.QApplication(sys.argv)
+#     # Dialog = QtWidgets.QDialog()
+#     element = Element(Vector((0,0,0), (1,1,1)))
+#     ui = TypeEditor(element)
+#     # ui.setupUi(Dialog)
+#     ui.show()
+#     sys.exit(app.exec_())

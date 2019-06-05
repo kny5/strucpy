@@ -14,7 +14,7 @@ class Program:
     def __init__(self, parent):
         self.parent = parent
         self.vectors = set([])
-        self.nodes = list(self.parent.dict_nodes.values())
+        # self.nodes = list(self.parent.dict_nodes.values())
         self.elements = []
         self.vcn = []
         self.v_springs = []
@@ -22,6 +22,10 @@ class Program:
         self.kest = []
         self.pcur_ = []
         self.dn_est = []
+
+    @property
+    def nodes(self):
+        return list(self.parent.dict_nodes.values())
 
     # def b_aproximation(self):
     #     pass
@@ -65,17 +69,25 @@ class Program:
         self.vcn = []
         self.v_springs = []
         for node in self.nodes:
-            print(node)
+            # print(node)
             self.vcn.append(node.n_vcn)
             self.v_springs.append(node.n_springs)
-            print(self.vcn)
-            print(self.v_springs)
+            # print(self.vcn)
+            # print(self.v_springs)
         pcur_sum = np.add(self.pcur_, self.vcn)
         if not random_loads == None:
             pcur_sum_random_loads = np.add(pcur_sum, np.asarray(random_loads))
             self.dn_est = np.dot(self.kest.I, pcur_sum_random_loads)
         else:
             self.dn_est = np.dot(self.kest.I, pcur_sum)
+
+        vdgen_p = np.zeros(12)
+        for node in self.nodes:
+            for k, i_ in enumerate(node.n_ve):
+                if i_ != 0:
+                    vdgen_p[k] = self.dn_est[0, i_ - 1]
+                else:
+                    pass
 
     def run(self):
         print('1')
