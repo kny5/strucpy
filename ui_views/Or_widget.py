@@ -7,12 +7,26 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from classes.element_types import Or
 
 class Ui_Form(QtWidgets.QWidget):
-    def __init__(self, element):
+    def __init__(self, parent, element):
         super().__init__()
+        self.parent = parent
         self.element = element
+        self.type = Or()
         self.setupUi()
+        self.parent.ok_btn.clicked.connect(self.save)
+
+    def save(self):
+        self.element.type =  self.type
+        self.type.armour = bool(self.input_armour_val.isChecked())
+        self.type.p_mat = float(self.input_pmat_val.text())
+        self.type.e = float(self.input_e_val.text())
+        self.type.d = float(self.input_d_val.text())
+        self.type.bf = float(self.input_bf_val.text())
+        self.type.tf = float(self.input_tf_val.text())
+        self.type.tw = float(self.input_tw_val.text())
 
     def setupUi(self):
         self.setObjectName("Form")

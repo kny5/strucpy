@@ -7,14 +7,26 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from classes.element_types import Concrete
 
 
-class ConcEditor(QtWidgets.QWidget):
-    def __init__(self, element):
+class Ui_Form(QtWidgets.QWidget):
+    def __init__(self, parent, element):
         super().__init__()
+        self.parnt = parent
         self.element = element
-        # self.parent = parent
+        self.type = Concrete()
         self.setupUi()
+        self.parnt.ok_btn.clicked.connect(self.save)
+
+    def save(self):
+        self.element.type = self.type
+        self.type.e = float(self.input_e_val.text())
+        self.type.p_mat = float(self.input_pmat_val.text())
+        self.type.b = float(self.input_b_val.text())
+        self.type.h = float(self.input_h_val.text())
+        self.type.b_prima = float(self.input_bp_val.text())
+        print(self.type.__dict__)
 
     def setupUi(self):
         # self.setObjectName("Form")

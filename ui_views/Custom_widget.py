@@ -7,14 +7,34 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from classes.element_types import Custom
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(282, 562)
-        self.verticalLayout = QtWidgets.QVBoxLayout(Form)
+
+class Ui_Form(QtWidgets.QWidget):
+    def __init__(self, parent, element):
+        super().__init__()
+        self.parent = parent
+        self.element = element
+        self.type = Custom()
+        self.setupUi()
+        self.parent.ok_btn.clicked.connect(self.save)
+
+    def save(self):
+        self.element.type = self.type
+        self.type.e = float(self.input_e_val.text())
+        self.type.p_mat = float(self.input_pmat_val.text())
+        self.type.area_ = float(self.input_area_val.text())
+        self.type.b = float(self.input_b_val.text())
+        self.type.h = float(self.input_h_val.text())
+        self.type.iyy_ = float(self.input_iyy_val.text())
+        self.type.izz_ = float(self.input_izz_val.text())
+
+    def setupUi(self):
+        self.setObjectName("Form")
+        self.resize(282, 562)
+        self.verticalLayout = QtWidgets.QVBoxLayout(self)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.concrete_group = QtWidgets.QFrame(Form)
+        self.concrete_group = QtWidgets.QFrame(self)
         self.concrete_group.setObjectName("concrete_group")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.concrete_group)
         self.gridLayout_2.setVerticalSpacing(20)
@@ -113,12 +133,12 @@ class Ui_Form(object):
         self.gridLayout_2.addWidget(self.input_b_val, 1, 1, 1, 1)
         self.verticalLayout.addWidget(self.concrete_group)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi()
+        QtCore.QMetaObject.connectSlotsByName(self)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        self.setWindowTitle(_translate("Form", "Form"))
         self.label_2.setText(_translate("Form", "Eje Y: Inercia"))
         self.input_armour_val.setText(_translate("Form", "Armadura"))
         self.lab_con_anc.setText(_translate("Form", "Área de Sección"))
@@ -130,12 +150,12 @@ class Ui_Form(object):
         self.label_5.setText(_translate("Form", "Peso de Material"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())
 

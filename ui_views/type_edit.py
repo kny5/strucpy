@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtWidgets
-from ui_views.concrete_widget import ConcEditor
+from ui_views.concrete_widget import Ui_Form as ConcEditor
 from ui_views.Or_widget import Ui_Form as OrEditor
 from ui_views.Ir_widget import Ui_Form as IrEditor
 from ui_views.Oc_widget import Ui_Form as OcEditor
@@ -79,36 +79,39 @@ class TypeEditor(QtWidgets.QWidget):
         QtCore.QMetaObject.connectSlotsByName(self)
 
         self.type.currentIndexChanged.connect(self.filler)
-        # self.ok_btn.clicked.connect(self.filler)
+        self.ok_btn.clicked.connect(self.save_type)
+
 
     def filler(self):
         index = self.type.currentIndex()
         if index == 0:
-            pass
+            self.scrollArea.setWidget()
         elif index == 1:
-            self.element.set_type(index)
-            ui = ConcEditor(self.element)
+            # self.element.set_type(index)
+            ui = ConcEditor(self,self.element)
             self.scrollArea.setWidget(ui)
         elif index == 2:
-            self.element.set_type(index)
-            ui = OrEditor(self.element)
+            # self.element.set_type(index)
+            ui = OrEditor(self,self.element)
             self.scrollArea.setWidget(ui)
         elif index == 3:
-            self.element.set_type(index)
-            ui = IrEditor(self.element)
+            # self.element.set_type(index)
+            ui = IrEditor(self,self.element)
             self.scrollArea.setWidget(ui)
         elif index == 3:
-            self.element.set_type(index)
-            ui = OcEditor(self.element)
+            # self.element.set_type(index)
+            ui = OcEditor(self,self.element)
             self.scrollArea.setWidget(ui)
         elif index == 4:
-            self.element.set_type(index)
-            ui = CustomEditor(self.element)
+            # self.element.set_type(index)
+            ui = CustomEditor(self,self.element)
             self.scrollArea.setWidget(ui)
         # else:
         #     self.element.set_type(index)
         #     print(self.element.type)
 
+    def save_type(self):
+        print("saved")
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
