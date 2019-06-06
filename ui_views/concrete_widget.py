@@ -21,7 +21,7 @@ class Ui_Form(QtWidgets.QWidget):
 
     def save(self):
         self.element.type = self.type
-        self.type.e = float(self.input_e_val.text())
+        self.type.e = float(self.e.text())
         self.type.p_mat = float(self.input_pmat_val.text())
         self.type.b = float(self.input_b_val.text())
         self.type.h = float(self.input_h_val.text())

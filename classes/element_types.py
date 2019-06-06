@@ -31,9 +31,9 @@ class Element(Parameters):
             selected = materials[index - 1]
             self.type = selected()
 
-    @property
-    def ve(self):
-        return list(self(self.vector.start))
+    # @property
+    # def ve(self):
+    #     return list(self(self.vector.start))
 
 
 class Results:

@@ -38,27 +38,31 @@ class Program:
         self.freedom = 0
         for node in self.nodes:
             n_ve = []
-            for _bool in node.conf.values():
-                if _bool:
-                    self.freedom += 1
-                    n_ve.append(self.freedom)
-                else:
-                    n_ve.append(0)
+            for dof in node.conf.values():
+                for _bool in dof.values():
+                    if _bool is True:
+                        self.freedom += 1
+                        n_ve.append(self.freedom)
+                    elif _bool is False:
+                        n_ve.append(0)
             node.n_ve = n_ve
-        # print(freedom)
+        print(self.freedom)
         # return freedom
 
     def full_structure_matrix(self):
         self.kest = matlib.zeros(shape=(self.freedom, self.freedom))
         self.pcur_ = np.zeros(self.freedom)
-
         for element in self.elements:
+            # print(element.ve)
+            NStart = self.parent.dict_nodes[element.vector.start]
+            NEnd = self.parent.dict_nodes[element.vector.end]
+            setattr(element, 've', NStart.n_ve + NEnd.n_ve)
             for _c, _i in enumerate(element.ve):
                 if _i != 0:
-                    self.pcur_[_i - 1] += element.results.pc_[_c]
+                    self.pcur_[_i - 1] += element.data.pc_[_c]
                 for _k, _j in enumerate(element.ve):
                     if _j != 0:
-                        self.kest[_i - 1, _j - 1] += element.kebg.item(_c, _k)
+                        self.kest[_i - 1, _j - 1] += element.data.kebg.item(_c, _k)
 
     # def set_nodes(self):
     #     list_points = reduce(add, [[vector.start, vector.end] for vector in self.vectors])
@@ -72,7 +76,9 @@ class Program:
             # print(node)
             self.vcn.append(node.n_vcn)
             self.v_springs.append(node.n_springs)
-            # print(self.vcn)
+            print(self.pcur_)
+            print("*" * 13)
+            print(self.vcn)
             # print(self.v_springs)
         pcur_sum = np.add(self.pcur_, self.vcn)
         if not random_loads == None:
@@ -93,14 +99,15 @@ class Program:
         print('1')
         self.asm_v()
         print('2')
-        self.set_nodes_loads()
-        print('3')
-        for element in self.elements:
-            if not local_matrix(element):
-                return
-            print('.')
-        print('4')
+        for _element in self.elements:
+            local_matrix(_element)
+
         self.full_structure_matrix()
+        print('3')
+        self.set_nodes_loads()
+        print('4')
+        # print('4')
+        # self.full_structure_matrix()
         print('5')
         for _element in self.elements:
             print('.')

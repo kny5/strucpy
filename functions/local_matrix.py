@@ -78,7 +78,7 @@ def local_matrix(element):
     vzz = (elasticity * izz) / (2 * delta_x ** 3)
     vyy = (elasticity * iyy) / (2 * delta_x ** 3)
     axial = (elasticity * area) / long
-    torsion = ((elasticity / (2 * (1 + elasticity))) * element.j) / long
+    torsion = ((elasticity / (2 * (1 + elasticity))) * element.type.j) / long
 
     f_a = (element.loads.kv * element.type.a1 * (long / sections) ** 4) / \
           (1000 * element.type.e * izz)
@@ -102,7 +102,7 @@ def local_matrix(element):
     te2zz = imext__(np.dot(element.data.kzz.I,
                            -(np.insert(np.zeros(sections), -1, 2 * delta_x))).A1,
                     (-1, 8 * delta_x), (-2, 2 * delta_x))
-    d1yy = imext__(np.dot(element.kyy.I,
+    d1yy = imext__(np.dot(element.data.kyy.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
     d2yy = imext__(np.dot(element.data.kyy.I,
                           -(np.append(np.zeros(sections), 3))).A1, (-1, -6, -3))

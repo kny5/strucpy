@@ -85,7 +85,7 @@ class TypeEditor(QtWidgets.QWidget):
     def filler(self):
         index = self.type.currentIndex()
         if index == 0:
-            self.scrollArea.setWidget()
+            return
         elif index == 1:
             # self.element.set_type(index)
             ui = ConcEditor(self,self.element)
@@ -98,14 +98,15 @@ class TypeEditor(QtWidgets.QWidget):
             # self.element.set_type(index)
             ui = IrEditor(self,self.element)
             self.scrollArea.setWidget(ui)
-        elif index == 3:
+        elif index == 4:
             # self.element.set_type(index)
             ui = OcEditor(self,self.element)
             self.scrollArea.setWidget(ui)
-        elif index == 4:
+        elif index == 5:
             # self.element.set_type(index)
             ui = CustomEditor(self,self.element)
             self.scrollArea.setWidget(ui)
+
         # else:
         #     self.element.set_type(index)
         #     print(self.element.type)

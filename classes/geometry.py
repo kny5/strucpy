@@ -132,7 +132,11 @@ class Node:
         # self.conf_springs = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
         # self.conf_vcn = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
         # self.conf = {'dx': True, 'dy': True, 'dz': True, 'mx': True, 'my': True, 'mz': True}
-        self.n_springs = [value['spring'] for value in self.conf.values()]
-        # print(self.n_springs)
-        self.n_vcn = [value['load'] for value in self.conf.values()]
-        # print(self.n_vcn)
+
+    @property
+    def n_springs(self):
+        return [value['spring'] for value in self.conf.values()]
+
+    @property
+    def n_vcn(self):
+        return [value['load'] for value in self.conf.values()]
