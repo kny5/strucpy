@@ -135,8 +135,8 @@ class Node:
 
     @property
     def n_springs(self):
-        return [value['spring'] for value in self.conf.values()]
+        return [value['spring'] for value in self.conf.values()] # if value['activated'] is True]
 
     @property
     def n_vcn(self):
-        return [value['load'] for value in self.conf.values()]
+        return [value['load'] for value in self.conf.values() if value['activated'] is True]

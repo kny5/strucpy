@@ -20,14 +20,29 @@ class Ui_Form(QtWidgets.QWidget):
         self.parent.ok_btn.clicked.connect(self.save)
 
     def save(self):
-        self.element.type = self.type
-        self.type.e = float(self.input_e_val.text())
-        self.type.p_mat = float(self.input_pmat_val.text())
-        self.type.area_ = float(self.input_area_val.text())
-        self.type.b = float(self.input_b_val.text())
-        self.type.h = float(self.input_h_val.text())
-        self.type.iyy_ = float(self.input_iyy_val.text())
-        self.type.izz_ = float(self.input_izz_val.text())
+        try:
+            self.element.type = self.type
+            self.type.e = float(self.input_e_val.text())
+            self.type.p_mat = float(self.input_pmat_val.text())
+            self.type.area_ = float(self.input_area_val.text())
+            self.type.b = float(self.input_b_val.text())
+            self.type.h = float(self.input_h_val.text())
+            self.type.iyy_ = float(self.input_iyy_val.text())
+            self.type.izz_ = float(self.input_izz_val.text())
+            self.type.j =  float(self.input_j_val.text())
+        except Exception:
+            pass
+
+    def defaults(self):
+        self.input_izz_val.setText()
+        self.input_iyy_val.setText()
+        self.input_h_val.setText()
+        self.input_b_val.setText()
+        self.input_area_val.setText()
+        self.input_pmat_val.setText()
+        self.input_e_val.setText()
+        self.input_j_val.setText(str(self.type.j))
+        self.input_armour_val.isChecked(self.input_armour_val)
 
     def setupUi(self):
         self.setObjectName("Form")

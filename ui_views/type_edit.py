@@ -107,10 +107,6 @@ class TypeEditor(QtWidgets.QWidget):
             ui = CustomEditor(self,self.element)
             self.scrollArea.setWidget(ui)
 
-        # else:
-        #     self.element.set_type(index)
-        #     print(self.element.type)
-
     def save_type(self):
         print("saved")
 

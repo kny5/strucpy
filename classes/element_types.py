@@ -31,23 +31,20 @@ class Element(Parameters):
             selected = materials[index - 1]
             self.type = selected()
 
-    # @property
-    # def ve(self):
-    #     return list(self(self.vector.start))
-
 
 class Results:
-    mx = None
-    fax = None
-    press_y = None
-    press_z = None
-    mome_y = None
-    mome_z = None
-    cor_y = None
-    cor_z = None
-    dry = None
-    drz = None
-    desp_imp_antes_y = None
+    def __init__(self):
+        self.mx = None
+        self.fax = None
+        self.press_y = None
+        self.press_z = None
+        self.mome_y = None
+        self.mome_z = None
+        self.cor_y = None
+        self.cor_z = None
+        self.dry = None
+        self.drz = None
+        self.desp_imp_antes_y = None
 
 
 class Data:

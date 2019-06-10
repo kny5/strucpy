@@ -8,6 +8,7 @@ from classes.element_types import Element
 from classes.geometry import Node
 from functools import reduce
 from operator import add
+from ui_views.Results import Ui_Form as Results
 
 
 class Program:
@@ -74,8 +75,8 @@ class Program:
         self.v_springs = []
         for node in self.nodes:
             # print(node)
-            self.vcn.append(node.n_vcn)
-            self.v_springs.append(node.n_springs)
+            self.vcn += node.n_vcn
+            self.v_springs += node.n_springs
             print(self.pcur_)
             print("*" * 13)
             print(self.vcn)
@@ -94,6 +95,7 @@ class Program:
                     vdgen_p[k] = self.dn_est[0, i_ - 1]
                 else:
                     pass
+        self.vdgen_p = vdgen_p
 
     def run(self):
         print('1')
@@ -111,4 +113,10 @@ class Program:
         print('5')
         for _element in self.elements:
             print('.')
-            get_data(_element)
+            get_data(self, _element)
+            print(_element.results.__dict__)
+
+        self.ui_results = []
+        for __element in self.elements:
+            self.ui_results.append(Results(__element))
+

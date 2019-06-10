@@ -10,7 +10,9 @@ def get_data(self, element):
     # f_real_local
     pcu_loc = element.data.pculocal
     pcu_loc[6] = - pcu_loc[6]
-    element.springs = np.asarray(element.springs)
+    NStart = self.parent.dict_nodes[element.vector.start]
+    NEnd = self.parent.dict_nodes[element.vector.end]
+    element.springs = np.asarray(NStart.n_springs + NEnd.n_springs)
     f_g_springs = np.multiply(self.vdgen_p, element.springs)
     f_l_springs = np.dot(element.data.tr.T, f_g_springs).A1
     fr_local = pcu_loc - f + f_l_springs
@@ -79,7 +81,7 @@ def get_data(self, element):
     f_[0] = fr_local[0]
 
     for i_ in range(1, element.sections + 1):
-        f_[i_] = f_[i_ - 1] + element.pp_scc
+        f_[i_] = f_[i_ - 1] + element.data.pp_scc
 
     for ef_, j_ in enumerate(f_, 0):
         f_[ef_] = f_[ef_] + ef_ * ((element.loads.wy * (element.vector.long / 100) * math.sin(math.radians(element.loads.aw))) / element.sections)

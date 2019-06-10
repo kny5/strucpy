@@ -20,13 +20,16 @@ class Ui_Form(QtWidgets.QWidget):
         self.parnt.ok_btn.clicked.connect(self.save)
 
     def save(self):
-        self.element.type = self.type
-        self.type.e = float(self.e.text())
-        self.type.p_mat = float(self.input_pmat_val.text())
-        self.type.b = float(self.input_b_val.text())
-        self.type.h = float(self.input_h_val.text())
-        self.type.b_prima = float(self.input_bp_val.text())
-        print(self.type.__dict__)
+        try:
+            self.element.type = self.type
+            self.type.e = float(self.e.text())
+            self.type.p_mat = float(self.input_pmat_val.text())
+            self.type.b = float(self.input_b_val.text())
+            self.type.h = float(self.input_h_val.text())
+            self.type.b_prima = float(self.input_bp_val.text())
+            print(self.type.__dict__)
+        except Exception:
+            pass
 
     def setupUi(self):
         # self.setObjectName("Form")
