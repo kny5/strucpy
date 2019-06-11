@@ -27,7 +27,7 @@ class Ui_Form(QtWidgets.QWidget):
             self.type.b = float(self.input_b_val.text())
             self.type.h = float(self.input_h_val.text())
             self.type.b_prima = float(self.input_bp_val.text())
-            print(self.type.__dict__)
+            print(self.element.data.__dict__)
         except Exception:
             pass
 
@@ -110,6 +110,7 @@ class Ui_Form(QtWidgets.QWidget):
         self.retranslateUi()
         QtCore.QMetaObject.connectSlotsByName(self)
 
+
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate("Form", "Form"))
@@ -118,8 +119,6 @@ class Ui_Form(QtWidgets.QWidget):
         self.lab_zap_anch.setText(_translate("Form", "Ancho"))
         self.lab_con_anc.setText(_translate("Form", "Contratrabe Ancho"))
         self.lab_zap_alt.setText(_translate("Form", "Alto"))
-
-
 
 
 # if __name__ == "__main__":

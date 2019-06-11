@@ -4,10 +4,10 @@ from functions.get_data import get_data
 # from Model.functions.asm_vector import asm_v
 import numpy as np
 from numpy import matlib
-from classes.element_types import Element
-from classes.geometry import Node
-from functools import reduce
-from operator import add
+# from classes.element_types import Element
+# from classes.geometry import Node
+# from functools import reduce
+# from operator import add
 from ui_views.Results import Ui_Form as Results
 
 
@@ -39,31 +39,36 @@ class Program:
         self.freedom = 0
         for node in self.nodes:
             n_ve = []
-            for dof in node.conf.values():
-                for _bool in dof.values():
-                    if _bool is True:
-                        self.freedom += 1
-                        n_ve.append(self.freedom)
-                    elif _bool is False:
-                        n_ve.append(0)
+            for key in node.conf.values():
+                for val in key.values():
+                    if type(val) is bool:
+                        if val == True:
+                            self.freedom += 1
+                            n_ve.append(self.freedom)
+                        else:
+                            n_ve.append(0)
             node.n_ve = n_ve
+        print('grados de libertad')
         print(self.freedom)
         # return freedom
 
     def full_structure_matrix(self):
+        print('Estructura ' + str(self.freedom))
         self.kest = matlib.zeros(shape=(self.freedom, self.freedom))
         self.pcur_ = np.zeros(self.freedom)
         for element in self.elements:
-            # print(element.ve)
             NStart = self.parent.dict_nodes[element.vector.start]
             NEnd = self.parent.dict_nodes[element.vector.end]
             setattr(element, 've', NStart.n_ve + NEnd.n_ve)
+            print('vector de ensamble de elemento ' + str(element.e_id))
+            print(element.ve)
             for _c, _i in enumerate(element.ve):
                 if _i != 0:
                     self.pcur_[_i - 1] += element.data.pc_[_c]
                 for _k, _j in enumerate(element.ve):
                     if _j != 0:
                         self.kest[_i - 1, _j - 1] += element.data.kebg.item(_c, _k)
+        print(self.kest)
 
     # def set_nodes(self):
     #     list_points = reduce(add, [[vector.start, vector.end] for vector in self.vectors])
@@ -77,11 +82,13 @@ class Program:
             # print(node)
             self.vcn += node.n_vcn
             self.v_springs += node.n_springs
-            print(self.pcur_)
-            print("*" * 13)
-            print(self.vcn)
+            # print(self.pcur_)
+            # print("*" * 13)
+            # print(self.vcn)
             # print(self.v_springs)
         pcur_sum = np.add(self.pcur_, self.vcn)
+        print('vector carga solo de la estructura')
+        print(self.pcur_)
         if not random_loads == None:
             pcur_sum_random_loads = np.add(pcur_sum, np.asarray(random_loads))
             self.dn_est = np.dot(self.kest.I, pcur_sum_random_loads)
@@ -98,25 +105,30 @@ class Program:
         self.vdgen_p = vdgen_p
 
     def run(self):
-        print('1')
-        self.asm_v()
-        print('2')
+        # print('1')
+        print('bug ...')
+        print(self.elements)
+        # print('2')
         for _element in self.elements:
             local_matrix(_element)
 
+        self.asm_v()
         self.full_structure_matrix()
-        print('3')
+        # print('3')
         self.set_nodes_loads()
-        print('4')
+        # print('4')
         # print('4')
         # self.full_structure_matrix()
-        print('5')
+        # print('5')
         for _element in self.elements:
-            print('.')
+            # print('.')
             get_data(self, _element)
-            print(_element.results.__dict__)
+            # print(_element.results.__dict__)
 
         self.ui_results = []
+        print(self.elements.__len__())
         for __element in self.elements:
-            self.ui_results.append(Results(__element))
+            u = Results(__element)
+            u.show()
+            self.ui_results.append(u)
 

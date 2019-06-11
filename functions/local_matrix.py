@@ -69,21 +69,22 @@ def local_matrix(element):
 
     long = element.vector.long
     sections = element.sections
-    elasticity = element.poisson
+    poisson = element.poisson
+    elasticity = element.type.e
     izz = element.type.izz
     iyy = element.type.iyy
     delta_x = long / sections
-    mzz = (elasticity * izz) / delta_x ** 25
+    mzz = (elasticity * izz) / delta_x ** 2
     myy = (elasticity * iyy) / delta_x ** 2
     vzz = (elasticity * izz) / (2 * delta_x ** 3)
     vyy = (elasticity * iyy) / (2 * delta_x ** 3)
     axial = (elasticity * area) / long
-    torsion = ((elasticity / (2 * (1 + elasticity))) * element.type.j) / long
+    torsion = ((elasticity / (2 * (1 + poisson))) * element.type.j) / long
 
     f_a = (element.loads.kv * element.type.a1 * (long / sections) ** 4) / \
-          (1000 * element.type.e * izz)
+          (1000 * elasticity * izz)
     f_b = (element.loads.kh * element.type.a2 * (long / sections) ** 4) / \
-          (1000 * element.type.e * iyy)
+          (1000 * elasticity * iyy)
 
     element.data.kzz = k__(f_a, sections)
     element.data.kyy = k__(f_b, sections)
@@ -199,11 +200,50 @@ def local_matrix(element):
         return _tr
 
     tr = __tr_filler(np.matlib.zeros(shape=(12, 12)))
+
+    # tr = np.matlib.zeros(shape=(12, 12))
+    # rotational matrix
+    # region one
+    # tr[0, 0] = cos_nu * cos_lm
+    # tr[0, 1] = - cos_nu * sin_lm
+    # tr[0, 2] = - sin_nu
+    # tr[1, 0] = sin_lm
+    # tr[1, 1] = cos_lm
+    # tr[2, 0] = sin_nu * cos_lm
+    # tr[2, 1] = - sin_nu * sin_lm
+    # tr[2, 2] = cos_nu
+    # tr[3, 3] = cos_nu * cos_lm
+    # tr[3, 4] = - cos_nu * sin_lm
+    # tr[3, 5] = - sin_nu
+    # tr[4, 3] = sin_lm
+    # tr[4, 4] = cos_lm
+    # tr[5, 3] = sin_nu * cos_lm
+    # tr[5, 4] = - sin_nu * sin_lm
+    # tr[5, 5] = cos_nu
+    # # region two
+    # tr[6, 6] = cos_nu * cos_lm
+    # tr[6, 7] = - cos_nu * sin_lm
+    # tr[6, 8] = - sin_nu
+    # tr[7, 6] = sin_lm
+    # tr[7, 7] = cos_lm
+    # tr[8, 6] = sin_nu * cos_lm
+    # tr[8, 7] = - sin_nu * sin_lm
+    # tr[8, 8] = cos_nu
+    # tr[9, 9] = cos_nu * cos_lm
+    # tr[9, 10] = - cos_nu * sin_lm
+    # tr[9, 11] = - sin_nu
+    # tr[10, 9] = sin_lm
+    # tr[10, 10] = cos_lm
+    # tr[11, 9] = sin_nu * cos_lm
+    # tr[11, 10] = - sin_nu * sin_lm
+    # tr[11, 11] = cos_nu
+    
     kebg = np.dot(np.dot(tr, keb), tr.T)
 
     element.data.tr = tr
     element.data.keb = keb
     element.data.kebg = kebg
+    print(keb)
 
     pp = area * (element.type.p_mat / 10000)
     element.data.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
@@ -287,6 +327,12 @@ def local_matrix(element):
         pcu_local[11] = - mdlyy[sections]
 
     element.data.pculocal = pcu_local
+    print('=' * 30)
+    print('pcu_local')
+    print(pcu_local)
+    print('=' * 30)
     element.data.pc_ = np.dot(tr, pcu_local).A1
-    
+
+    # print(*element.data.__dict__.values(), sep='\n')
+
     return element

@@ -122,12 +122,12 @@ class Node:
         self.n_id = next(self.n_id_gen)
         self.pos = position
         self.n_ve = []
-        self.conf = {'dx': {'spring': 0.0, 'load': 0.0, 'activated': False},
-                     'dy': {'spring': 0.0, 'load': 0.0, 'activated': False},
-                     'dz': {'spring': 0.0, 'load': 0.0, 'activated': False},
-                     'mx': {'spring': 0.0, 'load': 0.0, 'activated': False},
-                     'my': {'spring': 0.0, 'load': 0.0, 'activated': False},
-                     'mz': {'spring': 0.0, 'load': 0.0, 'activated': False}}
+        self.conf = {'dx': {'spring': 0.0, 'load': 0.0, 'activated': True},
+                     'dy': {'spring': 0.0, 'load': 0.0, 'activated': True},
+                     'dz': {'spring': 0.0, 'load': 0.0, 'activated': True},
+                     'mx': {'spring': 0.0, 'load': 0.0, 'activated': True},
+                     'my': {'spring': 0.0, 'load': 0.0, 'activated': True},
+                     'mz': {'spring': 0.0, 'load': 0.0, 'activated': True}}
 
         # self.conf_springs = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}
         # self.conf_vcn = {'dx': 0.0, 'dy': 0.0, 'dz': 0.0, 'mx': 0.0, 'my': 0.0, 'mz': 0.0}

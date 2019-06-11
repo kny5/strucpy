@@ -18,6 +18,7 @@ class Ui_Form(QtWidgets.QWidget):
         self.type = Custom()
         self.setupUi()
         self.parent.ok_btn.clicked.connect(self.save)
+        # self.defaults()
 
     def save(self):
         try:
