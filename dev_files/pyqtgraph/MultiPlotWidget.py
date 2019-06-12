@@ -12,7 +12,7 @@ from pyqtgraph import MultiPlotWidget
 try:
     from pyqtgraph.metaarray import *
 except:
-    print("MultiPlot is only used with MetaArray for now (and you do not have the metaarray package)")
+    # print("MultiPlot is only used with MetaArray for now (and you do not have the metaarray package)")
     exit()
 
 app = QtGui.QApplication([])

@@ -10,7 +10,7 @@
 #         with ctx:
 #                 bimpy.text("Hello, world!")
 #                 if bimpy.button("OK"):
-#                         print(__str.value)
+#                         # print(__str.value)
 #                 bimpy.input_text('string', __str, 256)
 #                 bimpy.slider_float("float", f, 0.0, 100.0)
 

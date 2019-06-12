@@ -14,15 +14,15 @@ def asking(var, toprint, vector, level, count):
         try:
             globals()[var] = float(input(str(toprint) + " <--- "))
         except ValueError:
-            print("Ingrese un valor numérico válido.")
+            # print("Ingrese un valor numérico válido.")
             continue
         else:
             break
     if vector != "null":
         vector[level][count] = globals()[var]
     else:
-        print("Sin vector asignado")
-    print("Guardado")
+        # print("Sin vector asignado")
+    # print("Guardado")
     return
 ELEM = 0
 i = 0
@@ -31,7 +31,7 @@ asking("ELEM", "Elementos", "null", 0, 0)
 asking("mat", "Materiales", "null", 0, 0)
 ELEMENTOS = [[0 for x in range(12)] for y in range(int(ELEM))]
 while i <= ELEM - 1:
-    print("\nDatos de elemento " + str(i + 1) + ": ")
+    # print("\nDatos de elemento " + str(i + 1) + ": ")
     VARS_I = 0
     VARS_GEN = [[0 for x in range(12)] for y in range(5)]
     VARS_GEN[0] = ["l_elem", "b_prim", "b_z", "h_z", "izz",
@@ -43,7 +43,7 @@ while i <= ELEM - 1:
         asking(str(VARS_GEN[0][VARS_I]), str(VARS_GEN[1][VARS_I]), VARS_GEN, 2, VARS_I)
         VARS_I += 1
     I_V = 0
-    print("\nVector de ensamble:\n")
+    # print("\nVector de ensamble:\n")
     while I_V <= 11:
         VARS_GEN[3] = ["dx1", "dy1", "dz1", "mx1", "my1", "mz1",
                        "dx2", "dy2", "dz2", "mx2", "my2", "mz2"]
@@ -51,7 +51,7 @@ while i <= ELEM - 1:
         I_V += 1
     ELEMENTOS[i] = VARS_GEN
     i += 1
-#print(ELEMENTOS)
+## print(ELEMENTOS)
 
 #operaciones con variables
 SECCIONES = 20 #define la precisión y aumenta tamaño de matríz

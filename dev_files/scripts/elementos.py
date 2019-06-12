@@ -97,7 +97,7 @@ elemento5.end = (300,250,0)
 
 #json_object = jsonpickle.encode(elemento1)
 
-#print(json_object)
+## print(json_object)
 
 #with open("_input.json", 'w') as f:
 #    f.write(__str(json_object))

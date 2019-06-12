@@ -49,7 +49,7 @@ def updateData():
     updateTime = now
     fps = fps * 0.9 + fps2 * 0.1
     
-    #print "%0.1f fps" % fps
+    ## print "%0.1f fps" % fps
     
 
 updateData()

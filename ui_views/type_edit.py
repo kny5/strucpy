@@ -79,7 +79,7 @@ class TypeEditor(QtWidgets.QWidget):
         QtCore.QMetaObject.connectSlotsByName(self)
 
         self.type.currentIndexChanged.connect(self.filler)
-        self.ok_btn.clicked.connect(self.save_type)
+        # self.ok_btn.clicked.connect(self.save_type)
 
 
     def filler(self):
@@ -107,8 +107,8 @@ class TypeEditor(QtWidgets.QWidget):
             ui = CustomEditor(self,self.element)
             self.scrollArea.setWidget(ui)
 
-    def save_type(self):
-        print("saved")
+    # def save_type(self):
+    #     # print("saved")
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate

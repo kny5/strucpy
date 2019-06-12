@@ -1,5 +1,5 @@
 def asm_v(nodes):
-    print("asm_v")
+    # print("asm_v")
     freedom = 0
     for node in nodes:
         n_ve = []
@@ -10,5 +10,5 @@ def asm_v(nodes):
             else:
                 n_ve.append(0)
         node.n_ve = n_ve
-    print(freedom)
+    # print(freedom)
     return freedom

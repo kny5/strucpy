@@ -4,7 +4,7 @@ from pandas import DataFrame as df
 
 
 def excel_output(self):
-    print(("#" * int(self.id)) + " " + self.id)
+    # print(("#" * int(self.id)) + " " + self.id)
 
     w_name = str(self.id) + "_elemento.xlsx"
 

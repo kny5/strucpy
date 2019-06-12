@@ -39,7 +39,7 @@ for gs in ['raster', 'native', 'opengl']:
         QtGui.QApplication.setGraphicsSystem(gs)
         break
 
-print("Using %s (%s graphics system)" % (pg.Qt.QT_LIB, use_gs))
+# print("Using %s (%s graphics system)" % (pg.Qt.QT_LIB, use_gs))
 
 ## Enable fault handling to give more helpful error messages on crash. 
 ## Only available in python 3.3+

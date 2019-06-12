@@ -41,11 +41,11 @@ def psi(i, j, k, offset=(25, 25, 50)):
     #return ((1./81.) * (1./np.pi)**0.5 * (1./a0)**(3/2) * (r/a0)**2 * (r/a0) * np.exp(-r/(3*a0)) * np.sin(th) * np.cos(th) * np.exp(2 * 1j * phi))**2 
 
 
-print("Generating scalar field..")
+# print("Generating scalar field..")
 data = np.abs(np.fromfunction(psi, (50,50,100)))
 
 
-print("Generating isosurface..")
+# print("Generating isosurface..")
 verts, faces = pg.isosurface(data, data.max()/4.)
 
 md = gl.MeshData(vertexes=verts, faces=faces)

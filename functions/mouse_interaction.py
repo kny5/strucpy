@@ -175,7 +175,7 @@ class MainWin(QtWidgets.QMainWindow):
                 else:
                     pass
         else:
-            print("right click")
+            # print("right click")
 
     def atm_rot(self, direction):
 
@@ -219,12 +219,12 @@ class MainWin(QtWidgets.QMainWindow):
 
             elif self.vector_set.__len__() == 0:
                 self.vector_widget(Vector((0, 0, 0), (1, 1, 1)))
-                print("Sin seleccion")
+                # print("Sin seleccion")
             else:
-                print("Seleccione sólo un vector")
+                # print("Seleccione sólo un vector")
 
         elif event.key() == QtCore.Qt.Key_Q:
-            print("Killing")
+            # print("Killing")
             self.deleteLater()
         # return
 
@@ -234,7 +234,7 @@ class MainWin(QtWidgets.QMainWindow):
 
     # @staticmethod
     # def proceed(direction):
-    #     # print("Moviendo a " + str(direction))
+    #     # # print("Moviendo a " + str(direction))
     #     atm_rot(direction)
 
 

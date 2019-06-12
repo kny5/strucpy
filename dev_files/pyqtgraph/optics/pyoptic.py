@@ -83,7 +83,7 @@ def wlPen(wl):
         val = 1.0 * (((700-wl)/700.) + 1)
     elif wl < 400:
         val = wl * 1.0/400.
-    #print hue, val
+    ## print hue, val
     color = pg.hsvColor(hue, 1.0, val)
     pen = pg.mkPen(color)
     return pen
@@ -242,7 +242,7 @@ class Lens(Optic):
             surface = self.surfaces[i]
             ior = iors[i]
             p1, ai = surface.intersectRay(ray)
-            #print "surface intersection:", p1, ai*180/3.14159
+            ## print "surface intersection:", p1, ai*180/3.14159
             #trans = self.sceneTransform().inverted()[0] * surface.sceneTransform()
             #p1 = trans.map(p1)
             if p1 is None:
@@ -250,13 +250,13 @@ class Lens(Optic):
                 break
             p1 = surface.mapToItem(ray, p1)
             
-            #print "adjusted position:", p1
+            ## print "adjusted position:", p1
             #ior = self.ior(ray['wl'])
             rd = ray['dir']
             a1 = np.arctan2(rd[1], rd[0])
             ar = a1 - ai + np.arcsin((np.sin(ai) * ray['ior'] / ior))
-            #print [x for x in [a1, ai, (np.sin(ai) * ray['ior'] / ior), ar]]
-            #print ai, np.sin(ai), ray['ior'],  ior
+            ## print [x for x in [a1, ai, (np.sin(ai) * ray['ior'] / ior), ar]]
+            ## print ai, np.sin(ai), ray['ior'],  ior
             ray.setEnd(p1)
             dp = Point(np.cos(ar), np.sin(ar))
             #p2 = p1+dp
@@ -409,16 +409,16 @@ class CircleSurface(pg.GraphicsObject):
             
     def intersectRay(self, ray):
         ## return the point of intersection and the angle of incidence
-        #print "intersect ray"
+        ## print "intersect ray"
         h = self.h2
         r = self.r
         p, dir = ray.currentState(relativeTo=self)  # position and angle of ray in local coords.
-        #print "  ray: ", p, dir
+        ## print "  ray: ", p, dir
         p = p - Point(r, 0)  ## move position so center of circle is at 0,0
-        #print "  adj: ", p, r
+        ## print "  adj: ", p, r
         
         if r == 0:
-            #print "  flat"
+            ## print "  flat"
             if dir[0] == 0:
                 y = 0
             else:
@@ -428,7 +428,7 @@ class CircleSurface(pg.GraphicsObject):
             else:
                 return (Point(0, y), np.arctan2(dir[1], dir[0]))
         else:
-            #print "  curve"
+            ## print "  curve"
             ## find intersection of circle and line (quadratic formula)
             dx = dir[0]
             dy = dir[1]
@@ -461,14 +461,14 @@ class CircleSurface(pg.GraphicsObject):
             norm = np.arctan2(pt[1], pt[0])
             if r < 0:
                 norm += np.pi
-            #print "  norm:", norm*180/3.1415
+            ## print "  norm:", norm*180/3.1415
             dp = p - pt
-            #print "  dp:", dp
+            ## print "  dp:", dp
             ang = np.arctan2(dp[1], dp[0]) 
-            #print "  ang:", ang*180/3.1415
-            #print "  ai:", (ang-norm)*180/3.1415
+            ## print "  ang:", ang*180/3.1415
+            ## print "  ai:", (ang-norm)*180/3.1415
             
-            #print "  intersection:", pt
+            ## print "  intersection:", pt
             return pt + Point(r, 0), ang-norm
 
             

@@ -82,20 +82,20 @@ class Ui_Form(QtWidgets.QWidget):
                 a.addItem(line)
                 a.setLabel('left', text=key)
                 self.pg_widget.addItem(a, row=c, col=0)
-     #            print('*' * 30)
-     #            print(key)
-     #            print(self._dict[key])
-     #    print('#' * 50)
-     #    print('Elemento: ' + str(self.id))
-        # print(*self._dict, sep='\n')
-        # print(*self._dict.values(), sep='\n')
-    def prints(self):
-        print('#' * 50)
-        print('Elemento: ' + str(self.id))
-        for key in self._dict:
-            print('*' * 30)
-            print(key)
-            print(self._dict[key])
+     #            # print('*' * 30)
+     #            # print(key)
+     #            # print(self._dict[key])
+     #    # print('#' * 50)
+     #    # print('Elemento: ' + str(self.id))
+        # # print(*self._dict, sep='\n')
+        # # print(*self._dict.values(), sep='\n')
+    # def prints(self):
+    #     # print('#' * 50)
+    #     # print('Elemento: ' + str(self.id))
+    #     for key in self._dict:
+    #         # print('*' * 30)
+    #         # print(key)
+    #         # print(self._dict[key])
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

@@ -323,7 +323,7 @@ class NodeEditor(QtWidgets.QWidget):
 
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
 
-        # print(self.node.conf, sep='')
+        # # print(self.node.conf, sep='')
 
     def closeEvent(self, event):
         try:

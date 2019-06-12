@@ -48,7 +48,7 @@ def tmv__(vector_, m__, sections, v=False):
 
 def v_maker2(dl, m__, sections):
     """Descripción: *Pendiente*"""
-    vector = np.empty(sections + 1)
+    vector = np.zeros(sections + 1)
     vector[0] = (dl[1] - (2 * dl[0]) + dl[1]) * m__
     vector[-1] = (dl[-2] - (2 * dl[-1]) + dl[-2]) * m__
     for i in range(1, sections):
@@ -64,7 +64,7 @@ def local_matrix(element):
     if element.type is not None:
         area = element.type.area
     else:
-        print("No type assigned")
+        # # print("No type assigned")
         return False
 
     long = element.vector.long
@@ -76,14 +76,18 @@ def local_matrix(element):
     delta_x = long / sections
     mzz = (elasticity * izz) / delta_x ** 2
     myy = (elasticity * iyy) / delta_x ** 2
+    # # print('mzz')
+    # # print(mzz)
+    # # print('myy')
+    # # print(myy)
     vzz = (elasticity * izz) / (2 * delta_x ** 3)
     vyy = (elasticity * iyy) / (2 * delta_x ** 3)
     axial = (elasticity * area) / long
     torsion = ((elasticity / (2 * (1 + poisson))) * element.type.j) / long
 
-    f_a = (element.loads.kv * element.type.a1 * (long / sections) ** 4) / \
+    f_a = (element.loads.kv * element.type.a1 * delta_x ** 4) / \
           (1000 * elasticity * izz)
-    f_b = (element.loads.kh * element.type.a2 * (long / sections) ** 4) / \
+    f_b = (element.loads.kh * element.type.a2 * delta_x ** 4) / \
           (1000 * elasticity * iyy)
 
     element.data.kzz = k__(f_a, sections)
@@ -92,6 +96,11 @@ def local_matrix(element):
     element.data.myy = myy
     element.data.vzz = vzz
     element.data.vyy = vyy
+
+    # # print('kzz')
+    # # print(element.data.kzz)
+    # # print('kyy')
+    # # print(element.data.kyy)
 
     d1zz = imext__(np.dot(element.data.kzz.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
@@ -201,49 +210,12 @@ def local_matrix(element):
 
     tr = __tr_filler(np.matlib.zeros(shape=(12, 12)))
 
-    # tr = np.matlib.zeros(shape=(12, 12))
-    # rotational matrix
-    # region one
-    # tr[0, 0] = cos_nu * cos_lm
-    # tr[0, 1] = - cos_nu * sin_lm
-    # tr[0, 2] = - sin_nu
-    # tr[1, 0] = sin_lm
-    # tr[1, 1] = cos_lm
-    # tr[2, 0] = sin_nu * cos_lm
-    # tr[2, 1] = - sin_nu * sin_lm
-    # tr[2, 2] = cos_nu
-    # tr[3, 3] = cos_nu * cos_lm
-    # tr[3, 4] = - cos_nu * sin_lm
-    # tr[3, 5] = - sin_nu
-    # tr[4, 3] = sin_lm
-    # tr[4, 4] = cos_lm
-    # tr[5, 3] = sin_nu * cos_lm
-    # tr[5, 4] = - sin_nu * sin_lm
-    # tr[5, 5] = cos_nu
-    # # region two
-    # tr[6, 6] = cos_nu * cos_lm
-    # tr[6, 7] = - cos_nu * sin_lm
-    # tr[6, 8] = - sin_nu
-    # tr[7, 6] = sin_lm
-    # tr[7, 7] = cos_lm
-    # tr[8, 6] = sin_nu * cos_lm
-    # tr[8, 7] = - sin_nu * sin_lm
-    # tr[8, 8] = cos_nu
-    # tr[9, 9] = cos_nu * cos_lm
-    # tr[9, 10] = - cos_nu * sin_lm
-    # tr[9, 11] = - sin_nu
-    # tr[10, 9] = sin_lm
-    # tr[10, 10] = cos_lm
-    # tr[11, 9] = sin_nu * cos_lm
-    # tr[11, 10] = - sin_nu * sin_lm
-    # tr[11, 11] = cos_nu
-    
     kebg = np.dot(np.dot(tr, keb), tr.T)
 
     element.data.tr = tr
     element.data.keb = keb
     element.data.kebg = kebg
-    print(keb)
+    # # print(keb)
 
     pp = area * (element.type.p_mat / 10000)
     element.data.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
@@ -277,15 +249,20 @@ def local_matrix(element):
     finally:
         if element.type.armour is False:
             vplocal_y = np.insert(np.append(np.full((sections - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
+            # # print('vplocal_y')
+            # # print(vplocal_y)
             vplocal_z = np.insert(np.append(np.full((sections - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
 
-    dlzz = np.dot(element.data.kzz.I, -vplocal_z).A1
-    dlyy = np.dot(element.data.kyy.I, -vplocal_y).A1
-
+    dlzz = np.dot(element.data.kyy.I, -vplocal_z).A1
+    dlyy = np.dot(element.data.kzz.I, -vplocal_y).A1
+    # # print('dlyy')
+    # # print(dlyy)
     element.data.dlzz = dlzz
     element.data.dlyy = dlyy
 
     mdlyy = v_maker2(dlyy, mzz, sections)
+    # # print('mdlyy')
+    # # print(mdlyy)
     mdlzz = v_maker2(dlzz, myy, sections)
     element.data.mdlyy = mdlyy
     element.data.mdlzz = mdlzz
@@ -327,12 +304,37 @@ def local_matrix(element):
         pcu_local[11] = - mdlyy[sections]
 
     element.data.pculocal = pcu_local
-    print('=' * 30)
-    print('pcu_local')
-    print(pcu_local)
-    print('=' * 30)
+    # # print('=' * 30)
+    # # print('pcu_local')
+    # # print(pcu_local)
+    # # print('=' * 30)
     element.data.pc_ = np.dot(tr, pcu_local).A1
 
-    # print(*element.data.__dict__.values(), sep='\n')
+    from pandas import DataFrame as df
+    print('/' * 100)
+    print(element.e_id)
+    print(element.vector.pos)
+    _dict = element.data.__dict__
+    for val in _dict:
+        print('-' * 30)
+        print(str(val))
+        try:
+            vlue = df(_dict[val])
+            print(vlue)
+        except:
+            print(_dict[val])
+
+    print('.' * 50)
+    print('results')
+
+    __dict = element.results.__dict__
+    for val in __dict:
+        print('-' * 30)
+        print(str(val))
+        try:
+            _vlue = df(__dict[val])
+            print(_vlue)
+        except:
+            print(__dict[val])
 
     return element

@@ -78,7 +78,7 @@ curve.setPen('w')  ## white pen
 curve.setShadowPen(pg.mkPen((70,70,30), width=6, cosmetic=True))
 
 def clicked():
-    print("curve clicked")
+    # print("curve clicked")
 curve.sigClicked.connect(clicked)
 
 lr = pg.LinearRegionItem([1, 30], bounds=[0,100], movable=True)

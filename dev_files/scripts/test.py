@@ -40,7 +40,7 @@ class Analysis:
             import_module(file)
             return True
         except FileNotFoundError:
-            print('archivo no encontrado')
+            # print('archivo no encontrado')
             return False
 
     def run(self):

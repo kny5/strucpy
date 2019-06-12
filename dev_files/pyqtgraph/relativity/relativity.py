@@ -577,7 +577,7 @@ class Simulation:
                 if ref.pt >= nextPt:
                     break
                 #else:
-                    #print "Stepped to", tau2, "instead of", nextPt
+                    ## print "Stepped to", tau2, "instead of", nextPt
             ref.recordFrame(i)
             
             ## determine plane visible to reference clock

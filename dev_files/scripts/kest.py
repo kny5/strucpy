@@ -12,7 +12,7 @@ Max_val = Analisis.Max_val
 
 
 def vdgen():
-    print('Iniciando calculos')
+    # print('Iniciando calculos')
 
     for self in Elementos:
         self.set_nodes
@@ -119,9 +119,9 @@ def get_results(self, elemento):
     elemento.toDeactivate = []
 
     for sccToDeactivate in elemento.press_y:
-        # print(sccToDeactivate)
+        # # print(sccToDeactivate)
         if float(sccToDeactivate) > 0.0 and not elemento.armadura:
-            # print('desactivar')
+            # # print('desactivar')
             elemento.toDeactivate.append(True)
         else:
             elemento.toDeactivate.append(False)

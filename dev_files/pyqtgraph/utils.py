@@ -104,7 +104,7 @@ def buildFileList(examples, files=None):
 def testFile(name, f, exe, lib, graphicsSystem=None):
     global path
     fn = os.path.join(path,f)
-    #print "starting process: ", fn
+    ## print "starting process: ", fn
     os.chdir(path)
     sys.stdout.write(name)
     sys.stdout.flush()
@@ -120,14 +120,14 @@ try:
     %s
     import %s
     import sys
-    print("test complete")
+    # print("test complete")
     sys.stdout.flush()
     import time
     while True:  ## run a little event loop
         pg.QtGui.QApplication.processEvents()
         time.sleep(0.01)
 except:
-    print("test failed")
+    # print("test failed")
     raise
 
 """ % (import1, graphicsSystem, import2)
@@ -158,8 +158,8 @@ except:
     res = (process.stdout.read(), process.stderr.read())
 
     if fail or 'exception' in res[1].decode().lower() or 'error' in res[1].decode().lower():
-        print('.' * (50-len(name)) + 'FAILED')
-        print(res[0].decode())
-        print(res[1].decode())
+        # print('.' * (50-len(name)) + 'FAILED')
+        # print(res[0].decode())
+        # print(res[1].decode())
     else:
-        print('.' * (50-len(name)) + 'passed')
+        # print('.' * (50-len(name)) + 'passed')

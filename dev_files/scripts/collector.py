@@ -2,7 +2,7 @@
 import jsonpickle
 import sys
 try:
-    print(str(sys.argv[1]))
+    # print(str(sys.argv[1]))
     with open(str(sys.argv[1]), 'r') as inputFile:
         read_input = jsonpickle.loads(inputFile.read())
 
@@ -17,5 +17,5 @@ try:
 #except AttributeError:
     #read_input.id = 1
 except TypeError:
-    print(read_input)
-print(read_input.ve)
+    # print(read_input)
+# print(read_input.ve)

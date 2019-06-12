@@ -81,7 +81,7 @@ class Graph(pg.GraphItem):
         ev.accept()
         
     def clicked(self, pts):
-        print("clicked: %s" % pts)
+        # print("clicked: %s" % pts)
 
 
 g = Graph()

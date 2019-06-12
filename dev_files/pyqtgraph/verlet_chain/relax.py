@@ -45,7 +45,7 @@ else:
             #change[mask] = 0
             
             #dx *= change[:, np.newaxis]
-            #print dx
+            ## print dx
             
             ##pos[p1] -= mrel2 * dx
             ##pos[p2] += mrel1 * dx

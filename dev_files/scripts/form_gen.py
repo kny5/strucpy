@@ -26,7 +26,7 @@ class Ui_Dialog(object):
     def setup_ui(self, dialog, clstouse):
 
         attributes = [(item, value) for item, value in clstouse.__dict__.items() if not str(item)[0] == "_"]
-        print(clstouse.__dict__.keys())
+        # print(clstouse.__dict__.keys())
         dialog.setObjectName("dialog")
         dialog.resize(400, 280)
         self.buttonBox = QtWidgets.QDialogButtonBox(dialog)

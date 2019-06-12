@@ -19,9 +19,9 @@ win.show()
 win.setWindowTitle('pyqtgraph example: ColorButton')
 
 def change(btn):
-    print("change", btn.color())
+    # print("change", btn.color())
 def done(btn):
-    print("done", btn.color())
+    # print("done", btn.color())
 
 btn.sigColorChanging.connect(change)
 btn.sigColorChanged.connect(done)

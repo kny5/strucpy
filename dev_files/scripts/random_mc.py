@@ -16,7 +16,7 @@ def random_vector(list, grados, iterations=1000):
 
 x = list(range(-15,16,1))
 #data = np.arange(0,15,1)
-#print(len(data))
+## print(len(data))
 y = list(range(-35,36,1))
 #y = np.arange(-10,-35,-1)
 
@@ -29,11 +29,11 @@ a = list(range(-150,151,1))
 w = list(it.product(x,y,z,a))
 #w = np.array(it.product(data,y,z,a))
 
-#print(data, y, z)
+## print(data, y, z)
 
-#print(w)
+## print(w)
 
-print(len(w))
+# print(len(w))
 
 filtered = []
 
@@ -44,7 +44,7 @@ for i in w:
        i[3] < max(a) * 0.75:
         filtered.append(i)
 
-print(len(filtered))
+# print(len(filtered))
 
 e = np.random.randint(0,high=len(filtered), size=1000)
 
@@ -52,8 +52,8 @@ sample = []
 
 for i in e:
     sample.append(filtered[i])
-    print(filtered[i])
-print(len(sample))
+    # print(filtered[i])
+# print(len(sample))
 
 #f = np.random.uniform(0, len(filtered), 1000)
 
@@ -61,5 +61,5 @@ print(len(sample))
 
 #for uds in f:
 #    sample.append(filtered[uds])
-#    print(filtered[uds])
+#    # print(filtered[uds])
 

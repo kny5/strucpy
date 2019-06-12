@@ -136,7 +136,7 @@ if __name__ == '__main__':
             lib = ''
             
         exe = sys.executable
-        print("Running tests:", lib, sys.executable)
+        # print("Running tests:", lib, sys.executable)
         for f in files:
             testFile(f[0], f[1], exe, lib)
     else: 

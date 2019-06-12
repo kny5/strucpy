@@ -36,7 +36,7 @@ while True:
 
     diff = [x[0] for x in x_ if x not in set(y_)]
     if len(diff) != 0:
-        # print(__str(diff) + ' file(s) changed')
+        # # print(__str(diff) + ' file(s) changed')
         toaster.show_toast('File(s) changed', str(diff), duration=10)
         for file in diff:
             os.system('pyuic5 -x' + file + ' -o python/' + str(file)[0:-3] + '.py')

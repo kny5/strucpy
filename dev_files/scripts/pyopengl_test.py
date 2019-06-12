@@ -22,7 +22,7 @@ class Shader:
             log = GL.glGetShaderInfoLog(shader).decode('ascii')
             GL.glDeleteShader(shader)
             src = '\n'.join(src)
-            print('Compile failed for %s\n%s\n%s' % (shader_type, log, src))
+            # print('Compile failed for %s\n%s\n%s' % (shader_type, log, src))
             return None
         return shader
 
@@ -40,7 +40,7 @@ class Shader:
             GL.glDeleteShader(frag)
             status = GL.glGetProgramiv(self.glid, GL.GL_LINK_STATUS)
             if not status:
-                print(GL.glGetProgramInfoLog(self.glid).decode('ascii'))
+                # print(GL.glGetProgramInfoLog(self.glid).decode('ascii'))
                 GL.glDeleteProgram(self.glid)
                 self.glid = None
 
@@ -123,7 +123,7 @@ class Viewer:
         glfw.set_key_callback(self.win, self.on_key)
 
         # useful message to check OpenGL renderer characteristics
-        print('OpenGL', GL.glGetString(GL.GL_VERSION).decode() + ', GLSL',
+        # print('OpenGL', GL.glGetString(GL.GL_VERSION).decode() + ', GLSL',
               GL.glGetString(GL.GL_SHADING_LANGUAGE_VERSION).decode() +
               ', Renderer', GL.glGetString(GL.GL_RENDERER).decode())
 

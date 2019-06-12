@@ -48,11 +48,11 @@ count = 0
 def update():
     global curve, data, ptr, p, lastTime, fps, nPlots, count
     count += 1
-    #print "---------", count
+    ## print "---------", count
     for i in range(nPlots):
         curves[i].setData(data[(ptr+i)%data.shape[0]])
         
-    #print "   setData done."
+    ## print "   setData done."
     ptr += nPlots
     now = time()
     dt = now - lastTime

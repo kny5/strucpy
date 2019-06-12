@@ -3,6 +3,15 @@ import math
 
 
 def get_data(self, element):
+
+    vdgen_p = np.zeros(12)
+    for k, i_ in enumerate(element.ve):
+        if i_ != 0:
+            vdgen_p[k] = self.dn_est[0, i_ - 1]
+        # else:
+        #     pass
+    self.vdgen_p = vdgen_p
+
     # p_global
     p_global = np.dot(element.data.kebg, self.vdgen_p).A1
     # fuerza_local

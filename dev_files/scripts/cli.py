@@ -10,13 +10,13 @@ def asking(var, toprint, vector, level, count):
         try:
             globals()[var] = int(input(str(toprint) + " <--- "))
         except ValueError:
-            print("Ingrese un valor numérico válido.")
+            # print("Ingrese un valor numérico válido.")
             continue
         else:
             break
     if vector != "null":
         vector[level][count] = globals()[var]
     else:
-        print("Sin vector asignado")
-    print("Guardado")
+        # print("Sin vector asignado")
+    # print("Guardado")
     return

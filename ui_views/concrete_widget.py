@@ -27,7 +27,7 @@ class Ui_Form(QtWidgets.QWidget):
             self.type.b = float(self.input_b_val.text())
             self.type.h = float(self.input_h_val.text())
             self.type.b_prima = float(self.input_bp_val.text())
-            print(self.element.data.__dict__)
+            # print(self.element.data.__dict__)
         except Exception:
             pass
 

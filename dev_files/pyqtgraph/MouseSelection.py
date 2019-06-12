@@ -43,7 +43,7 @@ def orthogonal_projection(point):
 # list_y = [[list_pro[n][1], list_pro[n+1][1]] for n, x in enumerate(list_pro) if n % 2 == 0 or n == 0]
 # list_y = [y[1] for y in list_pro]
 # pair_lists_end = list(zip(list_x, list_y))
-# print(list_pairs)
+# # print(list_pairs)
 
 win = pg.plot()
 win.setWindowTitle('pyqtgraph example: Plot data selection')

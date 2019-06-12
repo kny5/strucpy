@@ -139,4 +139,4 @@ class Node:
 
     @property
     def n_vcn(self):
-        return [value['load'] for value in self.conf.values() if value['activated'] is True]
+        return [value['load'] for value in self.conf.values() if value['activated'] == True]

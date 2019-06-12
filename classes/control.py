@@ -33,7 +33,7 @@ class Controller:
             self.parent.graphicsys.show_vectors()
             self.set_nodes()
             self.set_vectors()
-            print(self.program.vectors, self.program.elements, self.program.nodes)
+            # print(self.program.vectors, self.program.elements, self.program.nodes)
         except Exception:
             pass
 
@@ -68,7 +68,7 @@ class Controller:
     def edit_vector(self):
         if self.selection.__len__() > 0:
             for vector in self.selection:
-                # print("--" + str(self.uis_vector.get(str(vector.pos))))
+                # # print("--" + str(self.uis_vector.get(str(vector.pos))))
                 ui = VectorEditor(self, vector)
                 self.uis_vector[str(vector.pos)] = ui
                 #this ui set is buggy
@@ -99,8 +99,8 @@ class Controller:
     def set_vectors(self):
         if self.program.vectors.__len__() > 0:
             self.program.elements = set(list(map(Element, [vector for vector in self.program.vectors if vector.parent is None])) )
-            # print(self.program.elements.__len__())
-            # print(str([vector.parent for vector in self.selection]))
+            # # print(self.program.elements.__len__())
+            # # print(str([vector.parent for vector in self.selection]))
         else:
             self.parent.notificator('Error', 'No hay vectores')
 
@@ -108,14 +108,14 @@ class Controller:
         try:
             list_points = reduce(add, [[vector.start, vector.end] for vector in self.program.vectors if vector.parent is None])
             nodes = list(map(Node, list_points))
-            # print(nodes)
+            # # print(nodes)
             dict_points = dict(zip(list_points, nodes))
             for key in dict_points.keys():
                 if not key in self.dict_nodes:
                     self.dict_nodes[key] = dict_points[key]
-            # print(self.dict_nodes)
+            # # print(self.dict_nodes)
         except:
-            print('hi bug')
+            # print('hi bug')
             pass
 
     def edit_loads(self):
@@ -127,7 +127,6 @@ class Controller:
                 else:
                     ui = self.uis_element[str(vector.pos)]
                 ui.show()
-            # self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
 
@@ -135,7 +134,7 @@ class Controller:
         if self.selection.__len__() > 0:
             self.uis_node.clear()
             for vector in self.selection:
-                print(self.uis_node.get(str(vector.start)))
+                # print(self.uis_node.get(str(vector.start)))
                 if self.uis_node.get(str(vector.start)) is None:
                     start = self.dict_nodes[vector.start]
                     u1 = NodeEditor(start)
@@ -163,7 +162,6 @@ class Controller:
                 else:
                     ui = self.parent.uis_element[str(vector.pos)]
                 ui.show()
-            self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
 
@@ -176,7 +174,6 @@ class Controller:
                 else:
                     ui = self.uis_type[str(vector.pos)]
                 ui.show()
-            self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
 

@@ -35,7 +35,7 @@ class Program:
     #     self.elements = list(map(Element, self.vectors))
 
     def asm_v(self):
-        # print("asm_v")
+        # # print("asm_v")
         self.freedom = 0
         for node in self.nodes:
             n_ve = []
@@ -48,27 +48,33 @@ class Program:
                         else:
                             n_ve.append(0)
             node.n_ve = n_ve
-        print('grados de libertad')
-        print(self.freedom)
+        # print('grados de libertad')
+        # print(self.freedom)
         # return freedom
 
     def full_structure_matrix(self):
-        print('Estructura ' + str(self.freedom))
+        # print('Estructura ' + str(self.freedom))
         self.kest = matlib.zeros(shape=(self.freedom, self.freedom))
         self.pcur_ = np.zeros(self.freedom)
         for element in self.elements:
             NStart = self.parent.dict_nodes[element.vector.start]
             NEnd = self.parent.dict_nodes[element.vector.end]
             setattr(element, 've', NStart.n_ve + NEnd.n_ve)
-            print('vector de ensamble de elemento ' + str(element.e_id))
-            print(element.ve)
-            for _c, _i in enumerate(element.ve):
-                if _i != 0:
-                    self.pcur_[_i - 1] += element.data.pc_[_c]
-                for _k, _j in enumerate(element.ve):
-                    if _j != 0:
-                        self.kest[_i - 1, _j - 1] += element.data.kebg.item(_c, _k)
-        print(self.kest)
+            # print('vector de ensamble de elemento ' + str(element.e_id))
+            # print(element.ve)
+
+        for element in self.elements:
+            for i_ in range(12):  # vertical
+                self.pcur_[element.ve[i_] - 1] += element.data.pc_[i_]
+                for j in range(12):  # horizontal
+                    self.kest[element.ve[i_] -1 , element.ve[j] -1] += element.data.kebg.item(i_, j)
+            # for _c, _i in enumerate(element.ve):
+            #     if _i != 0:
+            #         self.pcur_[_i - 1] += element.data.pc_[_c]
+            #     for _k, _j in enumerate(element.ve):
+            #         if _j != 0:
+            #             self.kest[_i - 1, _j - 1] += element.data.kebg.item(_c, _k)
+        # print(self.kest)
 
     # def set_nodes(self):
     #     list_points = reduce(add, [[vector.start, vector.end] for vector in self.vectors])
@@ -79,56 +85,77 @@ class Program:
         self.vcn = []
         self.v_springs = []
         for node in self.nodes:
-            # print(node)
+            # # print(node)
             self.vcn += node.n_vcn
             self.v_springs += node.n_springs
-            # print(self.pcur_)
-            # print("*" * 13)
-            # print(self.vcn)
-            # print(self.v_springs)
-        pcur_sum = np.add(self.pcur_, self.vcn)
+            # # print(self.pcur_)
+            # # print("*" * 13)
+            # # print(self.vcn)
+            # # print(self.v_springs)
+        # pcur_sum = np.add(self.pcur_, self.vcn)
+        def vector_add(one, two):
+            sum = []
+            for i, v in enumerate(one, 0):
+                sum.append(v + two[i])
+            return np.asarray(sum)
+
+        pcur_sum = vector_add(self.vcn, self.pcur_)
+
         print('vector carga solo de la estructura')
         print(self.pcur_)
+        print('vector cargas nodales')
+        print(self.vcn)
+        print('vector cargas nodales')
+        print(pcur_sum)
+
+
         if not random_loads == None:
             pcur_sum_random_loads = np.add(pcur_sum, np.asarray(random_loads))
             self.dn_est = np.dot(self.kest.I, pcur_sum_random_loads)
         else:
             self.dn_est = np.dot(self.kest.I, pcur_sum)
 
-        vdgen_p = np.zeros(12)
-        for node in self.nodes:
-            for k, i_ in enumerate(node.n_ve):
-                if i_ != 0:
-                    vdgen_p[k] = self.dn_est[0, i_ - 1]
-                else:
-                    pass
-        self.vdgen_p = vdgen_p
 
     def run(self):
-        # print('1')
-        print('bug ...')
-        print(self.elements)
-        # print('2')
+        # # print('1')
+        # print('bug ...')
+        # print(self.elements)
+        # # print('2')
         for _element in self.elements:
             local_matrix(_element)
 
         self.asm_v()
         self.full_structure_matrix()
-        # print('3')
+        # # print('3')
         self.set_nodes_loads()
-        # print('4')
-        # print('4')
+        # # print('4')
+        # # print('4')
         # self.full_structure_matrix()
-        # print('5')
+        # # print('5')
         for _element in self.elements:
-            # print('.')
+            # # print('.')
             get_data(self, _element)
-            # print(_element.results.__dict__)
+            # # print(_element.results.__dict__)
 
         self.ui_results = []
-        print(self.elements.__len__())
+        # print(self.elements.__len__())
         for __element in self.elements:
             u = Results(__element)
             u.show()
             self.ui_results.append(u)
 
+        from pandas import DataFrame as df
+        print(df(self.kest))
+        print(df(self.pcur_))
+        print(df(self.dn_est))
+        print('node info')
+        print(self.parent.dict_nodes)
+        print(self.nodes)
+        print(self.nodes.__len__())
+        for node in self.nodes:
+            print(node.n_ve)
+            print(node.pos)
+
+        for element in self.elements:
+            print(element.vector.pos)
+            print(element.ve)

@@ -27,7 +27,7 @@ w2.setAspectLocked(True)
 view.nextRow()
 w3 = view.addPlot()
 w4 = view.addPlot()
-print("Generating data, this takes a few seconds...")
+# print("Generating data, this takes a few seconds...")
 
 ## There are a few different ways we can draw scatter plots; each is optimized for different types of data:
 
@@ -49,7 +49,7 @@ def clicked(plot, points):
     global lastClicked
     for p in lastClicked:
         p.resetPen()
-    print("clicked points", points)
+    # print("clicked points", points)
     for p in points:
         p.setPen('b', width=2)
     lastClicked = points

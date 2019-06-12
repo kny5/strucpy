@@ -66,8 +66,9 @@ class GraphicSystem:
                         else:
                             selection.remove(vector)
                 self.show_vector_selection()
-            else:
-                print("right click")
+            # else:
+            #     pass
+                # print("right click")
 
     def show_vectors(self):
         if self.parent.control.program.vectors.__len__() > 0:
