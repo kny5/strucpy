@@ -64,7 +64,7 @@ def local_matrix(element):
     if element.type is not None:
         area = element.type.area
     else:
-        # # print("No type assigned")
+        print("No type assigned")
         return False
 
     long = element.vector.long
@@ -76,10 +76,6 @@ def local_matrix(element):
     delta_x = long / sections
     mzz = (elasticity * izz) / delta_x ** 2
     myy = (elasticity * iyy) / delta_x ** 2
-    # # print('mzz')
-    # # print(mzz)
-    # # print('myy')
-    # # print(myy)
     vzz = (elasticity * izz) / (2 * delta_x ** 3)
     vyy = (elasticity * iyy) / (2 * delta_x ** 3)
     axial = (elasticity * area) / long
@@ -89,18 +85,18 @@ def local_matrix(element):
           (1000 * elasticity * izz)
     f_b = (element.loads.kh * element.type.a2 * delta_x ** 4) / \
           (1000 * elasticity * iyy)
+    element.data.f_a = f_a
 
-    element.data.kzz = k__(f_a, sections)
+    if element.data.new_kzz is None:
+        element.data.kzz = k__(f_a, sections)
+    else:
+        element.data.kzz = element.data.new_kzz
+
     element.data.kyy = k__(f_b, sections)
     element.data.mzz = mzz
     element.data.myy = myy
     element.data.vzz = vzz
     element.data.vyy = vyy
-
-    # # print('kzz')
-    # # print(element.data.kzz)
-    # # print('kyy')
-    # # print(element.data.kyy)
 
     d1zz = imext__(np.dot(element.data.kzz.I,
                           -(np.insert(np.zeros(sections), 0, 3))).A1, (0, -6, 2))
@@ -188,7 +184,6 @@ def local_matrix(element):
     keb[10, 10] = tm2yy[sections]
     keb[11, 7] = - m2zz[sections]
     keb[11, 11] = tm2zz[sections]
-
     # rotational matrix
     cos_nu = math.cos(math.radians(element.vector.nu))
     sin_nu = math.sin(math.radians(element.vector.nu))
@@ -209,60 +204,42 @@ def local_matrix(element):
         return _tr
 
     tr = __tr_filler(np.matlib.zeros(shape=(12, 12)))
-
     kebg = np.dot(np.dot(tr, keb), tr.T)
-
     element.data.tr = tr
     element.data.keb = keb
     element.data.kebg = kebg
-    # # print(keb)
-
     pp = area * (element.type.p_mat / 10000)
     element.data.pp_scc = ((pp * (long / 100)) / sections) * sin_lm
-
     p_axial = ((- sin_lm *
                 pp * (long / 100)) / 2) + \
               ((- math.sin(math.radians(element.loads.aw)) * element.loads.wy *
                 (long / 100)) / 2)
-
     p_scc_y = ((pp * (long / 100) * cos_lm) / sections) * \
               ((delta_x ** 3) / (elasticity * izz))
-
     p_scc_z = 0
     w_scc_y = ((((element.loads.wy * long) / 100) *
                 math.cos(math.radians(element.loads.aw))) / sections) * \
               ((delta_x ** 3) / (elasticity * izz))
-
     w_scc_z = ((element.loads.wz * (long / 100)) /
                sections) * ((delta_x ** 3) / (elasticity * iyy))
-
     try:
         if element.type.armour is True:
             p_elem = pp * (long / 100)
             vplocal_y = np.zeros(sections + 1)
             vplocal_z = np.zeros(sections + 1)
             p_vertical = -(cos_lm * p_elem) / 2
-
     except AttributeError:
         setattr(element.type, 'armour', False)
-
     finally:
         if element.type.armour is False:
             vplocal_y = np.insert(np.append(np.full((sections - 1,), (p_scc_y + w_scc_y)), 0), 0, 0)
-            # # print('vplocal_y')
-            # # print(vplocal_y)
             vplocal_z = np.insert(np.append(np.full((sections - 1,), (p_scc_z + w_scc_z)), 0), 0, 0)
 
     dlzz = np.dot(element.data.kyy.I, -vplocal_z).A1
     dlyy = np.dot(element.data.kzz.I, -vplocal_y).A1
-    # # print('dlyy')
-    # # print(dlyy)
     element.data.dlzz = dlzz
     element.data.dlyy = dlyy
-
     mdlyy = v_maker2(dlyy, mzz, sections)
-    # # print('mdlyy')
-    # # print(mdlyy)
     mdlzz = v_maker2(dlzz, myy, sections)
     element.data.mdlyy = mdlyy
     element.data.mdlzz = mdlzz
@@ -284,13 +261,11 @@ def local_matrix(element):
     vdlzz = v_maker3(dlzz, vyy, vplocal_z, iyy)
 
     pcu_local = np.zeros(12)
-
     if element.type.armour is True:
         pcu_local[0] = p_axial
         pcu_local[1] = p_vertical
         pcu_local[6] = p_axial
         pcu_local[7] = p_vertical
-
     else:
         pcu_local[0] = p_axial
         pcu_local[1] = - vdlyy[0]
@@ -304,37 +279,6 @@ def local_matrix(element):
         pcu_local[11] = - mdlyy[sections]
 
     element.data.pculocal = pcu_local
-    # # print('=' * 30)
-    # # print('pcu_local')
-    # # print(pcu_local)
-    # # print('=' * 30)
     element.data.pc_ = np.dot(tr, pcu_local).A1
-
-    from pandas import DataFrame as df
-    print('/' * 100)
-    print(element.e_id)
-    print(element.vector.pos)
-    _dict = element.data.__dict__
-    for val in _dict:
-        print('-' * 30)
-        print(str(val))
-        try:
-            vlue = df(_dict[val])
-            print(vlue)
-        except:
-            print(_dict[val])
-
-    print('.' * 50)
-    print('results')
-
-    __dict = element.results.__dict__
-    for val in __dict:
-        print('-' * 30)
-        print(str(val))
-        try:
-            _vlue = df(__dict[val])
-            print(_vlue)
-        except:
-            print(__dict[val])
 
     return element

@@ -64,6 +64,9 @@ class Data:
     mdlyy = None
     pculocal = None
     pc_ = None
+    nodes_todeact = []
+    def __init__(self):
+        self.new_kzz = None
 
 
 class Loads:

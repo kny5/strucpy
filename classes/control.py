@@ -6,6 +6,7 @@ from ui_views.vector_edit import VectorEditor
 from ui_views.loads_edit import LoadsEditor
 from ui_views.node_edit import NodeEditor
 from ui_views.type_edit import TypeEditor
+from ui_views.Results import Ui_Form as Results
 from functools import reduce
 from operator import add
 
@@ -21,6 +22,7 @@ class Controller:
         self.uis_element = dict()
         self.uis_node = dict()
         self.uis_type = dict()
+        self.uis_results = dict()
 
         # self.views = None
         self.program = Program(self)
@@ -117,6 +119,19 @@ class Controller:
         except:
             # print('hi bug')
             pass
+
+    def view_results_all(self):
+        if self.selection.__len__() > 0:
+            for vector in self.selection:
+                if self.uis_results.get(str(vector.pos)) is None:
+                    ui = Results(vector.parent)
+                    self.uis_results[str(vector.pos)] = ui
+                else:
+                    ui = self.uis_results[str(vector.pos)]
+                ui.show()
+        else:
+            self.parent.notificator('Error', 'No hay vectores seleccionados')
+
 
     def edit_loads(self):
         if self.selection.__len__() > 0:

@@ -174,6 +174,10 @@ class toolbox(QtWidgets.QGroupBox):
         self.run_btn_tools = QtWidgets.QPushButton(self)
         self.tools_layout.addWidget(self.run_btn_tools)
         self.run_btn_tools.setMinimumSize(80, 60)
+
+        self.deact_btn_tools = QtWidgets.QPushButton(self)
+        self.tools_layout.addWidget(self.deact_btn_tools)
+        self.deact_btn_tools.setMinimumSize(80, 60)
         # self.run_btn_tools.setStyleSheet("background-color: #777777")
 
         self.retranslate_ui()
