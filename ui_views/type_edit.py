@@ -15,9 +15,9 @@ from ui_views.Custom_widget import Ui_Form as CustomEditor
 
 
 class TypeEditor(QtWidgets.QWidget):
-    def __init__(self, element):
+    def __init__(self, elements):
         super().__init__()
-        self.element = element
+        self.elements = elements
         self.setupUi()
 
     def setupUi(self):
@@ -81,34 +81,23 @@ class TypeEditor(QtWidgets.QWidget):
         self.type.currentIndexChanged.connect(self.filler)
         # self.ok_btn.clicked.connect(self.save_type)
 
-
     def filler(self):
         index = self.type.currentIndex()
         if index == 0:
             return
         elif index == 1:
-            # self.element.set_type(index)
-            ui = ConcEditor(self,self.element)
-            self.scrollArea.setWidget(ui)
+            ui = ConcEditor(self, self.elements)
         elif index == 2:
-            # self.element.set_type(index)
-            ui = OrEditor(self,self.element)
-            self.scrollArea.setWidget(ui)
+            ui = OrEditor(self, self.elements)
         elif index == 3:
-            # self.element.set_type(index)
-            ui = IrEditor(self,self.element)
-            self.scrollArea.setWidget(ui)
+            ui = IrEditor(self, self.elements)
         elif index == 4:
-            # self.element.set_type(index)
-            ui = OcEditor(self,self.element)
-            self.scrollArea.setWidget(ui)
+            ui = OcEditor(self, self.elements)
         elif index == 5:
-            # self.element.set_type(index)
-            ui = CustomEditor(self,self.element)
-            self.scrollArea.setWidget(ui)
+            ui = CustomEditor(self, self.elements)
+        self.scrollArea.setWidget(ui)
 
-    # def save_type(self):
-    #     # print("saved")
+
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate

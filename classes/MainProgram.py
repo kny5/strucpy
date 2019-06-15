@@ -3,7 +3,6 @@ from functions.get_data import get_data
 import numpy as np
 from numpy import matlib
 import sys
-import inspect
 
 print(sys.getrecursionlimit())
 
@@ -82,7 +81,7 @@ class Program:
         else:
             self.dn_est = np.dot(self.kest.I, pcur_sum)
 
-    def run(self):
+    def n_run(self):
         for _element in self.elements:
             local_matrix(_element)
         self.asm_v()
@@ -91,7 +90,7 @@ class Program:
         for _element in self.elements:
             get_data(self, _element)
 
-    def d_run(self):
+    def run(self):
         for _element in self.elements:
             local_matrix(_element)
         self.asm_v()

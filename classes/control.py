@@ -6,7 +6,7 @@ from ui_views.vector_edit import VectorEditor
 from ui_views.loads_edit import LoadsEditor
 from ui_views.node_edit import NodeEditor
 from ui_views.type_edit import TypeEditor
-from ui_views.Results import Ui_Form as Results
+from ui_views.Results import Ui_Form as ResultsViewer
 from functools import reduce
 from operator import add
 
@@ -124,7 +124,7 @@ class Controller:
         if self.selection.__len__() > 0:
             for vector in self.selection:
                 if self.uis_results.get(str(vector.pos)) is None:
-                    ui = Results(vector.parent)
+                    ui = ResultsViewer(vector.parent)
                     self.uis_results[str(vector.pos)] = ui
                 else:
                     ui = self.uis_results[str(vector.pos)]
@@ -168,30 +168,41 @@ class Controller:
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
 
-    def edit_type(self):
-        if self.selection.__len__() > 0:
-            for vector in self.selection:
-                if self.parent.uis_element.get(str(vector.pos)) is None:
-                    ui = LoadsEditor(self, vector.parent)
-                    self.parent.uis_element[str(vector.pos)] = ui
-                else:
-                    ui = self.parent.uis_element[str(vector.pos)]
-                ui.show()
-        else:
-            self.parent.notificator('Error', 'No hay vectores seleccionados')
+    #def edit_loads_invector(self):
+    #    if self.selection.__len__() > 0:
+    #        for vector in self.selection:
+    #            if self.parent.uis_element.get(str(vector.pos)) is None:
+    #                ui = LoadsEditor(self, vector.parent)
+    #                self.parent.uis_element[str(vector.pos)] = ui
+    #            else:
+    #                ui = self.parent.uis_element[str(vector.pos)]
+    #            ui.show()
+    #    # elif self.selection.__len__() == 0 and self.program.vectors.__len__() > 0:
+    #    #     for vector in self.program.vectors:
+    #    #         if self.parent.uis_element.get(str(vector.pos)) is None:
+    #    #             ui = LoadsEditor(self, vector.parent)
+    #    #             self.parent.uis_element[str(vector.pos)] = ui
+    #    #         else:
+    #    #             ui = self.parent.uis_element[str(vector.pos)]
+    #    #         ui.show()
+    #    else:
+    #        self.parent.notificator('Error', 'No hay vectores seleccionados')
 
     def edit_section_type(self):
         if self.selection.__len__() > 0:
-            for vector in self.selection:
-                if self.uis_type.get(str(vector.pos)) is None:
-                    ui = TypeEditor(vector.parent)
-                    self.uis_type[str(vector.pos)] = ui
-                else:
-                    ui = self.uis_type[str(vector.pos)]
-                ui.show()
-        else:
-            self.parent.notificator('Error', 'No hay vectores seleccionados')
-
+            # for vector in self.selection:
+            if self.uis_type.get('partial') is None:
+                ui = TypeEditor([vector.parent for vector in self.selection])
+                self.uis_type['partial'] = ui
+            else:
+                ui = self.uis_type['partial']
+            ui.show()
+        elif self.selection.__len__() == 0 and self.program.vectors.__len__() > 0:
+            ui = TypeEditor([ vector.parent for vector in self.program.vectors])
+            self.uis_type['all'] = ui
+            ui.show()
+        # else:
+        #     self.parent.notificator('Error', 'No hay vectores seleccionados')
 
     def run(self):
         self.program.run()
