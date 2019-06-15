@@ -6,7 +6,8 @@ from ui_views.vector_edit import VectorEditor
 from ui_views.loads_edit import LoadsEditor
 from ui_views.node_edit import NodeEditor
 from ui_views.type_edit import TypeEditor
-from ui_views.Results import Ui_Form as ResultsViewer
+# from ui_views.Results import Ui_Form as ResultsViewer
+from ui_views.Inpector import App as ResultsViewer
 from functools import reduce
 from operator import add
 
