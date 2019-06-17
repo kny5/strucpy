@@ -54,7 +54,6 @@ class Program:
             node.n_ve = n_ve
 
     def full_structure_matrix(self):
-        # print('Estructura ' + str(self.freedom))
         self.kest = matlib.zeros(shape=(self.freedom, self.freedom))
         self.pcur_ = np.zeros(self.freedom)
         for element in self.elements:
@@ -62,10 +61,12 @@ class Program:
             NEnd = self.parent.dict_nodes[element.vector.end]
             setattr(element, 've', NStart.n_ve + NEnd.n_ve)
         for element in self.elements:
-            for i_ in range(12):  # vertical
-                self.pcur_[element.ve[i_] - 1] += element.data.pc_[i_]
-                for j in range(12):  # horizontal
-                    self.kest[element.ve[i_] -1 , element.ve[j] -1] += element.data.kebg.item(i_, j)
+            for _index, value in enumerate(element.ve):
+                if value != 0:
+                    self.pcur_[value -1] += element.data.pc_[_index]
+                    for __index, _value in enumerate(element.ve):
+                        if _value != 0:
+                            self.kest[value -1, _value -1] += element.data.kebg.item(_index, __index)
 
     def set_nodes_loads(self, random_loads=None):
         self.vcn = []
@@ -74,12 +75,12 @@ class Program:
             self.vcn += node.n_vcn
             self.v_springs += node.n_springs
 
-        pcur_sum = vector_add(self.vcn, self.pcur_)
+        self.pcur_sum = vector_add(self.vcn, self.pcur_)
         if not random_loads == None:
-            pcur_sum_random_loads = np.add(pcur_sum, np.asarray(random_loads))
+            pcur_sum_random_loads = np.add(self.pcur_sum, np.asarray(random_loads))
             self.dn_est = np.dot(self.kest.I, pcur_sum_random_loads)
         else:
-            self.dn_est = np.dot(self.kest.I, pcur_sum)
+            self.dn_est = np.dot(self.kest.I, self.pcur_sum)
 
     def n_run(self):
         for _element in self.elements:

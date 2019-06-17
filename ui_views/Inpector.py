@@ -1,12 +1,12 @@
-import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QAction, QTableWidget, QTableWidgetItem, QVBoxLayout
-from PyQt5.QtGui import QIcon
+# import sys
+from PyQt5.QtWidgets import QWidget, QTableWidget, QTableWidgetItem, QVBoxLayout
+# from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 from numpy import nditer
 
 class App(QWidget):
 
-    def __init__(self, element):
+    def __init__(self, data):
         super().__init__()
         self.title = 'PyQt5 table - pythonspot.com'
         self.left = 100
@@ -14,37 +14,30 @@ class App(QWidget):
         self.top = 100
         self.width = 300
         self.height = 200
-        self.data = [data for data in element.data.__dict__.values()]
-        self.tableWidgets = []
+        self.data = data
         self.initUI()
 
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
-        for data in self.data:
-            try:
-                for ui in self.tableWidgets:
-                    self.layout.addWidget(ui)
-                self.createTable(data)
-            except:
-                pass
+        self.createTable(self.data)
         # Add box layout, add table to box layout and add box layout to widget
         self.layout = QVBoxLayout()
-
+        self.layout.addWidget(self.tableWidget)
         self.setLayout(self.layout)
 
     def createTable(self, data):
-        table = QTableWidget()
-        self.tableWidgets.append(table)
+        self.tableWidget = QTableWidget()
+        # self.tableWidgets.append(table)
         shape = data.shape
-        table.setColumnCount(shape[1])
-        table.setRowCount(shape[0])
+        self.tableWidget.setColumnCount(shape[1])
+        self.tableWidget.setRowCount(shape[0])
         it = nditer(data, flags=['multi_index'])
         while not it.finished:
             index = it.multi_index
-            table.setItem(index[0], index[1], QTableWidgetItem(str(it[0])))
+            self.tableWidget.setItem(index[0], index[1], QTableWidgetItem(str(it[0])))
             it.iternext()
-        table.doubleClicked.connect(self.on_click)
+        self.tableWidget.doubleClicked.connect(self.on_click)
 
     @pyqtSlot()
     def on_click(self):

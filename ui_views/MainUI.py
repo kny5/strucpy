@@ -1,8 +1,7 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QFileDialog as Qfd
 from ui_views.Views import toolbox, Menubar
-from classes.control import Controller
-from classes.PyQtGraph import GraphicSystem
+
 # from numpy import unique
 # from ui_views.vector_edit import Ui_vector_widget
 
@@ -10,13 +9,13 @@ from classes.PyQtGraph import GraphicSystem
 class MainUI(QtWidgets.QMainWindow):
     keyPressed = QtCore.pyqtSignal(QtCore.QEvent)
 
-    def __init__(self):
+    def __init__(self, control, graphicsys):
         super().__init__()
         self.icon = "ui_views/icons/strucpy_icon.png"
         self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(self.icon)))
         self.setWindowTitle("Strucpy Alpha v0.1")
-        self.control = Controller(self)
-        self.graphicsys = GraphicSystem(self)
+        self.control = control(self)
+        self.graphicsys = graphicsys(self)
         self.centralwidget = QtWidgets.QWidget(self)
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.tools_groupbox = toolbox(self.centralwidget)

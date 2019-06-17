@@ -260,7 +260,7 @@ def local_matrix(element):
     vdlyy = v_maker3(dlyy, vzz, vplocal_y, izz)
     vdlzz = v_maker3(dlzz, vyy, vplocal_z, iyy)
 
-    pcu_local = np.zeros(12)
+    pcu_local = [0] * 12
     if element.type.armour is True:
         pcu_local[0] = p_axial
         pcu_local[1] = p_vertical
@@ -279,6 +279,6 @@ def local_matrix(element):
         pcu_local[11] = - mdlyy[sections]
 
     element.data.pculocal = pcu_local
-    element.data.pc_ = np.dot(tr, pcu_local).A1
+    element.data.pc_ = np.dot(tr, np.asarray(pcu_local)).A1
 
     return element

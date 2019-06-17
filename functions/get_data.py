@@ -3,17 +3,12 @@ import math
 
 
 def get_data(self, element):
-
-    vdgen_p = np.zeros(12)
+    vdgen_p = [0] * 12
     for k, i_ in enumerate(element.ve):
         if i_ != 0:
             vdgen_p[k] = self.dn_est[0, i_ - 1]
-        # else:
-        #     pass
-    self.vdgen_p = vdgen_p
-
     # p_global
-    p_global = np.dot(element.data.kebg, self.vdgen_p).A1
+    p_global = np.dot(element.data.kebg, vdgen_p).A1
     # fuerza_local
     f = np.dot(element.data.tr.T, p_global).A1
     # f_real_local
@@ -22,11 +17,12 @@ def get_data(self, element):
     NStart = self.parent.dict_nodes[element.vector.start]
     NEnd = self.parent.dict_nodes[element.vector.end]
     element.springs = np.asarray(NStart.n_springs + NEnd.n_springs)
-    f_g_springs = np.multiply(self.vdgen_p, element.springs)
+    f_g_springs = np.multiply(vdgen_p, element.springs)
     f_l_springs = np.dot(element.data.tr.T, f_g_springs).A1
     fr_local = pcu_loc - f + f_l_springs
+    # fr_local = pcu_loc - f
     # desp_local
-    dlen = np.dot(element.data.tr.T, self.vdgen_p).A1
+    dlen = np.dot(element.data.tr.T, vdgen_p).A1
     # desp_
     y = np.zeros(element.sections + 1)
     y[0] = -3 * dlen[1]
@@ -98,5 +94,12 @@ def get_data(self, element):
     element.results.fax = f_
     # torsion Mx
     element.results.mx = np.full(element.sections + 1, f[3])
+    # element.results.fr_local = fr_local
+
+    class values: pass
+    element.values = values()
+    __dict = locals()
+    for value in __dict:
+        setattr(element.values, str(value), __dict[str(value)])
 
     return element
