@@ -281,4 +281,8 @@ def local_matrix(element):
     element.data.pculocal = pcu_local
     element.data.pc_ = np.dot(tr, np.asarray(pcu_local)).A1
 
+    __dict = locals()
+    for value in __dict:
+        setattr(element.data, str(value), __dict[value])
+
     return element

@@ -42,7 +42,7 @@ def get_data(self, element):
     desp_imp_z = np.dot(-element.data.kyy.I, z).A1
 
     # d_real
-    element.results.dry = desp_imp_y + element.data.dlyy
+    element.results.dry = desp_imp_y - element.data.dlyy
     element.results.drz = desp_imp_z - element.data.dlzz
 
     # cortante
