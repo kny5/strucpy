@@ -2,7 +2,8 @@ import pyqtgraph as pg
 from functions.points_distance import dist_point_line
 from classes.geometry import Vector
 from PyQt5 import QtGui, QtCore
-from numpy import unique, nditer
+from functools import reduce
+from operator import add
 
 class GraphicSystem:
     def __init__(self, parent):
@@ -68,15 +69,20 @@ class GraphicSystem:
             for node in self.parent.control.program.nodes:
                 if node.conf['dx']['activated'] == False and \
                     node.conf['dy']['activated'] == False and \
-                    node.conf['dz']['activated'] == False:
+                    node.conf['dz']['activated'] == False and \
+                    node.conf['mx']['activated'] == True and \
+                    node.conf['my']['activated'] == True and \
+                    node.conf['mz']['activated'] == True:
                     symbol = 't'
                     size = 15
-                    pen_color = QtGui.QColor(255, 255, 0, 255)
-                    bru_color = pg.mkBrush(QtGui.QColor(255, 255, 0, 255))
-                elif False in {node.conf['dx']['activated'], node.conf['dy']['activated'], node.conf['dz']['activated'],
-                               node.conf['mx']['activated'], node.conf['my']['activated'], node.conf['mz']['activated']}:
-                    pen_color = QtGui.QColor(253, 95, 0, 255)
-                    bru_color = pg.mkBrush(QtGui.QColor(253, 95, 0, 255))
+                    pen_color = QtGui.QColor(255, 255, 0, 200)
+                    bru_color = None
+                elif reduce(add, {node.conf['dx']['activated'], node.conf['dy']['activated'], node.conf['dz']['activated'],
+                               node.conf['mx']['activated'], node.conf['my']['activated'], node.conf['mz']['activated']}) == True:
+                    pen_color = QtGui.QColor(7, 185, 252, 255)
+                    bru_color = None
+                    symbol = 'o'
+                    size = 10
                 else:
                     symbol = 's'
                     size = 10
@@ -96,23 +102,8 @@ class GraphicSystem:
             Vector.iso_projection()
             matrix = Vector.process_to_matrix(self.parent.control.program.vectors)
             self.plot.updateData(matrix[:, 0], matrix[:, 1], connect="pairs")
-            # # plotting dots for node representation, but we need to do this separately
-            # dots = unique(matrix, axis=0)
-            # dot_dict_list = []
-            # for dot in dots:
-            #     print(dot)
-            #     if dot[1] == 0:
-            #         symbol = 's'
-            #     else:
-            #         symbol = 'd'
-            #     dot_dict_list.append({'pos':(dot[0], dot[1]),
-            #                           'size':10, 'pen':pg.mkPen(color=QtGui.QColor(7, 185, 252, 255)),
-            #                           'brush':pg.mkBrush(color=QtGui.QColor(253, 95, 0, 0)),
-            #                           'symbol':symbol})
-            # self.plot_dots.setData(spots=dot_dict_list)
         else:
             self.plot.setData([], [])
-            # self.plot_dots.setData([],[])
 
     def show_vector_selection(self):
         if self.parent.control.selection.__len__() > 0:
