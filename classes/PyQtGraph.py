@@ -2,6 +2,7 @@ import pyqtgraph as pg
 from functions.points_distance import dist_point_line
 from classes.geometry import Vector
 from PyQt5 import QtGui, QtCore
+from numpy import unique, nditer
 
 class GraphicSystem:
     def __init__(self, parent):
@@ -12,27 +13,21 @@ class GraphicSystem:
         self.vLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1),
                                      angle=90,
                                      movable=False)
-        self.hLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1),
-                                     angle=0,
-                                     movable=False)
+        self.hLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1), angle=0, movable=False)
 
-        self.plot = pg.PlotCurveItem(
-            pen=pg.mkPen(color=(7, 185, 252, 255), width=1),
-            antialias=True)
+        self.plot = pg.PlotCurveItem(pen=pg.mkPen(color=(7, 185, 252, 255), width=1), antialias=True)
 
-        self.plot_selection = pg.PlotCurveItem(
-            antialias=True)
+        self.plot_selection = pg.PlotCurveItem(antialias=True)
 
-        # self.plot_dots = pg.ScatterPlotItem(
-        #     pen=pg.mkPen(color=QtGui.QColor(7, 185, 252, 255)),
-        #     brush=pg.mkBrush(color=QtGui.QColor(253, 95, 0, 0)),
-        #     antialias=True,
-        #     size=10, symbol='o')
+        self.plot_dots = pg.ScatterPlotItem(antialias=True)
+            # pen=pg.mkPen(color=QtGui.QColor(7, 185, 252, 255)),
+            # brush=pg.mkBrush(color=QtGui.QColor(253, 95, 0, 0)),
+            # size=10, symbol='o')
 
         self.graphics = self.view_layout.addViewBox(lockAspect=1, enableMenu=False)
         self.graphics.addItem(self.plot)
         self.graphics.addItem(self.plot_selection)
-        # self.graphics.addItem(self.plot_dots)
+        self.graphics.addItem(self.plot_dots)
         # self.graphics.addItem(self.plot_dots_selection)
         self.graphics.addItem(self.vLine, ignoreBounds=True)
         self.graphics.addItem(self.hLine, ignoreBounds=True)
@@ -66,20 +61,58 @@ class GraphicSystem:
                         else:
                             selection.remove(vector)
                 self.show_vector_selection()
-            # else:
-            #     pass
-                # print("right click")
+
+    def show_points(self):
+        dot_dict_list = []
+        if self.parent.control.program.vectors.__len__() > 0:
+            for node in self.parent.control.program.nodes:
+                if node.conf['dx']['activated'] == False and \
+                    node.conf['dy']['activated'] == False and \
+                    node.conf['dz']['activated'] == False:
+                    symbol = 't'
+                    size = 15
+                    pen_color = QtGui.QColor(255, 255, 0, 255)
+                    bru_color = pg.mkBrush(QtGui.QColor(255, 255, 0, 255))
+                elif False in {node.conf['dx']['activated'], node.conf['dy']['activated'], node.conf['dz']['activated'],
+                               node.conf['mx']['activated'], node.conf['my']['activated'], node.conf['mz']['activated']}:
+                    pen_color = QtGui.QColor(253, 95, 0, 255)
+                    bru_color = pg.mkBrush(QtGui.QColor(253, 95, 0, 255))
+                else:
+                    symbol = 's'
+                    size = 10
+                    pen_color = QtGui.QColor(0, 95, 0, 255)
+                    bru_color = None
+
+                dot = Vector.to_2d(node.pos)
+                dot_dict_list.append({'pos':(dot[0], dot[1]),
+                                      'size':size,
+                                      'pen':pg.mkPen(color=pen_color, width=2),
+                                      'brush':bru_color,
+                                      'symbol':symbol})
+            self.plot_dots.setData(spots=dot_dict_list)
 
     def show_vectors(self):
         if self.parent.control.program.vectors.__len__() > 0:
             Vector.iso_projection()
             matrix = Vector.process_to_matrix(self.parent.control.program.vectors)
             self.plot.updateData(matrix[:, 0], matrix[:, 1], connect="pairs")
-            # plotting dots for node representation, but we need to do this separately
+            # # plotting dots for node representation, but we need to do this separately
             # dots = unique(matrix, axis=0)
-            # self.plot_dots.setData(dots[:, 0], dots[:, 1])
+            # dot_dict_list = []
+            # for dot in dots:
+            #     print(dot)
+            #     if dot[1] == 0:
+            #         symbol = 's'
+            #     else:
+            #         symbol = 'd'
+            #     dot_dict_list.append({'pos':(dot[0], dot[1]),
+            #                           'size':10, 'pen':pg.mkPen(color=QtGui.QColor(7, 185, 252, 255)),
+            #                           'brush':pg.mkBrush(color=QtGui.QColor(253, 95, 0, 0)),
+            #                           'symbol':symbol})
+            # self.plot_dots.setData(spots=dot_dict_list)
         else:
             self.plot.setData([], [])
+            # self.plot_dots.setData([],[])
 
     def show_vector_selection(self):
         if self.parent.control.selection.__len__() > 0:
@@ -104,4 +137,5 @@ class GraphicSystem:
         Vector.iso_projection()
         self.show_vectors()
         self.show_vector_selection()
+        self.show_points()
         self.graphics.autoRange(items=[self.plot])

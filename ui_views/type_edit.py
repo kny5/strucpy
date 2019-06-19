@@ -22,7 +22,7 @@ class TypeEditor(QtWidgets.QWidget):
 
     def setupUi(self):
         self.setObjectName("Dialog")
-        self.resize(340, 250)
+        self.resize(350, 500)
         self.verticalLayout = QtWidgets.QVBoxLayout(self)
         self.verticalLayout.setObjectName("verticalLayout")
         self.element_group = QtWidgets.QGroupBox(self)

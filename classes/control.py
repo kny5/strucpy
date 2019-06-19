@@ -36,6 +36,7 @@ class Controller:
             self.parent.graphicsys.show_vectors()
             self.set_nodes()
             self.set_vectors()
+            self.parent.graphicsys.show_points()
             # print(self.program.vectors, self.program.elements, self.program.nodes)
         except Exception:
             pass
@@ -95,6 +96,7 @@ class Controller:
             self.parent.graphicsys.plot.setData([], [])
             Vector.matrix = []
             self.parent.graphicsys.show_vectors()
+            self.parent.graphicsys.show_points()
             self.parent.graphicsys.show_vector_selection()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
