@@ -5,31 +5,21 @@ from PyQt5 import QtGui, QtCore
 from functools import reduce
 from operator import add
 
+
 class GraphicSystem:
     def __init__(self, parent):
         self.selection_ratio = 15
         self.parent = parent
         self.view_layout = pg.GraphicsLayoutWidget()
-
-        self.vLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1),
-                                     angle=90,
-                                     movable=False)
+        self.vLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1), angle=90, movable=False)
         self.hLine = pg.InfiniteLine(pen=pg.mkPen(color=QtGui.QColor(255, 255, 255, 100), width=1), angle=0, movable=False)
-
         self.plot = pg.PlotCurveItem(pen=pg.mkPen(color=(7, 185, 252, 255), width=1), antialias=True)
-
         self.plot_selection = pg.PlotCurveItem(antialias=True)
-
         self.plot_dots = pg.ScatterPlotItem(antialias=True)
-            # pen=pg.mkPen(color=QtGui.QColor(7, 185, 252, 255)),
-            # brush=pg.mkBrush(color=QtGui.QColor(253, 95, 0, 0)),
-            # size=10, symbol='o')
-
         self.graphics = self.view_layout.addViewBox(lockAspect=1, enableMenu=False)
         self.graphics.addItem(self.plot)
         self.graphics.addItem(self.plot_selection)
         self.graphics.addItem(self.plot_dots)
-        # self.graphics.addItem(self.plot_dots_selection)
         self.graphics.addItem(self.vLine, ignoreBounds=True)
         self.graphics.addItem(self.hLine, ignoreBounds=True)
         self.graphics.setBackgroundColor((39, 40, 34, 255))
@@ -67,18 +57,15 @@ class GraphicSystem:
         dot_dict_list = []
         if self.parent.control.program.vectors.__len__() > 0:
             for node in self.parent.control.program.nodes:
-                if node.conf['dx']['activated'] == False and \
-                    node.conf['dy']['activated'] == False and \
-                    node.conf['dz']['activated'] == False and \
-                    node.conf['mx']['activated'] == True and \
-                    node.conf['my']['activated'] == True and \
-                    node.conf['mz']['activated'] == True:
+                if node.conf['dx']['activated'] == False and node.conf['dy']['activated'] == False and \
+                        node.conf['dz']['activated'] == False and node.conf['mx']['activated'] == True and \
+                        node.conf['my']['activated'] == True and node.conf['mz']['activated'] == True:
                     symbol = 't'
                     size = 15
                     pen_color = QtGui.QColor(255, 255, 0, 200)
                     bru_color = None
                 elif reduce(add, {node.conf['dx']['activated'], node.conf['dy']['activated'], node.conf['dz']['activated'],
-                               node.conf['mx']['activated'], node.conf['my']['activated'], node.conf['mz']['activated']}) == True:
+                                  node.conf['mx']['activated'], node.conf['my']['activated'], node.conf['mz']['activated']}) == True:
                     pen_color = QtGui.QColor(7, 185, 252, 255)
                     bru_color = None
                     symbol = 'o'
@@ -88,14 +75,15 @@ class GraphicSystem:
                     size = 10
                     pen_color = QtGui.QColor(0, 95, 0, 255)
                     bru_color = None
-
                 dot = Vector.to_2d(node.pos)
                 dot_dict_list.append({'pos':(dot[0], dot[1]),
                                       'size':size,
                                       'pen':pg.mkPen(color=pen_color, width=2),
                                       'brush':bru_color,
                                       'symbol':symbol})
-            self.plot_dots.setData(spots=dot_dict_list)
+                self.plot_dots.setData(spots=dot_dict_list)
+        else:
+            self.plot_dots.setData(spots=[])
 
     def show_vectors(self):
         if self.parent.control.program.vectors.__len__() > 0:
@@ -108,10 +96,9 @@ class GraphicSystem:
     def show_vector_selection(self):
         if self.parent.control.selection.__len__() > 0:
             matrix = Vector.process_to_matrix(self.parent.control.selection, selection=True)
-            self.plot_selection.updateData(matrix[:, 0], matrix[:, 1], connect="pairs",
-                                           pen=pg.mkPen(color=QtGui.QColor(255, 255, 0, 200), width=5,
-                                                        # style=QtCore.Qt.DashLine
-                                                        ),
+            self.plot_selection.updateData(matrix[:, 0], matrix[:, 1],
+                                           connect="pairs",
+                                           pen=pg.mkPen(color=QtGui.QColor(255, 255, 0, 200), width=5),
                                            shadowPen=pg.mkPen(color=QtGui.QColor(180, 185, 252, 50), width=15))
         else:
             self.plot_selection.setData([], [])

@@ -29,7 +29,7 @@ class VectorEditor(QtWidgets.QWidget):
 
     def closeEvent(self, event):
         try:
-            self.control.parent.uis_vector.pop(str(self.vector.pos))
+            self.control.uis_vector.pop(str(self.vector.pos))
             # self.control.selection.discard(self.vector)
             self.control.selection.clear()
         except:

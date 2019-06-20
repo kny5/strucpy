@@ -40,6 +40,10 @@ class Projector:
                                 [0, 1, 0],
                                 [sbeta, 0, cbeta]])
 
+        # _tranform_b = np.array([[cbeta, sbeta, 0],
+        #                         [-sbeta, cbeta, 0],
+        #                         [0, 0, 1]])
+
         cls.last_iso_projection = _tranform_a.dot(_tranform_b)
 
     @classmethod

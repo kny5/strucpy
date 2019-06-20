@@ -28,7 +28,6 @@ class App(QWidget):
 
     def createTable(self, data):
         self.tableWidget = QTableWidget()
-        # self.tableWidgets.append(table)
         shape = data.shape
         self.tableWidget.setColumnCount(shape[1])
         self.tableWidget.setRowCount(shape[0])

@@ -7,7 +7,9 @@ from ui_views.loads_edit import LoadsEditor
 from ui_views.node_edit import NodeEditor
 from ui_views.type_edit import TypeEditor
 from ui_views.Results import Ui_Form as ResultsViewer
+from ui_views.Inspect_ui import ValueInspector
 # from ui_views.Inpector import App as ResultsViewer
+from ui_views.matrix_data import Ui_Form as Matrix_viewer
 from functools import reduce
 from operator import add
 
@@ -24,8 +26,6 @@ class Controller:
         self.uis_node = dict()
         self.uis_type = dict()
         self.uis_results = dict()
-
-        # self.views = None
         self.program = Program(self)
 
     def open_file(self):
@@ -37,7 +37,6 @@ class Controller:
             self.set_nodes()
             self.set_vectors()
             self.parent.graphicsys.show_points()
-            # print(self.program.vectors, self.program.elements, self.program.nodes)
         except Exception:
             pass
 
@@ -71,18 +70,21 @@ class Controller:
 
     def edit_vector(self):
         if self.selection.__len__() > 0:
+            self.uis_vector.clear()
             for vector in self.selection:
-                # # print("--" + str(self.uis_vector.get(str(vector.pos))))
-                ui = VectorEditor(self, vector)
-                self.uis_vector[str(vector.pos)] = ui
+                # ui = VectorEditor(self, vector)
+                # self.uis_vector[str(vector.pos)] = ui
                 #this ui set is buggy
-                # if self.uis_vector.get(str(vector.pos)) is None:
-                #     ui = VectorEditor(self, vector)
-                #     self.uis_vector[str(vector.pos)] = ui
-                # else:
-                #     ui = self.uis_vector.get(str(vector.pos))
+                if self.uis_vector.get(str(vector.pos)) is None:
+                    ui = VectorEditor(self, vector)
+                    self.uis_vector[str(vector.pos)] = ui
+                else:
+                    ui = self.uis_vector.get(str(vector.pos))
                 ui.show()
-            # self.selection.clear()
+            self.selection.clear()
+            self.set_nodes()
+            self.set_vectors()
+            self.parent.graphicsys.show_points()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados' )
 
@@ -113,21 +115,23 @@ class Controller:
         try:
             list_points = reduce(add, [[vector.start, vector.end] for vector in self.program.vectors if vector.parent is None])
             nodes = list(map(Node, list_points))
-            # # print(nodes)
             dict_points = dict(zip(list_points, nodes))
             for key in dict_points.keys():
                 if not key in self.dict_nodes:
                     self.dict_nodes[key] = dict_points[key]
-            # # print(self.dict_nodes)
         except:
-            # print('hi bug')
             pass
+
+    def view_gen_matrix(self):
+        if self.program.kest.__len__() > 0:
+            self.parent.matrix_view_ui = Matrix_viewer(self.program)
+            self.parent.matrix_view_ui.show()
 
     def view_results_all(self):
         if self.selection.__len__() > 0:
             for vector in self.selection:
                 if self.uis_results.get(str(vector.pos)) is None:
-                    ui = ResultsViewer(vector.parent)
+                    ui = ValueInspector(vector.parent)
                     self.uis_results[str(vector.pos)] = ui
                 else:
                     ui = self.uis_results[str(vector.pos)]
@@ -152,7 +156,6 @@ class Controller:
         if self.selection.__len__() > 0:
             self.uis_node.clear()
             for vector in self.selection:
-                # print(self.uis_node.get(str(vector.start)))
                 if self.uis_node.get(str(vector.start)) is None:
                     start = self.dict_nodes[vector.start]
                     u1 = NodeEditor(start)
@@ -167,29 +170,8 @@ class Controller:
                     u2 = self.uis_node.get(str(vector.end))
                 u1.show()
                 u2.show()
-            # self.selection.clear()
         else:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
-
-    #def edit_loads_invector(self):
-    #    if self.selection.__len__() > 0:
-    #        for vector in self.selection:
-    #            if self.parent.uis_element.get(str(vector.pos)) is None:
-    #                ui = LoadsEditor(self, vector.parent)
-    #                self.parent.uis_element[str(vector.pos)] = ui
-    #            else:
-    #                ui = self.parent.uis_element[str(vector.pos)]
-    #            ui.show()
-    #    # elif self.selection.__len__() == 0 and self.program.vectors.__len__() > 0:
-    #    #     for vector in self.program.vectors:
-    #    #         if self.parent.uis_element.get(str(vector.pos)) is None:
-    #    #             ui = LoadsEditor(self, vector.parent)
-    #    #             self.parent.uis_element[str(vector.pos)] = ui
-    #    #         else:
-    #    #             ui = self.parent.uis_element[str(vector.pos)]
-    #    #         ui.show()
-    #    else:
-    #        self.parent.notificator('Error', 'No hay vectores seleccionados')
 
     def edit_section_type(self):
         if self.selection.__len__() > 0:
@@ -204,8 +186,6 @@ class Controller:
             ui = TypeEditor([ vector.parent for vector in self.program.vectors])
             self.uis_type['all'] = ui
             ui.show()
-        # else:
-        #     self.parent.notificator('Error', 'No hay vectores seleccionados')
 
     def run(self):
         self.program.run()
