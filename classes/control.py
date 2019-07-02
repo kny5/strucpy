@@ -174,8 +174,7 @@ class Controller:
             self.parent.notificator('Error', 'No hay vectores seleccionados')
 
     def edit_section_type(self):
-        if self.selection.__len__() > 0:
-            # for vector in self.selection:
+        if self.selection.__len__() > 1:
             if self.uis_type.get('partial') is None:
                 ui = TypeEditor([vector.parent for vector in self.selection])
                 self.uis_type['partial'] = ui
@@ -185,6 +184,11 @@ class Controller:
         elif self.selection.__len__() == 0 and self.program.vectors.__len__() > 0:
             ui = TypeEditor([ vector.parent for vector in self.program.vectors])
             self.uis_type['all'] = ui
+            ui.show()
+        elif self.selection.__len__() == 1 and self.program.vectors.__len__() > 0:
+            pop = self.selection.pop()
+            ui = TypeEditor([pop.parent])
+            self.uis_type[str(pop.parent.e_id)] = ui
             ui.show()
 
     def run(self):

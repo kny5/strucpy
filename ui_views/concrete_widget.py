@@ -11,41 +11,41 @@ class Ui_Form(QtWidgets.QWidget):
         parent.ok_btn.clicked.connect(self.save)
         self.elements = element
         self.setupUi()
-        # self.content_filler()
+        self.content_filler()
 
     def save(self):
         for element in self.elements:
-            element.type = Concrete()
-            element.type.e = float(self.e.text())
-            element.type.p_mat = float(self.input_pmat_val.text())
-            element.type.b = float(self.input_b_val.text())
-            element.type.h = float(self.input_h_val.text())
-            element.type.b_prima = float(self.input_bp_val.text())
+            # element.type = Concrete()
+            # element.type.e = float(self.e.text())
+            # element.type.p_mat = float(self.input_pmat_val.text())
+            # element.type.b = float(self.input_b_val.text())
+            # element.type.h = float(self.input_h_val.text())
+            # element.type.b_prima = float(self.input_bp_val.text())
 
-            # if not isinstance(element.type, Concrete):
-            #     element.type = Concrete()
-            # try:
-            #     element.type.e = float(self.e.text())
-            # except ValueError:
-            #     pass
-            # try:
-            #     element.type.p_mat = float(self.input_pmat_val.text())
-            # except ValueError:
-            #     pass
-            # try:
-            #     element.type.b = float(self.input_b_val.text())
-            # except ValueError:
-            #     pass
-            # try:
-            #     element.type.h = float(self.input_h_val.text())
-            # except ValueError:
-            #     pass
-            # try:
-            #     element.type.b_prima = float(self.input_bp_val.text())
-            # except ValueError:
-            #     pass
+            if not isinstance(element.type, Concrete):
+                element.type = Concrete()
+            try:
+                element.type.e = float(self.e.text())
+            except ValueError:
+                pass
+            try:
+                element.type.p_mat = float(self.input_pmat_val.text())
+            except ValueError:
+                pass
+            try:
+                element.type.b = float(self.input_b_val.text())
+            except ValueError:
+                pass
+            try:
+                element.type.h = float(self.input_h_val.text())
+            except ValueError:
+                pass
+            try:
+                element.type.b_prima = float(self.input_bp_val.text())
+            except ValueError:
+                pass
 
-        # self.content_filler()
+        self.content_filler()
 
     def setupUi(self):
         # self.setObjectName("Form")
