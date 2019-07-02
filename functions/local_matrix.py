@@ -191,7 +191,7 @@ def local_matrix(element):
     sin_lm = math.sin(math.radians(element.vector.lm))
 
     def __tr_filler(_tr):
-        """Descripción: *Pendiente*"""
+        """Tr matrix filler function"""
         for __j in [0, 3, 6, 9]:
             _tr[__j + 1, __j] = sin_lm
             _tr[__j + 1, __j + 1] = cos_lm

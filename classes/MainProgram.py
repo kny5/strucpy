@@ -2,9 +2,8 @@ from functions.local_matrix import local_matrix
 from functions.get_data import get_data
 import numpy as np
 from numpy import matlib
-import sys
-
-print(sys.getrecursionlimit())
+# import sys
+# print(sys.getrecursionlimit())
 
 def vector_add(one, two):
     sum = []

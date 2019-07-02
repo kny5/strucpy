@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtWidgets
 from numpy import nditer
 
+
 class Ui_Form(QtWidgets.QWidget):
     def __init__(self, program):
         super().__init__()

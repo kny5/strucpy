@@ -61,7 +61,6 @@ class ValueInspector(QtWidgets.QWidget):
         self.verticalLayout.setObjectName("verticalLayout")
         self.tabWidget = QtWidgets.QTabWidget(self)
         self.tabWidget.setObjectName("tabWidget")
-
         self.filler()
 
         # self.tab = QtWidgets.QWidget()
